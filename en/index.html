@@ -262,7 +262,7 @@
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="MangAi – new enquiry from website (EN)">
                 <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://mangai.hr/en/?sent=true">
+                <input type="hidden" name="_next" value="https://mangai.hr/en/?sent=true#contact">
                 <div class="form-group">
                     <label for="name">Full name</label>
                     <input type="text" id="name" name="name" required>
@@ -372,6 +372,11 @@
             var success = document.getElementById('contact-success');
             var submitBtn = form && form.querySelector('button[type="submit"]');
             var url = new URL(window.location.href);
+            // Always hide the success block and show the form by default
+            if (success && form) {
+                success.hidden = true;
+                form.hidden = false;
+            }
             if (url.searchParams.get('sent') === 'true' && form && success) {
                 form.hidden = true;
                 success.hidden = false;
