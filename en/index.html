@@ -258,7 +258,11 @@
                 </div>
             </div>
             <div class="contact-form-wrapper reveal">
-                <form id="contact-form" class="contact-form">
+                <form id="contact-form" class="contact-form" action="https://formsubmit.co/info@mangai.hr" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="MangAi – new enquiry from website (EN)">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://mangai.hr/en/?sent=true">
                 <div class="form-group">
                     <label for="name">Full name</label>
                     <input type="text" id="name" name="name" required>
@@ -311,6 +315,14 @@
                 <button type="submit" class="btn-primary submit-btn">Submit request</button>
                 <p class="form-helper">We respond within 24–48h.</p>
             </form>
+            <div id="contact-success" class="contact-success" role="status" aria-live="polite" hidden>
+                <span class="contact-success-icon" aria-hidden="true">✓</span>
+                <p class="contact-success-title">Message sent</p>
+                <p class="contact-success-text">
+                    Thank you! Your message has been sent successfully.<br>
+                    Someone from the MangAi team will get back to you as soon as possible.
+                </p>
+            </div>
             </div>
         </div>
     </section>
@@ -354,30 +366,25 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = event.target;
-            const name = encodeURIComponent(form.name.value);
-            const email = encodeURIComponent(form.email.value);
-            const website = encodeURIComponent(form.website.value);
-            const services = Array.from(form.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value).join(', ');
-            const timeline = encodeURIComponent(form.timeline.value);
-            const budget = encodeURIComponent(form.budget.value);
-            const description = encodeURIComponent(form.description.value);
-            const additional = encodeURIComponent(form.additional.value);
-
-            let body = 'Full name: ' + name + '\n';
-            body += 'Email: ' + email + '\n';
-            body += 'Company website: ' + website + '\n';
-            body += 'Services of interest: ' + services + '\n';
-            body += 'Planned start: ' + timeline + '\n';
-            body += 'Budget: ' + budget + '\n';
-            body += 'Description: ' + description + '\n';
-            body += 'Additional info: ' + additional;
-
-            const mailtoLink = 'mailto:mskoric1996@gmail.com?subject=Consultation%20–%20MangAi&body=' + encodeURIComponent(body);
-            window.location.href = mailtoLink;
-        });
+        // Contact form: show success when returning from FormSubmit (?sent=true)
+        (function() {
+            var form = document.getElementById('contact-form');
+            var success = document.getElementById('contact-success');
+            var submitBtn = form && form.querySelector('button[type="submit"]');
+            var url = new URL(window.location.href);
+            if (url.searchParams.get('sent') === 'true' && form && success) {
+                form.hidden = true;
+                success.hidden = false;
+                url.searchParams.delete('sent');
+                history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+            }
+            if (form && submitBtn) {
+                form.addEventListener('submit', function() {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending…';
+                });
+            }
+        })();
     </script>
     <script src="/nav.js"></script>
     <script src="/reveal.js"></script>
