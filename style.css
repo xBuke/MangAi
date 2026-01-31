@@ -166,6 +166,81 @@ a {
     flex-shrink: 0;
 }
 
+/* Nav menu panel (desktop: same layout as nav-bar; mobile: slide-out) */
+.nav-menu-panel {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(12px, 2vw, 24px);
+    min-width: 0;
+}
+
+/* Hamburger: hidden on desktop */
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 10px;
+    color: #e5e7eb;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-toggle:hover {
+    background: rgba(80, 250, 123, 0.1);
+    border-color: rgba(80, 250, 123, 0.3);
+}
+
+.nav-toggle-icon {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: background 0.2s ease;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.25s ease, top 0.25s ease;
+}
+
+.nav-toggle-icon::before {
+    top: -6px;
+}
+
+.nav-toggle-icon::after {
+    top: 6px;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon {
+    background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -679,6 +754,48 @@ a {
     margin-top: 20px;
 }
 
+/* Contact success message (shown after FormSubmit redirect with ?sent=true) */
+.contact-success {
+    display: block;
+    margin-top: 24px;
+    padding: 40px 36px;
+    background: #0f1417;
+    border-radius: 20px;
+    border: 1px solid rgba(80, 250, 123, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 24px rgba(80, 250, 123, 0.08);
+    text-align: center;
+}
+
+.contact-success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: rgba(80, 250, 123, 0.15);
+    color: #50fa7b;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 0 20px rgba(80, 250, 123, 0.25);
+}
+
+.contact-success-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #50fa7b;
+    margin-bottom: 12px;
+}
+
+.contact-success-text {
+    font-size: 1rem;
+    color: #a1a5a9;
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Footer – BuildRoom-style: dark theme, border-top, 3 columns, neon green accent */
 .footer {
     background: #0a0e10;
@@ -1020,5 +1137,63 @@ a {
     }
     .section {
         padding: 72px 0;
+    }
+
+    /* Mobile hamburger: show toggle, panel becomes overlay */
+    .nav-toggle {
+        display: flex;
+    }
+    .nav-menu-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(300px, 85vw);
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        padding: 80px 24px 24px;
+        background: linear-gradient(180deg, rgba(22, 28, 32, 0.98) 0%, rgba(12, 16, 19, 0.99) 100%);
+        border-left: 1px solid rgba(148, 163, 184, 0.15);
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+        z-index: 99;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        overflow-y: auto;
+    }
+    body.menu-open .nav-menu-panel {
+        transform: translateX(0);
+    }
+    .nav-menu-panel .nav {
+        flex-direction: column;
+        align-items: stretch;
+        flex: none;
+        gap: 4px;
+        margin-bottom: 16px;
+    }
+    .nav-menu-panel .nav a {
+        padding: 12px 14px;
+        font-size: 0.9375rem;
+    }
+    .nav-menu-panel .lang-switcher {
+        margin-bottom: 16px;
+    }
+    .nav-menu-panel .btn-nav-cta {
+        margin-top: auto;
+        justify-content: center;
+    }
+    .nav-menu-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 98;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+    body.menu-open .nav-menu-backdrop {
+        opacity: 1;
+        visibility: visible;
     }
 }

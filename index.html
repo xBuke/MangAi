@@ -21,25 +21,31 @@
         <div class="container">
             <div class="nav-bar">
                 <a href="/" class="logo">MangAi</a>
-                <nav class="nav">
-                    <a href="#services">Usluge</a>
-                    <a href="#approach">Pristup</a>
-                    <a href="#difference">Razlika</a>
-                    <a href="#contact">Stupimo u kontakt</a>
-                    <a href="/blog/">Blog</a>
-                    <span class="lang-switcher">
-                        <span aria-current="page">HR</span>
-                        <span class="lang-sep" aria-hidden="true">|</span>
-                        <a href="/en/">EN</a>
-                    </span>
-                </nav>
-                <a href="#contact" class="btn-nav-cta">
-                    <span>Rezerviraj konzultacije</span>
-                    <svg class="btn-nav-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
+                <button type="button" class="nav-toggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="nav-toggle-icon"></span>
+                </button>
+                <div class="nav-menu-panel" id="nav-menu">
+                    <nav class="nav">
+                        <a href="#services">Usluge</a>
+                        <a href="#approach">Pristup</a>
+                        <a href="#difference">Razlika</a>
+                        <a href="#contact">Stupimo u kontakt</a>
+                        <a href="/blog/">Blog</a>
+                        <span class="lang-switcher">
+                            <span aria-current="page">HR</span>
+                            <span class="lang-sep" aria-hidden="true">|</span>
+                            <a href="/en/">EN</a>
+                        </span>
+                    </nav>
+                    <a href="#contact" class="btn-nav-cta">
+                        <span>Rezerviraj konzultacije</span>
+                        <svg class="btn-nav-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
+    <div class="nav-menu-backdrop" id="nav-menu-backdrop" aria-hidden="true"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -243,7 +249,11 @@
                 </div>
             </div>
             <div class="contact-form-wrapper reveal">
-                <form id="contact-form" class="contact-form">
+                <form id="contact-form" class="contact-form" action="https://formsubmit.co/info@mangai.hr" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="MangAi – novi upit s weba">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://mangai.hr/?sent=true">
                 <div class="form-group">
                     <label for="name">Ime i prezime</label>
                     <input type="text" id="name" name="name" required>
@@ -296,6 +306,14 @@
                 <button type="submit" class="btn-primary submit-btn">Pošalji zahtjev</button>
                 <p class="form-helper">Odgovaramo unutar 24–48h.</p>
             </form>
+            <div id="contact-success" class="contact-success" role="status" aria-live="polite" hidden>
+                <span class="contact-success-icon" aria-hidden="true">✓</span>
+                <p class="contact-success-title">Poruka poslana</p>
+                <p class="contact-success-text">
+                    Hvala! Vaša poruka je uspješno poslana.<br>
+                    Netko iz MangAi tima javit će vam se u najkraćem mogućem roku.
+                </p>
+            </div>
             </div>
         </div>
     </section>
@@ -339,34 +357,25 @@
     <script>
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // Handle form submission: build mailto link to send to hidden email
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = event.target;
-            const name = encodeURIComponent(form.name.value);
-            const email = encodeURIComponent(form.email.value);
-            const website = encodeURIComponent(form.website.value);
-            // Collect selected services
-            const services = Array.from(form.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value).join(', ');
-            const timeline = encodeURIComponent(form.timeline.value);
-            const budget = encodeURIComponent(form.budget.value);
-            const description = encodeURIComponent(form.description.value);
-            const additional = encodeURIComponent(form.additional.value);
-            
-            let body = `Ime i prezime: ${name}\n`;
-            body += `Email: ${email}\n`;
-            body += `Web stranica: ${website}\n`;
-            body += `Usluge od interesa: ${services}\n`;
-            body += `Planirani početak: ${timeline}\n`;
-            body += `Budžet: ${budget}\n`;
-            body += `Opis: ${description}\n`;
-            body += `Dodatne informacije: ${additional}`;
-            
-            const mailtoLink = `mailto:mskoric1996@gmail.com?subject=Konzultacije%20–%20MangAi&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-        });
+
+        // Contact form: show success when returning from FormSubmit (?sent=true)
+        (function() {
+            var form = document.getElementById('contact-form');
+            var success = document.getElementById('contact-success');
+            var submitBtn = form && form.querySelector('button[type="submit"]');
+            if (window.location.search.indexOf('sent=true') !== -1 && form && success) {
+                form.hidden = true;
+                success.hidden = false;
+            }
+            if (form && submitBtn) {
+                form.addEventListener('submit', function() {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Šaljem…';
+                });
+            }
+        })();
     </script>
+    <script src="/nav.js"></script>
     <script src="/reveal.js"></script>
 </body>
 </html>

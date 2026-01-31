@@ -17,29 +17,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/blog/blog.css">
 </head>
 <body>
-    <header class="blog-header">
-        <div class="blog-container">
-            <div class="blog-nav-bar">
-                <a href="/en/" class="blog-logo">MangAi</a>
-                <nav class="blog-nav">
-                    <a href="/en/#services">Services</a>
-                    <a href="/en/#approach">Approach</a>
-                    <a href="/en/#difference">Difference</a>
-                    <a href="/en/#contact">Get in Touch</a>
-                    <a href="index.html">Blog</a>
-                    <span class="lang-switcher" id="header-lang-switcher">
-                        <a href="/blog/post.html" id="lang-switcher-hr">HR</a>
-                        <span class="lang-sep" aria-hidden="true">|</span>
-                        <span aria-current="page">EN</span>
-                    </span>
-                </nav>
-                <a href="/en/#contact" class="blog-btn-cta">Book a consultation</a>
+    <header class="header">
+        <div class="container">
+            <div class="nav-bar">
+                <a href="/en/" class="logo">MangAi</a>
+                <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="nav-toggle-icon"></span>
+                </button>
+                <div class="nav-menu-panel" id="nav-menu">
+                    <nav class="nav">
+                        <a href="/en/#services">Services</a>
+                        <a href="/en/#approach">Approach</a>
+                        <a href="/en/#difference">Difference</a>
+                        <a href="/en/#contact">Get in Touch</a>
+                        <a href="/en/blog/">Blog</a>
+                        <span class="lang-switcher" id="header-lang-switcher">
+                            <a href="/blog/post.html" id="lang-switcher-hr">HR</a>
+                            <span class="lang-sep" aria-hidden="true">|</span>
+                            <span aria-current="page">EN</span>
+                        </span>
+                    </nav>
+                    <a href="/en/#contact" class="btn-nav-cta">
+                        <span>Book a consultation</span>
+                        <svg class="btn-nav-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
+    <div class="nav-menu-backdrop" id="nav-menu-backdrop" aria-hidden="true"></div>
 
     <main class="post-main">
         <noscript>
@@ -94,6 +104,7 @@
     <script>
         document.getElementById('post-year').textContent = new Date().getFullYear();
     </script>
+    <script src="/blog/blog-nav.js"></script>
     <script src="post.js"></script>
 </body>
 </html>
