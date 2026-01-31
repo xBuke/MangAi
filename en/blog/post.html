@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post – MangAi</title>
+    <meta name="description" content="MangAi blog post.">
+    <link rel="canonical" href="https://mangai.hr/en/blog/">
+    <meta property="og:title" content="MangAi Blog">
+    <meta property="og:description" content="MangAi blog post.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mangai.hr/en/blog/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MangAi Blog">
+    <meta name="twitter:description" content="MangAi blog post.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/blog.css">
+</head>
+<body>
+    <header class="blog-header">
+        <div class="blog-container">
+            <div class="blog-nav-bar">
+                <a href="/en/" class="blog-logo">MangAi</a>
+                <nav class="blog-nav">
+                    <a href="/en/#services">Services</a>
+                    <a href="/en/#approach">Approach</a>
+                    <a href="/en/#difference">Difference</a>
+                    <a href="/en/#contact">Get in Touch</a>
+                    <a href="index.html">Blog</a>
+                    <span class="lang-switcher" id="header-lang-switcher">
+                        <a href="/blog/post.html" id="lang-switcher-hr">HR</a>
+                        <span class="lang-sep" aria-hidden="true">|</span>
+                        <span aria-current="page">EN</span>
+                    </span>
+                </nav>
+                <a href="/en/#contact" class="blog-btn-cta">Book a consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="post-main">
+        <noscript>
+            <div class="post-noscript">
+                Enable JavaScript to view this post, or <a href="index.html">view the post list</a>.
+            </div>
+        </noscript>
+        <div id="post-root" class="post-root" hidden>
+            <div class="blog-container post-layout">
+                <article class="post-article">
+                    <header class="post-header">
+                        <h1 id="post-title" class="post-title"></h1>
+                        <div class="post-meta">
+                            <span id="post-date"></span>
+                            <span class="post-meta-sep">·</span>
+                            <span id="post-author"></span>
+                            <span class="post-meta-sep">·</span>
+                            <span id="post-reading-time"></span>
+                        </div>
+                        <div id="post-cover" class="post-cover" style="display: none;"></div>
+                    </header>
+                    <div class="post-body-wrapper">
+                        <aside id="post-toc" class="post-toc" aria-label="Table of contents">
+                            <button type="button" class="post-toc-toggle" aria-expanded="false" aria-controls="post-toc-list">Contents</button>
+                            <nav id="post-toc-list" class="post-toc-list" hidden></nav>
+                        </aside>
+                        <div id="post-content" class="post-content prose"></div>
+                    </div>
+                    <footer class="post-footer">
+                        <section class="post-related">
+                            <h2 class="post-related-title">Related posts</h2>
+                            <p id="post-related-links" class="post-related-links"></p>
+                        </section>
+                        <section class="post-cta">
+                            <h2 class="post-cta-title">Want to implement this in your business?</h2>
+                            <p class="post-cta-text">MangAi builds AI tools and automation for businesses in Croatia and the region.</p>
+                            <a href="/en/#contact" class="post-cta-btn">Book a consultation</a>
+                        </section>
+                    </footer>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="blog-footer">
+        <div class="blog-container">
+            <p>&copy; <span id="post-year"></span> MangAi. All rights reserved.</p>
+            <a href="index.html">Back to blog</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('post-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="post.js"></script>
+</body>
+</html>

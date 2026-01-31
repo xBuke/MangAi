@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Članak – MangAi</title>
+    <meta name="description" content="MangAi blog članak.">
+    <link rel="canonical" href="https://mangai.hr/blog/">
+    <meta property="og:title" content="MangAi Blog">
+    <meta property="og:description" content="MangAi blog članak.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mangai.hr/blog/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MangAi Blog">
+    <meta name="twitter:description" content="MangAi blog članak.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/blog.css">
+</head>
+<body>
+    <header class="blog-header">
+        <div class="blog-container">
+            <div class="blog-nav-bar">
+                <a href="/" class="blog-logo">MangAi</a>
+                <nav class="blog-nav">
+                    <a href="/#services">Usluge</a>
+                    <a href="/#approach">Pristup</a>
+                    <a href="/#difference">Razlika</a>
+                    <a href="/#contact">Stupimo u kontakt</a>
+                    <a href="index.html">Blog</a>
+                    <span class="lang-switcher" id="header-lang-switcher">
+                        <span aria-current="page">HR</span>
+                        <span class="lang-sep" aria-hidden="true">|</span>
+                        <a href="/en/blog/post.html" id="lang-switcher-en">EN</a>
+                    </span>
+                </nav>
+                <a href="/#contact" class="blog-btn-cta">Rezerviraj konzultacije</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="post-main">
+        <noscript>
+            <div class="post-noscript">
+                Za prikaz članka uključite JavaScript ili <a href="index.html">pogledajte listu članaka</a>.
+            </div>
+        </noscript>
+        <div id="post-root" class="post-root" hidden>
+            <div class="blog-container post-layout">
+                <article class="post-article">
+                    <header class="post-header">
+                        <h1 id="post-title" class="post-title"></h1>
+                        <div class="post-meta">
+                            <span id="post-date"></span>
+                            <span class="post-meta-sep">·</span>
+                            <span id="post-author"></span>
+                            <span class="post-meta-sep">·</span>
+                            <span id="post-reading-time"></span>
+                        </div>
+                        <div id="post-cover" class="post-cover" style="display: none;"></div>
+                    </header>
+                    <div class="post-body-wrapper">
+                        <aside id="post-toc" class="post-toc" aria-label="Sadržaj članka">
+                            <button type="button" class="post-toc-toggle" aria-expanded="false" aria-controls="post-toc-list">Sadržaj</button>
+                            <nav id="post-toc-list" class="post-toc-list" hidden></nav>
+                        </aside>
+                        <div id="post-content" class="post-content prose"></div>
+                    </div>
+                    <footer class="post-footer">
+                        <section class="post-related">
+                            <h2 class="post-related-title">Povezani članci</h2>
+                            <p id="post-related-links" class="post-related-links"></p>
+                        </section>
+                        <section class="post-cta">
+                            <h2 class="post-cta-title">Želiš ovo implementirati u svom poslovanju?</h2>
+                            <p class="post-cta-text">MangAi razvija AI alate i automatizacije za firme u Hrvatskoj i regiji.</p>
+                            <a href="../#contact" class="post-cta-btn">Rezerviraj konzultacije</a>
+                        </section>
+                    </footer>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="blog-footer">
+        <div class="blog-container">
+            <p>&copy; <span id="post-year"></span> MangAi. Sva prava pridržana.</p>
+            <a href="index.html">Natrag na blog</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('post-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="post.js"></script>
+</body>
+</html>
