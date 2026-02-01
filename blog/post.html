@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
+    <script>
+    (function(){var p=new URLSearchParams(window.location.search);var s=p.get('slug');if(s&&/^[a-z0-9-]+$/.test(s)){window.location.replace('/blog/'+s+'.html');}}());
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Članak – MangAi</title>
@@ -39,7 +42,7 @@
                         <span class="lang-switcher" id="header-lang-switcher">
                             <span aria-current="page">HR</span>
                             <span class="lang-sep" aria-hidden="true">|</span>
-                            <a href="/en/blog/post.html" id="lang-switcher-en">EN</a>
+                            <a href="/en/blog/" id="lang-switcher-en">EN</a>
                         </span>
                     </nav>
                     <a href="/#contact" class="btn-nav-cta">

@@ -1,6 +1,6 @@
 (function () {
-  var CANONICAL_BASE = 'https://mangai.hr/blog/post.html?slug=';
-  var EN_BASE = 'https://mangai.hr/en/blog/post.html?slug=';
+  var CANONICAL_BASE = 'https://mangai.hr/blog/';
+  var EN_BASE = 'https://mangai.hr/en/blog/';
   var OG_IMAGE_FALLBACK = 'https://mangai.hr/assets/og-blog.png';
 
   function getSlug() {
@@ -106,7 +106,7 @@
     }
     var html = toShow.map(function (p) {
       var title = p.title_hr || p.slug;
-      return '<a href="post.html?slug=' + encodeURIComponent(p.slug) + '">' + escapeHtml(title) + '</a>';
+      return '<a href="' + p.slug + '.html">' + escapeHtml(title) + '</a>';
     }).join(', ');
     container.innerHTML = html;
   }
@@ -176,7 +176,7 @@
     setMeta('keywords', (post.keywords || []).join(', '));
 
     var slug = post.slug;
-    var url = CANONICAL_BASE + encodeURIComponent(slug);
+    var url = CANONICAL_BASE + slug + '.html';
     var canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = url;
 
@@ -192,14 +192,14 @@
     if (twitterTitle) twitterTitle.setAttribute('content', post.title_hr);
     if (twitterDesc) twitterDesc.setAttribute('content', post.excerpt_hr);
 
-    addHreflang(url, EN_BASE + encodeURIComponent(slug));
+    addHreflang(url, EN_BASE + slug + '.html');
 
     var enLink = document.getElementById('lang-switcher-en');
-    if (enLink) enLink.href = '../en/blog/post.html?slug=' + encodeURIComponent(slug);
+    if (enLink) enLink.href = '../en/blog/' + slug + '.html';
   }
 
   function injectJsonLd(post) {
-    var url = CANONICAL_BASE + encodeURIComponent(post.slug);
+    var url = CANONICAL_BASE + post.slug + '.html';
     setJsonLd({
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',

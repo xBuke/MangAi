@@ -1,6 +1,6 @@
 (function () {
-  var CANONICAL_BASE = 'https://mangai.hr/en/blog/post.html?slug=';
-  var HR_BASE = 'https://mangai.hr/blog/post.html?slug=';
+  var CANONICAL_BASE = 'https://mangai.hr/en/blog/';
+  var HR_BASE = 'https://mangai.hr/blog/';
   var OG_IMAGE_FALLBACK = 'https://mangai.hr/assets/og-blog.png';
 
   function getSlug() {
@@ -89,7 +89,7 @@
     }
     var html = toShow.map(function (p) {
       var title = p.title_en || p.slug;
-      return '<a href="post.html?slug=' + encodeURIComponent(p.slug) + '">' + escapeHtml(title) + '</a>';
+      return '<a href="' + p.slug + '.html">' + escapeHtml(title) + '</a>';
     }).join(', ');
     container.innerHTML = html;
   }
@@ -115,7 +115,7 @@
     if (allPosts && post.slug) injectRelatedPosts(allPosts, post.slug);
 
     var hrLink = document.getElementById('lang-switcher-hr');
-    if (hrLink) hrLink.href = '../../blog/post.html?slug=' + encodeURIComponent(post.slug);
+    if (hrLink) hrLink.href = '../../blog/' + post.slug + '.html';
   }
 
   function formatDate(iso) {
@@ -147,7 +147,7 @@
     setMeta('keywords', (post.keywords || []).join(', '));
 
     var slug = post.slug;
-    var url = CANONICAL_BASE + encodeURIComponent(slug);
+    var url = CANONICAL_BASE + slug + '.html';
     var canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = url;
 
@@ -163,11 +163,11 @@
     if (twitterTitle) twitterTitle.setAttribute('content', post.title_en);
     if (twitterDesc) twitterDesc.setAttribute('content', post.excerpt_en);
 
-    addHreflang(HR_BASE + encodeURIComponent(slug), url);
+    addHreflang(HR_BASE + slug + '.html', url);
   }
 
   function injectJsonLd(post) {
-    var url = CANONICAL_BASE + encodeURIComponent(post.slug);
+    var url = CANONICAL_BASE + post.slug + '.html';
     setJsonLd({
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',

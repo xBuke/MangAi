@@ -1,15 +1,14 @@
 (function () {
   var listEl = document.getElementById('blog-list');
   var loadingEl = document.getElementById('blog-loading');
-  var baseUrl = 'post.html';
-
   function renderPost(post) {
     var card = document.createElement('article');
     card.className = 'blog-card';
     var dateFormatted = formatDate(post.date);
+    var postUrl = post.slug + '.html';
     card.innerHTML =
       '<h2 class="blog-card-title"><a href="' +
-      escapeAttr(baseUrl + '?slug=' + encodeURIComponent(post.slug)) +
+      escapeAttr(postUrl) +
       '">' +
       escapeHtml(post.title_en) +
       '</a></h2>' +
@@ -22,7 +21,7 @@
       escapeHtml(post.excerpt_en) +
       '</p>' +
       '<a href="' +
-      escapeAttr(baseUrl + '?slug=' + encodeURIComponent(post.slug)) +
+      escapeAttr(postUrl) +
       '" class="blog-card-link">Read post →</a>';
     return card;
   }
