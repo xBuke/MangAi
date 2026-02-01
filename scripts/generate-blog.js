@@ -204,6 +204,7 @@ function generateHrPostHtml(post, allPosts) {
                         <h2 class="post-cta-title">Želiš ovo implementirati u svom poslovanju?</h2>
                         <p class="post-cta-text">MangAi razvija AI alate i automatizacije za firme u Hrvatskoj i regiji.</p>
                         <a href="/#contact" class="post-cta-btn">Rezerviraj konzultacije</a>
+                        <button type="button" class="post-cta-btn btn-secondary" data-open-chat="1" data-chat-flow="ai_savjetnik" style="margin-left:0.5rem;margin-top:0.5rem;">Isprobaj AI savjetnika</button>
                     </section>
                 </footer>
             </article>
@@ -217,6 +218,7 @@ function generateHrPostHtml(post, allPosts) {
         </div>
     </footer>
 
+    <script src="/chat-widget.js" defer><\/script>
     <script src="blog-nav.js"><\/script>
     <script src="blog-toc.js"><\/script>
 </body>
