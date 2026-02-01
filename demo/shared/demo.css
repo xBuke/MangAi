@@ -1202,3 +1202,242 @@
 .demo-status-pill.booked { background: rgba(148, 163, 184, 0.25); color: var(--demo-text); }
 .demo-status-pill.completed { background: rgba(59, 130, 246, 0.25); color: #60a5fa; }
 .demo-status-pill.cancelled { background: rgba(148, 163, 184, 0.2); color: var(--demo-muted); }
+
+/* ========== MOBILE RESPONSIVE (breakpoints: <=768 mobile, 769–1024 tablet, >=1025 desktop) ========== */
+
+/* Touch targets: min 44px height for buttons and clickable rows */
+.demo-sidebar-nav button,
+.demo-btn-sm,
+.demo-btn-contact,
+.demo-lang-toggle button,
+.demo-filter-btn,
+.demo-inbox-item,
+.demo-booking-actions button,
+.demo-automation-row,
+.demo-integration-btns button,
+.demo-feature-cta {
+  min-height: 44px;
+}
+.demo-lang-toggle button { min-height: 38px; }
+.demo-btn-sm { min-height: 38px; }
+
+/* Mobile: sidebar becomes hamburger drawer */
+.demo-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--demo-border);
+  border-radius: 8px;
+  color: var(--demo-text);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.demo-hamburger svg {
+  width: 22px;
+  height: 22px;
+}
+.demo-drawer-close {
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--demo-muted);
+  cursor: pointer;
+  border-radius: 6px;
+}
+.demo-drawer-close:hover { color: var(--demo-text); }
+.demo-drawer-close svg { width: 20px; height: 20px; }
+
+.demo-drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.demo-drawer-overlay.is-visible {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .demo-root { overflow-x: hidden; }
+  .demo-hamburger { display: flex; }
+  .demo-drawer-close { display: flex; align-items: center; justify-content: center; }
+  .demo-body { position: relative; }
+  .demo-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    max-width: 85vw;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+    padding-top: 3rem;
+  }
+  .demo-drawer-open .demo-sidebar {
+    transform: translateX(0);
+  }
+  .demo-drawer-overlay {
+    display: block;
+    pointer-events: none;
+  }
+  .demo-drawer-open .demo-drawer-overlay {
+    pointer-events: auto;
+    display: block;
+  }
+  .demo-content { padding: 1rem; }
+  .demo-topbar {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .demo-topbar-left,
+  .demo-topbar-right {
+    gap: 0.5rem;
+  }
+  .demo-topbar .demo-btn-text,
+  .demo-topbar a {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+  .demo-badge { font-size: 0.6875rem; }
+  .demo-landing { padding: 1.25rem 1rem 3rem; }
+  .demo-kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .demo-chart-wrap svg { height: 160px; }
+  .demo-inbox-layout { grid-template-columns: 1fr; min-height: auto; }
+  .demo-clients-layout { grid-template-columns: 1fr; }
+  .demo-clients-list-header { display: none; }
+  .demo-client-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.875rem 1rem;
+    min-height: 44px;
+  }
+  .demo-tasks-kanban { grid-template-columns: 1fr; }
+  .demo-properties-grid { grid-template-columns: 1fr; }
+}
+
+/* Tables -> cards on mobile */
+@media (max-width: 768px) {
+  .demo-leads-table-wrap {
+    overflow: visible;
+    border: none;
+    background: transparent;
+  }
+  .demo-leads-table,
+  .demo-leads-table thead,
+  .demo-leads-table tbody,
+  .demo-leads-table tr,
+  .demo-leads-table th,
+  .demo-leads-table td {
+    display: block;
+  }
+  .demo-leads-table thead tr {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+  .demo-leads-table tbody tr {
+    background: var(--demo-surface);
+    border: 1px solid var(--demo-border);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .demo-leads-table tbody tr:last-child { margin-bottom: 0; }
+  .demo-leads-table td {
+    border: none;
+    padding: 0.35rem 0;
+    position: relative;
+    padding-left: 0;
+  }
+  .demo-leads-table td:not(:last-child)::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--demo-muted);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .demo-leads-table td.demo-leads-actions {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--demo-border);
+  }
+  .demo-leads-table td.demo-leads-actions::before { display: none; }
+  .demo-leads-table td.demo-leads-actions .demo-btn-sm {
+    display: block;
+    width: 100%;
+    margin: 0.35rem 0 0;
+    min-height: 44px;
+  }
+  .demo-leads-table td.demo-leads-actions .demo-btn-sm:first-of-type { margin-top: 0; }
+  .demo-leads-table td.demo-bookings-actions .demo-btn-sm {
+    display: block;
+    width: 100%;
+    margin: 0.35rem 0 0;
+    min-height: 44px;
+  }
+}
+
+/* Modals: centered, max 95vw x 85vh, scroll inside */
+@media (max-width: 768px) {
+  .demo-modal-backdrop {
+    padding: 0.5rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  .demo-modal {
+    max-width: 95vw;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .demo-property-detail-backdrop {
+    padding: 0.5rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  .demo-property-detail-inner {
+    max-width: 95vw;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+/* Salon services & team tables -> cards on mobile */
+@media (max-width: 768px) {
+  .demo-services-list-header { display: none; }
+  .demo-service-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .demo-service-toggles { width: 100%; }
+  .demo-team-list-header { display: none; }
+  .demo-team-row { padding: 1rem; }
+}
+
+/* Tablet (769–1024) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .demo-sidebar { width: 180px; padding: 0.75rem 0; }
+  .demo-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .demo-tasks-kanban { grid-template-columns: repeat(2, 1fr); }
+}

@@ -103,6 +103,7 @@
       pane.classList.toggle('is-visible', pane.getAttribute('data-pane') === tab);
     });
     renderPane(tab);
+    closeLawDrawer();
   }
 
   function renderLanding() {
@@ -134,12 +135,57 @@
     });
   }
 
+  function closeLawDrawer() {
+    document.body.classList.remove('law-drawer-open');
+    var overlay = document.getElementById('law-drawer-overlay');
+    if (overlay) overlay.classList.remove('is-visible');
+  }
+
+  function openLawDrawer() {
+    document.body.classList.add('law-drawer-open');
+    var overlay = document.getElementById('law-drawer-overlay');
+    if (overlay) overlay.classList.add('is-visible');
+  }
+
+  function ensureLawDrawerElements() {
+    var dash = document.getElementById('law-dashboard');
+    if (!dash) return;
+    if (!document.getElementById('law-drawer-overlay')) {
+      var overlay = document.createElement('div');
+      overlay.id = 'law-drawer-overlay';
+      overlay.className = 'law-drawer-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      dash.insertBefore(overlay, dash.firstChild);
+      overlay.addEventListener('click', closeLawDrawer);
+    }
+    var sidebar = document.querySelector('.law-root .demo-sidebar');
+    if (sidebar && !document.getElementById('law-drawer-close')) {
+      var closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.id = 'law-drawer-close';
+      closeBtn.className = 'law-drawer-close';
+      closeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+      closeBtn.setAttribute('aria-label', 'Close menu');
+      sidebar.insertBefore(closeBtn, sidebar.firstChild);
+      closeBtn.addEventListener('click', closeLawDrawer);
+    }
+    var hamburger = document.getElementById('law-hamburger');
+    if (hamburger && !hamburger._lawDrawerBound) {
+      hamburger._lawDrawerBound = true;
+      hamburger.addEventListener('click', function () {
+        if (document.body.classList.contains('law-drawer-open')) closeLawDrawer();
+        else openLawDrawer();
+      });
+    }
+  }
+
   function renderTopbar() {
     var el = document.getElementById('law-topbar');
     if (!el) return;
     var disclaimer = tr('disclaimer');
+    var hamburgerSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
     var html = '<div class="law-topbar-disclaimer">' + disclaimer + '</div>';
-    html += '<div class="demo-topbar-left"><span class="demo-badge">' + tr('demoMode') + '</span>';
+    html += '<div class="demo-topbar-left"><button type="button" class="law-hamburger" id="law-hamburger" aria-label="Open menu">' + hamburgerSvg + '</button><span class="demo-badge">' + tr('demoMode') + '</span>';
     html += '<div class="demo-lang-toggle">';
     html += '<button type="button" class="' + (getLang() === 'hr' ? 'is-active' : '') + '" data-lang="hr">' + tr('langHr') + '</button>';
     html += '<button type="button" class="' + (getLang() === 'en' ? 'is-active' : '') + '" data-lang="en">' + tr('langEn') + '</button>';
@@ -158,6 +204,7 @@
   function renderSidebar() {
     var el = document.getElementById('law-sidebar-nav');
     if (!el) return;
+    ensureLawDrawerElements();
     var tab = getActiveTab();
     var items = [
       { id: 'overview', labelKey: 'tabOverview' },
@@ -433,14 +480,23 @@
     var cases = getMergedCases();
     if (!selectedCaseId && cases.length) selectedCaseId = cases[0].id;
     if (selectedCaseId && !cases.find(function (c) { return c.id === selectedCaseId; })) selectedCaseId = cases[0] ? cases[0].id : null;
+    var colVrsta = tr('caseColVrsta');
+    var colFaza = tr('caseColFaza');
+    var colPrior = tr('caseColPrioritet');
+    var colClient = tr('caseColClient');
+    var colAct = tr('caseColActivity');
     var html = '<div class="demo-leads-table-wrap"><table class="demo-leads-table"><thead><tr>';
-    html += '<th>' + tr('caseColVrsta') + '</th><th>' + tr('caseColFaza') + '</th><th>' + tr('caseColPrioritet') + '</th><th>' + tr('caseColClient') + '</th><th>' + tr('caseColActivity') + '</th></tr></thead><tbody>';
+    html += '<th>' + colVrsta + '</th><th>' + colFaza + '</th><th>' + colPrior + '</th><th>' + colClient + '</th><th>' + colAct + '</th></tr></thead><tbody>';
     cases.forEach(function (c) {
       var phase = getCasePhase(c.id);
       var phaseKey = phase === 'new' ? 'casePhaseNew' : phase === 'active' ? 'casePhaseActive' : phase === 'waiting' ? 'casePhaseWaiting' : 'casePhaseClosed';
       var selected = c.id === selectedCaseId;
-      html += '<tr class="law-case-row' + (selected ? ' is-selected' : '') + '" data-case-id="' + c.id + '" style="cursor:pointer"><td>' + (c.vrsta || '') + '</td><td><span class="law-status-pill ' + phase + '">' + tr(phaseKey) + '</span></td>';
-      html += '<td>' + (c.prioritet || '') + '</td><td>' + (c.klijent || '') + '</td><td>' + (c.zadnjaAktivnost || '') + '</td></tr>';
+      html += '<tr class="law-case-row' + (selected ? ' is-selected' : '') + '" data-case-id="' + c.id + '" style="cursor:pointer">';
+      html += '<td data-label="' + colVrsta + '">' + (c.vrsta || '') + '</td>';
+      html += '<td data-label="' + colFaza + '"><span class="law-status-pill ' + phase + '">' + tr(phaseKey) + '</span></td>';
+      html += '<td data-label="' + colPrior + '">' + (c.prioritet || '') + '</td>';
+      html += '<td data-label="' + colClient + '">' + (c.klijent || '') + '</td>';
+      html += '<td data-label="' + colAct + '">' + (c.zadnjaAktivnost || '') + '</td></tr>';
     });
     html += '</tbody></table></div>';
     html += '<div class="law-detail-layout" style="margin-top:1.5rem"><div class="law-detail-panel" style="flex:1">';
@@ -488,14 +544,18 @@
   function renderDocuments(pane) {
     var d = window.LawData && window.LawData.data;
     if (!d || !d.documents) return;
+    var colName = tr('docColName');
+    var colTag = tr('docColTag');
+    var colCase = tr('docColCase');
+    var colStatus = tr('docColStatus');
     var html = '<div class="demo-leads-table-wrap"><table class="demo-leads-table"><thead><tr>';
-    html += '<th>' + tr('docColName') + '</th><th>' + tr('docColTag') + '</th><th>' + tr('docColCase') + '</th><th>' + tr('docColStatus') + '</th><th></th></tr></thead><tbody>';
+    html += '<th>' + colName + '</th><th>' + colTag + '</th><th>' + colCase + '</th><th>' + colStatus + '</th><th></th></tr></thead><tbody>';
     d.documents.forEach(function (doc) {
       var status = getDocStatus(doc.id);
       var tagKey = doc.tag === 'ugovor' ? 'docTagContract' : doc.tag === 'podnesak' ? 'docTagSubmission' : 'docTagPowerOfAttorney';
       var statusKey = status === 'draft' ? 'docStatusDraft' : status === 'sent' ? 'docStatusSent' : 'docStatusSigned';
-      html += '<tr><td>' + doc.naziv + '</td><td><span class="law-tag-pill">' + tr(tagKey) + '</span></td><td>' + (doc.slucaj || '') + '</td>';
-      html += '<td><span class="law-status-pill ' + status + '">' + tr(statusKey) + '</span></td><td class="demo-leads-actions">';
+      html += '<tr><td data-label="' + colName + '">' + doc.naziv + '</td><td data-label="' + colTag + '"><span class="law-tag-pill">' + tr(tagKey) + '</span></td><td data-label="' + colCase + '">' + (doc.slucaj || '') + '</td>';
+      html += '<td data-label="' + colStatus + '"><span class="law-status-pill ' + status + '">' + tr(statusKey) + '</span></td><td class="demo-leads-actions law-actions-cell">';
       if (status === 'draft') html += '<button type="button" class="law-btn-sm" data-doc-generate="' + doc.id + '">' + tr('docActionGenerate') + '</button>';
       if (status === 'draft') html += '<button type="button" class="law-btn-sm" data-doc-sent="' + doc.id + '">' + tr('docActionMarkSent') + '</button>';
       if (status === 'sent') html += '<button type="button" class="law-btn-sm" data-doc-signed="' + doc.id + '">' + tr('docActionMarkSigned') + '</button>';

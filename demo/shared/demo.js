@@ -87,6 +87,7 @@
     renderTopbar(vertical, lang);
     var sidebar = document.getElementById('demo-sidebar-nav');
     if (sidebar) renderSidebar(vertical, lang);
+    ensureDrawerElements(vertical);
   }
 
   function getVertical() {
@@ -381,9 +382,11 @@
     var disclaimerBanner = vertical === 'odvjetnik'
       ? '<div class="demo-topbar-disclaimer">' + escapeHtml(c('disclaimerLegal', lang)) + '</div>'
       : '';
+    var hamburgerSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
     topbar.innerHTML =
       disclaimerBanner +
       '<div class="demo-topbar-left">' +
+      '<button type="button" class="demo-hamburger" id="demo-hamburger" aria-label="Open menu">' + hamburgerSvg + '</button>' +
       '<span class="demo-badge">' +
       escapeHtml(c('demoMode', lang)) +
       '</span>' +
@@ -666,16 +669,24 @@
           if (r.status !== 'qualified') actions += '<button type="button" class="demo-btn-sm demo-btn-outline" data-lead-action="qualify" data-lead-id="' + r.id + '">' + escapeHtml(c('actionQualify', lang)) + '</button> ';
           if (r.status !== 'closed') actions += '<button type="button" class="demo-btn-sm demo-btn-outline" data-lead-action="schedule" data-lead-id="' + r.id + '">' + escapeHtml(c('actionScheduleViewing', lang)) + '</button> ';
           if (r.status !== 'closed') actions += '<button type="button" class="demo-btn-sm demo-btn-outline" data-lead-action="close" data-lead-id="' + r.id + '">' + escapeHtml(c('actionCloseLead', lang)) + '</button>';
+          var colName = c('leadColName', lang);
+          var colPr = c('leadColPurchaseRent', lang);
+          var colLoc = c('leadColLocations', lang);
+          var colBud = c('leadColBudget', lang);
+          var colRooms = c('leadColRooms', lang);
+          var colStatus = c('leadColStatus', lang);
+          var colNext = c('leadColNextStep', lang);
+          var colActs = c('leadColActions', lang);
           return (
             '<tr data-lead-id="' + r.id + '">' +
-            '<td>' + escapeHtml(r.name) + '</td>' +
-            '<td>' + escapeHtml(prLabel) + '</td>' +
-            '<td>' + escapeHtml(r.locations || '-') + '</td>' +
-            '<td>' + escapeHtml(r.budget || '-') + '</td>' +
-            '<td>' + escapeHtml(r.rooms || '-') + '</td>' +
-            '<td><span class="demo-status-pill ' + escapeAttr(r.status) + '">' + escapeHtml(statusLabel) + '</span></td>' +
-            '<td>' + escapeHtml(nextLabel) + '</td>' +
-            '<td class="demo-leads-actions">' + actions + '</td>' +
+            '<td data-label="' + escapeAttr(colName) + '">' + escapeHtml(r.name) + '</td>' +
+            '<td data-label="' + escapeAttr(colPr) + '">' + escapeHtml(prLabel) + '</td>' +
+            '<td data-label="' + escapeAttr(colLoc) + '">' + escapeHtml(r.locations || '-') + '</td>' +
+            '<td data-label="' + escapeAttr(colBud) + '">' + escapeHtml(r.budget || '-') + '</td>' +
+            '<td data-label="' + escapeAttr(colRooms) + '">' + escapeHtml(r.rooms || '-') + '</td>' +
+            '<td data-label="' + escapeAttr(colStatus) + '"><span class="demo-status-pill ' + escapeAttr(r.status) + '">' + escapeHtml(statusLabel) + '</span></td>' +
+            '<td data-label="' + escapeAttr(colNext) + '">' + escapeHtml(nextLabel) + '</td>' +
+            '<td class="demo-leads-actions" data-label="">' + actions + '</td>' +
             '</tr>'
           );
         })
@@ -700,10 +711,10 @@
           var statusLabel = statusMap[r.status] || r.status;
           return (
             '<tr>' +
-            '<td>' + escapeHtml(r.name) + '</td>' +
-            '<td>' + escapeHtml(r.intent) + '</td>' +
-            '<td>' + escapeHtml(r.budget) + '</td>' +
-            '<td><span class="demo-status-pill ' + escapeAttr(r.status) + '">' + escapeHtml(statusLabel) + '</span></td>' +
+            '<td data-label="Name">' + escapeHtml(r.name) + '</td>' +
+            '<td data-label="Intent">' + escapeHtml(r.intent) + '</td>' +
+            '<td data-label="Budget">' + escapeHtml(r.budget) + '</td>' +
+            '<td data-label="Status"><span class="demo-status-pill ' + escapeAttr(r.status) + '">' + escapeHtml(statusLabel) + '</span></td>' +
             '</tr>'
           );
         })
@@ -822,14 +833,19 @@
         if (b.status === 'pending' || b.status === 'confirmed') {
           actions += '<button type="button" class="demo-btn-sm demo-btn-outline" data-booking-action="reminder" data-booking-id="' + b.id + '">' + escapeHtml(c('actionSendReminder', lang)) + '</button>';
         }
+        var colClient = c('salonColClient', lang);
+        var colService = c('salonColService', lang);
+        var colDt = c('salonColDateTime', lang);
+        var colStaff = c('salonColStaff', lang);
+        var colStatus = c('salonColStatus', lang);
         return (
           '<tr data-booking-id="' + b.id + '">' +
-          '<td>' + escapeHtml(b.client) + '</td>' +
-          '<td>' + escapeHtml(b.service) + '</td>' +
-          '<td>' + escapeHtml(dateTimeStr) + '</td>' +
-          '<td>' + escapeHtml(b.staff || '-') + '</td>' +
-          '<td><span class="demo-status-pill ' + escapeAttr(b.status) + '">' + escapeHtml(statusLabel) + '</span></td>' +
-          '<td class="demo-bookings-actions">' + actions + '</td>' +
+          '<td data-label="' + escapeAttr(colClient) + '">' + escapeHtml(b.client) + '</td>' +
+          '<td data-label="' + escapeAttr(colService) + '">' + escapeHtml(b.service) + '</td>' +
+          '<td data-label="' + escapeAttr(colDt) + '">' + escapeHtml(dateTimeStr) + '</td>' +
+          '<td data-label="' + escapeAttr(colStaff) + '">' + escapeHtml(b.staff || '-') + '</td>' +
+          '<td data-label="' + escapeAttr(colStatus) + '"><span class="demo-status-pill ' + escapeAttr(b.status) + '">' + escapeHtml(statusLabel) + '</span></td>' +
+          '<td class="demo-leads-actions demo-bookings-actions" data-label="">' + actions + '</td>' +
           '</tr>'
         );
       }).join('');
@@ -1253,6 +1269,11 @@
     var campaigns = getAgencijaData(vertical, 'campaigns');
     var c = window.DemoI18n.tCommon.bind(null);
     var statusMap = { active: c('campaignStatusActive', lang), paused: c('campaignStatusPaused', lang), draft: c('campaignStatusDraft', lang) };
+    var colName = c('campaignColName', lang);
+    var colChannel = c('campaignColChannel', lang);
+    var colBudget = c('campaignColBudget', lang);
+    var colStatus = c('campaignColStatus', lang);
+    var colMod = c('campaignColLastModified', lang);
     var trs = campaigns.map(function (cam) {
       var statusLabel = statusMap[cam.status] || cam.status;
       var actions = '<button type="button" class="demo-btn-sm demo-btn-outline" data-campaign-action="draft" data-campaign-id="' + cam.id + '">' + escapeHtml(c('campaignActionDraft', lang)) + '</button> ';
@@ -1260,12 +1281,12 @@
       else if (cam.status === 'paused') actions += '<button type="button" class="demo-btn-sm demo-btn-outline" data-campaign-action="resume" data-campaign-id="' + cam.id + '">' + escapeHtml(c('campaignActionResume', lang)) + '</button>';
       return (
         '<tr data-campaign-id="' + cam.id + '">' +
-        '<td>' + escapeHtml(cam.name) + '</td>' +
-        '<td>' + escapeHtml(cam.channel || '-') + '</td>' +
-        '<td>' + (cam.budget != null ? cam.budget + '\u20AC' : '-') + '</td>' +
-        '<td><span class="demo-status-pill ' + escapeAttr(cam.status) + '">' + escapeHtml(statusLabel) + '</span></td>' +
-        '<td>' + escapeHtml(cam.lastModified || '-') + '</td>' +
-        '<td class="demo-leads-actions">' + actions + '</td>' +
+        '<td data-label="' + escapeAttr(colName) + '">' + escapeHtml(cam.name) + '</td>' +
+        '<td data-label="' + escapeAttr(colChannel) + '">' + escapeHtml(cam.channel || '-') + '</td>' +
+        '<td data-label="' + escapeAttr(colBudget) + '">' + (cam.budget != null ? cam.budget + '\u20AC' : '-') + '</td>' +
+        '<td data-label="' + escapeAttr(colStatus) + '"><span class="demo-status-pill ' + escapeAttr(cam.status) + '">' + escapeHtml(statusLabel) + '</span></td>' +
+        '<td data-label="' + escapeAttr(colMod) + '">' + escapeHtml(cam.lastModified || '-') + '</td>' +
+        '<td class="demo-leads-actions" data-label="">' + actions + '</td>' +
         '</tr>'
       );
     }).join('');
@@ -1413,6 +1434,50 @@
       '</div>';
   }
 
+  function closeDrawer() {
+    document.body.classList.remove('demo-drawer-open');
+    var overlay = document.getElementById('demo-drawer-overlay');
+    if (overlay) overlay.classList.remove('is-visible');
+  }
+
+  function openDrawer() {
+    document.body.classList.add('demo-drawer-open');
+    var overlay = document.getElementById('demo-drawer-overlay');
+    if (overlay) overlay.classList.add('is-visible');
+  }
+
+  function ensureDrawerElements(vertical) {
+    var dashboard = document.getElementById('demo-dashboard');
+    if (!dashboard) return;
+    if (!document.getElementById('demo-drawer-overlay')) {
+      var overlay = document.createElement('div');
+      overlay.id = 'demo-drawer-overlay';
+      overlay.className = 'demo-drawer-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      dashboard.insertBefore(overlay, dashboard.firstChild);
+      overlay.addEventListener('click', closeDrawer);
+    }
+    var sidebar = document.querySelector('.demo-sidebar');
+    if (sidebar && !document.getElementById('demo-drawer-close')) {
+      var closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.id = 'demo-drawer-close';
+      closeBtn.className = 'demo-drawer-close';
+      closeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+      closeBtn.setAttribute('aria-label', 'Close menu');
+      sidebar.insertBefore(closeBtn, sidebar.firstChild);
+      closeBtn.addEventListener('click', closeDrawer);
+    }
+    var hamburger = document.getElementById('demo-hamburger');
+    if (hamburger && !hamburger._drawerBound) {
+      hamburger._drawerBound = true;
+      hamburger.addEventListener('click', function () {
+        if (document.body.classList.contains('demo-drawer-open')) closeDrawer();
+        else openDrawer();
+      });
+    }
+  }
+
   function showPane(vertical, tabId) {
     var panes = document.querySelectorAll('.demo-pane');
     var navButtons = document.querySelectorAll('.demo-sidebar-nav button[data-tab]');
@@ -1424,6 +1489,7 @@
       b.classList.toggle('is-active', b.getAttribute('data-tab') === tabId);
     });
     setStoredTab(vertical, tabId);
+    closeDrawer();
   }
 
   function showDashboard(vertical, openTab, lang) {
@@ -2049,6 +2115,7 @@
           renderTopbar(vertical, lang);
           var sidebar = document.getElementById('demo-sidebar-nav');
           if (sidebar) renderSidebar(vertical, lang);
+          ensureDrawerElements(vertical);
           showDashboard(vertical, tab, lang);
           bindDashboardEvents(vertical, lang);
           updateUrlDashboard(vertical, tab);
@@ -2105,6 +2172,7 @@
         var tabId = tabBtn.getAttribute('data-tab');
         showPane(vertical, tabId);
         updateUrlDashboard(vertical, tabId);
+        closeDrawer();
         return;
       }
 
