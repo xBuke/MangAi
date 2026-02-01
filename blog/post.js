@@ -33,10 +33,15 @@
 
   function buildToc(containerEl, contentEl) {
     var headings = contentEl.querySelectorAll('h2, h3');
-    if (headings.length === 0) return;
     var nav = document.getElementById('post-toc-list');
-    var toggle = document.querySelector('.post-toc-toggle');
-    if (!nav) return;
+    var toc = document.getElementById('post-toc');
+    var toggle = document.getElementById('toc-toggle');
+    if (!nav || !toc) return;
+
+    if (headings.length === 0) {
+      if (toggle) toggle.style.display = 'none';
+      return;
+    }
 
     var fragment = document.createDocumentFragment();
     headings.forEach(function (h, i) {
@@ -49,17 +54,44 @@
       fragment.appendChild(a);
     });
     nav.appendChild(fragment);
+
     var isNarrow = typeof window !== 'undefined' && window.innerWidth <= 900;
     nav.hidden = isNarrow;
+    toggle.setAttribute('aria-expanded', 'false');
+    toc.classList.remove('is-open');
 
-    if (toggle) {
-      toggle.setAttribute('aria-expanded', isNarrow ? 'false' : 'true');
-      toggle.addEventListener('click', function () {
-        var expanded = nav.hidden;
-        nav.hidden = !expanded;
-        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      });
+    function closeToc() {
+      toc.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      if (isNarrow) nav.hidden = true;
     }
+
+    function openToc() {
+      toc.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      if (isNarrow) nav.hidden = false;
+    }
+
+    toggle.addEventListener('click', function () {
+      var expanded = toc.classList.contains('is-open');
+      if (expanded) closeToc();
+      else openToc();
+    });
+
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') closeToc();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeToc();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toc.classList.contains('is-open')) return;
+      if (isNarrow) return;
+      if (toc.contains(e.target) || toggle.contains(e.target)) return;
+      closeToc();
+    });
   }
 
   function injectRelatedPosts(posts, currentSlug) {

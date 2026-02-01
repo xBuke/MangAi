@@ -73,10 +73,12 @@
                     </header>
                     <div class="post-body-wrapper">
                         <aside id="post-toc" class="post-toc" aria-label="Sadržaj članka">
-                            <button type="button" class="post-toc-toggle" aria-expanded="false" aria-controls="post-toc-list">Sadržaj</button>
                             <nav id="post-toc-list" class="post-toc-list" hidden></nav>
                         </aside>
-                        <div id="post-content" class="post-content prose"></div>
+                        <div class="post-content-col">
+                            <button type="button" id="toc-toggle" class="post-toc-toggle-btn" aria-expanded="false" aria-controls="post-toc-list">Sadržaj</button>
+                            <div id="post-content" class="post-content prose"></div>
+                        </div>
                     </div>
                     <footer class="post-footer">
                         <section class="post-related">
