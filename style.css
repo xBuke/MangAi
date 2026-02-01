@@ -893,6 +893,9 @@ a {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 24px rgba(80, 250, 123, 0.08);
     text-align: center;
 }
+.contact-success[hidden] {
+    display: none !important;
+}
 
 .contact-success-icon {
     display: inline-flex;
