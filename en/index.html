@@ -65,8 +65,8 @@
     <section class="hero">
         <div class="overlay"></div>
         <div class="container">
-            <h1>The fastest way to build what comes next</h1>
-            <p class="subtitle">We build AI tools for businesses of all kinds to launch systems that deliver results in weeks, not months.</p>
+            <h1>AI automation and AI solutions for businesses</h1>
+            <p class="subtitle">MangAI offers AI automation, AI agents and AI chatbots tailored to your market – so your business grows without extra hours or headcount. Results in weeks, not months.</p>
             <div class="hero-trusted-by">
                 <p class="hero-trusted-by-label">Partners</p>
                 <div class="hero-trusted-by-logos">
@@ -84,8 +84,48 @@
                     </a>
                 </div>
             </div>
-            <a href="#contact" class="btn-primary">Book a consultation</a>
-            <p class="hero-cta-micro">No commitment · Tailored to your business</p>
+            <div class="hero-cta-row">
+                <a href="#contact" class="btn-primary">Request a free AI business analysis</a>
+                <button type="button" class="btn-secondary" data-open-chat="1" data-chat-flow="ai_savjetnik">Try the AI advisor</button>
+            </div>
+            <p class="hero-cta-micro">We build AI solutions for real estate, beauty, marketing agencies and service businesses.</p>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="section industries">
+        <div class="container">
+            <h2 class="reveal">AI solutions by industry</h2>
+            <p class="section-intro reveal">Tailored AI solutions for key market segments.</p>
+            <div class="industries-grid reveal">
+                <div class="industry-card">
+                    <h3>AI for real estate</h3>
+                    <ul>
+                        <li>First contact and inquiry qualification (buy/rent, location, budget)</li>
+                        <li>Viewing scheduling and handoff of leads to sales team</li>
+                        <li>24/7 web chatbot without extra reception hours</li>
+                    </ul>
+                    <button type="button" class="industry-cta" data-open-chat="1" data-chat-flow="ai_savjetnik">Try the advisor</button>
+                </div>
+                <div class="industry-card">
+                    <h3>AI for beauty salons</h3>
+                    <ul>
+                        <li>Appointment booking and client reminders</li>
+                        <li>Answers to questions about prices and services</li>
+                        <li>Fewer missed calls and empty slots</li>
+                    </ul>
+                    <button type="button" class="industry-cta" data-open-chat="1" data-chat-flow="ai_savjetnik">Try the advisor</button>
+                </div>
+                <div class="industry-card">
+                    <h3>AI for marketing agencies</h3>
+                    <ul>
+                        <li>Faster campaign drafts and social content</li>
+                        <li>Lead gen and follow-up automation for clients</li>
+                        <li>White-label chatbots or booking systems</li>
+                    </ul>
+                    <button type="button" class="industry-cta" data-open-chat="1" data-chat-flow="ai_savjetnik">Try the advisor</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -213,6 +253,20 @@
                     <p>Ongoing monitoring and optimization so your system runs flawlessly.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- AI advisor Section -->
+    <section class="section ai-savjetnik-section">
+        <div class="container">
+            <h2 class="reveal">AI advisor</h2>
+            <p class="section-intro reveal">In a few questions we suggest where AI makes the most sense for your business – no obligation.</p>
+            <ul class="ai-savjetnik-bullets reveal">
+                <li>Choose your goal (leads, sales, support or agency) and industry</li>
+                <li>Get a short recommendation tailored to your answers</li>
+                <li>Leave your details via the form below if you want a free AI analysis</li>
+            </ul>
+            <button type="button" class="btn-primary reveal" data-open-chat="1" data-chat-flow="ai_savjetnik">Start the AI advisor</button>
         </div>
     </section>
 
@@ -364,6 +418,8 @@
         </div>
     </footer>
 
+    <div id="mangai-chat-root"></div>
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -394,5 +450,6 @@
     </script>
     <script src="/nav.js"></script>
     <script src="/reveal.js"></script>
+    <script src="/chat-widget.js" defer></script>
 </body>
 </html>

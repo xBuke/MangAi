@@ -1,0 +1,137 @@
+{
+  "faqs": [
+    { "q": "How can you help my business?", "a": "MangAI offers AI automation and solutions for businesses: automation and workflows, personal brand and growth systems, custom applications and micro-SaaS, and consulting and advisory. We work with real estate, beauty, marketing agencies, and service businesses.", "tags": ["help", "services", "business"] },
+    { "q": "What AI services do you offer?", "a": "We offer: automation and workflows (CRM, leads, social media, back-office), personal brand and growth systems (AI-assisted content creation, branding), custom applications and micro-SaaS, and consulting and advisory (AI roadmaps, audits, education).", "tags": ["services", "ai", "automation"] },
+    { "q": "AI agents or chatbots — what's the difference?", "a": "Both: AI agents and chatbots are part of our solutions. Chatbots answer inquiries and triage; agents can schedule appointments, qualify leads, and work 24/7. The choice depends on your goal — leads, sales, support, or bookings.", "tags": ["agents", "chatbot", "ai"] },
+    { "q": "I run an agency — what do I get?", "a": "For marketing agencies we offer AI for faster drafts, campaigns, and content; lead gen and follow-up automation; and custom systems for your clients (chatbots, bookings). White-label solutions for your clients are also possible.", "tags": ["agency", "marketing", "lead"] },
+    { "q": "How much does it cost?", "a": "For off-the-shelf tools, a realistic range is around €50–200 per month for a smaller business. Custom solutions have a higher upfront cost (e.g. several thousand euros for setup). Free AI business analysis via the form below.", "tags": ["cost", "price", "budget"] },
+    { "q": "What are AI tools?", "a": "AI tools are software applications that use artificial intelligence to perform tasks that would otherwise require human work — e.g. answering inquiries, preparing documents, or sales support. For small businesses in Croatia and the region that means tools that can work in local language and fit limited resources.", "tags": ["ai", "tools"] },
+    { "q": "Are AI tools expensive for small businesses?", "a": "Many off-the-shelf tools offer free tiers or packages of a few tens of euros per month. For 2–3 tools in a small firm a realistic range is around €50–200 per month. Cost depends on scope and number of users.", "tags": ["cost", "small business"] },
+    { "q": "Do I need a developer for AI automation?", "a": "For simple off-the-shelf tools (e.g. text generation, template chatbots) usually not. For automation and integrations with your systems it's often better to hire a consultant or partner with experience — you save time and reduce setup errors.", "tags": ["developer", "implementation"] },
+    { "q": "How long does implementation take?", "a": "It depends on complexity: one clear use case (e.g. answering common inquiries) can be live in a few weeks. Custom solutions or multiple processes take longer — typically from a few weeks to a few months.", "tags": ["implementation", "time"] },
+    { "q": "Is AI safe for business data?", "a": "It's important to use tools that keep data in the EU and comply with GDPR. For business and personal data check provider terms and prefer solutions with a clear privacy policy and data processing agreement option.", "tags": ["gdpr", "security"] },
+    { "q": "What is AI business automation?", "a": "AI business automation means using software with artificial intelligence to perform repetitive business tasks — from answering inquiries to admin and lead tracking — with less manual work and human control over decisions.", "tags": ["automation", "business"] },
+    { "q": "How much does automation cost in Croatia?", "a": "For off-the-shelf tools a realistic range is around €50–200 per month for a smaller business with 1–2 automated processes. Custom solutions have a higher upfront cost (e.g. several thousand euros for setup). Price depends on scope and complexity.", "tags": ["cost", "automation", "croatia"] }
+  ],
+  "quick_replies": [
+    "How can you help my business?",
+    "What AI services do you offer?",
+    "AI agents or chatbots — what's the difference?",
+    "I run an agency — what do I get?",
+    "How much does it cost?"
+  ],
+  "flows": {
+    "ai_savjetnik": {
+      "steps": [
+        {
+          "id": "welcome",
+          "messages": [
+            "👋 Hi! I'm the MangAI advisor. In a few questions I can suggest where AI fits best in your business.",
+            "What best describes your goal?"
+          ],
+          "options": [
+            "I want more leads",
+            "I want to automate sales or support",
+            "I run an agency",
+            "Not sure — recommend me something"
+          ],
+          "next": { "I want more leads": "lead_industry", "I want to automate sales or support": "automate_where", "I run an agency": "agency_type", "Not sure — recommend me something": "team_size" }
+        },
+        {
+          "id": "lead_industry",
+          "messages": ["Which industry are you in?"],
+          "options": ["Real Estate", "Beauty & Services", "Marketing Agency", "Other"],
+          "next": { "Real Estate": "rec_lead_nekretnine", "Beauty & Services": "rec_lead_beauty", "Marketing Agency": "rec_lead_agencija", "Other": "rec_lead_ostalo" }
+        },
+        {
+          "id": "automate_where",
+          "messages": ["Where do most inquiries come from?"],
+          "options": ["Website", "Social media", "Email", "A bit of everything"],
+          "next": { "Website": "rec_auto_web", "Social media": "rec_auto_social", "Email": "rec_auto_email", "A bit of everything": "rec_auto_sve" }
+        },
+        {
+          "id": "agency_type",
+          "messages": ["What type of agency?"],
+          "options": ["Lead gen", "Performance", "Full-service"],
+          "next": { "Lead gen": "rec_agency_lead", "Performance": "rec_agency_perf", "Full-service": "rec_agency_full" }
+        },
+        {
+          "id": "team_size",
+          "messages": ["How big is your team?"],
+          "options": ["1–5", "6–20", "20+"],
+          "next": { "1–5": "rec_size_small", "6–20": "rec_size_mid", "20+": "rec_size_large" }
+        },
+        {
+          "id": "rec_lead_nekretnine",
+          "messages": ["For real estate we recommend: an AI chatbot on your website for first contact and qualification (buy/rent, location, budget), scheduling viewings, and handing leads to your sales team. Results in weeks."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_lead_beauty",
+          "messages": ["For beauty and services: appointment booking, client reminders, and answers to questions about prices and services — reduces missed calls and empty slots. Ideal for smaller salons without full-time reception."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_lead_agencija",
+          "messages": ["For marketing agencies: AI for faster drafts and campaigns, lead gen and follow-up automation, and custom chatbots or booking systems for your clients. White-label options available."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_lead_ostalo",
+          "messages": ["For other industries: the first step is to identify where you have the most repeated inquiries or manual work. Often a web chatbot plus CRM automation delivers the fastest results. A free analysis tells you exactly where to start."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_auto_web",
+          "messages": ["For website inquiries, a chatbot on your site that answers common questions, triages inquiries, and hands complex cases to humans is ideal. We can connect it to your CRM and email — 24/7 responses without extra hours."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_auto_social",
+          "messages": ["For social media we can automate first response (DM or comments), qualification, and routing to booking or a form. Reduces delays and manual work."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_auto_email",
+          "messages": ["For email: AI can classify inquiries, generate reply drafts, and update your CRM. Complex cases are handed to a human with context. Saves hours per week."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_auto_sve",
+          "messages": ["When you have inquiries everywhere, the biggest impact usually comes from one unified system: one chatbot or agent that receives all channels and triages — web, social, email. Then handoff to humans with context."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_agency_lead",
+          "messages": ["For lead gen agencies: AI for lead qualification, automated follow-up, and handing hot leads to clients. You can deliver more leads with less manual work."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_agency_perf",
+          "messages": ["For performance agencies: campaign automation, faster creative drafts, and analytics. AI helps you scale without proportionally growing the team."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_agency_full",
+          "messages": ["For full-service: a combination — AI for content and campaigns, chatbots for clients, and internal automation. We can tailor packages for each client."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_size_small",
+          "messages": ["For teams of 1–5: focus on one or two use cases — e.g. answering inquiries or bookings. AI saves hours without hiring. Quick implementation in weeks."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_size_mid",
+          "messages": ["For teams of 6–20: it makes sense to automate more channels — web, email, maybe social. One unified system (chatbot + CRM) delivers the most value."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_size_large",
+          "messages": ["For 20+ employees: you can roll out AI across more processes — support, sales, marketing, admin. We recommend a phased approach with clear KPIs."],
+          "soft_cta": true
+        }
+      ]
+    }
+  }
+}

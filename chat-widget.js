@@ -9,14 +9,82 @@
   var flowState = null;
   var CONTACT_SECTION_ID = 'contact';
   var CONTACT_FORM_ID = 'contact-form';
-  var KNOWLEDGE_URL = (function () {
-    var s = document.currentScript && document.currentScript.src;
-    if (s) {
-      var i = s.lastIndexOf('/');
-      return (i >= 0 ? s.slice(0, i + 1) : '') + 'chat/knowledge.hr.json';
-    }
-    return './chat/knowledge.hr.json';
+
+  var isEn = (function () {
+    var path = typeof window !== 'undefined' && window.location && window.location.pathname || '';
+    var lang = typeof document !== 'undefined' && document.documentElement && document.documentElement.getAttribute('lang') || '';
+    return (path.indexOf('/en') === 0 || lang === 'en');
   })();
+
+  var KNOWLEDGE_URL = isEn ? '/chat/knowledge.en.json' : '/chat/knowledge.hr.json';
+
+  var STRINGS = isEn ? {
+    launcherAria: 'Open MangAI Advisor',
+    title: 'MangAI Advisor',
+    closeAria: 'Close',
+    formName: 'Full name',
+    formNamePlaceholder: 'Full name',
+    formEmail: 'Email',
+    formEmailPlaceholder: 'email@example.com',
+    formWebsite: 'Company website',
+    formWebsitePlaceholder: 'https://',
+    formMessage: 'Message / project description',
+    formMessagePlaceholder: 'Describe your goal and industry...',
+    formInterest: 'Interest',
+    interestOptions: [
+      { value: 'Automation', label: 'Automation' },
+      { value: 'Agents', label: 'Agents' },
+      { value: 'Chatbot', label: 'Chatbot' },
+      { value: 'Advisory', label: 'Advisory' }
+    ],
+    submitBtn: 'Send',
+    submitMarko: 'Send to Marko',
+    footerLink: 'Book a consultation',
+    successMessage: 'Sent ✅ Thanks! We\'ll get back to you soon.',
+    fallbackMessage: 'I couldn\'t find an exact answer on the site. Would you like us to prepare a free AI analysis?',
+    fallbackCta: 'Yes, show form',
+    softCtaQuestion: 'Want a free AI business analysis?',
+    softCtaYes: 'Yes, I want it',
+    softCtaNo: 'Just browsing',
+    afterSoftCtaYes: 'Fill in your details below and send – we\'ll get back to you soon.',
+    afterSoftCtaNo: 'Sure 🙂 If you\'d like, ask me something or click \'Book a consultation\' when you\'re ready.',
+    formErrorName: 'Please enter your full name.',
+    formErrorEmail: 'Please enter your email.',
+    formErrorMessage: 'Please enter a message / project description.'
+  } : {
+    launcherAria: 'Otvori MangAI Savjetnik',
+    title: 'MangAI Savjetnik',
+    closeAria: 'Zatvori',
+    formName: 'Ime i prezime',
+    formNamePlaceholder: 'Ime i prezime',
+    formEmail: 'Email',
+    formEmailPlaceholder: 'email@primjer.hr',
+    formWebsite: 'Web stranica',
+    formWebsitePlaceholder: 'https://',
+    formMessage: 'Poruka / opis projekta',
+    formMessagePlaceholder: 'Opišite cilj i industriju...',
+    formInterest: 'Interes',
+    interestOptions: [
+      { value: 'Automatizacija', label: 'Automatizacija' },
+      { value: 'Agenti', label: 'Agenti' },
+      { value: 'Chatbot', label: 'Chatbot' },
+      { value: 'Savjetovanje', label: 'Savjetovanje' }
+    ],
+    submitBtn: 'Pošalji',
+    submitMarko: 'Pošalji Marku',
+    footerLink: 'Rezerviraj konzultacije',
+    successMessage: 'Poslano ✅ Hvala! Javit ćemo ti se uskoro.',
+    fallbackMessage: 'Ne mogu pronaći točan odgovor na stranici. Želiš li da ti pripremimo besplatnu AI analizu?',
+    fallbackCta: 'Da, prikaži formu',
+    softCtaQuestion: 'Želiš besplatnu AI analizu poslovanja?',
+    softCtaYes: 'Da, želim',
+    softCtaNo: 'Samo razgledavam',
+    afterSoftCtaYes: 'Ispuni podatke ispod i pošalji – javit ćemo ti se uskoro.',
+    afterSoftCtaNo: 'Naravno 🙂 Ako želiš, pitaj me nešto ili klikni \'Rezerviraj konzultacije\' kad budeš spreman.',
+    formErrorName: 'Upišite ime i prezime.',
+    formErrorEmail: 'Upišite email.',
+    formErrorMessage: 'Upišite poruku / opis projekta.'
+  };
   var FLOW_AI_SAVJETNIK = 'ai_savjetnik';
   var FORMSUBMIT_INFO = 'https://formsubmit.co/info@mangai.hr';
   var FORMSUBMIT_MARKO = 'https://formsubmit.co/marko@mangai.hr';
@@ -90,43 +158,41 @@
       launcher = document.createElement('button');
       launcher.type = 'button';
       launcher.className = 'mangai-chat-launcher';
-      launcher.setAttribute('aria-label', 'Otvori MangAI Savjetnik');
+      launcher.setAttribute('aria-label', STRINGS.launcherAria);
       launcher.innerHTML = '<span class="mangai-chat-launcher-icon">💬</span>';
       root.appendChild(launcher);
 
+      var interestOpts = STRINGS.interestOptions.map(function (o) {
+        return '<option value="' + (o.value || o.label) + '">' + (o.label || o.value) + '</option>';
+      }).join('');
       panel = document.createElement('div');
       panel.className = 'mangai-chat-panel';
       panel.hidden = true;
       panel.innerHTML =
         '<div class="mangai-chat-header">' +
-        '  <span class="mangai-chat-title">MangAI Savjetnik</span>' +
-        '  <button type="button" class="mangai-chat-close" aria-label="Zatvori">×</button>' +
+        '  <span class="mangai-chat-title">' + STRINGS.title + '</span>' +
+        '  <button type="button" class="mangai-chat-close" aria-label="' + STRINGS.closeAria + '">×</button>' +
         '</div>' +
         '<div class="mangai-chat-messages"></div>' +
         '<div class="mangai-chat-quick-replies"></div>' +
         '<div class="mangai-chat-form-wrap" id="mangai-chat-form-wrap" hidden>' +
-        '  <label class="mangai-chat-form-label">Ime i prezime <span class="mangai-chat-required">*</span></label>' +
-        '  <input type="text" class="mangai-chat-form-input" id="mangai-chat-name" name="name" required placeholder="Ime i prezime">' +
-        '  <label class="mangai-chat-form-label">Email <span class="mangai-chat-required">*</span></label>' +
-        '  <input type="email" class="mangai-chat-form-input" id="mangai-chat-email" name="email" required placeholder="email@primjer.hr">' +
-        '  <label class="mangai-chat-form-label">Web stranica</label>' +
-        '  <input type="url" class="mangai-chat-form-input" id="mangai-chat-website" name="website" placeholder="https://">' +
-        '  <label class="mangai-chat-form-label">Poruka / opis projekta <span class="mangai-chat-required">*</span></label>' +
-        '  <textarea class="mangai-chat-form-textarea" id="mangai-chat-message" name="message" required rows="3" placeholder="Opišite cilj i industriju..."></textarea>' +
-        '  <label class="mangai-chat-form-label">Interes</label>' +
-        '  <select class="mangai-chat-form-select" id="mangai-chat-interest" name="interest">' +
-        '    <option value="Automatizacija">Automatizacija</option>' +
-        '    <option value="Agenti">Agenti</option>' +
-        '    <option value="Chatbot">Chatbot</option>' +
-        '    <option value="Savjetovanje">Savjetovanje</option>' +
-        '  </select>' +
+        '  <label class="mangai-chat-form-label">' + STRINGS.formName + ' <span class="mangai-chat-required">*</span></label>' +
+        '  <input type="text" class="mangai-chat-form-input" id="mangai-chat-name" name="name" required placeholder="' + STRINGS.formNamePlaceholder + '">' +
+        '  <label class="mangai-chat-form-label">' + STRINGS.formEmail + ' <span class="mangai-chat-required">*</span></label>' +
+        '  <input type="email" class="mangai-chat-form-input" id="mangai-chat-email" name="email" required placeholder="' + STRINGS.formEmailPlaceholder + '">' +
+        '  <label class="mangai-chat-form-label">' + STRINGS.formWebsite + '</label>' +
+        '  <input type="url" class="mangai-chat-form-input" id="mangai-chat-website" name="website" placeholder="' + STRINGS.formWebsitePlaceholder + '">' +
+        '  <label class="mangai-chat-form-label">' + STRINGS.formMessage + ' <span class="mangai-chat-required">*</span></label>' +
+        '  <textarea class="mangai-chat-form-textarea" id="mangai-chat-message" name="message" required rows="3" placeholder="' + STRINGS.formMessagePlaceholder + '"></textarea>' +
+        '  <label class="mangai-chat-form-label">' + STRINGS.formInterest + '</label>' +
+        '  <select class="mangai-chat-form-select" id="mangai-chat-interest" name="interest">' + interestOpts + '</select>' +
         '  <div class="mangai-chat-form-buttons">' +
-        '    <button type="button" class="mangai-chat-form-submit" id="mangai-chat-submit-info">Pošalji</button>' +
-        '    <button type="button" class="mangai-chat-form-submit mangai-chat-form-submit-marko" id="mangai-chat-submit-marko">Pošalji Marku</button>' +
+        '    <button type="button" class="mangai-chat-form-submit" id="mangai-chat-submit-info">' + STRINGS.submitBtn + '</button>' +
+        '    <button type="button" class="mangai-chat-form-submit mangai-chat-form-submit-marko" id="mangai-chat-submit-marko">' + STRINGS.submitMarko + '</button>' +
         '  </div>' +
         '  <p class="mangai-chat-form-error" id="mangai-chat-form-error" hidden></p>' +
         '</div>' +
-        '<p class="mangai-chat-footer">⚡ Powered by MangAI · <a href="#contact" data-chat-scroll-contact="1">Rezerviraj konzultacije</a></p>';
+        '<p class="mangai-chat-footer">⚡ Powered by MangAI · <a href="#contact" data-chat-scroll-contact="1">' + STRINGS.footerLink + '</a></p>';
       root.appendChild(panel);
       panel.hidden = true;
       document.body.classList.remove('mangai-chat-open');
@@ -214,15 +280,15 @@
     var website = websiteEl ? websiteEl.value.trim() : '';
     var interest = interestEl ? (interestEl.value || '') : '';
     if (!name) {
-      if (errorEl) { errorEl.textContent = 'Upišite ime i prezime.'; errorEl.hidden = false; }
+      if (errorEl) { errorEl.textContent = STRINGS.formErrorName; errorEl.hidden = false; }
       return;
     }
     if (!email) {
-      if (errorEl) { errorEl.textContent = 'Upišite email.'; errorEl.hidden = false; }
+      if (errorEl) { errorEl.textContent = STRINGS.formErrorEmail; errorEl.hidden = false; }
       return;
     }
     if (!message) {
-      if (errorEl) { errorEl.textContent = 'Upišite poruku / opis projekta.'; errorEl.hidden = false; }
+      if (errorEl) { errorEl.textContent = STRINGS.formErrorMessage; errorEl.hidden = false; }
       return;
     }
     if (errorEl) errorEl.hidden = true;
@@ -238,7 +304,7 @@
     formSubmitForm.querySelector('input[name="interest"]').value = interest;
     formSubmitForm.querySelector('input[name="message"]').value = body;
     formSubmitForm.submit();
-    appendMessage('Poslano ✅ Hvala! Javit ćemo ti se uskoro.', false);
+    appendMessage(STRINGS.successMessage, false);
     hideLeadForm();
     flowState = null;
   }
@@ -305,8 +371,9 @@
     });
 
     if (step.soft_cta) {
+      appendMessage(STRINGS.softCtaQuestion, false);
       flowState = { flowName: flowName, step: 'soft_cta' };
-      setQuickReplies(['Da, želim', 'Samo razgledavam'], true);
+      setQuickReplies([STRINGS.softCtaYes, STRINGS.softCtaNo], true);
       return;
     }
 
@@ -329,14 +396,14 @@
     appendMessage(optionText, true);
 
     if (flowState.step === 'soft_cta') {
-      if (optionText === 'Da, želim') {
-        appendMessage('Ispuni podatke ispod i pošalji – javit ćemo ti se uskoro.', false);
+      if (optionText === STRINGS.softCtaYes) {
+        appendMessage(STRINGS.afterSoftCtaYes, false);
         showLeadForm();
         flowState = { step: 'lead_form' };
         return;
       }
-      if (optionText === 'Samo razgledavam') {
-        appendMessage('Naravno 🙂 Ako želiš, pitaj me nešto ili klikni \'Rezerviraj konzultacije\' kad budeš spreman.', false);
+      if (optionText === STRINGS.softCtaNo) {
+        appendMessage(STRINGS.afterSoftCtaNo, false);
         setQuickReplies(knowledge.quick_replies || [], false);
         flowState = null;
         return;
@@ -359,8 +426,8 @@
     if (result && result.answer) {
       appendMessage(result.answer, false);
     } else {
-      appendMessage('Ne mogu pronaći točan odgovor na stranici. Želiš li da ti pripremimo besplatnu AI analizu?', false);
-      setQuickReplies(['Da, prikaži formu'], true);
+      appendMessage(STRINGS.fallbackMessage, false);
+      setQuickReplies([STRINGS.fallbackCta], true);
       flowState = { step: 'fallback_cta' };
       return;
     }
@@ -387,9 +454,9 @@
       lastQuickReplyClick.ts = now;
       lastQuickReplyClick.text = text;
       if (option) {
-        if (flowState && flowState.step === 'fallback_cta' && option === 'Da, prikaži formu') {
+        if (flowState && flowState.step === 'fallback_cta' && option === STRINGS.fallbackCta) {
           appendMessage(option, true);
-          appendMessage('Ispuni podatke ispod i pošalji – javit ćemo ti se uskoro.', false);
+          appendMessage(STRINGS.afterSoftCtaYes, false);
           showLeadForm();
           flowState = { step: 'lead_form' };
           return;
@@ -455,8 +522,8 @@
         if (result && result.answer) {
           appendMessage(result.answer, false);
         } else {
-          appendMessage('Ne mogu pronaći točan odgovor na stranici. Želiš li da ti pripremimo besplatnu AI analizu?', false);
-          setQuickReplies(['Da, prikaži formu'], true);
+          appendMessage(STRINGS.fallbackMessage, false);
+          setQuickReplies([STRINGS.fallbackCta], true);
           flowState = { step: 'fallback_cta' };
         }
         setQuickReplies(knowledge.quick_replies || [], false);
