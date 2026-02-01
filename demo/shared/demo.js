@@ -25,17 +25,25 @@
     agencija: ['overview', 'inbox', 'leads', 'clients', 'campaigns', 'tasks', 'approvals', 'automations', 'settings'],
     odvjetnik: ['overview', 'inbox', 'clients', 'cases', 'documents', 'deadlines', 'automations', 'settings']
   };
-  var DEBUG = (typeof location !== 'undefined' && (location.hostname === 'localhost' || location.hostname === '127.0.0.1'));
+  var TAB_ALIASES_ODVJETNIK = { slucajevi: 'cases', dokumenti: 'documents', rokovi: 'deadlines' };
+  var DEBUG = typeof location !== 'undefined' && new URLSearchParams(location.search).get('debug') === '1';
 
   function getAllowedTabs(vertical) {
     var allowed = vertical && TABS_BY_VERTICAL[vertical];
     return allowed || VALID_TABS;
   }
 
+  function normalizeTabForVertical(vertical, tab) {
+    if (!tab) return 'overview';
+    if (vertical === 'odvjetnik' && TAB_ALIASES_ODVJETNIK[tab]) return TAB_ALIASES_ODVJETNIK[tab];
+    return tab;
+  }
+
   function getUrlViewAndTab(vertical) {
     var params = new URLSearchParams(typeof location !== 'undefined' && location.search);
     var view = params.get('view');
-    var tab = params.get('tab') || 'overview';
+    var tabRaw = params.get('tab') || 'overview';
+    var tab = normalizeTabForVertical(vertical, tabRaw);
     var allowed = getAllowedTabs(vertical);
     if (allowed.indexOf(tab) === -1) tab = 'overview';
     return { view: view === 'dashboard' ? 'dashboard' : null, tab: tab };
@@ -104,7 +112,10 @@
     try {
       var allowed = getAllowedTabs(vertical);
       var v = localStorage.getItem(STORAGE_TAB_PREFIX + vertical);
-      if (v && allowed.indexOf(v) >= 0) return v;
+      if (v) {
+        v = normalizeTabForVertical(vertical, v);
+        if (allowed.indexOf(v) >= 0) return v;
+      }
     } catch (e) {}
     return 'overview';
   }
@@ -312,11 +323,10 @@
 
     var heroTitle = data.heroTitle || '';
     var heroSubtitle = data.heroSubtitle || '';
-    var disclaimer = data.disclaimer;
     var features = data.features || [];
-
-    var disclaimerHtml = disclaimer
-      ? '<p class="demo-disclaimer" role="note">' + escapeHtml(disclaimer) + '</p>'
+    var disclaimerText = (i18n.tCommon('demoDisclaimer', lang) || '').replace(/\n/g, '<br>');
+    var disclaimerHtml = disclaimerText
+      ? '<div class="demo-disclaimer" role="note">' + disclaimerText + '</div>'
       : '';
 
     var featuresHtml = features
@@ -354,11 +364,11 @@
       '<p>' +
       escapeHtml(heroSubtitle) +
       '</p>' +
-      disclaimerHtml +
       '</div>' +
       '<div class="demo-features">' +
       featuresHtml +
-      '</div>';
+      '</div>' +
+      disclaimerHtml;
   }
 
   function renderTopbar(vertical, lang) {
@@ -456,6 +466,7 @@
       var p = new URLSearchParams(typeof location !== 'undefined' && location.search);
       if (p.get('view') !== 'dashboard') return null;
       var t = p.get('tab');
+      if (t) t = normalizeTabForVertical(vertical, t);
       var allowed = getAllowedTabs(vertical);
       return t && allowed.indexOf(t) !== -1 ? t : null;
     })();
@@ -1488,6 +1499,36 @@
       .replace(/>/g, '&gt;');
   }
 
+  function renderDebugBox(vertical, urlViewAndTab) {
+    if (!DEBUG || typeof location === 'undefined') return;
+    var pathAndSearch = location.pathname + location.search;
+    var detectedVertical = (document.body && document.body.getAttribute('data-vertical')) || '(none)';
+    var params = new URLSearchParams(location.search);
+    var requestedTab = params.get('tab') || '(none)';
+    var normalizedTab = urlViewAndTab ? urlViewAndTab.tab : '(n/a)';
+    var allowedTabs = getAllowedTabs(vertical);
+    var dashboardActive = urlViewAndTab && urlViewAndTab.view === 'dashboard';
+    var sidebarBtns = document.querySelectorAll('.demo-sidebar-nav button[data-tab]');
+    var sidebarTabs = [].map.call(sidebarBtns, function (b) { return b.getAttribute('data-tab'); }).join(', ') || '(none)';
+    var id = 'demo-debug-box';
+    var el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement('div');
+      el.id = id;
+      el.setAttribute('style', 'position:fixed;bottom:12px;right:12px;max-width:320px;padding:10px;font:11px/1.4 monospace;background:#1a1a1a;color:#eee;border:1px solid #444;border-radius:6px;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,0.4);');
+      document.body.appendChild(el);
+    }
+    el.innerHTML =
+      '<div style="font-weight:bold;margin-bottom:6px;">Debug (debug=1)</div>' +
+      '<div>1) path+search: ' + escapeHtml(pathAndSearch) + '</div>' +
+      '<div>2) vertical: ' + escapeHtml(detectedVertical) + '</div>' +
+      '<div>3) requested tab: ' + escapeHtml(requestedTab) + '</div>' +
+      '<div>4) normalized tab: ' + escapeHtml(normalizedTab) + '</div>' +
+      '<div>5) allowed tabs: ' + escapeHtml(allowedTabs.join(', ')) + '</div>' +
+      '<div>6) dashboard active: ' + (dashboardActive ? 'true' : 'false') + '</div>' +
+      '<div>7) sidebar data-tab: ' + escapeHtml(sidebarTabs) + '</div>';
+  }
+
   function applyLeadStatusChange(vertical, leadId, newStatus) {
     if (vertical !== 'nekretnine') return;
     var base = window.DemoMockData && window.DemoMockData.getVerticalData(vertical);
@@ -2481,6 +2522,7 @@
     }
     var contactLink = document.querySelector('.demo-topbar .demo-btn-contact');
     if (contactLink) contactLink.href = contactUrl();
+    if (DEBUG) renderDebugBox(vertical, url);
   }
 
   if (document.readyState === 'loading') {

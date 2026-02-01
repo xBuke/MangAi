@@ -7,24 +7,27 @@
   <title>AI demo – Odvjetnički ured | MangAi</title>
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="../shared/demo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/demo.css?v=2026-02-01">
+  <link rel="stylesheet" href="law.css?v=2026-02-01">
 </head>
-<body class="demo-root" data-vertical="odvjetnik">
-  <div id="demo-landing-wrap">
-    <div id="demo-landing"></div>
+<body class="demo-root law-root" data-vertical="odvjetnik">
+  <div id="law-landing-wrap">
+    <div id="law-landing" class="demo-landing"></div>
   </div>
-  <div id="demo-dashboard" class="demo-dashboard">
-    <header id="demo-topbar" class="demo-topbar"></header>
+  <div id="law-dashboard" class="demo-dashboard">
+    <header id="law-topbar" class="demo-topbar"></header>
     <div class="demo-body">
       <aside class="demo-sidebar">
-        <nav id="demo-sidebar-nav" class="demo-sidebar-nav"></nav>
+        <nav id="law-sidebar-nav" class="demo-sidebar-nav law-sidebar-nav"></nav>
       </aside>
-      <main id="demo-content" class="demo-content"></main>
+      <main id="law-content" class="demo-content"></main>
     </div>
   </div>
-  <footer id="demo-footer" class="demo-footer-note"></footer>
-  <script src="../shared/i18n.js"></script>
-  <script src="../shared/mockData.js"></script>
-  <script src="../shared/demo.js"></script>
+  <footer id="law-footer" class="demo-footer-note"></footer>
+  <script src="lawData.js?v=2026-02-01"></script>
+  <script src="law.js?v=2026-02-01"></script>
 </body>
 </html>
