@@ -513,6 +513,46 @@ body {
     margin-bottom: 0.5em;
 }
 
+/* FAQ section – after main article content */
+.post-faq {
+    margin-top: 2.5em;
+    padding-top: 2em;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    max-width: 720px;
+}
+
+.post-faq-title {
+    font-size: 1.5rem;
+    color: #50fa7b;
+    margin-bottom: 1em;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid rgba(80, 250, 123, 0.2);
+}
+
+.post-faq-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-faq-q {
+    font-weight: 600;
+    color: #e5e7eb;
+    margin-top: 1.25em;
+    margin-bottom: 0.35em;
+}
+
+.post-faq-q:first-of-type {
+    margin-top: 0;
+}
+
+.post-faq-a {
+    margin: 0 0 0 0;
+    padding: 0;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
 .prose ul, .prose ol {
     margin-bottom: 1.25em;
     padding-left: 1.5em;

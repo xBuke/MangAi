@@ -223,6 +223,54 @@
     });
   }
 
+  function injectFaqSection(post) {
+    var faq = post.faq_hr;
+    if (!faq || !Array.isArray(faq) || faq.length === 0) return;
+    var contentCol = document.getElementById('post-content');
+    if (!contentCol || !contentCol.parentNode) return;
+    var section = document.createElement('section');
+    section.className = 'post-faq';
+    section.setAttribute('aria-label', 'Često postavljana pitanja');
+    var heading = document.createElement('h2');
+    heading.className = 'post-faq-title';
+    heading.textContent = 'Često postavljana pitanja';
+    section.appendChild(heading);
+    var dl = document.createElement('dl');
+    dl.className = 'post-faq-list';
+    faq.forEach(function (item) {
+      var dt = document.createElement('dt');
+      dt.className = 'post-faq-q';
+      dt.textContent = item.q || '';
+      var dd = document.createElement('dd');
+      dd.className = 'post-faq-a';
+      dd.textContent = item.a || '';
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+    });
+    section.appendChild(dl);
+    contentCol.parentNode.insertBefore(section, contentCol.nextSibling);
+  }
+
+  function injectFaqSchema(post) {
+    var faq = post.faq_hr;
+    if (!faq || !Array.isArray(faq) || faq.length === 0) return;
+    var mainEntity = faq.map(function (item) {
+      return {
+        '@type': 'Question',
+        name: item.q || '',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a || ''
+        }
+      };
+    });
+    setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: mainEntity
+    });
+  }
+
   function showError() {
     var root = document.getElementById('post-root');
     if (root) {
@@ -254,6 +302,10 @@
       injectPost(post, posts);
       updateSeo(post);
       injectJsonLd(post);
+      if (post.faq_hr && post.faq_hr.length) {
+        injectFaqSection(post);
+        injectFaqSchema(post);
+      }
     })
     .catch(showError);
 })();
