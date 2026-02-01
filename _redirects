@@ -1,0 +1,3 @@
+# Trailing slash: no redirect between /blog/ and /en/blog/, only add slash when missing
+/blog    /blog/    301
+/en/blog /en/blog/ 301

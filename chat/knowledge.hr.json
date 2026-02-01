@@ -1,0 +1,137 @@
+{
+  "faqs": [
+    { "q": "Kako mi možete pomoći?", "a": "MangAI nudi AI automatizaciju i rješenja za hrvatske tvrtke: automatizacija i radni tokovi, sustavi za osobni brend i rast, prilagođene aplikacije i mikro-SaaS te konzulting i savjetovanje. Radimo s nekretninama, beauty industrijom, marketing agencijama i uslužnim djelatnostima.", "tags": ["pomoc", "usluge", "hrvatska"] },
+    { "q": "Koje AI usluge nudite?", "a": "Nudimo: automatizaciju i radne tokove (CRM, leadovi, društvene mreže, back-office), sustave za osobni brend i rast (AI-asistirano kreiranje sadržaja, branding), prilagođene aplikacije i mikro-SaaS te konzulting i savjetovanje (planovi za AI, auditi, edukacija).", "tags": ["usluge", "ai", "automatizacija"] },
+    { "q": "AI agenti ili chatbot?", "a": "Oboje: AI agenti i chatbotovi su dio naših rješenja. Chatbotovi odgovaraju na upite i trijiraju; agenti mogu zakazivati termine, kvalificirati leadove i raditi 24/7. Odabir ovisi o vašem cilju – leadovi, prodaja, podrška ili rezervacije.", "tags": ["agenti", "chatbot", "ai"] },
+    { "q": "Imam agenciju — što dobijem?", "a": "Za marketing agencije nudimo AI za brže draftove, kampanje i sadržaj; automatizaciju lead gena i follow-upa; te prilagođene sustave za klijente (chatbotovi, rezervacije). Moguće je i white-label rješenje za vaše klijente.", "tags": ["agencija", "marketing", "lead"] },
+    { "q": "Koliko košta?", "a": "Za gotove alate realan je raspon reda 50–200 eura mjesečno za manju tvrtku. Prilagođena rješenja imaju viši početni trošak (npr. nekoliko tisuća eura za setup). Besplatna AI analiza poslovanja pomoću forme ispod.", "tags": ["cijena", "koliko", "budzet"] },
+    { "q": "Što su AI alati?", "a": "AI alati su softverske aplikacije koje koriste umjetnu inteligenciju za obavljanje zadataka koji bi inače zahtijevali ljudski rad – npr. odgovori na upite, priprema dokumenata ili podrška prodaji. Za male tvrtke u Hrvatskoj to u praksi znači alate koji mogu raditi na hrvatskom i prilagoditi se ograničenim resursima.", "tags": ["ai", "alati"] },
+    { "q": "Jesu li AI alati skupi za male tvrtke?", "a": "Mnogi gotovi alati nude besplatne razine ili pakete od nekoliko desetaka eura mjesečno. Za 2–3 alata u maloj firmi realan je raspon reda 50–200 eura mjesečno. Trošak ovisi o opsegu korištenja i broju korisnika.", "tags": ["cijena", "male tvrtke"] },
+    { "q": "Trebam li programera za AI automatizaciju?", "a": "Za jednostavne gotove alate (npr. generiranje teksta, chatbot s predlošcima) obično ne. Za automatizacije i integracije s vašim sustavima često je isplativije angažirati konzultanta ili partnera koji ima iskustvo – uštedite vrijeme i smanjite greške pri postavljanju.", "tags": ["programer", "implementacija"] },
+    { "q": "Koliko traje implementacija?", "a": "Ovisi o složenosti: jedan jasno odabran use case (npr. odgovori na česte upite) može biti u pogonu u nekoliko tjedana. Prilagođena rješenja ili više procesa traju dulje – redovito od nekoliko tjedana do nekoliko mjeseci.", "tags": ["implementacija", "vrijeme"] },
+    { "q": "Je li AI siguran za poslovne podatke?", "a": "Važno je koristiti alate koji drže podatke u EU i poštuju GDPR. Za poslovne i osobne podatke provjerite uvjete davatelja i preferirajte rješenja s jasnom politikom privatnosti i mogućnošću ugovora o obradi podataka.", "tags": ["gdpr", "sigurnost"] },
+    { "q": "Što je AI automatizacija poslovanja?", "a": "AI automatizacija poslovanja znači korištenje softvera s umjetnom inteligencijom za obavljanje ponavljajućih poslovnih zadataka – od odgovora na upite do administracije i praćenja leadova – uz smanjenje ručnog rada i čuvanje ljudske kontrole nad odlukama.", "tags": ["automatizacija", "poslovanje"] },
+    { "q": "Koliko košta automatizacija u Hrvatskoj?", "a": "Za gotove alate realan je raspon reda 50–200 eura mjesečno za manju tvrtku s 1–2 automatizirana procesa. Prilagođena rješenja imaju viši početni trošak (npr. nekoliko tisuća eura za setup). Cijena ovisi o opsegu i složenosti.", "tags": ["cijena", "automatizacija", "hrvatska"] }
+  ],
+  "quick_replies": [
+    "Kako mi možete pomoći?",
+    "Koje AI usluge nudite?",
+    "AI agenti ili chatbot?",
+    "Imam agenciju – što dobijem?",
+    "Koliko košta?"
+  ],
+  "flows": {
+    "ai_savjetnik": {
+      "steps": [
+        {
+          "id": "welcome",
+          "messages": [
+            "👋 Bok! Ja sam MangAI savjetnik. U par pitanja mogu ti predložiti gdje AI ima najviše smisla u tvom biznisu.",
+            "Što najbolje opisuje tvoj cilj?"
+          ],
+          "options": [
+            "Želim više leadova",
+            "Želim automatizirati prodaju ili podršku",
+            "Imam agenciju",
+            "Nisam siguran, želim preporuku"
+          ],
+          "next": { "Želim više leadova": "lead_industry", "Želim automatizirati prodaju ili podršku": "automate_where", "Imam agenciju": "agency_type", "Nisam siguran, želim preporuku": "team_size" }
+        },
+        {
+          "id": "lead_industry",
+          "messages": ["U kojoj si industriji?"],
+          "options": ["Nekretnine", "Beauty / usluge", "Marketing agencija", "Ostalo"],
+          "next": { "Nekretnine": "rec_lead_nekretnine", "Beauty / usluge": "rec_lead_beauty", "Marketing agencija": "rec_lead_agencija", "Ostalo": "rec_lead_ostalo" }
+        },
+        {
+          "id": "automate_where",
+          "messages": ["Gdje trenutno imaš najviše upita?"],
+          "options": ["Web", "Društvene mreže", "Email", "Sve pomalo"],
+          "next": { "Web": "rec_auto_web", "Društvene mreže": "rec_auto_social", "Email": "rec_auto_email", "Sve pomalo": "rec_auto_sve" }
+        },
+        {
+          "id": "agency_type",
+          "messages": ["Koji tip agencije?"],
+          "options": ["Lead gen", "Performance", "Full-service"],
+          "next": { "Lead gen": "rec_agency_lead", "Performance": "rec_agency_perf", "Full-service": "rec_agency_full" }
+        },
+        {
+          "id": "team_size",
+          "messages": ["Koliko ljudi radi u tvom biznisu?"],
+          "options": ["1–5", "6–20", "20+"],
+          "next": { "1–5": "rec_size_small", "6–20": "rec_size_mid", "20+": "rec_size_large" }
+        },
+        {
+          "id": "rec_lead_nekretnine",
+          "messages": ["Za nekretnine preporučujemo: AI chatbot na webu za prvi kontakt i kvalifikaciju (kupnja/najam, lokacija, budžet), zakazivanje razgleda i predaju leadova prodajnom timu. Rezultati u tjednima."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_lead_beauty",
+          "messages": ["Za beauty i usluge: rezervacije termina, podsjetnici klijentima i odgovori na pitanja o cijenama i uslugama – smanjuje neodgovorene pozive i prazne termine. Idealno za manje salone bez puno radnog vremena na recepciji."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_lead_agencija",
+          "messages": ["Za marketing agencije: AI za brže draftove i kampanje, automatizacija lead gena i follow-upa te prilagođeni chatbotovi ili rezervacijski sustavi za vaše klijente. Moguće white-label rješenje."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_lead_ostalo",
+          "messages": ["Za ostale industrije: prvi korak je identificirati gdje imaš najviše ponavljajućih upita ili ručnog rada. Često web chatbot + CRM automatizacija donose najbrže rezultate. Besplatna analiza nam govori točno gdje krenuti."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_auto_web",
+          "messages": ["Za upite s weba idealan je chatbot na stranici koji odgovara na česta pitanja, trijira upite i predaje složene ljudima. Možemo ga povezati s CRM-om i e-mailom – odgovori 24/7 bez dodatnih sati."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_auto_social",
+          "messages": ["Za društvene mreže možemo automatizirati prvi odgovor (DM ili komentari), kvalifikaciju i usmjeravanje na rezervaciju ili formu. Smanjuje kašnjenja i ručni rad."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_auto_email",
+          "messages": ["Za email: AI može klasificirati upite, generirati predloške odgovora i ažurirati CRM. Složenije slučajeve prebacuje na čovjeka s kontekstom. Uštedi sate tjedno."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_auto_sve",
+          "messages": ["Kad imaš upite posvuda, najveći učinak obično daje jedan spojeni sustav: jedan chatbot ili agent koji prima sve kanale i trijira – web, društvene mreže, email. Zatim predaja ljudima s kontekstom."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_agency_lead",
+          "messages": ["Za lead gen agencije: AI za kvalifikaciju leadova, automatizirani follow-up i predaju vrućih leadova klijentima. Možete nuditi više leadova uz manji ručni rad."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_agency_perf",
+          "messages": ["Za performance agencije: automatizacija kampanja, brži kreativni draftovi i analitika. AI pomaže skalirati bez proporcionalnog povećanja tima."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_agency_full",
+          "messages": ["Za full-service: kombinacija – AI za sadržaj i kampanje, chatbotovi za klijente i interne automatizacije. Moguće je prilagoditi pakete za svakog klijenta."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_size_small",
+          "messages": ["Za tim 1–5: fokus na jedan do dva use casea – npr. odgovori na upite ili rezervacije. AI uštedi sate bez angažiranja novih ljudi. Brza implementacija u tjednima."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_size_mid",
+          "messages": ["Za tim 6–20: ima smisla automatizirati više kanala – web, email, možda društvene mreže. Jedan spojeni sustav (chatbot + CRM) donosi najveću vrijednost."],
+          "soft_cta": true
+        },
+        {
+          "id": "rec_size_large",
+          "messages": ["Za 20+ zaposlenika: moguće je uvesti AI u više procesa – podrška, prodaja, marketing, administracija. Preporučujemo fazni pristup s jasnim KPI-jevima."],
+          "soft_cta": true
+        }
+      ]
+    }
+  }
+}

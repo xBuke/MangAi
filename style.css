@@ -9,10 +9,6 @@
     padding: 0;
 }
 
-[hidden] {
-    display: none !important;
-}
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--nav-offset);
@@ -273,6 +269,37 @@ a {
     transform: translateY(0);
 }
 
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: transparent;
+    color: #50fa7b;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-radius: 999px;
+    border: 2px solid rgba(80, 250, 123, 0.5);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(80, 250, 123, 0.1);
+    border-color: #50fa7b;
+}
+
+.hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -473,6 +500,103 @@ a {
     position: absolute;
     left: 0;
     top: 0.5em;
+}
+
+/* Industries */
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+}
+
+.industry-card {
+    background: #0f1417;
+    padding: 32px 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(80, 250, 123, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.industry-card:hover {
+    border-color: rgba(80, 250, 123, 0.45);
+    transform: translateY(-4px);
+}
+
+.industry-card h3 {
+    margin-bottom: 14px;
+    font-size: 1.25rem;
+    color: #e5e7eb;
+}
+
+.industry-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.industry-card ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    color: #a1a5a9;
+    font-size: 0.9375rem;
+}
+
+.industry-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #50fa7b;
+}
+
+.industry-cta {
+    padding: 10px 18px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #50fa7b;
+    background: transparent;
+    border: 1px solid rgba(80, 250, 123, 0.4);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    align-self: flex-start;
+}
+
+.industry-cta:hover {
+    background: rgba(80, 250, 123, 0.1);
+    border-color: #50fa7b;
+}
+
+.ai-savjetnik-section .ai-savjetnik-bullets {
+    list-style: none;
+    padding-left: 0;
+    max-width: 560px;
+    margin: 0 auto 24px;
+    text-align: left;
+}
+
+.ai-savjetnik-section .ai-savjetnik-bullets li {
+    margin-bottom: 10px;
+    padding-left: 24px;
+    position: relative;
+    color: #cbd5e1;
+}
+
+.ai-savjetnik-section .ai-savjetnik-bullets li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #50fa7b;
+    font-weight: 700;
 }
 
 /* Approach */
@@ -1073,6 +1197,15 @@ a {
     .hero .subtitle {
         font-size: 1rem;
     }
+    .hero-cta-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .hero-cta-row .btn-primary,
+    .hero-cta-row .btn-secondary {
+        width: 100%;
+        max-width: 320px;
+    }
     .hero-trusted-by-logos {
         gap: 28px;
     }
@@ -1199,5 +1332,287 @@ a {
     body.menu-open .nav-menu-backdrop {
         opacity: 1;
         visibility: visible;
+    }
+}
+
+/* ========== MangAI Chat Widget ========== */
+#mangai-chat-root {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    font-family: 'Inter', sans-serif;
+}
+
+.mangai-chat-launcher {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #50fa7b 0%, #3dd06b 100%);
+    color: #090d0f;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(80, 250, 123, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mangai-chat-launcher:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(80, 250, 123, 0.5);
+}
+
+.mangai-chat-launcher-icon {
+    font-size: 1.5rem;
+}
+
+.mangai-chat-panel {
+    position: absolute;
+    bottom: 72px;
+    right: 0;
+    width: 360px;
+    height: 520px;
+    max-height: calc(100vh - 120px);
+    background: #0f1417;
+    border: 1px solid rgba(80, 250, 123, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+body.mangai-chat-open .mangai-chat-panel {
+    display: flex;
+}
+
+.mangai-chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: rgba(9, 13, 15, 0.95);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    flex-shrink: 0;
+}
+
+.mangai-chat-title {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #50fa7b;
+}
+
+.mangai-chat-close {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.mangai-chat-close:hover {
+    color: #e5e7eb;
+    background: rgba(148, 163, 184, 0.15);
+}
+
+.mangai-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mangai-chat-msg {
+    display: flex;
+    max-width: 90%;
+}
+
+.mangai-chat-msg-bot {
+    justify-content: flex-start;
+}
+
+.mangai-chat-msg-user {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.mangai-chat-msg-bubble {
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 0.875rem;
+    line-height: 1.45;
+}
+
+.mangai-chat-msg-bot .mangai-chat-msg-bubble {
+    background: rgba(80, 250, 123, 0.12);
+    color: #e5e7eb;
+    border-bottom-left-radius: 4px;
+}
+
+.mangai-chat-msg-user .mangai-chat-msg-bubble {
+    background: rgba(80, 250, 123, 0.25);
+    color: #090d0f;
+    border-bottom-right-radius: 4px;
+}
+
+.mangai-chat-quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+    background: rgba(9, 13, 15, 0.6);
+    flex-shrink: 0;
+}
+
+.mangai-chat-quick-reply {
+    padding: 8px 12px;
+    font-size: 0.8125rem;
+    color: #e5e7eb;
+    background: rgba(80, 250, 123, 0.15);
+    border: 1px solid rgba(80, 250, 123, 0.3);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.mangai-chat-quick-reply:hover {
+    background: rgba(80, 250, 123, 0.25);
+    border-color: rgba(80, 250, 123, 0.5);
+}
+
+.mangai-chat-footer {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.mangai-chat-footer a {
+    color: #50fa7b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mangai-chat-footer a:hover {
+    color: #6eff8e;
+    text-decoration: underline;
+}
+
+.mangai-chat-form-wrap {
+    padding: 12px 16px;
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+    background: rgba(9, 13, 15, 0.8);
+    flex-shrink: 0;
+    overflow-y: auto;
+    max-height: 280px;
+}
+
+.mangai-chat-form-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    margin-top: 10px;
+}
+
+.mangai-chat-form-label:first-child {
+    margin-top: 0;
+}
+
+.mangai-chat-required {
+    color: #50fa7b;
+}
+
+.mangai-chat-form-input,
+.mangai-chat-form-textarea,
+.mangai-chat-form-select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 0.8125rem;
+    border: 1px solid #37424f;
+    border-radius: 8px;
+    background: #0a0e10;
+    color: #e5e7eb;
+    font-family: inherit;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+}
+
+.mangai-chat-form-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.mangai-chat-form-input:focus,
+.mangai-chat-form-textarea:focus,
+.mangai-chat-form-select:focus {
+    outline: none;
+    border-color: #50fa7b;
+}
+
+.mangai-chat-form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.mangai-chat-form-submit {
+    flex: 1;
+    min-width: 100px;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #090d0f;
+    background: linear-gradient(135deg, #50fa7b 0%, #3dd06b 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.mangai-chat-form-submit:hover {
+    background: linear-gradient(135deg, #6eff8e 0%, #50fa7b 100%);
+}
+
+.mangai-chat-form-submit-marko {
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+    color: #fff;
+}
+
+.mangai-chat-form-submit-marko:hover {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+
+.mangai-chat-form-error {
+    font-size: 0.75rem;
+    color: #f87171;
+    margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+    .mangai-chat-panel {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        border: none;
     }
 }

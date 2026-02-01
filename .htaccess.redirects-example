@@ -1,0 +1,6 @@
+# Optional Apache redirects for trailing slash (blog). Copy into .htaccess if you use Apache.
+# Ensures: /blog → 301 → /blog/ and /en/blog → 301 → /en/blog/. No redirect between locales.
+
+RewriteEngine On
+RewriteRule ^blog$ /blog/ [R=301,L]
+RewriteRule ^en/blog$ /en/blog/ [R=301,L]
