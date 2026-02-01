@@ -43,10 +43,10 @@
     successMessage: 'Sent ✅ Thanks! We\'ll get back to you soon.',
     fallbackMessage: 'I couldn\'t find an exact answer on the site. Would you like us to prepare a free AI analysis?',
     fallbackCta: 'Yes, show form',
-    softCtaQuestion: 'Want a free AI business analysis?',
+    softCtaQuestion: 'Would you like me to suggest a concrete AI solution tailored to how you work?',
     softCtaYes: 'Yes, I want it',
     softCtaNo: 'Just browsing',
-    afterSoftCtaYes: 'Fill in your details below and send – we\'ll get back to you soon.',
+    afterSoftCtaYes: 'Great. Just a few more details and I can share a concrete recommendation.',
     afterSoftCtaNo: 'Sure 🙂 If you\'d like, ask me something or click \'Book a consultation\' when you\'re ready.',
     formErrorName: 'Please enter your full name.',
     formErrorEmail: 'Please enter your email.',
@@ -76,16 +76,17 @@
     successMessage: 'Poslano ✅ Hvala! Javit ćemo ti se uskoro.',
     fallbackMessage: 'Ne mogu pronaći točan odgovor na stranici. Želiš li da ti pripremimo besplatnu AI analizu?',
     fallbackCta: 'Da, prikaži formu',
-    softCtaQuestion: 'Želiš besplatnu AI analizu poslovanja?',
+    softCtaQuestion: 'Želiš da ti predložim konkretno AI rješenje prilagođeno tvom načinu rada?',
     softCtaYes: 'Da, želim',
     softCtaNo: 'Samo razgledavam',
-    afterSoftCtaYes: 'Ispuni podatke ispod i pošalji – javit ćemo ti se uskoro.',
+    afterSoftCtaYes: 'Super. Još par detalja i mogu ti poslati konkretnu preporuku.',
     afterSoftCtaNo: 'Naravno 🙂 Ako želiš, pitaj me nešto ili klikni \'Rezerviraj konzultacije\' kad budeš spreman.',
     formErrorName: 'Upišite ime i prezime.',
     formErrorEmail: 'Upišite email.',
     formErrorMessage: 'Upišite poruku / opis projekta.'
   };
   var FLOW_AI_SAVJETNIK = 'ai_savjetnik';
+  var FLOW_DISCOVERY = 'discovery';
   var FORMSUBMIT_INFO = 'https://formsubmit.co/info@mangai.hr';
   var FORMSUBMIT_MARKO = 'https://formsubmit.co/marko@mangai.hr';
   var IFRAME_NAME = 'mangai_form_iframe';
@@ -202,11 +203,7 @@
       bindLeadFormSubmit();
 
       launcher.addEventListener('click', function () {
-        if (panel && !panel.hidden) {
-          window.MangAIChat.close();
-        } else {
-          window.MangAIChat.open(FLOW_AI_SAVJETNIK);
-        }
+        window.MangAIChat.openFromLauncher();
       });
       panel.querySelector('.mangai-chat-close').addEventListener('click', function () {
         window.MangAIChat.close();
@@ -342,7 +339,21 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  function setQuickReplies(items, isOptions) {
+  var QUICK_REPLIES_GRID_CLASS = 'mangai-chat-quick-replies-grid';
+  var CHAT_OPTIONS_GRID_CLASS = 'chat-options-grid';
+  var CHAT_OPTION_BTN_CLASS = 'chat-option-btn';
+  var CHAT_OPTION_FULL_CLASS = 'chat-option-full';
+  var GOAL_OPTION_MARKER_HR = 'Želim više leadova';
+  var GOAL_OPTION_MARKER_EN = 'I want more leads';
+  var NOT_SURE_OPTION_HR = 'Nisam siguran, želim preporuku';
+  var NOT_SURE_OPTION_EN = 'Not sure — I want a recommendation';
+
+  function setQuickReplies(items, isOptions, flowName) {
+    if (quickRepliesEl) {
+      quickRepliesEl.classList.remove(QUICK_REPLIES_GRID_CLASS);
+      quickRepliesEl.classList.remove(CHAT_OPTIONS_GRID_CLASS);
+      quickRepliesEl.removeAttribute('data-options-layout');
+    }
     quickRepliesEl.innerHTML = '';
     if (!items || !items.length) return;
     items.forEach(function (label) {
@@ -357,6 +368,27 @@
       }
       quickRepliesEl.appendChild(btn);
     });
+
+    var isGoalStep = flowName === FLOW_AI_SAVJETNIK &&
+      Array.isArray(items) &&
+      items.length >= 6 &&
+      (items.indexOf(GOAL_OPTION_MARKER_HR) !== -1 || items.indexOf(GOAL_OPTION_MARKER_EN) !== -1);
+    if (isGoalStep && quickRepliesEl) {
+      quickRepliesEl.classList.add(QUICK_REPLIES_GRID_CLASS);
+      quickRepliesEl.classList.add(CHAT_OPTIONS_GRID_CLASS);
+      quickRepliesEl.setAttribute('data-options-layout', 'grid-pills');
+      for (var i = 0; i < quickRepliesEl.children.length; i++) {
+        var child = quickRepliesEl.children[i];
+        var label = items[i];
+        child.classList.add(CHAT_OPTION_BTN_CLASS);
+        if (label === NOT_SURE_OPTION_HR || label === NOT_SURE_OPTION_EN) {
+          child.classList.add(CHAT_OPTION_FULL_CLASS);
+          child.setAttribute('data-option-role', 'full');
+        } else {
+          child.setAttribute('data-option-role', 'primary');
+        }
+      }
+    }
   }
 
   function runFlowStep(flowName, stepId) {
@@ -371,15 +403,16 @@
     });
 
     if (step.soft_cta) {
-      appendMessage(STRINGS.softCtaQuestion, false);
+      var softQuestion = (step.soft_cta_question && step.soft_cta_question.trim()) ? step.soft_cta_question.trim() : STRINGS.softCtaQuestion;
+      appendMessage(softQuestion, false);
       flowState = { flowName: flowName, step: 'soft_cta' };
-      setQuickReplies([STRINGS.softCtaYes, STRINGS.softCtaNo], true);
+      setQuickReplies([STRINGS.softCtaYes, STRINGS.softCtaNo], true, flowName);
       return;
     }
 
     if (step.options && step.options.length) {
       flowState = { flowName: flowName, stepId: stepId, next: step.next || {} };
-      setQuickReplies(step.options, true);
+      setQuickReplies(step.options, true, flowName);
       return;
     }
 
@@ -412,6 +445,10 @@
 
     var next = flowState.next || {};
     var nextStepId = next[optionText];
+    if (nextStepId === '_discovery') {
+      startFlow(FLOW_DISCOVERY);
+      return;
+    }
     if (nextStepId) {
       runFlowStep(flowName, nextStepId);
     } else {
@@ -489,7 +526,7 @@
 
   function open(flowName) {
     render();
-    flowName = flowName || FLOW_AI_SAVJETNIK;
+    flowName = flowName || FLOW_DISCOVERY;
     var isOpen = panel && !panel.hidden;
     if (isOpen) {
       startFlow(flowName);
@@ -509,9 +546,18 @@
     }
   }
 
+  function openFromLauncher() {
+    if (panel && !panel.hidden) {
+      close();
+    } else {
+      open(FLOW_DISCOVERY);
+    }
+  }
+
   window.MangAIChat = {
     open: open,
     close: close,
+    openFromLauncher: openFromLauncher,
     startFlow: startFlow,
     ask: function (questionText) {
       render();
@@ -539,8 +585,7 @@
       var el = e.target.closest('[data-open-chat="1"]');
       if (el) {
         e.preventDefault();
-        var flow = el.getAttribute('data-chat-flow') || FLOW_AI_SAVJETNIK;
-        window.MangAIChat.open(flow);
+        window.MangAIChat.openFromLauncher();
       }
       var toContact = e.target.closest('[data-chat-scroll-contact="1"]');
       if (toContact) {

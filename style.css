@@ -505,9 +505,19 @@ a {
 /* Industries */
 .industries-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: 1fr;
     gap: 28px;
     margin-top: 40px;
+}
+@media (min-width: 700px) {
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1100px) {
+    .industries-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .industry-card {
@@ -558,6 +568,13 @@ a {
     background: #50fa7b;
 }
 
+.industry-disclaimer {
+    font-size: 0.8125rem;
+    color: #7a7f84;
+    margin: 0 0 16px 0;
+    line-height: 1.4;
+}
+
 .industry-cta {
     padding: 10px 18px;
     font-size: 0.875rem;
@@ -574,6 +591,57 @@ a {
 .industry-cta:hover {
     background: rgba(80, 250, 123, 0.1);
     border-color: #50fa7b;
+}
+
+.industry-cta-link {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.industry-cta-link:hover {
+    text-decoration: none;
+}
+
+.industries-after {
+    text-align: center;
+    margin-top: 48px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.industries-after-headline {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #e5e7eb;
+    margin: 0 0 12px 0;
+}
+
+.industries-after-body {
+    font-size: 0.9375rem;
+    color: #a1a5a9;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+}
+
+.industries-after-cta {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #50fa7b;
+    background: transparent;
+    border: 1px solid rgba(80, 250, 123, 0.4);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.industries-after-cta:hover {
+    background: rgba(80, 250, 123, 0.1);
+    border-color: #50fa7b;
+    text-decoration: none;
 }
 
 .ai-savjetnik-section .ai-savjetnik-bullets {
@@ -597,6 +665,11 @@ a {
     left: 0;
     color: #50fa7b;
     font-weight: 700;
+}
+
+.ai-savjetnik-cta-wrap {
+    display: flex;
+    justify-content: center;
 }
 
 /* Approach */
@@ -1478,6 +1551,100 @@ body.mangai-chat-open .mangai-chat-panel {
     flex-shrink: 0;
 }
 
+/* 2x3 grid for ai_savjetnik welcome step (first 6 options), 7th full-width */
+.mangai-chat-quick-replies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.mangai-chat-quick-replies-grid .mangai-chat-quick-reply {
+    min-width: 0;
+    min-height: 2.5em;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.mangai-chat-quick-replies-grid .mangai-chat-quick-reply:nth-child(7) {
+    grid-column: 1 / -1;
+}
+
+/* ai_savjetnik goal step only: pill-style grid buttons (no circular tiles) */
+.chat-options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    align-items: stretch;
+}
+
+.chat-options-grid .chat-option-btn {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    border-radius: 999px;
+    padding: 12px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+    min-height: 44px;
+}
+
+.chat-options-grid .chat-option-full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 380px) {
+    .chat-options-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .chat-options-grid .chat-option-full {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ai_savjetnik goal step only: strong overrides so pills (not circles); data-attr hook */
+[data-options-layout="grid-pills"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    align-items: start;
+}
+
+[data-options-layout="grid-pills"] [data-option-role="primary"] {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    border-radius: 999px !important;
+    padding: 12px 12px !important;
+    white-space: normal !important;
+    line-height: 1.2 !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+[data-options-layout="grid-pills"] [data-option-role="full"] {
+    grid-column: 1 / -1;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    border-radius: 999px !important;
+}
+
+@media (max-width: 380px) {
+    [data-options-layout="grid-pills"] {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    [data-options-layout="grid-pills"] [data-option-role="full"] {
+        grid-column: 1 / -1;
+    }
+}
+
 .mangai-chat-quick-reply {
     padding: 8px 12px;
     font-size: 0.8125rem;
@@ -1492,6 +1659,12 @@ body.mangai-chat-open .mangai-chat-panel {
 .mangai-chat-quick-reply:hover {
     background: rgba(80, 250, 123, 0.25);
     border-color: rgba(80, 250, 123, 0.5);
+}
+
+.mangai-chat-quick-reply:focus {
+    outline: none;
+    border-color: #50fa7b;
+    box-shadow: 0 0 0 2px rgba(80, 250, 123, 0.25);
 }
 
 .mangai-chat-footer {
