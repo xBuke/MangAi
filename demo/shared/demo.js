@@ -79,12 +79,14 @@
       (hasViewings(vertical) ? '<div id="demo-pane-viewings" class="demo-pane"></div>' : '') +
       (hasProperties(vertical) ? '<div id="demo-pane-properties" class="demo-pane"></div>' : '') +
       '<div id="demo-pane-automations" class="demo-pane"></div>' +
-      '<div id="demo-pane-settings" class="demo-pane"></div>';
+      '<div id="demo-pane-settings" class="demo-pane"></div>' +
+      '<div class="demo-global-disclaimer" id="demo-global-disclaimer"></div>';
     content.innerHTML = panes;
     var backLink = document.getElementById('demo-back-to-landing');
     if (backLink && window.DemoI18n) backLink.textContent = window.DemoI18n.tCommon('backToLanding', lang);
     backLink.href = '#';
     renderTopbar(vertical, lang);
+    renderDisclaimer(lang);
     var sidebar = document.getElementById('demo-sidebar-nav');
     if (sidebar) renderSidebar(vertical, lang);
     ensureDrawerElements(vertical);
@@ -310,8 +312,19 @@
   function renderFooter(lang) {
     var footer = document.getElementById('demo-footer');
     if (footer && window.DemoI18n) {
-      footer.textContent = window.DemoI18n.tCommon('footerThemeNote', lang);
+      var themeNote = escapeHtml(window.DemoI18n.tCommon('footerThemeNote', lang));
+      footer.innerHTML =
+        '<div class="demo-footer-theme">' + themeNote + '</div>' +
+        '<div class="demo-footer-disclaimer" id="demo-footer-disclaimer"></div>';
     }
+  }
+
+  function renderDisclaimer(lang) {
+    var text = window.DemoI18n ? window.DemoI18n.tCommon('demoDisclaimer', lang) || '' : '';
+    var contentEl = document.getElementById('demo-global-disclaimer');
+    var footerEl = document.getElementById('demo-footer-disclaimer');
+    if (contentEl) contentEl.textContent = text;
+    if (footerEl) footerEl.textContent = text;
   }
 
   function renderLanding(vertical, lang) {
@@ -2042,6 +2055,7 @@
     renderTopbar(vertical, lang);
     renderSidebar(vertical, lang);
     renderFooter(lang);
+    renderDisclaimer(lang);
 
     var url = getUrlViewAndTab(vertical);
     var landingWrap = document.getElementById('demo-landing-wrap');
@@ -2113,6 +2127,7 @@
             }
           }
           renderTopbar(vertical, lang);
+          renderDisclaimer(lang);
           var sidebar = document.getElementById('demo-sidebar-nav');
           if (sidebar) renderSidebar(vertical, lang);
           ensureDrawerElements(vertical);
@@ -2133,6 +2148,7 @@
         renderTopbar(v, newLang);
         renderSidebar(v, newLang);
         renderFooter(newLang);
+        renderDisclaimer(newLang);
         renderOverview(v, newLang);
         renderInbox(v, newLang);
         if (v !== 'odvjetnik') renderLeads(v, newLang);

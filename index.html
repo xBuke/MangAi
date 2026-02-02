@@ -213,6 +213,7 @@
                     <a class="industry-cta industry-cta-link" href="#contact">Personalizirani AI</a>
                 </div>
             </div>
+            <div class="demo-global-disclaimer" id="homepage-demo-disclaimer" data-i18n-key="demoDisclaimer"></div>
             <div class="industries-after reveal">
                 <h3 class="industries-after-headline">Nisi siguran kakav AI ti treba?</h3>
                 <p class="industries-after-body">Napravimo ga zajedno. Analiziramo tvoj način rada, procese i ciljeve te dizajniramo personalizirani AI koji donosi stvarne rezultate.</p>
@@ -482,6 +483,16 @@
                     submitBtn.disabled = true;
                     submitBtn.textContent = 'Šaljem…';
                 });
+            }
+        })();
+    </script>
+    <script src="/demo/shared/i18n.js"></script>
+    <script>
+        (function() {
+            var el = document.getElementById('homepage-demo-disclaimer');
+            if (el && typeof DemoI18n !== 'undefined') {
+                var lang = document.documentElement.lang === 'en' ? 'en' : 'hr';
+                el.textContent = DemoI18n.tCommon('demoDisclaimer', lang) || '';
             }
         })();
     </script>

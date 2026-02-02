@@ -213,6 +213,7 @@
                     <a class="industry-cta industry-cta-link" href="#contact">Custom AI</a>
                 </div>
             </div>
+            <div class="demo-global-disclaimer" id="homepage-demo-disclaimer" data-i18n-key="demoDisclaimer"></div>
             <div class="industries-after reveal">
                 <h3 class="industries-after-headline">Not sure what kind of AI you need?</h3>
                 <p class="industries-after-body">Let's build it together. We analyze your workflows, processes, and goals to design a custom AI that delivers real results.</p>
@@ -481,6 +482,16 @@
                     submitBtn.disabled = true;
                     submitBtn.textContent = 'Sending…';
                 });
+            }
+        })();
+    </script>
+    <script src="/demo/shared/i18n.js"></script>
+    <script>
+        (function() {
+            var el = document.getElementById('homepage-demo-disclaimer');
+            if (el && typeof DemoI18n !== 'undefined') {
+                var lang = document.documentElement.lang === 'en' ? 'en' : 'hr';
+                el.textContent = DemoI18n.tCommon('demoDisclaimer', lang) || '';
             }
         })();
     </script>

@@ -112,6 +112,7 @@
       featDocsCta: 'Pogledaj dokumente',
       featAutomCta: 'Uključi automatizacije',
       landingDisclaimer: 'Demo prikazuje osnovni koncept.\nFinalna verzija se razvija prema vašim procesima, integracijama i vizualnom identitetu.',
+      demoDisclaimer: 'Demo prikazuje osnovni koncept.\nFinalna verzija se razvija prema vašim procesima, integracijama i vizualnom identitetu.',
     },
     en: {
       disclaimer: 'Note: This is not legal advice. The demo is for initial qualification and booking consultations.',
@@ -218,6 +219,7 @@
       featDocsCta: 'View documents',
       featAutomCta: 'Enable automations',
       landingDisclaimer: 'The demo presents the core concept.\nThe final version is developed according to your workflows, integrations, and visual identity.',
+      demoDisclaimer: 'The demo presents the core concept.\nThe final version is developed according to your workflows, integrations, and visual identity.',
     },
   };
 

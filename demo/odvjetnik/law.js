@@ -669,7 +669,19 @@
 
   function renderFooter() {
     var el = document.getElementById('law-footer');
-    if (el) el.textContent = tr('footerTheme');
+    if (el) {
+      el.innerHTML =
+        '<div class="demo-footer-theme">' + (tr('footerTheme') || '') + '</div>' +
+        '<div class="demo-footer-disclaimer" id="law-footer-disclaimer"></div>';
+    }
+  }
+
+  function renderDisclaimer() {
+    var text = tr('demoDisclaimer') || '';
+    var contentEl = document.getElementById('law-disclaimer');
+    var footerEl = document.getElementById('law-footer-disclaimer');
+    if (contentEl) contentEl.textContent = text;
+    if (footerEl) footerEl.textContent = text;
   }
 
   function renderAll() {
@@ -678,6 +690,7 @@
     renderSidebar();
     renderPane(getActiveTab());
     renderFooter();
+    renderDisclaimer();
   }
 
   function init() {
@@ -697,12 +710,13 @@
     if (content) {
       content.innerHTML = LAW_TABS.map(function (t) {
         return '<section class="law-pane" data-pane="' + t + '"></section>';
-      }).join('');
+      }).join('') + '<div class="demo-global-disclaimer" id="law-disclaimer"></div>';
     }
     if (view) {
       renderPane(getActiveTab());
     }
     renderFooter();
+    renderDisclaimer();
   }
 
   if (document.readyState === 'loading') {

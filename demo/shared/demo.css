@@ -917,6 +917,31 @@
   border-top: 1px solid var(--demo-border);
 }
 
+/* Footer disclaimer – same text as dashboard, i18n-injected */
+.demo-footer-disclaimer {
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  color: var(--demo-muted);
+  opacity: 0.75;
+  margin-top: 0.75rem;
+  max-width: 100%;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+/* Global demo disclaimer – bottom of dashboard, above footer */
+.demo-global-disclaimer {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--demo-muted);
+  opacity: 0.85;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  max-width: 100%;
+  white-space: pre-line;
+}
+
 /* Agencija: Clients list + detail */
 .demo-clients-layout { display: grid; grid-template-columns: 280px 1fr; gap: 1rem; min-height: 360px; }
 @media (max-width: 640px) { .demo-clients-layout { grid-template-columns: 1fr; } }
