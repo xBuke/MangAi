@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.mangai.hr"
+        }
+      ],
+      "destination": "https://mangai.hr/sitemap.xml",
+      "permanent": true
+    },
+    {
       "source": "/blog",
       "destination": "/blog/",
       "permanent": true
