@@ -3,475 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MangAI: AI automatizacija i AI rješenja u Hrvatskoj za tvrtke i marketing agencije. AI agenti, chatbotovi, nekretnine, beauty. Besplatna AI analiza.">
-    <title>MangAI | AI automatizacija i AI rješenja u Hrvatskoj</title>
+    <title>MangAI | Web stranice, aplikacije i AI rješenja – obrt iz Ploča</title>
+    <meta name="description" content="MangAI je obrt za računalno programiranje i savjetovanje iz Ploča. Web stranice, aplikacije, AI chatbotovi i automatizacija za obrte, tvrtke, udruge i javne naručitelje u cijeloj Hrvatskoj.">
     <link rel="canonical" href="https://mangai.hr/">
     <meta name="robots" content="index,follow">
-    <meta property="og:title" content="MangAI | AI automatizacija i AI rješenja u Hrvatskoj">
-    <meta property="og:description" content="AI automatizacija i AI rješenja za hrvatske tvrtke i agencije. AI agenti, chatbotovi, nekretnine, beauty, marketing.">
+    <meta name="theme-color" content="#ECEFEA">
+    <meta property="og:title" content="MangAI | Web, aplikacije i AI za vaš posao">
+    <meta property="og:description" content="Obrt iz Ploča: web stranice, aplikacije, AI chatbotovi i automatizacija za male tvrtke i javne naručitelje.">
     <meta property="og:url" content="https://mangai.hr/">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="hr_HR">
     <meta property="og:image" content="https://mangai.hr/assets/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://mangai.hr/assets/og.png">
-    <meta name="twitter:title" content="MangAI | AI automatizacija i AI rješenja u Hrvatskoj">
-    <meta name="twitter:description" content="AI automatizacija i AI rješenja za hrvatske tvrtke i agencije. AI agenti, chatbotovi, nekretnine, beauty, marketing.">
+    <meta name="twitter:title" content="MangAI | Web, aplikacije i AI za vaš posao">
+    <meta name="twitter:description" content="Obrt iz Ploča: web stranice, aplikacije, AI chatbotovi i automatizacija za male tvrtke i javne naručitelje.">
     <link rel="alternate" hreflang="hr" href="https://mangai.hr/">
     <link rel="alternate" hreflang="en" href="https://mangai.hr/en/">
+    <link rel="alternate" hreflang="x-default" href="https://mangai.hr/">
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-q+eZV6/YEp81f/ABiU8bOCd+Xvp/FqvsI8odwTA5oIWfWD5urElayOka8bU90CEg6KgtInQUOo60jKf2UhdFTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/chat-widget.css">
+    <link rel="stylesheet" href="/home.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://mangai.hr/#obrt",
+      "name": "MangAI",
+      "legalName": "MANGAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić",
+      "url": "https://mangai.hr/",
+      "logo": "https://mangai.hr/favicon.svg",
+      "image": "https://mangai.hr/assets/og.png",
+      "description": "Web stranice, aplikacije, AI chatbotovi i automatizacija poslovanja za obrte, tvrtke, udruge i javne naručitelje.",
+      "email": "marko@mangai.hr",
+      "telephone": "+385923557476",
+      "founder": { "@type": "Person", "name": "Marko Škorić" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Vukovarska 5",
+        "postalCode": "20340",
+        "addressLocality": "Ploče",
+        "addressRegion": "Dubrovačko-neretvanska županija",
+        "addressCountry": "HR"
+      },
+      "areaServed": { "@type": "Country", "name": "Hrvatska" },
+      "knowsLanguage": ["hr", "en"]
+    }
+    </script>
 </head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="nav-bar">
-                <a href="/" class="logo">MangAi</a>
-                <button type="button" class="nav-toggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="nav-menu">
-                    <span class="nav-toggle-icon"></span>
-                </button>
-                <div class="nav-menu-panel" id="nav-menu">
-                    <nav class="nav">
-                        <a href="#services">Usluge</a>
-                        <a href="#approach">Pristup</a>
-                        <a href="#difference">Razlika</a>
-                        <a href="#contact">Stupimo u kontakt</a>
-                        <a href="/blog/">Blog</a>
-                        <span class="lang-switcher">
-                            <span aria-current="page">HR</span>
-                            <span class="lang-sep" aria-hidden="true">|</span>
-                            <a href="/en/">EN</a>
-                        </span>
-                    </nav>
-                    <a href="#contact" class="btn-nav-cta">
-                        <span>Rezerviraj konzultacije</span>
-                        <svg class="btn-nav-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                </div>
+<body data-audience="biz">
+    <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a href="/" class="logo" aria-label="MangAI, početna">Mang<span>AI</span></a>
+            <button type="button" class="nav-toggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav-toggle-icon"></span>
+            </button>
+            <div class="nav-menu-panel" id="nav-menu">
+                <nav class="nav" aria-label="Glavni izbornik">
+                    <a href="#usluge">Usluge</a>
+                    <a href="#primjeri">Primjeri</a>
+                    <a href="#javni-sektor">Javni sektor</a>
+                    <a href="/blog/">Blog</a>
+                    <span class="lang-switcher">
+                        <span aria-current="page">HR</span>
+                        <span aria-hidden="true">/</span>
+                        <a href="/en/" hreflang="en" lang="en">EN</a>
+                    </span>
+                </nav>
+                <a href="#contact" class="btn btn-primary nav-cta">Pošalji upit</a>
             </div>
         </div>
     </header>
     <div class="nav-menu-backdrop" id="nav-menu-backdrop" aria-hidden="true"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="overlay"></div>
-        <div class="container">
-            <h1>AI automatizacija i AI rješenja za hrvatske tvrtke</h1>
-            <p class="subtitle">MangAI nudi AI automatizaciju, AI agente i AI chatbotove prilagođene hrvatskom tržištu – da vaše poslovanje raste bez dodatnih sati ili zaposlenika. Rezultati u tjednima, ne mjesecima.</p>
-            <div class="hero-trusted-by">
-                <p class="hero-trusted-by-label">Partneri</p>
-                <div class="hero-trusted-by-logos">
-                    <a href="https://google.com" target="_blank" rel="noopener" class="hero-trusted-logo" aria-label="Google">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                    </a>
-                    <a href="https://anthropic.com" target="_blank" rel="noopener" class="hero-trusted-logo" aria-label="Anthropic">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.09 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"/></svg>
-                    </a>
-                    <a href="https://cursor.com" target="_blank" rel="noopener" class="hero-trusted-logo" aria-label="Cursor">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H8l5-9v4h3l-5 9z"/></svg>
-                    </a>
-                    <a href="https://openai.com" target="_blank" rel="noopener" class="hero-trusted-logo" aria-label="OpenAI">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 18.015a5.9847 5.9847 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0 3.0244-5.2938zM12 20.3593a8.3593 8.3593 0 1 1 0-16.7186 8.3593 8.3593 0 0 1 0 16.7186z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-cta-row">
-                <a href="#contact" class="btn-primary">Zatraži besplatnu AI analizu poslovanja</a>
-                <button type="button" class="btn-secondary" data-open-chat="1" data-chat-flow="ai_savjetnik">Isprobaj AI savjetnika</button>
-            </div>
-            <p class="hero-cta-micro">Radimo AI rješenja za hrvatsko tržište – nekretnine, beauty industriju, marketing agencije i uslužne djelatnosti.</p>
-        </div>
-    </section>
+    <main id="main">
+        <section class="hero">
+            <div class="wrap">
+                <div class="hero-copy">
+                    <h1>Web, aplikacije i AI za vaš posao.</h1>
+                    <p class="hero-lead" data-audience-show="biz">Izrađujem web stranice, aplikacije, AI chatbotove i automatizacije za obrte, male tvrtke i udruge. Radite izravno sa mnom, od prvog razgovora do predaje i održavanja.</p>
+                    <p class="hero-lead" data-audience-show="gov">Za općine, gradove, škole, ustanove i turističke zajednice: web stranice, e-usluge za građane i održavanje, uz urednu dokumentaciju, e-račun i predaju izvornog koda.</p>
 
-    <!-- Services Section -->
-    <section class="section services">
-        <div class="container">
-            <h2 id="services" class="reveal">Naše usluge</h2>
-            <p class="section-intro reveal">Prilagođeni AI sustavi, aplikacije i automatizacija koji pretvaraju ideje u rast – kako bi vaše poslovanje raslo bez dodatnih sati ili zaposlenika.</p>
-            <div class="services-grid reveal">
-                <div class="service-card">
-                    <div class="service-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <div class="audience">
+                        <span class="audience-label" id="audience-label">Tko ste?</span>
+                        <div class="audience-switch" role="group" aria-labelledby="audience-label">
+                            <button type="button" data-audience-set="biz" aria-pressed="true">Obrt, tvrtka ili udruga</button>
+                            <button type="button" data-audience-set="gov" aria-pressed="false">Javni naručitelj</button>
+                        </div>
                     </div>
-                    <h3>Automatizacija &amp; Radni tokovi</h3>
-                    <p>Uštedite vrijeme i skalirajte brže uz automatizaciju poslovnih procesa.</p>
-                    <ul>
-                        <li> Sustavi za objavljivanje sadržaja i društvene mreže</li>
-                        <li> CRM, generiranje leadova i automatizirani follow‑up</li>
-                        <li> Back‑office tokovi: podsjetnici, izvještaji, zakazivanje</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                    </div>
-                    <h3>Sustavi za osobni brend &amp; rast</h3>
-                    <p>AI strategije i alati za rast autoriteta, vidljivosti i potražnje.</p>
-                    <ul>
-                        <li> AI‑asistirano kreiranje i repurposing sadržaja</li>
-                        <li> Branding i pozicioniranje za solopoduzetnike</li>
-                        <li> Automatizirano angažiranje i njegovanje leadova</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
-                    </div>
-                    <h3>Prilagođene aplikacije &amp; mikro‑SaaS</h3>
-                    <p>Full‑stack izrada koja pretvara ideje u proizvode.</p>
-                    <ul>
-                        <li> AI‑pogonjene web aplikacije i nadzorne ploče</li>
-                        <li> Razvoj mikro‑SaaS rješenja za nišne tržišne segmente</li>
-                        <li> Landing stranice, web stranice i digitalni proizvodi</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    </div>
-                    <h3>Konzulting &amp; Savjetovanje</h3>
-                    <p>Stručne smjernice za otključavanje AI potencijala bez izgubljenog vremena.</p>
-                    <ul>
-                        <li> Planovi za usvajanje AI‑a</li>
-                        <li> Auditi prilika i sustava</li>
-                        <li> Edukacija o alatima i najboljim praksama</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- AI rješenja po industrijama -->
-    <section class="section industries">
-        <div class="container">
-            <h2 class="reveal">AI rješenja po industrijama</h2>
-            <p class="section-intro reveal">Prilagođena AI rješenja za ključne segmente hrvatskog tržišta.</p>
-            <div class="industries-grid reveal">
-                <div class="industry-card">
-                    <h3>AI za nekretnine</h3>
-                    <ul>
-                        <li>Prvi kontakt i kvalifikacija upita (kupnja/najam, lokacija, budžet)</li>
-                        <li>Zakazivanje razgleda i predaja leadova prodajnom timu</li>
-                        <li>Chatbot na webu 24/7 bez dodatnih sati recepcije</li>
-                    </ul>
-                    <a href="/demo/nekretnine/?view=dashboard&tab=razgledi" target="_blank" rel="noopener noreferrer" class="industry-cta industry-cta-link">Pogledaj demo</a>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Pošalji upit</a>
+                        <a href="tel:+385923557476" class="btn btn-ghost">Nazovi 092 355 7476</a>
+                    </div>
                 </div>
-                <div class="industry-card">
-                    <h3>AI za beauty salone</h3>
-                    <ul>
-                        <li>Rezervacije termina i podsjetnici klijentima</li>
-                        <li>Odgovori na pitanja o cijenama i uslugama</li>
-                        <li>Manje neodgovorenih poziva i praznih termina</li>
-                    </ul>
-                    <a href="/demo/salon/?view=dashboard&tab=rezervacije" target="_blank" rel="noopener noreferrer" class="industry-cta industry-cta-link">Pogledaj demo</a>
-                </div>
-                <div class="industry-card">
-                    <h3>AI za marketing agencije</h3>
-                    <ul>
-                        <li>Brži draftovi kampanja i sadržaja za društvene mreže</li>
-                        <li>Automatizacija lead gena i follow-upa za klijente</li>
-                        <li>White-label chatbotovi ili rezervacijski sustavi</li>
-                    </ul>
-                    <a href="/demo/agencija/?view=dashboard&tab=kampanje" target="_blank" rel="noopener noreferrer" class="industry-cta industry-cta-link">Pogledaj demo</a>
-                </div>
-                <div class="industry-card">
-                    <h3>AI za odvjetničke urede</h3>
-                    <ul>
-                        <li>Automatizacija upita i kvalifikacija klijenta</li>
-                        <li>Prikupljanje ključnih informacija prije konzultacija</li>
-                        <li>Zakazivanje termina + automatizirani follow-up</li>
-                    </ul>
-                    <p class="industry-disclaimer">Ovo nije pravni savjet — služi za osnovnu kvalifikaciju i dogovor konzultacija.</p>
-                    <a href="/demo/odvjetnik/?view=dashboard&tab=cases" target="_blank" rel="noopener noreferrer" class="industry-cta industry-cta-link">Pogledaj demo</a>
-                </div>
-                <div class="industry-card">
-                    <h3>AI za stomatološke i privatne klinike</h3>
-                    <ul>
-                        <li>Rezervacije termina i podsjetnici klijentima</li>
-                        <li>Odgovori na česta pitanja (cijene, usluge, priprema)</li>
-                        <li>Manje propuštenih poziva i "no-show" termina</li>
-                    </ul>
-                    <a href="/demo/ordinacija/?view=dashboard&tab=trijaza" target="_blank" rel="noopener noreferrer" class="industry-cta industry-cta-link">Pogledaj demo</a>
-                </div>
-                <div class="industry-card">
-                    <h3>Custom AI za tvoje potrebe</h3>
-                    <ul>
-                        <li>AI rješenje po tvojim procesima i pravilima</li>
-                        <li>Integracije: web forme, email, kalendar, CRM</li>
-                        <li>Brzi proof-of-concept i iteracije do ROI-ja</li>
-                        <li>Personalizirani AI asistent (praćenje sastanaka, bilješke, sažeci, zadaci)</li>
-                    </ul>
-                    <a class="industry-cta industry-cta-link" href="#contact">Personalizirani AI</a>
-                </div>
-            </div>
-            <div class="demo-global-disclaimer" id="homepage-demo-disclaimer" data-i18n-key="demoDisclaimer"></div>
-            <div class="industries-after reveal">
-                <h3 class="industries-after-headline">Nisi siguran kakav AI ti treba?</h3>
-                <p class="industries-after-body">Napravimo ga zajedno. Analiziramo tvoj način rada, procese i ciljeve te dizajniramo personalizirani AI koji donosi stvarne rezultate.</p>
-                <a href="#contact" class="industries-after-cta">Razgovaraj s nama</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Approach Section -->
-    <section class="section approach">
-        <div class="container">
-            <h2 id="approach" class="reveal">Naš pristup</h2>
-            <p class="section-intro reveal">Radimo sustavno – od otkrivanja prilika do potpune integracije – da biste maksimalno iskoristili AI.</p>
-            <div class="approach-grid reveal">
-                <div class="approach-card">
-                    <div class="approach-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    </div>
-                    <h3>Pronalazak prilika</h3>
-                    <p>Identificiramo najprofitabilnije prilike za AI u vašem poslovanju – bilo da se radi o automatizaciji generiranja leadova, uštedi 20+ sati tjedno ili lansiranju alata za klijente.</p>
-                </div>
-                <div class="approach-card">
-                    <div class="approach-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-                    </div>
-                    <h3>Izrada plana</h3>
-                    <p>Umjesto beskrajnih planova „digitalne transformacije”, izrađujemo jasan plan koji pokazuje što prvo lansirati, koliko brzo se isplati i kako ga skalirati.</p>
-                </div>
-                <div class="approach-card">
-                    <div class="approach-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                    </div>
-                    <h3>Razvoj </h3>
-                    <p>Od automatizacija do full‑stack aplikacija – razvijamo i implementiramo sustave koji pokreću stjecanje klijenata, učinkovitost i novi prihod bez tehničkog stresa.</p>
-                </div>
-                <div class="approach-card">
-                    <div class="approach-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22v-4M12 18V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M8 6h8M8 6v12h8V6"/></svg>
-                    </div>
-                    <h3>Implementacija</h3>
-                    <p>Ne isporučujemo samo sustav. Uklapamo ga u vaše radne tokove, obučavamo tim i osiguravamo besprijekorno funkcioniranje tako da rezultate vidite od prvog dana.</p>
-                </div>
+                <aside class="plate" aria-label="Podaci o obrtu">
+                    <span class="plate-screw tl" aria-hidden="true"></span>
+                    <span class="plate-screw tr" aria-hidden="true"></span>
+                    <span class="plate-screw bl" aria-hidden="true"></span>
+                    <span class="plate-screw br" aria-hidden="true"></span>
+                    <p class="plate-name">MANGAI</p>
+                    <p class="plate-kind">obrt za računalno programiranje i savjetovanje</p>
+                    <p class="plate-kind plate-owner">vl. Marko Škorić</p>
+                    <hr>
+                    <address class="plate-contact">
+                        <span>Vukovarska 5, 20340 Ploče</span>
+                        <a href="tel:+385923557476">+385 92 355 7476</a>
+                        <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
+                    </address>
+                    <p class="plate-note">Radim na daljinu za cijelu Hrvatsku, a po potrebi dolazim na teren.</p>
+                </aside>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Difference Section -->
-    <section class="section difference">
-        <div class="container">
-            <h2 id="difference" class="reveal">Što nas razlikuje</h2>
-            <p class="section-intro reveal">Zašto vodeće tvrtke biraju MangAi za ubrzanje svoje digitalne transformacije.</p>
-            <div class="difference-grid reveal">
-                <div class="diff-item">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <h3><span class="highlight">+60%</span> Brže na tržište</h3>
-                    <p>Naš optimizirani proces dovodi vas od ideje do implementacije 60 % brže.</p>
+        <section class="section" id="usluge">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>Usluge</h2>
+                    <p data-audience-show="biz">Od jednostavne web stranice do aplikacije po mjeri. Svaki posao dobiva pisanu ponudu s cijenom i rokom prije početka.</p>
+                    <p data-audience-show="gov">Usluge koje se najčešće nabavljaju jednostavnom nabavom ili preko EOJN-a, s jasnim opsegom i rokom.</p>
                 </div>
-                <div class="diff-item">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3><span class="highlight">100%</span> Prilagođena rješenja</h3>
-                    <p>Nema gotovih templatea – svako rješenje prilagođeno je vašim jedinstvenim potrebama.</p>
-                </div>
-                <div class="diff-item">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3><span class="highlight">24/7</span> Podrška</h3>
-                    <p>Kontinuirano praćenje i optimizacija kako bi sustav radio besprijekorno.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- AI savjetnik Section -->
-    <section class="section ai-savjetnik-section">
-        <div class="container">
-            <h2 class="reveal">AI savjetnik</h2>
-            <p class="section-intro reveal">U par pitanja predlažemo gdje AI ima najviše smisla u tvom biznisu – bez obveze.</p>
-            <ul class="ai-savjetnik-bullets reveal">
-                <li>Odaberi cilj (leadovi, prodaja, podrška ili agencija) i industriju</li>
-                <li>Dobij kratku preporuku prilagođenu tvom odgovoru</li>
-                <li>Ostavi kontakt putem forme ispod ako želiš besplatnu AI analizu</li>
-            </ul>
-            <div class="ai-savjetnik-cta-wrap">
-                <button type="button" class="btn-primary reveal" data-open-chat="1" data-chat-flow="ai_savjetnik">Pokreni AI savjetnika</button>
-            </div>
-        </div>
-    </section>
+                <ul class="services-list" data-audience-show="biz">
+                    <li>
+                        <h3>Web stranice i webshop</h3>
+                        <p>Brza, pregledna stranica koja radi na mobitelu i dovodi upite, a ne samo stoji na internetu.</p>
+                        <p class="examples"><strong>Primjeri:</strong> stranica obrta, apartmana ili salona, WooCommerce webshop, landing za kampanju.</p>
+                    </li>
+                    <li>
+                        <h3>AI chatbot i asistent</h3>
+                        <p>Odgovara na česta pitanja, prima rezervacije i upite 0–24 te vam šalje sažetak.</p>
+                        <p class="examples"><strong>Primjeri:</strong> rezervacije termina, upiti za nekretnine, asistent na webu ili WhatsAppu.</p>
+                    </li>
+                    <li>
+                        <h3>Automatizacija posla</h3>
+                        <p>Ponavljajuće zadatke prepuštate sustavu: podsjetnike, izvještaje, unos podataka i follow-up.</p>
+                        <p class="examples"><strong>Primjeri:</strong> upiti iz forme ravno u tablicu ili CRM, automatski podsjetnici klijentima.</p>
+                    </li>
+                    <li>
+                        <h3>Aplikacije po mjeri</h3>
+                        <p>Interni alati i web aplikacije za točno vaš način rada, bez plaćanja funkcija koje ne koristite.</p>
+                        <p class="examples"><strong>Primjeri:</strong> evidencija narudžbi, nadzorna ploča, portal za klijente.</p>
+                    </li>
+                    <li>
+                        <h3>Savjetovanje i edukacija</h3>
+                        <p>Gdje vam AI stvarno štedi vrijeme, a gdje nije vrijedan novca. Konkretno, za vaš posao.</p>
+                        <p class="examples"><strong>Primjeri:</strong> pregled procesa, plan uvođenja AI alata, radionica za zaposlenike.</p>
+                    </li>
+                    <li>
+                        <h3>Održavanje</h3>
+                        <p>Ažuriranja, sigurnosne kopije, hosting i manje izmjene, da stranica i sustavi rade i iduće godine.</p>
+                        <p class="examples"><strong>Primjeri:</strong> mjesečni paket održavanja, preuzimanje postojeće stranice.</p>
+                    </li>
+                </ul>
 
-    <!-- CTA Section -->
-    <section class="section cta">
-        <div class="container">
-            <h2 class="reveal">Spremni transformirati svoje poslovanje uz AI?</h2>
-            <p class="reveal">Dogovorite besplatnu konzultaciju i otkrijte kako MangAI može pomoći vašem timu.</p>
-            <a href="#contact" class="btn-primary reveal">Rezerviraj konzultacije</a>
-        </div>
-    </section>
+                <ul class="services-list" data-audience-show="gov">
+                    <li>
+                        <h3>Web stranice dostupne svima</h3>
+                        <p>Izrada i redizajn službenih stranica u skladu sa Zakonom o pristupačnosti mrežnih stranica (WCAG 2.1 AA).</p>
+                        <p class="examples"><strong>Uključuje:</strong> izjavu o pristupačnosti, CMS za djelatnike, obuku za uređivanje.</p>
+                    </li>
+                    <li>
+                        <h3>Održavanje i hosting</h3>
+                        <p>Redovita ažuriranja, sigurnosne nadogradnje, kopije i nadzor dostupnosti postojećih stranica i aplikacija.</p>
+                        <p class="examples"><strong>Uključuje:</strong> godišnji ugovor o održavanju, preuzimanje od prethodnog izvođača.</p>
+                    </li>
+                    <li>
+                        <h3>E-usluge za građane</h3>
+                        <p>Digitalni obrasci, prijave i zahtjevi koji stižu ravno u ured, umjesto papira i skeniranja.</p>
+                        <p class="examples"><strong>Uključuje:</strong> prijave na natječaje i programe, komunalne prijave, rezervacije prostora.</p>
+                    </li>
+                    <li>
+                        <h3>AI asistent za građane i turiste</h3>
+                        <p>Odgovara na česta pitanja na temelju vaših službenih dokumenata, na hrvatskom i stranim jezicima.</p>
+                        <p class="examples"><strong>Uključuje:</strong> asistent turističke zajednice, upute za građane, radno vrijeme i kontakti.</p>
+                    </li>
+                    <li>
+                        <h3>Interni alati i automatizacija</h3>
+                        <p>Manje aplikacije i automatizacije koje skraćuju administraciju u uredu.</p>
+                        <p class="examples"><strong>Uključuje:</strong> evidencije, izvještaji, povezivanje postojećih sustava.</p>
+                    </li>
+                    <li>
+                        <h3>Edukacija djelatnika</h3>
+                        <p>Praktične radionice o sigurnom korištenju AI alata u svakodnevnom radu ustanove.</p>
+                        <p class="examples"><strong>Uključuje:</strong> radionicu na lokaciji ili online, pisane upute za djelatnike.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-    <!-- Contact Section (combined: Get in Touch + trust signals + form) -->
-    <section class="section contact contact-cta">
-        <div class="container contact-container">
-            <div class="contact-header reveal">
-                <h2 id="contact">Stupimo u kontakt</h2>
-                <p class="section-intro contact-intro">Odaberite rješenje koje najbolje odgovara vašim poslovnim potrebama i ubrzajte svoju AI transformaciju.</p>
+        <section class="section" id="primjeri">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>Primjeri</h2>
+                    <p>Probajte kako izgleda AI asistent za pojedinu djelatnost. Svaki demo otvara se u novoj kartici.</p>
+                </div>
+                <ul class="demo-list">
+                    <li><a href="/demo/nekretnine/?view=dashboard&amp;tab=razgledi" target="_blank" rel="noopener">
+                        <span class="demo-sector">Nekretnine</span>
+                        <span class="demo-what">Kvalifikacija upita, zakazivanje razgleda i predaja upita agentu.</span>
+                        <span class="demo-open">Otvori demo</span>
+                    </a></li>
+                    <li><a href="/demo/salon/?view=dashboard&amp;tab=rezervacije" target="_blank" rel="noopener">
+                        <span class="demo-sector">Beauty salon</span>
+                        <span class="demo-what">Rezervacije termina, podsjetnici i odgovori o cijenama.</span>
+                        <span class="demo-open">Otvori demo</span>
+                    </a></li>
+                    <li><a href="/demo/ordinacija/?view=dashboard&amp;tab=trijaza" target="_blank" rel="noopener">
+                        <span class="demo-sector">Ordinacija i klinika</span>
+                        <span class="demo-what">Termini, česta pitanja pacijenata i manje propuštenih poziva.</span>
+                        <span class="demo-open">Otvori demo</span>
+                    </a></li>
+                    <li><a href="/demo/odvjetnik/?view=dashboard&amp;tab=cases" target="_blank" rel="noopener">
+                        <span class="demo-sector">Odvjetnički ured</span>
+                        <span class="demo-what">Prikupljanje osnovnih podataka prije konzultacija i zakazivanje.</span>
+                        <span class="demo-open">Otvori demo</span>
+                    </a></li>
+                    <li><a href="/demo/agencija/?view=dashboard&amp;tab=kampanje" target="_blank" rel="noopener">
+                        <span class="demo-sector">Marketinška agencija</span>
+                        <span class="demo-what">Nacrti kampanja, praćenje upita i chatbotovi pod vašim brendom.</span>
+                        <span class="demo-open">Otvori demo</span>
+                    </a></li>
+                </ul>
+                <p class="demo-note">Demo prikazuje osnovni koncept. Prava verzija radi se prema vašim procesima, sustavima i vizualnom identitetu.</p>
             </div>
-            <div class="trust-row reveal">
-                <div class="trust-item">
-                    <span class="trust-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </span>
-                    <span>Brza isporuka (tjedni, ne mjeseci)</span>
+        </section>
+
+        <section class="section" id="kako">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>Kako radim</h2>
+                    <p>Isti postupak za mali obrt i za ustanovu, samo s više ili manje papira.</p>
                 </div>
-                <div class="trust-item">
-                    <span class="trust-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </span>
-                    <span>Privatnost + GDPR svijest</span>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                    </span>
-                    <span>Praktične automatizacije + mjerljivi rezultati</span>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0h.5a2.5 2.5 0 002.5-2.5V3.935M12 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                    </span>
-                    <span>Prilagođeno Hrvatskoj i regiji</span>
-                </div>
+                <ol class="steps">
+                    <li>
+                        <h3>Razgovor</h3>
+                        <p>Pola sata telefonom ili uživo. Opišete što vam treba, ja pitam ono što nedostaje. Besplatno.</p>
+                    </li>
+                    <li>
+                        <h3>Ponuda</h3>
+                        <p>Pisana ponuda s opsegom, cijenom i rokom. Bez skrivenih stavki i nadoplata.</p>
+                    </li>
+                    <li>
+                        <h3>Izrada</h3>
+                        <p>Radim u kratkim koracima i redovito vam pokazujem napredak, pa izmjene stižu na vrijeme.</p>
+                    </li>
+                    <li>
+                        <h3>Predaja i podrška</h3>
+                        <p>Dobivate sustav, upute i pristupne podatke. Održavanje po dogovoru, mjesečno ili po potrebi.</p>
+                    </li>
+                </ol>
             </div>
-            <div class="contact-form-wrapper reveal">
-                <form id="contact-form" class="contact-form" action="https://formsubmit.co/info@mangai.hr" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="MangAi – novi upit s weba">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://mangai.hr/?sent=true#contact">
-                <div class="form-group">
-                    <label for="name">Ime i prezime</label>
-                    <input type="text" id="name" name="name" required>
+        </section>
+
+        <section class="section gov" id="javni-sektor">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>Za javne naručitelje</h2>
+                    <p>MangAI je mali obrt, ali posao predaje kao da ga preuzima revizija. Javljam se na pozive za dostavu ponuda i natječaje u EOJN RH.</p>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="website">Web stranica tvrtke</label>
-                    <input type="url" id="website" name="website">
-                </div>
-                <div class="form-group">
-                    <label>Usluge od interesa</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="services" value="Automatizacija"> Automatizacija &amp; tokovi</label>
-                        <label><input type="checkbox" name="services" value="Brending"> Osobni brend &amp; rast</label>
-                        <label><input type="checkbox" name="services" value="Aplikacije"> Prilagođene aplikacije &amp; SaaS</label>
-                        <label><input type="checkbox" name="services" value="Konzalting"> Konsulting &amp; savjetovanje</label>
+                <div class="gov-grid">
+                    <ul class="commitments">
+                        <li><strong>E-račun</strong><span>Račune izdajem kao e-račune, u skladu s propisima o elektroničkom izdavanju računa.</span></li>
+                        <li><strong>Izvorni kod i prava ostaju vama</strong><span>Predajem kod, dokumentaciju i pristupe, pa sustav može održavati i netko drugi.</span></li>
+                        <li><strong>Pristupačnost</strong><span>Web stranice radim prema WCAG 2.1 AA i Zakonu o pristupačnosti mrežnih stranica.</span></li>
+                        <li><strong>GDPR</strong><span>Ugovor o obradi podataka i hosting u EU kad sustav obrađuje osobne podatke.</span></li>
+                        <li><strong>Na terenu kad treba</strong><span>Sjedište u Pločama. Dubrovačko-neretvanska i Splitsko-dalmatinska županija dostupne su za sastanke uživo.</span></li>
+                    </ul>
+                    <div class="cpv">
+                        <h3>Područja nabave (CPV)</h3>
+                        <p>Usluge koje nudim, prema zajedničkom rječniku javne nabave.</p>
+                        <dl>
+                            <div><dt>72000000</dt><dd>Usluge informacijske tehnologije</dd></div>
+                            <div><dt>72230000</dt><dd>Razvoj programske podrške po mjeri</dd></div>
+                            <div><dt>72413000</dt><dd>Izrada web stranica</dd></div>
+                            <div><dt>72267000</dt><dd>Održavanje programske podrške</dd></div>
+                            <div><dt>72220000</dt><dd>Savjetovanje o sustavima i tehnologiji</dd></div>
+                            <div><dt>80500000</dt><dd>Usluge osposobljavanja</dd></div>
+                        </dl>
+                        <div class="gov-cta">
+                            <p>Pošaljite poziv na dostavu ponude na <a class="inline" href="mailto:marko@mangai.hr">marko@mangai.hr</a>.</p>
+                            <a href="#contact" class="btn btn-primary" data-audience-set="gov">Pošalji upit kao naručitelj</a>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="timeline">Planirani početak projekta</label>
-                    <select id="timeline" name="timeline" required>
-                        <option value="" disabled selected>Odaberi</option>
-                        <option value="Odmah">Odmah</option>
-                        <option value="Unutar 3 mjeseca">Unutar 3 mjeseca</option>
-                        <option value="3-6 mjeseci">3–6 mjeseci</option>
-                        <option value="6+ mjeseci">Više od 6 mjeseci</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="budget">Procijenjeni budžet</label>
-                    <select id="budget" name="budget" required>
-                        <option value="" disabled selected>Odaberi</option>
-                        <option value="manje od 5k">Manje od 5000 €</option>
-                        <option value="5-15k">5000–15000 €</option>
-                        <option value="15-30k">15000–30000 €</option>
-                        <option value="30k+">Preko 30000 €</option>
-                    </select>
-                </div>
-                <div class="form-group full">
-                    <label for="description">Opis projekta</label>
-                    <textarea id="description" name="description" rows="4" placeholder="Opišite vaš projekt..." required></textarea>
-                </div>
-                <div class="form-group full">
-                    <label for="additional">Dodatne informacije</label>
-                    <textarea id="additional" name="additional" rows="3" placeholder="Bilo što dodatno..."></textarea>
-                </div>
-                <button type="submit" class="btn-primary submit-btn">Pošalji zahtjev</button>
-                <p class="form-helper">Odgovaramo unutar 24–48h.</p>
-            </form>
-            <div id="contact-success" class="contact-success" role="status" aria-live="polite" hidden>
-                <span class="contact-success-icon" aria-hidden="true">✓</span>
-                <p class="contact-success-title">Poruka poslana</p>
-                <p class="contact-success-text">
-                    Hvala! Vaša poruka je uspješno poslana.<br>
-                    Netko iz MangAi tima javit će vam se u najkraćem mogućem roku.
-                </p>
             </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-col brand footer-brand">
-                    <a href="/" class="footer-logo">MangAi</a>
-                    <p class="footer-tagline">Najbrži način za implementaciju budućnosti</p>
-                    <div class="footer-dots" aria-hidden="true">
-                        <span class="footer-dot footer-dot-active"></span>
-                        <span class="footer-dot"></span>
-                        <span class="footer-dot"></span>
+        <section class="section" id="pitanja">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>Česta pitanja</h2>
+                </div>
+                <div class="faq">
+                    <details>
+                        <summary>Radite li i s malim obrtima i pojedincima?</summary>
+                        <p>Da. Mali obrti, saloni, iznajmljivači i udruge upravo su oni za koje je MangAI i pokrenut. Nema minimalnog iznosa; dogovorimo opseg koji ima smisla za vaš budžet.</p>
+                    </details>
+                    <details>
+                        <summary>Koliko košta?</summary>
+                        <p>Ovisi o opsegu. Nakon kratkog razgovora dobivate pisanu ponudu s fiksnom cijenom i rokom. Prvi razgovor ne naplaćujem.</p>
+                    </details>
+                    <details>
+                        <summary>Tko radi posao?</summary>
+                        <p>Ja, Marko Škorić. Programiram u modernim web tehnologijama i koristim AI alate da bih radio brže, ali svaku liniju koda i svaki tekst provjeravam prije predaje.</p>
+                    </details>
+                    <details>
+                        <summary>Gdje se nalazite i dolazite li na teren?</summary>
+                        <p>Sjedište obrta je u Pločama. Većinu posla radim na daljinu za cijelu Hrvatsku, a na sastanke uživo dolazim po dogovoru.</p>
+                    </details>
+                    <details>
+                        <summary>Što ako mi nakon predaje nešto zatreba?</summary>
+                        <p>Možete ugovoriti mjesečno održavanje ili javiti kad nešto treba. Budući da dobivate izvorni kod i pristupe, niste vezani samo uz mene.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="wrap contact-grid">
+                <div>
+                    <div class="section-head">
+                        <h2>Javite se</h2>
+                        <p>Napišite ukratko što trebate. Odgovaram unutar jednog do dva radna dana.</p>
+                    </div>
+                    <address class="direct">
+                        <div><span>Telefon</span><a href="tel:+385923557476">+385 92 355 7476</a></div>
+                        <div><span>E-pošta</span><a href="mailto:marko@mangai.hr">marko@mangai.hr</a></div>
+                        <div><span>Sjedište</span><strong>Ploče, Hrvatska</strong></div>
+                    </address>
+                    <div class="advisor">
+                        <p>Niste sigurni što vam treba? AI savjetnik u nekoliko pitanja predloži gdje početi.</p>
+                        <button type="button" class="btn btn-ghost" data-open-chat="1" data-chat-flow="ai_savjetnik">Pokreni AI savjetnika</button>
                     </div>
                 </div>
-                <div class="footer-col services footer-services">
-                    <h3 class="footer-heading">Usluge</h3>
-                    <ul class="footer-list">
-                        <li><a href="#services">AI strategija</a></li>
-                        <li><a href="#services">Prilagođeni razvoj</a></li>
-                        <li><a href="#services">Analitika podataka</a></li>
-                        <li><a href="#services">Automatizacija procesa</a></li>
+
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" class="contact-form" action="https://formsubmit.co/info@mangai.hr" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="MangAI – novi upit s weba">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://mangai.hr/?sent=true#contact">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="form-group">
+                            <label for="name">Ime i prezime</label>
+                            <input type="text" id="name" name="ime" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-pošta</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon <span class="optional">(nije obavezno)</span></label>
+                            <input type="tel" id="phone" name="telefon" autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="who">Tko ste</label>
+                            <select id="who" name="tko_ste" required>
+                                <option value="Obrt ili tvrtka">Obrt ili tvrtka</option>
+                                <option value="Udruga ili ustanova">Udruga ili ustanova</option>
+                                <option value="Javni naručitelj">Javni naručitelj</option>
+                                <option value="Privatna osoba">Privatna osoba</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label for="description">Što trebate?</label>
+                            <textarea id="description" name="opis" rows="5" required placeholder="Npr. nova web stranica za apartmane s rezervacijama ili održavanje postojeće stranice općine."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Okvirni budžet <span class="optional">(nije obavezno)</span></label>
+                            <select id="budget" name="budzet">
+                                <option value="Još ne znam">Još ne znam</option>
+                                <option value="Do 1.000 €">Do 1.000 €</option>
+                                <option value="1.000–5.000 €">1.000–5.000 €</option>
+                                <option value="5.000–15.000 €">5.000–15.000 €</option>
+                                <option value="Više od 15.000 €">Više od 15.000 €</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">Kada želite krenuti <span class="optional">(nije obavezno)</span></label>
+                            <select id="timeline" name="pocetak">
+                                <option value="Što prije">Što prije</option>
+                                <option value="Unutar 3 mjeseca">Unutar 3 mjeseca</option>
+                                <option value="Kasnije">Kasnije</option>
+                            </select>
+                        </div>
+                        <p class="form-consent">Podatke koristim samo za odgovor na vaš upit. Više u <a href="/privacy_hr.html">pravilima privatnosti</a>.</p>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Pošalji upit</button>
+                            <span class="form-helper">ili nazovite 092 355 7476</span>
+                        </div>
+                    </form>
+                    <div id="contact-success" class="contact-success" role="status" aria-live="polite" hidden>
+                        <h3>Upit je poslan</h3>
+                        <p>Hvala. Javit ću vam se unutar jednog do dva radna dana.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="logo">Mang<span>AI</span></a>
+                    <p class="footer-tag">Web stranice, aplikacije i AI rješenja za obrte, tvrtke, udruge i javne naručitelje.</p>
+                </div>
+                <div>
+                    <h2>Podaci o obrtu</h2>
+                    <address>
+                        MANGAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić<br>
+                        Vukovarska 5, 20340 Ploče<br>
+                        <!-- Nakon rješenja o upisu dodati: OIB, MBO, IBAN i banku, te napomenu "Obrt nije u sustavu PDV-a." -->
+                        <a href="tel:+385923557476">+385 92 355 7476</a><br>
+                        <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
+                    </address>
+                </div>
+                <div>
+                    <h2>Stranice</h2>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/privacy_hr.html">Pravila privatnosti</a></li>
+                        <li><a href="/terms_hr.html">Uvjeti korištenja</a></li>
+                        <li><a href="/en/" hreflang="en" lang="en">English</a></li>
                     </ul>
                 </div>
-                <div class="footer-col contact footer-contact">
-                    <h3 class="footer-heading">Kontakt</h3>
-                    <p class="footer-email"><a href="mailto:marko@mangai.hr">marko@mangai.hr</a></p>
-                </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-copy">&copy; <span id="year"></span> MangAi. Sva prava pridržana.</p>
-                <div class="footer-legal">
-                    <a href="privacy_hr.html">Pravila privatnosti</a>
-                    <a href="terms_hr.html">Uvjeti korištenja</a>
-                </div>
-            </div>
+            <p class="footer-bottom">&copy; <span id="year">2026</span> MangAI</p>
         </div>
     </footer>
 
     <div id="mangai-chat-root"></div>
 
     <script>
-        // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Contact form: show success when returning from FormSubmit (?sent=true)
-        (function() {
+        // Prekidač publike: obrt/tvrtka ili javni naručitelj (?za=javni otvara javni prikaz)
+        (function () {
+            var body = document.body;
+            var buttons = document.querySelectorAll('.audience-switch [data-audience-set]');
+            var who = document.getElementById('who');
+
+            function setAudience(value) {
+                body.setAttribute('data-audience', value);
+                buttons.forEach(function (b) {
+                    b.setAttribute('aria-pressed', b.getAttribute('data-audience-set') === value ? 'true' : 'false');
+                });
+                if (who) who.value = value === 'gov' ? 'Javni naručitelj' : 'Obrt ili tvrtka';
+            }
+
+            document.querySelectorAll('[data-audience-set]').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    setAudience(el.getAttribute('data-audience-set'));
+                });
+            });
+
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('za') === 'javni') setAudience('gov');
+        })();
+
+        // Kontakt forma: poruka o uspjehu nakon povratka s FormSubmita (?sent=true)
+        (function () {
             var form = document.getElementById('contact-form');
             var success = document.getElementById('contact-success');
             var submitBtn = form && form.querySelector('button[type="submit"]');
             var url = new URL(window.location.href);
-            // Always hide the success block and show the form by default
-            if (success && form) {
-                success.hidden = true;
-                form.hidden = false;
-            }
             if (url.searchParams.get('sent') === 'true' && form && success) {
                 form.hidden = true;
                 success.hidden = false;
@@ -479,25 +486,14 @@
                 history.replaceState({}, document.title, url.pathname + url.search + url.hash);
             }
             if (form && submitBtn) {
-                form.addEventListener('submit', function() {
+                form.addEventListener('submit', function () {
                     submitBtn.disabled = true;
                     submitBtn.textContent = 'Šaljem…';
                 });
             }
         })();
     </script>
-    <script src="/demo/shared/i18n.js"></script>
-    <script>
-        (function() {
-            var el = document.getElementById('homepage-demo-disclaimer');
-            if (el && typeof DemoI18n !== 'undefined') {
-                var lang = document.documentElement.lang === 'en' ? 'en' : 'hr';
-                el.textContent = DemoI18n.tCommon('demoDisclaimer', lang) || '';
-            }
-        })();
-    </script>
     <script src="/nav.js"></script>
-    <script src="/reveal.js"></script>
-    <script src="./chat-widget.js" defer></script>
+    <script src="/chat-widget.js" defer></script>
 </body>
 </html>
