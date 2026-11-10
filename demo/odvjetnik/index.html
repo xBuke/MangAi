@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex,follow">
-  <title>AI demo – Odvjetnički ured | MangAi</title>
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../shared/demo.css?v=2026-02-01">
-  <link rel="stylesheet" href="law.css?v=2026-02-01">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,follow">
+    <title>AI asistent za odvjetničke urede – demo | MangAI</title>
+    <meta name="theme-color" content="#ECEFEA">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/demo/demo-app.css">
 </head>
-<body class="demo-root law-root" data-vertical="odvjetnik">
-  <div id="law-landing-wrap">
-    <div id="law-landing" class="demo-landing"></div>
-  </div>
-  <div id="law-dashboard" class="demo-dashboard">
-    <header id="law-topbar" class="demo-topbar"></header>
-    <div class="demo-body">
-      <aside class="demo-sidebar">
-        <nav id="law-sidebar-nav" class="demo-sidebar-nav law-sidebar-nav"></nav>
-      </aside>
-      <main id="law-content" class="demo-content"></main>
-    </div>
-  </div>
-  <footer id="law-footer" class="demo-footer-note"></footer>
-  <script src="lawData.js?v=2026-02-01"></script>
-  <script src="law.js?v=2026-02-01"></script>
+<body>
+    <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+    <div id="demo-root" data-vertical="odvjetnik"></div>
+    <script src="/demo/odvjetnik/data.js"></script>
+    <script src="/demo/demo-app.js"></script>
 </body>
 </html>
