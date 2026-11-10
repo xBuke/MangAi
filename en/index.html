@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MangAI | Websites, apps and AI solutions from Croatia</title>
-    <meta name="description" content="MangAI is a software development and IT consulting business based in Ploče, Croatia. Websites, apps, AI chatbots and automation for small businesses, associations and public bodies.">
+    <title>MangAI | Website, app and AI chatbot development – Croatia</title>
+    <meta name="description" content="Websites, online shops, custom apps and AI chatbots for small businesses, associations and public bodies. Based in Ploče, Croatia, working remotely across Croatia and the EU.">
     <link rel="canonical" href="https://mangai.hr/en/">
     <meta name="robots" content="index,follow">
     <meta name="theme-color" content="#ECEFEA">
@@ -16,6 +16,7 @@
     <meta property="og:image" content="https://mangai.hr/assets/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MangAI – websites, apps and AI for your business. Based in Ploče, Croatia.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://mangai.hr/assets/og.png">
     <meta name="twitter:title" content="MangAI | Websites, apps and AI for your business">
@@ -25,9 +26,9 @@
     <link rel="alternate" hreflang="x-default" href="https://mangai.hr/">
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/fonts/fonts.css">
     <link rel="stylesheet" href="/chat-widget.css">
     <link rel="stylesheet" href="/home.css">
     <script type="application/ld+json">
@@ -51,9 +52,73 @@
         "addressLocality": "Ploče",
         "addressCountry": "HR"
       },
-      "areaServed": { "@type": "Country", "name": "Croatia" },
+      "areaServed": [
+        { "@type": "Country", "name": "Croatia" },
+        { "@type": "Place", "name": "European Union" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website and online shop development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI chatbot and assistant" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business process automation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom app development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website maintenance and hosting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accessible websites for the public sector (WCAG 2.1 AA)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI consulting and training" } }
+        ]
+      },
       "knowsLanguage": ["hr", "en"]
     }
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you work with small businesses and individuals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Small trades, salons, holiday rentals and associations are exactly who MangAI was started for. There's no minimum budget; we agree on a scope that makes sense for yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the scope. After a short call you get a written quote with a fixed price and deadline. The first call is free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who does the work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I do, Marko Škorić. I build with modern web technologies and use AI tools to work faster, but I review every line of code and every text before handover."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are you based, and do you meet in person?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The business is registered in Ploče, Croatia. Most work is done remotely, and I meet in person by arrangement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I need something after handover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can arrange monthly maintenance or get in touch when something comes up. Since you receive the source code and access, you're never tied to me alone."
+      }
+    }
+  ]
+}
     </script>
 </head>
 <body data-audience="biz">

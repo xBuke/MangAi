@@ -3,113 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pravila privatnosti – MangAi</title>
-    <meta name="description" content="Pravila privatnosti MangAi-a. Kako prikupljamo, koristimo i štitimo vaše osobne podatke.">
+    <title>Pravila privatnosti | MangAI</title>
+    <meta name="description" content="Koje osobne podatke MangAI prikuplja, zašto, koliko dugo i koja su vaša prava.">
+    <link rel="canonical" href="https://mangai.hr/privacy_hr.html">
+    <link rel="alternate" hreflang="hr" href="https://mangai.hr/privacy_hr.html">
+    <link rel="alternate" hreflang="en" href="https://mangai.hr/privacy.html">
+    <meta name="theme-color" content="#ECEFEA">
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="/home.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="nav-bar">
-                <a href="/" class="logo">MangAi</a>
-                <button type="button" class="nav-toggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="nav-menu">
-                    <span class="nav-toggle-icon"></span>
-                </button>
-                <div class="nav-menu-panel" id="nav-menu">
-                    <nav class="nav">
-                        <a href="/#services">Usluge</a>
-                        <a href="/#approach">Pristup</a>
-                        <a href="/#difference">Razlika</a>
-                        <a href="/#contact">Stupimo u kontakt</a>
-                        <a href="/blog/">Blog</a>
-                        <span class="lang-switcher">
-                            <span aria-current="page">HR</span>
-                            <span class="lang-sep" aria-hidden="true">|</span>
-                            <a href="/en/">EN</a>
-                        </span>
-                    </nav>
-                    <a href="/#contact" class="btn-nav-cta">
-                        <span>Rezerviraj konzultacije</span>
-                        <svg class="btn-nav-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                </div>
+    <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+    <header class="site-header">
+        <div class="wrap">
+            <a href="/" class="logo" aria-label="MangAI, početna">Mang<span>AI</span></a>
+            <button type="button" class="nav-toggle" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav-toggle-icon"></span>
+            </button>
+            <div class="nav-menu-panel" id="nav-menu">
+                <nav class="nav" aria-label="Glavni izbornik">
+                    <a href="/#usluge">Usluge</a>
+                    <a href="/#primjeri">Primjeri</a>
+                    <a href="/#javni-sektor">Javni sektor</a>
+                    <a href="/blog/">Blog</a>
+                    <span class="lang-switcher"><span aria-current="page">HR</span><span aria-hidden="true">/</span><a href="/privacy.html" hreflang="en" lang="en">EN</a></span>
+                </nav>
+                <a href="/#contact" class="btn btn-primary nav-cta">Pošalji upit</a>
             </div>
         </div>
     </header>
     <div class="nav-menu-backdrop" id="nav-menu-backdrop" aria-hidden="true"></div>
-
-    <main class="section legal-page">
-        <div class="container legal-content">
+    <main id="main" class="legal">
+        <div class="wrap">
             <h1>Pravila privatnosti</h1>
-            <p><strong>Zadnje ažuriranje: 26. rujna 2025.</strong></p>
-            <h2>1. Podaci koje prikupljamo</h2>
-            <p>Prikupljamo osobne podatke koje nam dostavljate, uključujući:</p>
+            <p class="updated">Vrijede od 10. studenoga 2026.</p>
+
+            <p>Ova pravila objašnjavaju koje osobne podatke prikupljam kad koristite stranicu mangai.hr ili mi se javite, zašto ih koristim i koja prava imate. Pišem ih jednostavno jer MangAI vodi jedna osoba i obrađuje malo podataka.</p>
+
+            <h2>Tko je voditelj obrade</h2>
+            <address>
+                MANGAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić<br>
+                Vukovarska 5, 20340 Ploče, Hrvatska<br>
+                <!-- Nakon rješenja dodati: OIB i MBO -->
+                E-pošta: <a href="mailto:marko@mangai.hr">marko@mangai.hr</a><br>
+                Telefon: <a href="tel:+385923557476">+385 92 355 7476</a>
+            </address>
+
+            <h2>Koje podatke prikupljam i zašto</h2>
+            <table>
+                <thead><tr><th>Kada</th><th>Podaci</th><th>Svrha i pravna osnova</th></tr></thead>
+                <tbody>
+                    <tr><td>Kontakt forma i savjetnik na stranici</td><td>Ime i prezime, e-pošta, telefon (ako ga upišete), tko ste i opis upita</td><td>Odgovor na upit i priprema ponude, na vaš zahtjev prije sklapanja ugovora (čl. 6. st. 1. t. b) GDPR-a)</td></tr>
+                    <tr><td>E-pošta i telefon</td><td>Podaci koje sami pošaljete</td><td>Odgovor na upit i poslovna komunikacija (čl. 6. st. 1. t. b) i f) GDPR-a)</td></tr>
+                    <tr><td>Suradnja i računi</td><td>Podaci potrebni za ugovor i račun</td><td>Izvršenje ugovora i zakonske obveze, npr. čuvanje računa (čl. 6. st. 1. t. b) i c) GDPR-a)</td></tr>
+                    <tr><td>Posjet stranici</td><td>Tehnički podaci poslužitelja, npr. IP adresa i vrsta preglednika</td><td>Sigurnost i ispravan rad stranice, legitimni interes (čl. 6. st. 1. t. f) GDPR-a)</td></tr>
+                </tbody>
+            </table>
+            <p>Ne šaljem marketinške poruke bez vašeg izričitog pristanka i ne prodajem podatke nikome.</p>
+
+            <h2>Kolačići i analitika</h2>
+            <p>Stranica ne koristi kolačiće za praćenje, oglašavanje ni analitiku posjeta. Demo primjeri u pregledniku pamte odabrani jezik i karticu (lokalna pohrana preglednika); ti podaci ostaju na vašem uređaju i ne šalju se meni.</p>
+
+            <h2>Tko još obrađuje podatke</h2>
+            <p>Za rad stranice i komunikacije koristim vanjske pružatelje usluga, koji podatke obrađuju samo u moje ime:</p>
             <ul>
-                <li>Podatke koje navodite prilikom ispunjavanja obrazaca na našoj stranici.</li>
-                <li>Podatke koje navodite prilikom prijave na newsletter ili slanja e-pošte.</li>
-                <li>Podatke koje navodite sudjelovanjem u našoj zajednici ili forumima.</li>
+                <li><strong>Vercel Inc.</strong> – hosting stranice (poslužitelji mogu biti izvan EU; prijenos se temelji na Vercelovom ugovoru o obradi podataka sa standardnim ugovornim klauzulama EU).</li>
+                <li><strong>FormSubmit (formsubmit.co)</strong> – dostava poruka iz kontakt forme i savjetnika na moju e-poštu.</li>
+                <li><strong>Pružatelj usluge e-pošte</strong> za adrese na domeni mangai.hr.</li>
+                <li><strong>Google Fonts</strong> – samo na stranicama bloga, koje fontove učitavaju s Googleovih poslužitelja, zbog čega Google vidi vašu IP adresu.</li>
             </ul>
-            <h2>2. Kako koristimo vaše podatke</h2>
-            <p>Prikupljene podatke možemo koristiti kako bismo:</p>
+
+            <h2>Koliko dugo čuvam podatke</h2>
             <ul>
-                <li>Pružili i poboljšali naše usluge savjetovanja i automatizacije.</li>
-                <li>Odgovorili na vaše upite i zahtjeve.</li>
-                <li>Slali relevantne obavijesti i marketinške poruke (uz vaš pristanak).</li>
-                <li>Analizirali korištenje stranice radi poboljšanja korisničkog iskustva.</li>
+                <li>Upite koji nisu doveli do suradnje: do dvije godine od zadnjeg kontakta, a zatim ih brišem.</li>
+                <li>Ugovore, račune i povezanu dokumentaciju: koliko propisuju porezni i računovodstveni propisi.</li>
+                <li>Tehničke zapise poslužitelja: koliko ih čuva pružatelj hostinga, obično kratko.</li>
             </ul>
-            <h2>3. Dijeljenje informacija</h2>
-            <p>Ne prodajemo niti razmjenjujemo vaše osobne podatke. Podatke možemo podijeliti s pružateljima usluga koji nam pomažu u radu i s nadležnim tijelima kada to zahtijeva zakon.</p>
-            <h2>4. Sigurnost podataka</h2>
-            <p>Primjenjujemo odgovarajuće mjere sigurnosti kako bismo zaštitili vaše osobne podatke od neovlaštenog pristupa, otkrivanja, izmjene ili uništenja.</p>
-            <h2>5. Vaša prava</h2>
-            <p>Imate pravo:</p>
-            <ul>
-                <li>Pristupa svojim osobnim podacima.</li>
-                <li>Ispravka netočnih podataka.</li>
-                <li>Brisanja vaših podataka.</li>
-                <li>Odustati od marketinških komunikacija u bilo kojem trenutku.</li>
-            </ul>
-            <h2>6. Kontakt</h2>
-            <p>Ako imate pitanja o ovim Pravilima privatnosti, obratite nam se na <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>.</p>
+
+            <h2>Vaša prava</h2>
+            <p>Imate pravo zatražiti pristup svojim podacima, ispravak, brisanje i ograničenje obrade, prenosivost podataka te uložiti prigovor na obradu koja se temelji na legitimnom interesu. Zahtjev pošaljite na <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>; odgovaram najkasnije u roku od mjesec dana.</p>
+            <p>Ako smatrate da su vaši podaci obrađeni protivno propisima, možete podnijeti pritužbu Agenciji za zaštitu osobnih podataka (<a href="https://azop.hr" rel="noopener">azop.hr</a>).</p>
+
+            <h2>Podaci koje obrađujem za klijente</h2>
+            <p>Kad za klijenta izrađujem ili održavam sustav koji obrađuje osobne podatke njegovih korisnika (npr. obrasce za građane ili AI asistenta), voditelj obrade je klijent, a ja sam izvršitelj obrade. Taj odnos uređujemo zasebnim ugovorom o obradi podataka.</p>
+
+            <h2>Izmjene</h2>
+            <p>Ova pravila mogu se mijenjati kad se promijeni način rada stranice ili propisi. Datum na vrhu pokazuje zadnju izmjenu.</p>
         </div>
     </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-col brand footer-brand">
-                    <a href="/" class="footer-logo">MangAi</a>
-                    <p class="footer-tagline">Najbrži način za implementaciju budućnosti</p>
-                    <div class="footer-dots" aria-hidden="true">
-                        <span class="footer-dot footer-dot-active"></span>
-                        <span class="footer-dot"></span>
-                        <span class="footer-dot"></span>
-                    </div>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="logo">Mang<span>AI</span></a>
+                    <p class="footer-tag">Web stranice, aplikacije i AI rješenja za obrte, tvrtke, udruge i javne naručitelje.</p>
                 </div>
-                <div class="footer-col services footer-services">
-                    <h3 class="footer-heading">Usluge</h3>
-                    <ul class="footer-list">
-                        <li><a href="/#services">AI strategija</a></li>
-                        <li><a href="/#services">Prilagođeni razvoj</a></li>
-                        <li><a href="/#services">Analitika podataka</a></li>
-                        <li><a href="/#services">Automatizacija procesa</a></li>
+                <div>
+                    <h2>Podaci o obrtu</h2>
+                    <address>
+                        MANGAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić<br>
+                        Vukovarska 5, 20340 Ploče<br>
+                        <a href="tel:+385923557476">+385 92 355 7476</a><br>
+                        <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
+                    </address>
+                </div>
+                <div>
+                    <h2>Stranice</h2>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/privacy_hr.html">Pravila privatnosti</a></li>
+                        <li><a href="/terms_hr.html">Uvjeti korištenja</a></li>
+                        <li><a href="/en/" hreflang="en" lang="en">English</a></li>
                     </ul>
                 </div>
-                <div class="footer-col contact footer-contact">
-                    <h3 class="footer-heading">Kontakt</h3>
-                    <p class="footer-email"><a href="mailto:marko@mangai.hr">marko@mangai.hr</a></p>
-                </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-copy">&copy; <span id="year"></span> MangAi. Sva prava pridržana.</p>
-                <div class="footer-legal">
-                    <a href="/privacy_hr.html">Pravila privatnosti</a>
-                    <a href="/terms_hr.html">Uvjeti korištenja</a>
-                </div>
-            </div>
+            <p class="footer-bottom">&copy; <span id="year">2026</span> MangAI</p>
         </div>
     </footer>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>

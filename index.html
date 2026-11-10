@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MangAI | Web stranice, aplikacije i AI rješenja – obrt iz Ploča</title>
-    <meta name="description" content="MangAI je obrt za računalno programiranje i savjetovanje iz Ploča. Web stranice, aplikacije, AI chatbotovi i automatizacija za obrte, tvrtke, udruge i javne naručitelje u cijeloj Hrvatskoj.">
+    <title>MangAI | Izrada web stranica, aplikacija i AI chatbotova – Ploče, Dalmacija</title>
+    <meta name="description" content="Izrada web stranica, webshopova, aplikacija i AI chatbotova za obrte, tvrtke, udruge i javne naručitelje. Obrt iz Ploča, radim za cijelu Hrvatsku. Pisana ponuda s fiksnom cijenom.">
     <link rel="canonical" href="https://mangai.hr/">
     <meta name="robots" content="index,follow">
     <meta name="theme-color" content="#ECEFEA">
@@ -16,6 +16,7 @@
     <meta property="og:image" content="https://mangai.hr/assets/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MangAI – web, aplikacije i AI za vaš posao. Obrt iz Ploča.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://mangai.hr/assets/og.png">
     <meta name="twitter:title" content="MangAI | Web, aplikacije i AI za vaš posao">
@@ -25,9 +26,9 @@
     <link rel="alternate" hreflang="x-default" href="https://mangai.hr/">
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/fonts/fonts.css">
     <link rel="stylesheet" href="/chat-widget.css">
     <link rel="stylesheet" href="/home.css">
     <script type="application/ld+json">
@@ -52,9 +53,74 @@
         "addressRegion": "Dubrovačko-neretvanska županija",
         "addressCountry": "HR"
       },
-      "areaServed": { "@type": "Country", "name": "Hrvatska" },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Dubrovačko-neretvanska županija" },
+        { "@type": "AdministrativeArea", "name": "Splitsko-dalmatinska županija" },
+        { "@type": "Country", "name": "Hrvatska" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Usluge",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Izrada web stranica i webshopa" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI chatbot i asistent" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatizacija poslovnih procesa" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Izrada aplikacija po mjeri" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Održavanje web stranica i hosting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pristupačne web stranice za javni sektor (WCAG 2.1 AA)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Savjetovanje i edukacija o AI alatima" } }
+        ]
+      },
       "knowsLanguage": ["hr", "en"]
     }
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Radite li i s malim obrtima i pojedincima?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da. Mali obrti, saloni, iznajmljivači i udruge upravo su oni za koje je MangAI i pokrenut. Nema minimalnog iznosa; dogovorimo opseg koji ima smisla za vaš budžet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Koliko košta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ovisi o opsegu. Nakon kratkog razgovora dobivate pisanu ponudu s fiksnom cijenom i rokom. Prvi razgovor ne naplaćujem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tko radi posao?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, Marko Škorić. Programiram u modernim web tehnologijama i koristim AI alate da bih radio brže, ali svaku liniju koda i svaki tekst provjeravam prije predaje."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gdje se nalazite i dolazite li na teren?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sjedište obrta je u Pločama. Većinu posla radim na daljinu za cijelu Hrvatsku, a na sastanke uživo dolazim po dogovoru."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Što ako mi nakon predaje nešto zatreba?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Možete ugovoriti mjesečno održavanje ili javiti kad nešto treba. Budući da dobivate izvorni kod i pristupe, niste vezani samo uz mene."
+      }
+    }
+  ]
+}
     </script>
 </head>
 <body data-audience="biz">
@@ -135,7 +201,7 @@
 
                 <ul class="services-list" data-audience-show="biz">
                     <li>
-                        <h3>Web stranice i webshop</h3>
+                        <h3>Izrada web stranica i webshopa</h3>
                         <p>Brza, pregledna stranica koja radi na mobitelu i dovodi upite, a ne samo stoji na internetu.</p>
                         <p class="examples"><strong>Primjeri:</strong> stranica obrta, apartmana ili salona, WooCommerce webshop, landing za kampanju.</p>
                     </li>
