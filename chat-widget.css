@@ -1,381 +1,292 @@
-/* ========== MangAI Chat Widget ========== */
+/* MangAI savjetnik – svijetli stil usklađen s početnom.
+   Selektori su pod #mangai-chat-root da nadjačaju stare stilove iz style.css (blog). */
 #mangai-chat-root {
+  --c-stone: #ECEFEA;
+  --c-paper: #F8F9F6;
+  --c-ink: #0F2B27;
+  --c-ink-soft: #4A5E59;
+  --c-reed: #2F6B4F;
+  --c-mandarin: #EE7A12;
+  --c-mandarin-deep: #C9620A;
+  --c-line: #CBD5CF;
+
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+  font-family: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--c-ink);
+}
+
+#mangai-chat-root *,
+#mangai-chat-root *::before,
+#mangai-chat-root *::after { box-sizing: border-box; }
+
+#mangai-chat-root :focus-visible {
+  outline: 3px solid var(--c-mandarin);
+  outline-offset: 2px;
+}
+
+/* Gumb za otvaranje */
+#mangai-chat-root .mangai-chat-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  height: 52px;
+  padding: 0 20px 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--c-ink);
+  color: #fff;
+  font: 600 15px/1 'Public Sans', system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 12px 28px -12px rgba(15, 43, 39, 0.65);
+  transition: background-color .15s ease, transform .15s ease;
+}
+#mangai-chat-root .mangai-chat-launcher:hover { background: #18403A; transform: none; box-shadow: 0 12px 28px -12px rgba(15, 43, 39, 0.75); }
+#mangai-chat-root .mangai-chat-launcher svg { flex-shrink: 0; }
+body.mangai-chat-open #mangai-chat-root .mangai-chat-launcher { display: none; }
+
+/* Prozor */
+#mangai-chat-root .mangai-chat-panel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  height: min(620px, calc(100vh - 40px));
+  display: flex;
+  flex-direction: column;
+  background: var(--c-paper);
+  border: 1px solid var(--c-line);
+  border-radius: 16px;
+  box-shadow: 0 28px 60px -24px rgba(15, 43, 39, 0.45);
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+#mangai-chat-root .mangai-chat-panel[hidden] { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  #mangai-chat-root .mangai-chat-panel:not([hidden]) { animation: mangai-chat-in .2s ease-out both; }
+  @keyframes mangai-chat-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+#mangai-chat-root .mangai-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 12px 14px 18px;
+  background: var(--c-ink);
+  color: #fff;
+  border: 0;
+}
+#mangai-chat-root .mangai-chat-heading { flex: 1; min-width: 0; }
+#mangai-chat-root .mangai-chat-title {
+  margin: 0;
+  font-family: 'Bricolage Grotesque', 'Public Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #fff;
+}
+#mangai-chat-root .mangai-chat-subtitle {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #C5D3CC;
+}
+#mangai-chat-root .mangai-chat-restart {
+  border: 1px solid rgba(255,255,255,.3);
+  background: transparent;
+  color: #fff;
+  font: 500 13px/1 'Public Sans', system-ui, sans-serif;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+#mangai-chat-root .mangai-chat-restart:hover { background: rgba(255,255,255,.1); }
+#mangai-chat-root .mangai-chat-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+}
+#mangai-chat-root .mangai-chat-close:hover { background: rgba(255,255,255,.12); }
+
+/* Poruke */
+#mangai-chat-root .mangai-chat-messages {
+  flex: 1 1 auto;
+  min-height: 80px;
+  overflow-y: auto;
+  padding: 18px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--c-paper);
+}
+#mangai-chat-root .mangai-chat-msg { display: flex; max-width: 100%; }
+#mangai-chat-root .mangai-chat-msg-user { justify-content: flex-end; }
+#mangai-chat-root .mangai-chat-msg-bubble {
+  max-width: 88%;
+  padding: 10px 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+#mangai-chat-root .mangai-chat-msg-bot .mangai-chat-msg-bubble {
+  background: #fff;
+  color: var(--c-ink);
+  border: 1px solid var(--c-line);
+  border-radius: 4px 14px 14px 14px;
+}
+#mangai-chat-root .mangai-chat-msg-user .mangai-chat-msg-bubble {
+  background: var(--c-ink);
+  color: #fff;
+  border: 0;
+  border-radius: 14px 4px 14px 14px;
+}
+
+/* Odgovori / opcije */
+#mangai-chat-root .mangai-chat-quick-replies {
+  flex: 0 0 auto;
+  max-height: 46%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 16px 14px;
+  background: var(--c-paper);
+}
+#mangai-chat-root .mangai-chat-quick-replies:empty { display: none; }
+#mangai-chat-root .mangai-chat-quick-reply {
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font: 500 14.5px/1.35 'Public Sans', system-ui, sans-serif;
+  cursor: pointer;
+  transition: background-color .12s ease, border-color .12s ease;
+}
+#mangai-chat-root .mangai-chat-quick-replies[data-kind="options"] .mangai-chat-quick-reply {
+  background: #fff;
+  color: var(--c-ink);
+  border: 1.5px solid var(--c-ink);
+}
+#mangai-chat-root .mangai-chat-quick-replies[data-kind="options"] .mangai-chat-quick-reply:hover { background: var(--c-stone); }
+#mangai-chat-root .mangai-chat-quick-replies[data-kind="questions"] {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#mangai-chat-root .mangai-chat-quick-replies[data-kind="questions"] .mangai-chat-quick-reply {
+  width: auto;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  background: transparent;
+  color: var(--c-reed);
+  border: 1px solid var(--c-line);
+}
+#mangai-chat-root .mangai-chat-quick-replies[data-kind="questions"] .mangai-chat-quick-reply:hover { background: #fff; border-color: var(--c-reed); }
+#mangai-chat-root .mangai-chat-quick-reply:disabled { opacity: .5; cursor: default; }
+
+/* Forma */
+#mangai-chat-root .mangai-chat-form {
+  flex: 0 0 auto;
+  max-height: 60%;
+  overflow-y: auto;
+  display: grid;
+  gap: 4px;
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--c-line);
+  background: #fff;
+}
+#mangai-chat-root .mangai-chat-form[hidden] { display: none; }
+#mangai-chat-root .mangai-chat-form label {
+  margin-top: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--c-ink);
+}
+#mangai-chat-root .mangai-chat-optional { font-weight: 400; color: var(--c-ink-soft); }
+#mangai-chat-root .mangai-chat-form input,
+#mangai-chat-root .mangai-chat-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: 400 15px/1.4 'Public Sans', system-ui, sans-serif;
+  color: var(--c-ink);
+  background: #fff;
+  border: 1px solid #A9B8B0;
+  border-radius: 8px;
+}
+#mangai-chat-root .mangai-chat-form textarea { resize: vertical; min-height: 92px; }
+#mangai-chat-root .mangai-chat-form input:focus,
+#mangai-chat-root .mangai-chat-form textarea:focus {
+  outline: 3px solid rgba(238, 122, 18, 0.45);
+  outline-offset: 0;
+  border-color: var(--c-mandarin-deep);
+}
+#mangai-chat-root .mangai-chat-form-error {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  color: #B42318;
+}
+#mangai-chat-root .mangai-chat-form-error[hidden] { display: none; }
+#mangai-chat-root .mangai-chat-submit {
+  margin-top: 10px;
+  min-height: 46px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--c-mandarin);
+  color: var(--c-ink);
+  font: 600 15px/1 'Public Sans', system-ui, sans-serif;
+  cursor: pointer;
+}
+#mangai-chat-root .mangai-chat-submit:hover { background: var(--c-mandarin-deep); color: #fff; }
+
+#mangai-chat-root .mangai-chat-footer {
+  margin: 0;
+  padding: 10px 16px;
+  border-top: 1px solid var(--c-line);
+  background: var(--c-stone);
+  font-size: 13.5px;
+  color: var(--c-ink-soft);
+}
+#mangai-chat-root .mangai-chat-footer a { color: var(--c-reed); font-weight: 600; }
+
+/* Mobitel: cijeli zaslon */
+@media (max-width: 560px) {
+  #mangai-chat-root { right: 14px; bottom: 14px; }
+  #mangai-chat-root .mangai-chat-launcher { height: 48px; padding: 0 16px 0 14px; }
+  body.mangai-chat-open #mangai-chat-root { inset: 0; right: 0; bottom: 0; }
+  #mangai-chat-root .mangai-chat-panel {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 999;
-    font-family: 'Inter', sans-serif;
-}
-
-.mangai-chat-launcher {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #50fa7b 0%, #3dd06b 100%);
-    color: #090d0f;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(80, 250, 123, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.mangai-chat-launcher:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 24px rgba(80, 250, 123, 0.5);
-}
-
-.mangai-chat-launcher-icon {
-    font-size: 1.5rem;
-}
-
-.mangai-chat-panel {
-    position: absolute;
-    bottom: 72px;
-    right: 0;
-    width: 360px;
-    height: 520px;
-    max-height: calc(100vh - 120px);
-    background: #0f1417;
-    border: 1px solid rgba(80, 250, 123, 0.25);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-body.mangai-chat-open .mangai-chat-panel {
-    display: flex;
-}
-
-.mangai-chat-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px;
-    background: rgba(9, 13, 15, 0.95);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
-    flex-shrink: 0;
-}
-
-.mangai-chat-title {
-    font-weight: 600;
-    font-size: 0.9375rem;
-    color: #50fa7b;
-}
-
-.mangai-chat-close {
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: transparent;
-    border: none;
-    color: #94a3b8;
-    font-size: 1.5rem;
-    line-height: 1;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: color 0.2s ease, background 0.2s ease;
-}
-
-.mangai-chat-close:hover {
-    color: #e5e7eb;
-    background: rgba(148, 163, 184, 0.15);
-}
-
-.mangai-chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.mangai-chat-msg {
-    display: flex;
-    max-width: 90%;
-}
-
-.mangai-chat-msg-bot {
-    justify-content: flex-start;
-}
-
-.mangai-chat-msg-user {
-    justify-content: flex-end;
-    margin-left: auto;
-}
-
-.mangai-chat-msg-bubble {
-    padding: 10px 14px;
-    border-radius: 14px;
-    font-size: 0.875rem;
-    line-height: 1.45;
-}
-
-.mangai-chat-msg-bot .mangai-chat-msg-bubble {
-    background: rgba(80, 250, 123, 0.12);
-    color: #e5e7eb;
-    border-bottom-left-radius: 4px;
-}
-
-.mangai-chat-msg-user .mangai-chat-msg-bubble {
-    background: rgba(80, 250, 123, 0.25);
-    color: #090d0f;
-    border-bottom-right-radius: 4px;
-}
-
-.mangai-chat-quick-replies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 12px 16px;
-    border-top: 1px solid rgba(148, 163, 184, 0.12);
-    background: rgba(9, 13, 15, 0.6);
-    flex-shrink: 0;
-}
-
-/* 2x3 grid for ai_savjetnik welcome step (first 6 options), 7th full-width */
-.mangai-chat-quick-replies-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-}
-
-.mangai-chat-quick-replies-grid .mangai-chat-quick-reply {
-    min-width: 0;
-    min-height: 2.5em;
-    text-align: center;
-    word-wrap: break-word;
-}
-
-.mangai-chat-quick-replies-grid .mangai-chat-quick-reply:nth-child(7) {
-    grid-column: 1 / -1;
-}
-
-/* ai_savjetnik goal step only: pill-style grid buttons (no circular tiles) */
-.chat-options-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    align-items: stretch;
-}
-
-.chat-options-grid .chat-option-btn {
+    inset: 0;
     width: 100%;
-    height: auto;
-    aspect-ratio: auto;
-    border-radius: 999px;
-    padding: 12px 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    white-space: normal;
-    line-height: 1.2;
-    min-height: 44px;
+    max-width: none;
+    height: 100%;
+    height: 100dvh;
+    border-radius: 0;
+    border: 0;
+  }
+  #mangai-chat-root .mangai-chat-restart { padding: 8px; }
 }
 
-.chat-options-grid .chat-option-full {
-    grid-column: 1 / -1;
-}
-
-@media (max-width: 380px) {
-    .chat-options-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .chat-options-grid .chat-option-full {
-        grid-column: 1 / -1;
-    }
-}
-
-/* ai_savjetnik goal step only: strong overrides so pills (not circles); data-attr hook */
-[data-options-layout="grid-pills"] {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    align-items: start;
-}
-
-[data-options-layout="grid-pills"] [data-option-role="primary"] {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: auto !important;
-    border-radius: 999px !important;
-    padding: 12px 12px !important;
-    white-space: normal !important;
-    line-height: 1.2 !important;
-    min-height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-}
-
-[data-options-layout="grid-pills"] [data-option-role="full"] {
-    grid-column: 1 / -1;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: auto !important;
-    border-radius: 999px !important;
-}
-
-@media (max-width: 380px) {
-    [data-options-layout="grid-pills"] {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    [data-options-layout="grid-pills"] [data-option-role="full"] {
-        grid-column: 1 / -1;
-    }
-}
-
-.mangai-chat-quick-reply {
-    padding: 8px 12px;
-    font-size: 0.8125rem;
-    color: #e5e7eb;
-    background: rgba(80, 250, 123, 0.15);
-    border: 1px solid rgba(80, 250, 123, 0.3);
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.mangai-chat-quick-reply:hover {
-    background: rgba(80, 250, 123, 0.25);
-    border-color: rgba(80, 250, 123, 0.5);
-}
-
-.mangai-chat-quick-reply:focus {
-    outline: none;
-    border-color: #50fa7b;
-    box-shadow: 0 0 0 2px rgba(80, 250, 123, 0.25);
-}
-
-.mangai-chat-footer {
-    padding: 8px 16px;
-    font-size: 0.75rem;
-    color: #64748b;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.mangai-chat-footer a {
-    color: #50fa7b;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.mangai-chat-footer a:hover {
-    color: #6eff8e;
-    text-decoration: underline;
-}
-
-.mangai-chat-form-wrap {
-    padding: 12px 16px;
-    border-top: 1px solid rgba(148, 163, 184, 0.12);
-    background: rgba(9, 13, 15, 0.8);
-    flex-shrink: 0;
-    overflow-y: auto;
-    max-height: 280px;
-}
-
-.mangai-chat-form-label {
-    display: block;
-    font-size: 0.75rem;
-    color: #94a3b8;
-    margin-bottom: 4px;
-    margin-top: 10px;
-}
-
-.mangai-chat-form-label:first-child {
-    margin-top: 0;
-}
-
-.mangai-chat-required {
-    color: #50fa7b;
-}
-
-.mangai-chat-form-input,
-.mangai-chat-form-textarea,
-.mangai-chat-form-select {
-    width: 100%;
-    padding: 8px 10px;
-    font-size: 0.8125rem;
-    border: 1px solid #37424f;
-    border-radius: 8px;
-    background: #0a0e10;
-    color: #e5e7eb;
-    font-family: inherit;
-    margin-bottom: 4px;
-    box-sizing: border-box;
-}
-
-.mangai-chat-form-textarea {
-    resize: vertical;
-    min-height: 60px;
-}
-
-.mangai-chat-form-input:focus,
-.mangai-chat-form-textarea:focus,
-.mangai-chat-form-select:focus {
-    outline: none;
-    border-color: #50fa7b;
-}
-
-.mangai-chat-form-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 14px;
-    flex-wrap: wrap;
-}
-
-.mangai-chat-form-submit {
-    flex: 1;
-    min-width: 100px;
-    padding: 10px 14px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #090d0f;
-    background: linear-gradient(135deg, #50fa7b 0%, #3dd06b 100%);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.mangai-chat-form-submit:hover {
-    background: linear-gradient(135deg, #6eff8e 0%, #50fa7b 100%);
-}
-
-.mangai-chat-form-submit-marko {
-    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
-    color: #fff;
-}
-
-.mangai-chat-form-submit-marko:hover {
-    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
-}
-
-.mangai-chat-form-error {
-    font-size: 0.75rem;
-    color: #f87171;
-    margin-top: 8px;
-}
-
-@media (max-width: 640px) {
-    .mangai-chat-panel {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        max-height: none;
-        border-radius: 0;
-        border: none;
-    }
+@media (prefers-reduced-motion: reduce) {
+  #mangai-chat-root * { transition: none !important; animation: none !important; }
 }

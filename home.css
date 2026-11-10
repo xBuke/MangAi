@@ -707,15 +707,6 @@ body[data-audience="gov"] [data-audience-show="biz"] { display: none; }
   .footer-grid { grid-template-columns: 1fr; }
 }
 
-/* ---------- Chat widget – usklađivanje s novim stilom ---------- */
-#mangai-chat-root { font-family: var(--font-body); }
-.mangai-chat-launcher {
-  background: var(--ink);
-  color: var(--paper);
-  box-shadow: 0 10px 24px -10px rgba(15, 43, 39, 0.6);
-}
-.mangai-chat-launcher:hover { box-shadow: 0 12px 28px -10px rgba(15, 43, 39, 0.7); }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }

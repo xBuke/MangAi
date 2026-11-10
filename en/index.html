@@ -341,8 +341,8 @@
                         <div><span>Based in</span><strong>Ploče, Croatia</strong></div>
                     </address>
                     <div class="advisor">
-                        <p>Not sure what you need? The AI advisor suggests where to start in a few questions.</p>
-                        <button type="button" class="btn btn-ghost" data-open-chat="1" data-chat-flow="ai_savjetnik">Start the AI advisor</button>
+                        <p>Not sure what you need? The advisor helps you describe it in two questions.</p>
+                        <button type="button" class="btn btn-ghost" data-open-chat="1" data-chat-flow="ai_savjetnik">Start the advisor</button>
                     </div>
                 </div>
 
@@ -447,6 +447,18 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Stari linkovi (npr. s bloga): #services, #approach, #difference -> nove sekcije
+        (function () {
+            var map = {approach:'how',difference:'how',usluge:'services',industries:'examples'};
+            var h = window.location.hash.slice(1);
+            if (map[h]) {
+                var el = document.getElementById(map[h]);
+                history.replaceState(null, '', '#' + map[h]);
+                if (el) el.scrollIntoView();
+            }
+        })();
+
 
         // Audience switch: business or public body (?for=public opens the public view)
         (function () {

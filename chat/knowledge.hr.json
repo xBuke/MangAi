@@ -1,272 +1,176 @@
 {
   "faqs": [
-    { "q": "Kako mi možete pomoći?", "a": "MangAI nudi AI automatizaciju i rješenja za hrvatske tvrtke: automatizacija i radni tokovi, sustavi za osobni brend i rast, prilagođene aplikacije i mikro-SaaS te konzulting i savjetovanje. Radimo s nekretninama, beauty industrijom, marketing agencijama i uslužnim djelatnostima.", "tags": ["pomoc", "usluge", "hrvatska"] },
-    { "q": "Koje AI usluge nudite?", "a": "Nudimo: automatizaciju i radne tokove (CRM, leadovi, društvene mreže, back-office), sustave za osobni brend i rast (AI-asistirano kreiranje sadržaja, branding), prilagođene aplikacije i mikro-SaaS te konzulting i savjetovanje (planovi za AI, auditi, edukacija).", "tags": ["usluge", "ai", "automatizacija"] },
-    { "q": "AI agenti ili chatbot?", "a": "Oboje: AI agenti i chatbotovi su dio naših rješenja. Chatbotovi odgovaraju na upite i trijiraju; agenti mogu zakazivati termine, kvalificirati leadove i raditi 24/7. Odabir ovisi o vašem cilju – leadovi, prodaja, podrška ili rezervacije.", "tags": ["agenti", "chatbot", "ai"] },
-    { "q": "Imam agenciju — što dobijem?", "a": "Za marketing agencije nudimo AI za brže draftove, kampanje i sadržaj; automatizaciju lead gena i follow-upa; te prilagođene sustave za klijente (chatbotovi, rezervacije). Moguće je i white-label rješenje za vaše klijente.", "tags": ["agencija", "marketing", "lead"] },
-    { "q": "Koliko košta?", "a": "Za gotove alate realan je raspon reda 50–200 eura mjesečno za manju tvrtku. Prilagođena rješenja imaju viši početni trošak (npr. nekoliko tisuća eura za setup). Besplatna AI analiza poslovanja pomoću forme ispod.", "tags": ["cijena", "koliko", "budzet"] },
-    { "q": "Što su AI alati?", "a": "AI alati su softverske aplikacije koje koriste umjetnu inteligenciju za obavljanje zadataka koji bi inače zahtijevali ljudski rad – npr. odgovori na upite, priprema dokumenata ili podrška prodaji. Za male tvrtke u Hrvatskoj to u praksi znači alate koji mogu raditi na hrvatskom i prilagoditi se ograničenim resursima.", "tags": ["ai", "alati"] },
-    { "q": "Jesu li AI alati skupi za male tvrtke?", "a": "Mnogi gotovi alati nude besplatne razine ili pakete od nekoliko desetaka eura mjesečno. Za 2–3 alata u maloj firmi realan je raspon reda 50–200 eura mjesečno. Trošak ovisi o opsegu korištenja i broju korisnika.", "tags": ["cijena", "male tvrtke"] },
-    { "q": "Trebam li programera za AI automatizaciju?", "a": "Za jednostavne gotove alate (npr. generiranje teksta, chatbot s predlošcima) obično ne. Za automatizacije i integracije s vašim sustavima često je isplativije angažirati konzultanta ili partnera koji ima iskustvo – uštedite vrijeme i smanjite greške pri postavljanju.", "tags": ["programer", "implementacija"] },
-    { "q": "Koliko traje implementacija?", "a": "Ovisi o složenosti: jedan jasno odabran use case (npr. odgovori na česte upite) može biti u pogonu u nekoliko tjedana. Prilagođena rješenja ili više procesa traju dulje – redovito od nekoliko tjedana do nekoliko mjeseci.", "tags": ["implementacija", "vrijeme"] },
-    { "q": "Je li AI siguran za poslovne podatke?", "a": "Važno je koristiti alate koji drže podatke u EU i poštuju GDPR. Za poslovne i osobne podatke provjerite uvjete davatelja i preferirajte rješenja s jasnom politikom privatnosti i mogućnošću ugovora o obradi podataka.", "tags": ["gdpr", "sigurnost"] },
-    { "q": "Što je AI automatizacija poslovanja?", "a": "AI automatizacija poslovanja znači korištenje softvera s umjetnom inteligencijom za obavljanje ponavljajućih poslovnih zadataka – od odgovora na upite do administracije i praćenja leadova – uz smanjenje ručnog rada i čuvanje ljudske kontrole nad odlukama.", "tags": ["automatizacija", "poslovanje"] },
-    { "q": "Koliko košta automatizacija u Hrvatskoj?", "a": "Za gotove alate realan je raspon reda 50–200 eura mjesečno za manju tvrtku s 1–2 automatizirana procesa. Prilagođena rješenja imaju viši početni trošak (npr. nekoliko tisuća eura za setup). Cijena ovisi o opsegu i složenosti.", "tags": ["cijena", "automatizacija", "hrvatska"] },
-    { "q": "Može li AI pratiti sastanke i pisati bilješke?", "a": "Da. AI asistent može pratiti sastanke, izraditi sažetak, izdvojiti zadatke i poslati follow-up poruku ili bilješke emailom ili u alat koji već koristiš.", "tags": ["sastanci", "bilješke", "ai asistent"] }
+    {
+      "q": "Što sve radite?",
+      "a": "Web stranice i webshopove, AI asistente (chatbotove) za upite i rezervacije, automatizaciju ponavljajućih poslova, aplikacije po mjeri, održavanje postojećih stranica te savjetovanje i edukaciju o AI alatima. Radim za obrte, male tvrtke, udruge i javne naručitelje.",
+      "tags": ["usluge", "sto radite", "ponuda", "pomoc", "pomoći"]
+    },
+    {
+      "q": "Koliko košta?",
+      "a": "Ovisi o opsegu, pa ne dajem cijene napamet. Nakon kratkog razgovora dobivate pisanu ponudu s fiksnom cijenom i rokom, bez skrivenih stavki. Prvi razgovor je besplatan.",
+      "tags": ["cijena", "kosta", "koliko", "budzet", "ponuda"]
+    },
+    {
+      "q": "Koliko traje izrada?",
+      "a": "Manja web stranica obično je gotova za dva do četiri tjedna, a AI asistent ili automatizacija jednog procesa često i brže. Veći projekti rade se u fazama. Točan rok uvijek piše u ponudi.",
+      "tags": ["traje", "rok", "vrijeme", "brzo"]
+    },
+    {
+      "q": "Radite li s javnim naručiteljima?",
+      "a": "Da. Javljam se na pozive za dostavu ponuda i natječaje u EOJN RH, izdajem e-račune, a naručitelj dobiva izvorni kod i dokumentaciju. Web stranice radim u skladu sa Zakonom o pristupačnosti mrežnih stranica (WCAG 2.1 AA). Poziv možete poslati na marko@mangai.hr.",
+      "tags": ["javni", "nabava", "eojn", "opcina", "grad", "skola", "ustanova", "natjecaj"]
+    },
+    {
+      "q": "Što je AI asistent?",
+      "a": "Program na vašoj stranici, WhatsAppu ili e-pošti koji odgovara na česta pitanja na temelju vaših podataka, prima upite i rezervacije te vam šalje sažetak. Kad ne zna odgovor, prepušta razgovor vama. Primjere možete isprobati u dijelu Primjeri na stranici.",
+      "tags": ["chatbot", "asistent", "agent", "ai"]
+    },
+    {
+      "q": "Je li to sigurno za podatke?",
+      "a": "Koristim hosting i servise u EU kad god je moguće, a kad sustav obrađuje osobne podatke, potpisujemo ugovor o obradi podataka u skladu s GDPR-om. Vi ostajete vlasnik podataka.",
+      "tags": ["gdpr", "sigurnost", "podaci", "privatnost"]
+    },
+    {
+      "q": "Tko radi posao?",
+      "a": "Marko Škorić, vlasnik obrta MangAI. Nema posrednika ni podizvođača bez vašeg znanja. Koristim AI alate da bih radio brže, ali sve provjeravam prije predaje.",
+      "tags": ["tko", "marko", "tim"]
+    },
+    {
+      "q": "Gdje se nalazite?",
+      "a": "Sjedište obrta je u Pločama. Većinu posla radim na daljinu za cijelu Hrvatsku, a na sastanke uživo dolazim po dogovoru, najčešće u Dubrovačko-neretvanskoj i Splitsko-dalmatinskoj županiji.",
+      "tags": ["gdje", "ploce", "lokacija", "teren", "uzivo"]
+    }
   ],
   "quick_replies": [
-    "Kako mi možete pomoći?",
-    "Koje AI usluge nudite?",
-    "AI agenti ili chatbot?",
-    "Imam agenciju – što dobijem?",
+    "Što sve radite?",
     "Koliko košta?",
-    "Može li AI pratiti sastanke i pisati bilješke?"
+    "Koliko traje izrada?",
+    "Radite li s javnim naručiteljima?",
+    "Što je AI asistent?",
+    "Je li to sigurno za podatke?"
   ],
   "flows": {
-    "ai_savjetnik": {
+    "savjetnik": {
       "steps": [
         {
           "id": "welcome",
           "messages": [
-            "👋 Bok! Ja sam MangAI savjetnik. U par pitanja mogu ti predložiti gdje AI ima najviše smisla u tvom biznisu.",
-            "Što najbolje opisuje tvoj cilj?"
+            "Dobar dan! U dva kratka pitanja pomoći ću vam opisati što trebate, a Marko vam zatim šalje prijedlog i ponudu.",
+            "Za koga je projekt?"
           ],
-          "options": [
-            "Želim više leadova",
-            "Želim više rezervacija/termina",
-            "Želim automatizirati podršku (24/7)",
-            "Želim automatizirati administraciju i procese",
-            "Imam agenciju (white-label / interna automatizacija)",
-            "Želim AI asistenta za sastanke i follow-up",
-            "Nisam siguran, želim preporuku"
-          ],
+          "options": ["Obrt ili tvrtka", "Udruga ili ustanova", "Javni naručitelj", "Privatna osoba"],
           "next": {
-            "Želim više leadova": "lead_industry",
-            "Želim više rezervacija/termina": "rec_bookings",
-            "Želim automatizirati podršku (24/7)": "automate_where",
-            "Želim automatizirati administraciju i procese": "rec_admin",
-            "Imam agenciju (white-label / interna automatizacija)": "agency_type",
-            "Želim AI asistenta za sastanke i follow-up": "rec_meetings",
-            "Nisam siguran, želim preporuku": "_discovery"
+            "Obrt ili tvrtka": "biz_need",
+            "Udruga ili ustanova": "biz_need",
+            "Javni naručitelj": "gov_need",
+            "Privatna osoba": "biz_need"
           }
         },
         {
-          "id": "lead_industry",
-          "messages": ["U kojoj si industriji?"],
-          "options": ["Nekretnine", "Beauty / usluge", "Marketing agencija", "Ostalo"],
-          "next": { "Nekretnine": "rec_lead_nekretnine", "Beauty / usluge": "rec_lead_beauty", "Marketing agencija": "rec_lead_agencija", "Ostalo": "rec_lead_ostalo" }
+          "id": "biz_need",
+          "messages": ["Što vam trenutno najviše treba?"],
+          "options": [
+            "Nova web stranica ili webshop",
+            "Više upita i rezervacija",
+            "Manje ručnog posla",
+            "Aplikacija po mjeri",
+            "Održavanje postojeće stranice",
+            "Savjet gdje AI ima smisla"
+          ],
+          "next": {
+            "Nova web stranica ili webshop": "rec_web",
+            "Više upita i rezervacija": "rec_leads",
+            "Manje ručnog posla": "rec_admin",
+            "Aplikacija po mjeri": "rec_app",
+            "Održavanje postojeće stranice": "rec_maint",
+            "Savjet gdje AI ima smisla": "rec_advice"
+          }
         },
         {
-          "id": "automate_where",
-          "messages": ["Gdje trenutno imaš najviše upita?"],
-          "options": ["Web", "Društvene mreže", "Email", "Sve pomalo"],
-          "next": { "Web": "rec_auto_web", "Društvene mreže": "rec_auto_social", "Email": "rec_auto_email", "Sve pomalo": "rec_auto_sve" }
+          "id": "gov_need",
+          "messages": ["Što trebate?"],
+          "options": [
+            "Nova stranica ili redizajn",
+            "Održavanje postojeće stranice",
+            "E-usluge i digitalni obrasci",
+            "AI asistent za građane ili turiste",
+            "Edukacija djelatnika",
+            "Imam poziv na dostavu ponude"
+          ],
+          "next": {
+            "Nova stranica ili redizajn": "rec_gov_web",
+            "Održavanje postojeće stranice": "rec_gov_maint",
+            "E-usluge i digitalni obrasci": "rec_gov_eservices",
+            "AI asistent za građane ili turiste": "rec_gov_ai",
+            "Edukacija djelatnika": "rec_gov_edu",
+            "Imam poziv na dostavu ponude": "rec_gov_tender"
+          }
         },
         {
-          "id": "agency_type",
-          "messages": ["Koji tip agencije?"],
-          "options": ["Lead gen", "Performance", "Full-service"],
-          "next": { "Lead gen": "rec_agency_lead", "Performance": "rec_agency_perf", "Full-service": "rec_agency_full" }
+          "id": "rec_web",
+          "messages": ["Predlažem brzu stranicu prilagođenu mobitelu, s jasnim pozivom na kontakt i obrascem ili rezervacijom. Uključeni su osnovni SEO, povezivanje s Google profilom i kratka obuka za uređivanje. Manja stranica obično je gotova za dva do četiri tjedna."],
+          "soft_cta": true
         },
         {
-          "id": "team_size",
-          "messages": ["Koliko ljudi radi u tvom biznisu?"],
-          "options": ["1–5", "6–20", "20+"],
-          "next": { "1–5": "rec_size_small", "6–20": "rec_size_mid", "20+": "rec_size_large" }
-        },
-        {
-          "id": "rec_bookings",
-          "messages": ["Za više rezervacija i termina preporučujemo: online rezervacijski sustav s AI chatbotom koji prihvaća upite, prikazuje dostupnost i zakazuje termine. Idealno za salone, klinike i uslužne djelatnosti – manje neodgovorenih poziva i praznih termina."],
+          "id": "rec_leads",
+          "messages": ["Predlažem AI asistenta na stranici ili WhatsAppu koji odgovara na česta pitanja, prima upite i rezervacije te vam šalje sažetak. Manje propuštenih poziva, a vi se javljate samo kad treba. Kako to izgleda, možete isprobati u dijelu Primjeri."],
           "soft_cta": true
         },
         {
           "id": "rec_admin",
-          "messages": ["Za administraciju i procese: AI može automatizirati evidenciju, podsjetnike, obrade dokumenata i ponavljajuće zadatke. Ti se fokusiraš na ono što donosi novce. Često kombiniramo s chatbotom za upite i CRM-om – brza implementacija u tjednima."],
+          "messages": ["Predlažem da krenemo od jednog posla koji vam oduzima najviše vremena, npr. prepisivanje upita u tablicu, podsjetnike klijentima ili tjedne izvještaje, i automatiziramo ga. Kad to radi, prelazimo na sljedeći."],
           "soft_cta": true
         },
         {
-          "id": "rec_meetings",
-          "messages": ["AI asistent za sastanke: bilježi sažetke, izdvaja zadatke i šalje follow-up poruke ili bilješke emailom ili u alat koji već koristiš. Manje zaboravljenih obveza i brži odgovori klijentima. Može se integrirati s postojećim kalendarom i alatom za sastanke."],
+          "id": "rec_app",
+          "messages": ["Za aplikaciju po mjeri prvo napravimo kratku specifikaciju: tko je koristi, što mora raditi i s kojim se sustavima povezuje. Na temelju nje dobivate ponudu s fiksnom cijenom i rokom."],
           "soft_cta": true
         },
         {
-          "id": "rec_lead_nekretnine",
-          "messages": ["Za nekretnine preporučujemo: AI chatbot na webu za prvi kontakt i kvalifikaciju (kupnja/najam, lokacija, budžet), zakazivanje razgleda i predaju leadova prodajnom timu. Rezultati u tjednima."],
+          "id": "rec_maint",
+          "messages": ["Preuzimam održavanje postojećih stranica: ažuriranja, sigurnosne kopije, hosting i sitne izmjene. Na početku pregledam stanje stranice i javim što bi trebalo popraviti."],
           "soft_cta": true
         },
         {
-          "id": "rec_lead_beauty",
-          "messages": ["Za beauty i usluge: rezervacije termina, podsjetnici klijentima i odgovori na pitanja o cijenama i uslugama – smanjuje neodgovorene pozive i prazne termine. Idealno za manje salone bez puno radnog vremena na recepciji."],
+          "id": "rec_advice",
+          "messages": ["Krenimo od kratkog razgovora o vašem poslu: gdje gubite najviše vremena i koja pitanja klijenti stalno ponavljaju. Nakon toga dobivate pisani prijedlog s dva ili tri konkretna koraka, bez obveze."],
           "soft_cta": true
         },
         {
-          "id": "rec_lead_agencija",
-          "messages": ["Za marketing agencije: AI za brže draftove i kampanje, automatizacija lead gena i follow-upa te prilagođeni chatbotovi ili rezervacijski sustavi za vaše klijente. Moguće white-label rješenje."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_lead_ostalo",
-          "messages": ["Za ostale industrije: prvi korak je identificirati gdje imaš najviše ponavljajućih upita ili ručnog rada. Često web chatbot + CRM automatizacija donose najbrže rezultate. Besplatna analiza nam govori točno gdje krenuti."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_auto_web",
-          "messages": ["Za upite s weba idealan je chatbot na stranici koji odgovara na česta pitanja, trijira upite i predaje složene ljudima. Možemo ga povezati s CRM-om i e-mailom – odgovori 24/7 bez dodatnih sati. Često ovdje uključujemo i personaliziranog AI asistenta za sastanke, bilješke i automatizirani follow-up."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_auto_social",
-          "messages": ["Za društvene mreže možemo automatizirati prvi odgovor (DM ili komentari), kvalifikaciju i usmjeravanje na rezervaciju ili formu. Smanjuje kašnjenja i ručni rad. Često ovdje uključujemo i personaliziranog AI asistenta za sastanke, bilješke i automatizirani follow-up."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_auto_email",
-          "messages": ["Za email: AI može klasificirati upite, generirati predloške odgovora i ažurirati CRM. Složenije slučajeve prebacuje na čovjeka s kontekstom. Uštedi sate tjedno. Često ovdje uključujemo i personaliziranog AI asistenta za sastanke, bilješke i automatizirani follow-up."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_auto_sve",
-          "messages": ["Kad imaš upite posvuda, najveći učinak obično daje jedan spojeni sustav: jedan chatbot ili agent koji prima sve kanale i trijira – web, društvene mreže, email. Zatim predaja ljudima s kontekstom. Često ovdje uključujemo i personaliziranog AI asistenta za sastanke, bilješke i automatizirani follow-up."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_agency_lead",
-          "messages": ["Za lead gen agencije: AI za kvalifikaciju leadova, automatizirani follow-up i predaju vrućih leadova klijentima. Možete nuditi više leadova uz manji ručni rad."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_agency_perf",
-          "messages": ["Za performance agencije: automatizacija kampanja, brži kreativni draftovi i analitika. AI pomaže skalirati bez proporcionalnog povećanja tima."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_agency_full",
-          "messages": ["Za full-service: kombinacija – AI za sadržaj i kampanje, chatbotovi za klijente i interne automatizacije. Moguće je prilagoditi pakete za svakog klijenta."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_size_small",
-          "messages": ["Za tim 1–5: fokus na jedan do dva use casea – npr. odgovori na upite ili rezervacije. AI uštedi sate bez angažiranja novih ljudi. Brza implementacija u tjednima."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_size_mid",
-          "messages": ["Za tim 6–20: ima smisla automatizirati više kanala – web, email, možda društvene mreže. Jedan spojeni sustav (chatbot + CRM) donosi najveću vrijednost."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_size_large",
-          "messages": ["Za 20+ zaposlenika: moguće je uvesti AI u više procesa – podrška, prodaja, marketing, administracija. Preporučujemo fazni pristup s jasnim KPI-jevima."],
-          "soft_cta": true
-        }
-      ]
-    },
-    "legal": {
-      "steps": [
-        {
-          "id": "welcome",
-          "messages": [
-            "Ovo nije pravni savjet — služi za osnovnu kvalifikaciju i dogovor konzultacija.",
-            "Koja vas pravna tema zanima?"
-          ],
-          "options": ["Građansko / ugovori", "Nekretnine", "Obiteljsko pravo", "Ostalo"],
-          "next": { "Građansko / ugovori": "qual_who", "Nekretnine": "qual_who", "Obiteljsko pravo": "qual_who", "Ostalo": "qual_who" }
-        },
-        {
-          "id": "qual_who",
-          "messages": ["Osobno ili za tvrtku / ured?"],
-          "options": ["Osobno", "Tvrtka / ured"],
-          "next": { "Osobno": "qual_urgency", "Tvrtka / ured": "qual_urgency" }
-        },
-        {
-          "id": "qual_urgency",
-          "messages": ["Koliko hitno vam treba konzultacija?"],
-          "options": ["Uskoro (tjedan-dva)", "Nije hitno", "Samo informativno"],
-          "next": { "Uskoro (tjedan-dva)": "offer_contact", "Nije hitno": "offer_contact", "Samo informativno": "offer_contact" }
-        },
-        {
-          "id": "offer_contact",
-          "messages": ["Hvala. Ostavite kontakt ispod — javit ćemo vam se za dogovor termina konzultacije."],
-          "soft_cta": true
-        }
-      ]
-    },
-    "clinics": {
-      "steps": [
-        {
-          "id": "welcome",
-          "messages": ["Koja usluga vas zanima?"],
-          "options": ["Pregled", "Planirani zahvat", "Hitno", "Ostalo / upit"],
-          "next": { "Pregled": "when", "Planirani zahvat": "when", "Hitno": "when", "Ostalo / upit": "when" }
-        },
-        {
-          "id": "when",
-          "messages": ["Kada vam odgovara termin? (npr. ovaj tjedan, sljedeći mjesec)"],
-          "options": ["Ovaj tjedan", "Sljedeći tjedan", "Sljedeći mjesec", "Nisam siguran"],
-          "next": { "Ovaj tjedan": "contact", "Sljedeći tjedan": "contact", "Sljedeći mjesec": "contact", "Nisam siguran": "contact" }
-        },
-        {
-          "id": "contact",
-          "messages": ["Ostavite ime i kontakt ispod — potvrdit ćemo vam dostupnost i rezervirati termin."],
-          "soft_cta": true
-        }
-      ]
-    },
-    "discovery": {
-      "steps": [
-        {
-          "id": "welcome",
-          "messages": [
-            "👋 Bok! Ako nisi siguran kakav AI ti treba, tu sam da pomognem.",
-            "Što bi ti AI najviše pomogao?"
-          ],
-          "options": [
-            "Više upita i klijenata",
-            "Manje ručnog posla i administracije",
-            "Praćenje sastanaka i automatizirani follow-up",
-            "Podrška klijentima 24/7",
-            "Nisam siguran / želim preporuku"
-          ],
-          "next": { "Više upita i klijenata": "more_leads", "Manje ručnog posla i administracije": "less_admin", "Praćenje sastanaka i automatizirani follow-up": "meetings", "Podrška klijentima 24/7": "support_24_7", "Nisam siguran / želim preporuku": "not_sure" }
-        },
-        {
-          "id": "more_leads",
-          "messages": ["Za više upita i klijenata preporučujemo AI koji kvalificira leadove na webu ili društvenim mrežama i predaje ih prodajnom timu. Rezultat: više kvalitetnih upita bez dodatnih sati.", "U kojoj industriji posluješ?"],
-          "options": ["Nekretnine", "Usluge (saloni, klinike)", "Marketing / agencija", "Ostalo"],
-          "next": { "Nekretnine": "offer_contact", "Usluge (saloni, klinike)": "offer_contact", "Marketing / agencija": "offer_contact", "Ostalo": "offer_contact" }
-        },
-        {
-          "id": "less_admin",
-          "messages": ["Manje ručnog posla – AI može voditi evidenciju, podsjetnike i ponavljajuće zadatke. Ti se fokusiraš na ono što zaista donosi novce.", "Što ti najviše oduzima vrijeme?"],
-          "options": ["Email i dokumenti", "CRM i leadovi", "Oboje", "Nisam siguran"],
-          "next": { "Email i dokumenti": "offer_contact", "CRM i leadovi": "offer_contact", "Oboje": "offer_contact", "Nisam siguran": "offer_contact" }
-        },
-        {
-          "id": "meetings",
-          "messages": [
-            "Praćenje sastanaka i follow-up: AI bilježi sažetke, zadatke i šalje podsjetnike. Manje zaboravljenih obveza i brži odgovori klijentima. To uključuje AI asistenta koji sluša ili prati sastanke, radi sažetke, izdvaja zadatke i automatski šalje follow-up poruke.",
-            "Gdje ti je ovo najkorisnije?"
-          ],
-          "options": ["Prodajni pozivi", "Interni sastanci", "Konzultacije s klijentima", "Sve navedeno"],
-          "next": { "Prodajni pozivi": "offer_contact", "Interni sastanci": "offer_contact", "Konzultacije s klijentima": "offer_contact", "Sve navedeno": "offer_contact" }
-        },
-        {
-          "id": "support_24_7",
-          "messages": ["Podrška 24/7: chatbot na webu ili društvenim mrežama odgovara na česta pitanja i trijira upite. Klijenti dobivaju odgovor odmah, ti radiš samo složene slučajeve.", "Gdje ti stižu najviše upita?"],
-          "options": ["Web", "Društvene mreže", "Email", "Sve"],
-          "next": { "Web": "offer_contact", "Društvene mreže": "offer_contact", "Email": "offer_contact", "Sve": "offer_contact" }
-        },
-        {
-          "id": "not_sure",
-          "messages": ["Ok, preporučit ću ti nešto na temelju par pitanja.", "Koliko ljudi radi u tvom timu?"],
-          "options": ["1–5", "6–20", "20+"],
-          "next": { "1–5": "offer_contact", "6–20": "offer_contact", "20+": "offer_contact" }
-        },
-        {
-          "id": "offer_contact",
-          "messages": [],
+          "id": "rec_gov_web",
+          "messages": ["Izrađujem stranice u skladu sa Zakonom o pristupačnosti mrežnih stranica (WCAG 2.1 AA), s izjavom o pristupačnosti i sustavom za uređivanje za djelatnike. Nakon predaje dobivate izvorni kod, dokumentaciju i e-račun."],
           "soft_cta": true,
-          "soft_cta_question": "Želiš da ti predložim konkretno rješenje i pošaljem procjenu?"
+          "soft_cta_question": "Želite li da vam Marko pošalje prijedlog ili ponudu za jednostavnu nabavu?"
+        },
+        {
+          "id": "rec_gov_maint",
+          "messages": ["Održavanje uključuje ažuriranja, sigurnosne nadogradnje, sigurnosne kopije i nadzor dostupnosti. Stranicu mogu preuzeti od prethodnog izvođača, uz pregled stanja na početku."],
+          "soft_cta": true,
+          "soft_cta_question": "Želite li da vam Marko pošalje prijedlog ili ponudu za jednostavnu nabavu?"
+        },
+        {
+          "id": "rec_gov_eservices",
+          "messages": ["Digitalni obrasci i prijave koje stižu ravno u ured: prijave na natječaje i programe, komunalne prijave, rezervacije prostora. Podaci ostaju na hostingu u EU, uz ugovor o obradi podataka."],
+          "soft_cta": true,
+          "soft_cta_question": "Želite li da vam Marko pošalje prijedlog ili ponudu za jednostavnu nabavu?"
+        },
+        {
+          "id": "rec_gov_ai",
+          "messages": ["AI asistent odgovara na pitanja građana ili turista na temelju vaših službenih dokumenata, na hrvatskom i stranim jezicima. Kad ne zna odgovor, upućuje na nadležnu osobu ili službu."],
+          "soft_cta": true,
+          "soft_cta_question": "Želite li da vam Marko pošalje prijedlog ili ponudu za jednostavnu nabavu?"
+        },
+        {
+          "id": "rec_gov_edu",
+          "messages": ["Praktična radionica o sigurnom korištenju AI alata u radu ustanove, na lokaciji ili online, s pisanim uputama za djelatnike."],
+          "soft_cta": true,
+          "soft_cta_question": "Želite li da vam Marko pošalje prijedlog ili ponudu za jednostavnu nabavu?"
+        },
+        {
+          "id": "rec_gov_tender",
+          "messages": ["Poziv na dostavu ponude pošaljite na marko@mangai.hr, ili ostavite kontakt ispod pa vam se javim. Odgovaram s pitanjima ili ponudom u roku koji traži poziv."],
+          "soft_cta": true,
+          "soft_cta_question": "Želite li ostaviti kontakt?"
         }
       ]
     }

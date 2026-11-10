@@ -342,8 +342,8 @@
                         <div><span>Sjedište</span><strong>Ploče, Hrvatska</strong></div>
                     </address>
                     <div class="advisor">
-                        <p>Niste sigurni što vam treba? AI savjetnik u nekoliko pitanja predloži gdje početi.</p>
-                        <button type="button" class="btn btn-ghost" data-open-chat="1" data-chat-flow="ai_savjetnik">Pokreni AI savjetnika</button>
+                        <p>Niste sigurni što vam treba? Savjetnik vam u dva pitanja pomogne opisati upit.</p>
+                        <button type="button" class="btn btn-ghost" data-open-chat="1" data-chat-flow="ai_savjetnik">Pokreni savjetnika</button>
                     </div>
                 </div>
 
@@ -448,6 +448,18 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Stari linkovi (npr. s bloga): #services, #approach, #difference -> nove sekcije
+        (function () {
+            var map = {services:'usluge',approach:'kako',difference:'kako',industries:'primjeri'};
+            var h = window.location.hash.slice(1);
+            if (map[h]) {
+                var el = document.getElementById(map[h]);
+                history.replaceState(null, '', '#' + map[h]);
+                if (el) el.scrollIntoView();
+            }
+        })();
+
 
         // Prekidač publike: obrt/tvrtka ili javni naručitelj (?za=javni otvara javni prikaz)
         (function () {
