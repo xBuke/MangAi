@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="/assets/fonts/fonts.css">
     <link rel="stylesheet" href="/chat-widget.css">
     <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/assets/landing.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -131,7 +132,7 @@
 }
     </script>
 </head>
-<body data-audience="biz">
+<body class="landing" data-audience="biz">
     <a class="skip-link" href="#main">Preskoči na sadržaj</a>
 
     <header class="site-header">
@@ -161,8 +162,9 @@
     <main id="main">
         <section class="hero">
             <div class="wrap">
+                <h1><span class="h1-line h1-a"><span>Web, aplikacije</span></span> <span class="h1-line h1-b"><span>i AI za vaš posao.</span></span></h1>
+
                 <div class="hero-copy">
-                    <h1>Web, aplikacije i AI za vaš posao.</h1>
                     <p class="hero-lead" data-audience-show="biz">Izrađujem web stranice, aplikacije, AI chatbotove i automatizacije za obrte, male tvrtke i udruge. Radite izravno sa mnom, od prvog razgovora do predaje i održavanja.</p>
                     <p class="hero-lead" data-audience-show="gov">Za općine, gradove, škole, ustanove i turističke zajednice: web stranice, e-usluge za građane i održavanje, uz urednu dokumentaciju, e-račun i predaju izvornog koda.</p>
 
@@ -175,27 +177,63 @@
                     </div>
 
                     <div class="hero-actions">
-                        <a href="#contact" class="btn btn-primary">Pošalji upit</a>
+                        <a href="#contact" class="btn btn-primary btn-arrow"><span class="btn-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span><span>Pošalji upit</span></a>
                         <a href="tel:+385923557476" class="btn btn-ghost">Nazovi 092 355 7476</a>
                     </div>
                 </div>
 
-                <aside class="plate" aria-label="Podaci o obrtu">
-                    <span class="plate-screw tl" aria-hidden="true"></span>
-                    <span class="plate-screw tr" aria-hidden="true"></span>
-                    <span class="plate-screw bl" aria-hidden="true"></span>
-                    <span class="plate-screw br" aria-hidden="true"></span>
-                    <p class="plate-name">MANGAI</p>
-                    <p class="plate-kind">obrt za računalno programiranje i savjetovanje</p>
-                    <p class="plate-kind plate-owner">vl. Marko Škorić</p>
-                    <hr>
-                    <address class="plate-contact">
-                        <span>Vukovarska 5, 20340 Ploče</span>
-                        <a href="tel:+385923557476">+385 92 355 7476</a>
-                        <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
-                    </address>
-                    <p class="plate-note">Radim na daljinu za cijelu Hrvatsku, a po potrebi dolazim na teren.</p>
-                </aside>
+                <div class="hero-card">
+                    <span class="stk-slot s-mango" data-stk="mango"></span>
+                    <span class="stk-slot s-ai" data-stk="ai"></span>
+                    <figure class="chat-card" aria-label="Primjer: AI asistent salona odgovara klijentici na WhatsAppu i zakazuje termin.">
+                        <div aria-hidden="true">
+                            <div class="chat-head">
+                                <span class="chat-avatar">AI</span>
+                                <span><span class="chat-name">Salon Lana</span><span class="chat-via">AI asistent na WhatsAppu</span></span>
+                                <span class="chat-tag">Primjer razgovora</span>
+                            </div>
+                            <div class="chat-log">
+                                <p class="msg msg-in">Bok! Imate li slobodan termin za šišanje u petak?</p>
+                                <p class="msg msg-out">Bok! U petak imam slobodno u 10:30 i u 16:00. Koji vam odgovara?</p>
+                                <p class="msg msg-in">16:00 može 🙌</p>
+                                <p class="msg msg-out">Zapisano: petak u 16:00. Dan prije stiže vam podsjetnik.</p>
+                            </div>
+                        </div>
+                        <div class="chat-stk"></div>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="bands">
+            <section class="band band-tools" aria-labelledby="band-tools-title">
+                <h2 class="band-title" id="band-tools-title">Alati s kojima radim</h2>
+                <div class="marquee-track">
+                    <ul class="marquee-list">
+                        <li class="band-label">Alati s kojima radim</li>
+                        <li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>Cursor</li><li>n8n</li><li>Supabase</li><li>PostgreSQL</li><li>Next.js</li><li>React</li><li>Python</li><li>WhatsApp</li><li>Google Workspace</li><li>Microsoft 365</li><li>WordPress</li><li>WooCommerce</li><li>Docker</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="band band-outcomes" aria-labelledby="band-out-title">
+                <h2 class="band-title" id="band-out-title">Što dobivate</h2>
+                <div class="marquee-track">
+                    <ul class="marquee-list">
+                        <li>Rezervacije i upiti 0–24</li><li>Odgovori na jeziku gosta</li><li>Upiti ravno u tablicu ili CRM</li><li>Podsjetnici bez ručnog rada</li><li>Pristupačnost prema WCAG 2.1 AA</li><li>E-račun i predaja izvornog koda</li><li>Pisana ponuda s fiksnom cijenom</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <section class="section pain" id="poznato" data-slap>
+            <div class="wrap">
+                <span class="stk-slot p1" data-stk="manual"></span>
+                <span class="stk-slot p2" data-stk="mango"></span>
+                <h2>Zvuči poznato?</h2>
+                <p class="scrub" data-audience-show="biz">Telefon zvoni dok radite s klijentom. Upit stigne u 23 sata i čeka do jutra. Isti odgovor o cijenama pišete deseti put ovaj tjedan. Podatke iz e-pošte ručno prepisujete u tablicu.</p>
+                <p class="scrub" data-audience-show="gov">Građani zovu da pitaju za radno vrijeme i obrasce. Prijave stižu na papiru pa se skeniraju i prepisuju. Stranica nije usklađena s pristupačnošću, a izjava o pristupačnosti nije ažurirana.</p>
+                <p class="pain-turn" data-audience-show="biz">Sve to može raditi sustav, a vi svoj posao.</p>
+                <p class="pain-turn" data-audience-show="gov">To se rješava jednostavnom nabavom, s jasnim opsegom i rokom.</p>
             </div>
         </section>
 
@@ -317,6 +355,11 @@
                         <span class="demo-what">Odgovori građanima iz službenih dokumenata i komunalne prijave.</span>
                         <span class="demo-open">Isprobaj demo</span>
                     </a></li>
+                    <li><a href="#contact">
+                        <span class="demo-sector">Vaša djelatnost?</span>
+                        <span class="demo-what">Opišite kako radite, pa zajedno vidimo kako bi asistent izgledao kod vas.</span>
+                        <span class="demo-open">Pošalji upit</span>
+                    </a></li>
                 </ul>
                 <p class="demo-note">Demo prikazuje osnovni koncept. Prava verzija radi se prema vašim procesima, sustavima i vizualnom identitetu.</p>
             </div>
@@ -346,6 +389,36 @@
                         <p>Dobivate sustav, upute i pristupne podatke. Održavanje po dogovoru, mjesečno ili po potrebi.</p>
                     </li>
                 </ol>
+            </div>
+        </section>
+
+        <section class="section about" id="tko">
+            <div class="wrap about-grid">
+                <div class="about-copy">
+                    <h2>Jedan čovjek, bez agencijskog procesa.</h2>
+                    <p>Ne prolazite kroz prodajnog predstavnika, voditelja projekta i podizvođača. Razgovarate sa mnom, ja radim posao i ja za njega odgovaram.</p>
+                    <p>Programiram u TypeScriptu, Reactu, Next.js-u, Pythonu i PostgreSQL-u, a AI alate koristim da bih radio brže. Svaku liniju koda i svaki tekst provjeravam prije predaje.</p>
+                </div>
+                <div class="about-plate-wrap" data-slap>
+                    <span class="stk-slot a1" data-stk="local"></span>
+                    <span class="stk-slot a2" data-stk="mango"></span>
+                    <aside class="plate" aria-label="Podaci o obrtu">
+                        <span class="plate-screw tl" aria-hidden="true"></span>
+                        <span class="plate-screw tr" aria-hidden="true"></span>
+                        <span class="plate-screw bl" aria-hidden="true"></span>
+                        <span class="plate-screw br" aria-hidden="true"></span>
+                        <p class="plate-name">MANGAI</p>
+                        <p class="plate-kind">obrt za računalno programiranje i savjetovanje</p>
+                        <p class="plate-kind plate-owner">vl. Marko Škorić</p>
+                        <hr>
+                        <address class="plate-contact">
+                            <span>Vukovarska 5, 20340 Ploče</span>
+                            <a href="tel:+385923557476">+385 92 355 7476</a>
+                            <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
+                        </address>
+                        <p class="plate-note">Radim na daljinu za cijelu Hrvatsku, a po potrebi dolazim na teren.</p>
+                    </aside>
+                </div>
             </div>
         </section>
 
@@ -441,6 +514,17 @@
                         <p>Možete ugovoriti mjesečno održavanje ili javiti kad nešto treba. Budući da dobivate izvorni kod i pristupe, niste vezani samo uz mene.</p>
                     </details>
                 </div>
+            </div>
+        </section>
+
+        <section class="section cta-band" id="krenimo">
+            <div class="trail-layer" aria-hidden="true"></div>
+            <div class="wrap cta-inner">
+                <h2 data-audience-show="biz"><span class="cta-a" data-weight-rest="800" data-weight-near="230">Imate posao koji se ponavlja?</span> <span class="cta-b" data-weight-rest="220" data-weight-near="800">Ajmo ga automatizirati.</span></h2>
+                <h2 data-audience-show="gov"><span class="cta-a" data-weight-rest="800" data-weight-near="230">Imate poziv na dostavu ponude?</span> <span class="cta-b" data-weight-rest="220" data-weight-near="800">Pošaljite ga, odgovaram brzo.</span></h2>
+                <p class="cta-sub" data-audience-show="biz">Recite što vam oduzima vrijeme. Ja to pretvorim u sustav koji radi umjesto vas, uz pisanu ponudu s fiksnom cijenom.</p>
+                <p class="cta-sub" data-audience-show="gov">Ponudu šaljem u traženom roku, s jasnim opsegom, cijenom i predajom izvornog koda.</p>
+                <a href="#contact" class="btn btn-primary btn-arrow"><span class="btn-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span><span>Pošalji upit</span></a>
             </div>
         </section>
 
@@ -589,6 +673,7 @@
                     b.setAttribute('aria-pressed', b.getAttribute('data-audience-set') === value ? 'true' : 'false');
                 });
                 if (who) who.value = value === 'gov' ? 'Javni naručitelj' : 'Obrt ili tvrtka';
+                document.dispatchEvent(new CustomEvent('mangai:audience', { detail: value }));
             }
 
             document.querySelectorAll('[data-audience-set]').forEach(function (el) {
@@ -622,6 +707,8 @@
         })();
     </script>
     <script src="/nav.js"></script>
+    <script src="/assets/js/lenis.min.js" defer></script>
+    <script src="/assets/js/landing.js" defer></script>
     <script src="/chat-widget.js" defer></script>
 </body>
 </html>

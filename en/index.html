@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="/assets/fonts/fonts.css">
     <link rel="stylesheet" href="/chat-widget.css">
     <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/assets/landing.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -121,7 +122,7 @@
 }
     </script>
 </head>
-<body data-audience="biz">
+<body class="landing" data-audience="biz">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
@@ -151,8 +152,9 @@
     <main id="main">
         <section class="hero">
             <div class="wrap">
+                <h1><span class="h1-line h1-a"><span>Websites, apps</span></span> <span class="h1-line h1-b"><span>and AI for your business.</span></span></h1>
+
                 <div class="hero-copy">
-                    <h1>Websites, apps and AI for your business.</h1>
                     <p class="hero-lead" data-audience-show="biz">I build websites, apps, AI chatbots and automations for small businesses, rentals, salons and associations. You work directly with me, from the first call to handover and maintenance.</p>
                     <p class="hero-lead" data-audience-show="gov">For municipalities, cities, schools, institutions and tourist boards: websites, online services for citizens and maintenance, with proper documentation, e-invoicing and source code handover.</p>
 
@@ -165,27 +167,63 @@
                     </div>
 
                     <div class="hero-actions">
-                        <a href="#contact" class="btn btn-primary">Send an enquiry</a>
+                        <a href="#contact" class="btn btn-primary btn-arrow"><span class="btn-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span><span>Send an enquiry</span></a>
                         <a href="tel:+385923557476" class="btn btn-ghost">Call +385 92 355 7476</a>
                     </div>
                 </div>
 
-                <aside class="plate" aria-label="Business details">
-                    <span class="plate-screw tl" aria-hidden="true"></span>
-                    <span class="plate-screw tr" aria-hidden="true"></span>
-                    <span class="plate-screw bl" aria-hidden="true"></span>
-                    <span class="plate-screw br" aria-hidden="true"></span>
-                    <p class="plate-name">MANGAI</p>
-                    <p class="plate-kind">software development and IT consulting</p>
-                    <p class="plate-kind plate-owner">Owner: Marko Škorić</p>
-                    <hr>
-                    <address class="plate-contact">
-                        <span>Vukovarska 5, 20340 Ploče, Croatia</span>
-                        <a href="tel:+385923557476">+385 92 355 7476</a>
-                        <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
-                    </address>
-                    <p class="plate-note">I work remotely across Croatia and the EU, and meet in person when needed.</p>
-                </aside>
+                <div class="hero-card">
+                    <span class="stk-slot s-mango" data-stk="mango"></span>
+                    <span class="stk-slot s-ai" data-stk="ai"></span>
+                    <figure class="chat-card" aria-label="Example: a salon’s AI assistant answers a client on WhatsApp and books an appointment.">
+                        <div aria-hidden="true">
+                            <div class="chat-head">
+                                <span class="chat-avatar">AI</span>
+                                <span><span class="chat-name">Salon Lana</span><span class="chat-via">AI assistant on WhatsApp</span></span>
+                                <span class="chat-tag">Example chat</span>
+                            </div>
+                            <div class="chat-log">
+                                <p class="msg msg-in">Hi! Do you have a slot for a haircut on Friday?</p>
+                                <p class="msg msg-out">Hi! On Friday I have 10:30 and 16:00 free. Which one suits you?</p>
+                                <p class="msg msg-in">16:00 works 🙌</p>
+                                <p class="msg msg-out">Booked: Friday at 16:00. You’ll get a reminder the day before.</p>
+                            </div>
+                        </div>
+                        <div class="chat-stk"></div>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="bands">
+            <section class="band band-tools" aria-labelledby="band-tools-title">
+                <h2 class="band-title" id="band-tools-title">Tools I work with</h2>
+                <div class="marquee-track">
+                    <ul class="marquee-list">
+                        <li class="band-label">Tools I work with</li>
+                        <li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>Cursor</li><li>n8n</li><li>Supabase</li><li>PostgreSQL</li><li>Next.js</li><li>React</li><li>Python</li><li>WhatsApp</li><li>Google Workspace</li><li>Microsoft 365</li><li>WordPress</li><li>WooCommerce</li><li>Docker</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="band band-outcomes" aria-labelledby="band-out-title">
+                <h2 class="band-title" id="band-out-title">What you get</h2>
+                <div class="marquee-track">
+                    <ul class="marquee-list">
+                        <li>Bookings and enquiries 24/7</li><li>Replies in the guest’s language</li><li>Enquiries straight into a sheet or CRM</li><li>Reminders without manual work</li><li>Accessibility to WCAG 2.1 AA</li><li>E-invoicing and source code handover</li><li>A written quote with a fixed price</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <section class="section pain" id="familiar" data-slap>
+            <div class="wrap">
+                <span class="stk-slot p1" data-stk="manual"></span>
+                <span class="stk-slot p2" data-stk="mango"></span>
+                <h2>Sound familiar?</h2>
+                <p class="scrub" data-audience-show="biz">The phone rings while you’re with a client. An enquiry arrives at 11 pm and waits until morning. You write the same answer about prices for the tenth time this week. You copy details from emails into a spreadsheet by hand.</p>
+                <p class="scrub" data-audience-show="gov">Citizens call to ask about opening hours and forms. Applications arrive on paper, then get scanned and retyped. The website isn’t accessible, and the accessibility statement is out of date.</p>
+                <p class="pain-turn" data-audience-show="biz">A system can do all of that, so you can do your job.</p>
+                <p class="pain-turn" data-audience-show="gov">This is solved through simple procurement, with a clear scope and deadline.</p>
             </div>
         </section>
 
@@ -307,6 +345,11 @@
                         <span class="demo-what">Answering citizens from official documents and taking issue reports.</span>
                         <span class="demo-open">Try the demo</span>
                     </a></li>
+                    <li><a href="#contact">
+                        <span class="demo-sector">Your line of work?</span>
+                        <span class="demo-what">Tell me how you work, and we’ll look at what an assistant would do for you.</span>
+                        <span class="demo-open">Send an enquiry</span>
+                    </a></li>
                 </ul>
                 <p class="demo-note">The demo shows the core concept. The real version is built around your workflows, systems and visual identity.</p>
             </div>
@@ -336,6 +379,36 @@
                         <p>You get the system, instructions and access. Maintenance as agreed, monthly or on demand.</p>
                     </li>
                 </ol>
+            </div>
+        </section>
+
+        <section class="section about" id="who">
+            <div class="wrap about-grid">
+                <div class="about-copy">
+                    <h2>One person, no agency process.</h2>
+                    <p>No sales rep, project manager and subcontractor in between. You talk to me, I do the work and I’m accountable for it.</p>
+                    <p>I build with TypeScript, React, Next.js, Python and PostgreSQL, and use AI tools to work faster. I check every line of code and every text before handover.</p>
+                </div>
+                <div class="about-plate-wrap" data-slap>
+                    <span class="stk-slot a1" data-stk="local"></span>
+                    <span class="stk-slot a2" data-stk="mango"></span>
+                    <aside class="plate" aria-label="Business details">
+                        <span class="plate-screw tl" aria-hidden="true"></span>
+                        <span class="plate-screw tr" aria-hidden="true"></span>
+                        <span class="plate-screw bl" aria-hidden="true"></span>
+                        <span class="plate-screw br" aria-hidden="true"></span>
+                        <p class="plate-name">MANGAI</p>
+                        <p class="plate-kind">software development and IT consulting</p>
+                        <p class="plate-kind plate-owner">Owner: Marko Škorić</p>
+                        <hr>
+                        <address class="plate-contact">
+                            <span>Vukovarska 5, 20340 Ploče, Croatia</span>
+                            <a href="tel:+385923557476">+385 92 355 7476</a>
+                            <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
+                        </address>
+                        <p class="plate-note">I work remotely across Croatia and the EU, and meet in person when needed.</p>
+                    </aside>
+                </div>
             </div>
         </section>
 
@@ -400,6 +473,17 @@
                         <p>You can arrange monthly maintenance or get in touch when something comes up. Since you receive the source code and access, you're never tied to me alone.</p>
                     </details>
                 </div>
+            </div>
+        </section>
+
+        <section class="section cta-band" id="lets-go">
+            <div class="trail-layer" aria-hidden="true"></div>
+            <div class="wrap cta-inner">
+                <h2 data-audience-show="biz"><span class="cta-a" data-weight-rest="800" data-weight-near="230">Doing the same task over and over?</span> <span class="cta-b" data-weight-rest="220" data-weight-near="800">Let’s automate it.</span></h2>
+                <h2 data-audience-show="gov"><span class="cta-a" data-weight-rest="800" data-weight-near="230">Got a request for quotes?</span> <span class="cta-b" data-weight-rest="220" data-weight-near="800">Send it over, I reply fast.</span></h2>
+                <p class="cta-sub" data-audience-show="biz">Tell me what eats up your time. I’ll turn it into a system that does it for you, with a written quote and a fixed price.</p>
+                <p class="cta-sub" data-audience-show="gov">I send the quote within the requested deadline, with a clear scope, price and source code handover.</p>
+                <a href="#contact" class="btn btn-primary btn-arrow"><span class="btn-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span><span>Send an enquiry</span></a>
             </div>
         </section>
 
@@ -548,6 +632,7 @@
                     b.setAttribute('aria-pressed', b.getAttribute('data-audience-set') === value ? 'true' : 'false');
                 });
                 if (who) who.value = value === 'gov' ? 'Public body' : 'Business';
+                document.dispatchEvent(new CustomEvent('mangai:audience', { detail: value }));
             }
 
             document.querySelectorAll('[data-audience-set]').forEach(function (el) {
@@ -581,6 +666,8 @@
         })();
     </script>
     <script src="/nav.js"></script>
+    <script src="/assets/js/lenis.min.js" defer></script>
+    <script src="/assets/js/landing.js" defer></script>
     <script src="/chat-widget.js" defer></script>
 </body>
 </html>
