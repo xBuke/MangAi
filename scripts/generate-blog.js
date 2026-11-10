@@ -97,7 +97,7 @@ const L = {
     pagesTitle: 'Stranice',
     footerLinks: [['/blog/', 'Blog'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja']],
     otherLangLabel: 'English',
-    indexTitle: `Blog | ${BRAND} – AI, web i automatizacija za tvrtke u Hrvatskoj`,
+    indexTitle: `Blog o AI automatizaciji i web stranicama | ${BRAND}`,
     indexDesc: 'Praktični vodiči o AI alatima, automatizaciji i web rješenjima za obrte, male tvrtke i ustanove u Hrvatskoj.',
     indexH1: 'Blog',
     indexIntro: 'Praktični vodiči o AI alatima, automatizaciji i web rješenjima za obrte, male tvrtke i ustanove u Hrvatskoj.',
