@@ -20,7 +20,7 @@
       clientSees: 'Što vidi vaš klijent', youSee: 'Što vidite vi',
       typing: 'piše…', restart: 'Kreni ispočetka', newBadge: 'Novo',
       conversations: 'Razgovori koje je obradio asistent', automations: 'Automatizacije',
-      demoNote: 'Demo s izmišljenim podacima. Prava verzija radi se prema vašim procesima, sustavima i izgledu.',
+      demoNote: 'Demo s izmišljenim podacima i brojkama. Stvarni asistent odgovara iz vaših podataka, a kad nije siguran, prepušta razgovor vama. Povezivanje s kalendarom, WhatsAppom ili sustavom za rezervacije ovisi o alatima koje već koristite, pa to provjerimo na prvom razgovoru i upišemo u ponudu.',
       featuresTitle: 'Što asistent radi', otherDemos: 'Ostali primjeri', on: 'uključeno', off: 'isključeno',
       langSwitch: 'EN', langHref: '?lang=en', online: 'na mreži'
     },
@@ -30,7 +30,7 @@
       clientSees: 'What your client sees', youSee: 'What you see',
       typing: 'typing…', restart: 'Start over', newBadge: 'New',
       conversations: 'Conversations handled by the assistant', automations: 'Automations',
-      demoNote: 'Demo with made-up data. The real version is built around your processes, systems and branding.',
+      demoNote: 'Demo with made-up data and figures. A real assistant answers from your own information and hands the conversation to you when it is unsure. Connecting to your calendar, WhatsApp or booking system depends on the tools you already use, so we check that on the first call and put it in the quote.',
       featuresTitle: 'What the assistant does', otherDemos: 'Other examples', on: 'on', off: 'off',
       langSwitch: 'HR', langHref: '?', online: 'online'
     }
