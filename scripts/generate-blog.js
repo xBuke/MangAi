@@ -95,7 +95,7 @@ const L = {
     bizTitle: 'Podaci o obrtu',
     country: '',
     pagesTitle: 'Stranice',
-    footerLinks: [['/blog/', 'Blog'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja']],
+    footerLinks: [['/blog/', 'Blog'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja']],
     otherLangLabel: 'English',
     indexTitle: `Blog | ${BRAND} – AI, web i automatizacija za tvrtke u Hrvatskoj`,
     indexDesc: 'Praktični vodiči o AI alatima, automatizaciji i web rješenjima za obrte, male tvrtke i ustanove u Hrvatskoj.',
@@ -136,7 +136,7 @@ const L = {
     bizTitle: 'Business details',
     country: ', Croatia',
     pagesTitle: 'Pages',
-    footerLinks: [['/en/blog/', 'Blog'], ['/privacy.html', 'Privacy policy'], ['/terms.html', 'Terms of use']],
+    footerLinks: [['/en/blog/', 'Blog'], ['/privacy.html', 'Privacy policy'], ['/terms.html', 'Terms of use'], ['/en/terms-of-business.html', 'Terms of business']],
     otherLangLabel: 'Hrvatski',
     indexTitle: `Blog | ${BRAND} – AI, web and automation for businesses in Croatia`,
     indexDesc: 'Practical guides on AI tools, automation and web solutions for small businesses and institutions in Croatia.',
@@ -505,7 +505,7 @@ function main() {
     { loc: '/en/', lastmod: today, changefreq: 'weekly', priority: '0.9' },
     { loc: '/en/blog/', lastmod: today, changefreq: 'weekly', priority: '0.6' },
     ...en.map((p) => ({ loc: `/en/blog/${p.slug}.html`, lastmod: (p.date || today).slice(0, 10), changefreq: 'monthly', priority: '0.5' })),
-    ...['privacy_hr.html', 'terms_hr.html', 'privacy.html', 'terms.html'].map((f) => ({ loc: `/${f}`, lastmod: today, changefreq: 'yearly', priority: '0.2' })),
+    ...['uvjeti-poslovanja.html', 'en/terms-of-business.html', 'privacy_hr.html', 'terms_hr.html', 'privacy.html', 'terms.html'].map((f) => ({ loc: `/${f}`, lastmod: today, changefreq: 'yearly', priority: '0.2' })),
   ];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

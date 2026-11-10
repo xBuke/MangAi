@@ -742,3 +742,5 @@ body[data-audience="gov"] [data-audience-show="biz"] { display: none; }
   .legal td:first-child { font-weight: 600; }
 }
 .nav a[aria-current="page"] { color: var(--reed); font-weight: 600; }
+.home-posts h3 a { color: var(--ink); text-decoration: none; }
+.home-posts h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
