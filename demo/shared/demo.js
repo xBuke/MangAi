@@ -1,6 +1,6 @@
 /**
  * Demo app: landing + dashboard, language + tab persistence, contact links, integration modal.
- * Requires: DemoI18n, DemoMockData. Contact: HR -> https://www.mangai.hr/#contact, EN -> https://www.mangai.hr/en/#contact
+ * Requires: DemoI18n, DemoMockData. Contact: HR -> https://mangai.hr/#contact, EN -> https://mangai.hr/en/#contact
  */
 (function () {
   var STORAGE_LANG = 'demo_lang';
@@ -294,7 +294,7 @@
   }
 
   function contactUrl() {
-    return window.DemoI18n ? window.DemoI18n.getContactUrl(getLang()) : 'https://www.mangai.hr/#contact';
+    return window.DemoI18n ? window.DemoI18n.getContactUrl(getLang()) : 'https://mangai.hr/#contact';
   }
 
   function hasBookings(vertical) {

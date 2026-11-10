@@ -1,0 +1,4 @@
+# Interne bilješke i datoteke koje ne trebaju biti javno dostupne
+*.md
+.htaccess.redirects-example
+_redirects

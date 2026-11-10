@@ -1,597 +1,497 @@
+/* MangAI savjetnik – vođeni razgovor s gumbima (bez slobodnog unosa).
+ * Sadržaj: /chat/knowledge.hr.json i /chat/knowledge.en.json
+ * Otvaranje: element s data-open-chat="1" (opcionalno data-chat-flow="..."), ili window.MangAIChat.open(flow)
+ */
 (function () {
   'use strict';
 
   var knowledge = null;
+  var root = null;
   var panel = null;
   var launcher = null;
   var messagesEl = null;
   var quickRepliesEl = null;
+  var formWrap = null;
   var flowState = null;
+  var answers = [];
+  var lastFocus = null;
+
   var CONTACT_SECTION_ID = 'contact';
   var CONTACT_FORM_ID = 'contact-form';
+  var DEFAULT_FLOW = 'savjetnik';
+  var FLOW_ALIASES = { ai_savjetnik: 'savjetnik', discovery: 'savjetnik' };
+  var FORMSUBMIT_URL = 'https://formsubmit.co/info@mangai.hr';
+  var IFRAME_NAME = 'mangai_form_iframe';
 
   var isEn = (function () {
-    var path = typeof window !== 'undefined' && window.location && window.location.pathname || '';
-    var lang = typeof document !== 'undefined' && document.documentElement && document.documentElement.getAttribute('lang') || '';
-    return (path.indexOf('/en') === 0 || lang === 'en');
+    var path = (window.location && window.location.pathname) || '';
+    var lang = (document.documentElement && document.documentElement.getAttribute('lang')) || '';
+    return path.indexOf('/en') === 0 || lang === 'en';
   })();
 
   var KNOWLEDGE_URL = isEn ? '/chat/knowledge.en.json' : '/chat/knowledge.hr.json';
+  var CONTACT_PAGE = isEn ? '/en/#contact' : '/#contact';
 
   var STRINGS = isEn ? {
-    launcherAria: 'Open MangAI Advisor',
-    title: 'MangAI Advisor',
-    closeAria: 'Close',
+    launcher: 'Advisor',
+    launcherAria: 'Open the MangAI advisor',
+    title: 'MangAI advisor',
+    subtitle: 'A few questions, then Marko replies with a proposal',
+    closeAria: 'Close the advisor',
+    restart: 'Start over',
     formName: 'Full name',
-    formNamePlaceholder: 'Full name',
     formEmail: 'Email',
-    formEmailPlaceholder: 'email@example.com',
-    formWebsite: 'Company website',
-    formWebsitePlaceholder: 'https://',
-    formMessage: 'Message / project description',
-    formMessagePlaceholder: 'Describe your goal and industry...',
-    formInterest: 'Interest',
-    interestOptions: [
-      { value: 'Automation', label: 'Automation' },
-      { value: 'Agents', label: 'Agents' },
-      { value: 'Chatbot', label: 'Chatbot' },
-      { value: 'Advisory', label: 'Advisory' }
-    ],
-    submitBtn: 'Send',
-    submitMarko: 'Send to Marko',
-    footerLink: 'Book a consultation',
-    successMessage: 'Sent ✅ Thanks! We\'ll get back to you soon.',
-    fallbackMessage: 'I couldn\'t find an exact answer on the site. Would you like us to prepare a free AI analysis?',
-    fallbackCta: 'Yes, show form',
-    softCtaQuestion: 'Would you like me to suggest a concrete AI solution tailored to how you work?',
-    softCtaYes: 'Yes, I want it',
-    softCtaNo: 'Just browsing',
-    afterSoftCtaYes: 'Great. Just a few more details and I can share a concrete recommendation.',
-    afterSoftCtaNo: 'Sure 🙂 If you\'d like, ask me something or click \'Book a consultation\' when you\'re ready.',
-    formErrorName: 'Please enter your full name.',
-    formErrorEmail: 'Please enter your email.',
-    formErrorMessage: 'Please enter a message / project description.'
+    formPhone: 'Phone',
+    formMessage: 'Your enquiry',
+    optional: '(optional)',
+    submitBtn: 'Send enquiry',
+    sending: 'Sending…',
+    successMessage: 'Your enquiry has been sent. Marko will get back to you within one to two working days.',
+    fallbackMessage: 'I don\'t have a ready answer for that. Leave your details and Marko will reply in person.',
+    fallbackCta: 'Leave my details',
+    softCtaQuestion: 'Would you like Marko to send you a proposal and a quote?',
+    softCtaYes: 'Yes, send a proposal',
+    softCtaNo: 'Just looking',
+    afterSoftCtaYes: 'Great. Leave your details below; I\'ve already filled in the enquiry from your answers.',
+    afterSoftCtaNo: 'Of course. Pick a question below, or call +385 92 355 7476.',
+    formErrorName: 'Enter your full name.',
+    formErrorEmail: 'Enter a valid email address.',
+    formErrorMessage: 'Describe briefly what you need.',
+    footerText: 'Prefer to talk?',
+    footerPhone: 'Call +385 92 355 7476',
+    summaryFor: 'For',
+    summaryNeed: 'Needs',
+    summaryNote: 'Additional details:',
+    subject: 'MangAI – enquiry from the advisor (EN)',
+    page: 'Page'
   } : {
-    launcherAria: 'Otvori MangAI Savjetnik',
-    title: 'MangAI Savjetnik',
-    closeAria: 'Zatvori',
+    launcher: 'Savjetnik',
+    launcherAria: 'Otvori MangAI savjetnika',
+    title: 'MangAI savjetnik',
+    subtitle: 'Nekoliko pitanja, a zatim vam Marko šalje prijedlog',
+    closeAria: 'Zatvori savjetnika',
+    restart: 'Kreni ispočetka',
     formName: 'Ime i prezime',
-    formNamePlaceholder: 'Ime i prezime',
-    formEmail: 'Email',
-    formEmailPlaceholder: 'email@primjer.hr',
-    formWebsite: 'Web stranica',
-    formWebsitePlaceholder: 'https://',
-    formMessage: 'Poruka / opis projekta',
-    formMessagePlaceholder: 'Opišite cilj i industriju...',
-    formInterest: 'Interes',
-    interestOptions: [
-      { value: 'Automatizacija', label: 'Automatizacija' },
-      { value: 'Agenti', label: 'Agenti' },
-      { value: 'Chatbot', label: 'Chatbot' },
-      { value: 'Savjetovanje', label: 'Savjetovanje' }
-    ],
-    submitBtn: 'Pošalji',
-    submitMarko: 'Pošalji Marku',
-    footerLink: 'Rezerviraj konzultacije',
-    successMessage: 'Poslano ✅ Hvala! Javit ćemo ti se uskoro.',
-    fallbackMessage: 'Ne mogu pronaći točan odgovor na stranici. Želiš li da ti pripremimo besplatnu AI analizu?',
-    fallbackCta: 'Da, prikaži formu',
-    softCtaQuestion: 'Želiš da ti predložim konkretno AI rješenje prilagođeno tvom načinu rada?',
-    softCtaYes: 'Da, želim',
+    formEmail: 'E-pošta',
+    formPhone: 'Telefon',
+    formMessage: 'Vaš upit',
+    optional: '(nije obavezno)',
+    submitBtn: 'Pošalji upit',
+    sending: 'Šaljem…',
+    successMessage: 'Upit je poslan. Marko će vam se javiti unutar jednog do dva radna dana.',
+    fallbackMessage: 'Na to nemam spreman odgovor. Ostavite kontakt i Marko će vam odgovoriti osobno.',
+    fallbackCta: 'Ostavit ću kontakt',
+    softCtaQuestion: 'Želite li da vam Marko pošalje prijedlog i ponudu?',
+    softCtaYes: 'Da, pošaljite prijedlog',
     softCtaNo: 'Samo razgledavam',
-    afterSoftCtaYes: 'Super. Još par detalja i mogu ti poslati konkretnu preporuku.',
-    afterSoftCtaNo: 'Naravno 🙂 Ako želiš, pitaj me nešto ili klikni \'Rezerviraj konzultacije\' kad budeš spreman.',
+    afterSoftCtaYes: 'U redu. Ostavite kontakt ispod; upit sam već ispunio prema vašim odgovorima.',
+    afterSoftCtaNo: 'Naravno. Odaberite pitanje ispod ili nazovite 092 355 7476.',
     formErrorName: 'Upišite ime i prezime.',
-    formErrorEmail: 'Upišite email.',
-    formErrorMessage: 'Upišite poruku / opis projekta.'
+    formErrorEmail: 'Upišite ispravnu adresu e-pošte.',
+    formErrorMessage: 'Ukratko opišite što trebate.',
+    footerText: 'Radije razgovarate?',
+    footerPhone: 'Nazovite 092 355 7476',
+    summaryFor: 'Za',
+    summaryNeed: 'Treba',
+    summaryNote: 'Dodatni opis:',
+    subject: 'MangAI – upit iz savjetnika',
+    page: 'Stranica'
   };
-  var FLOW_AI_SAVJETNIK = 'ai_savjetnik';
-  var FLOW_DISCOVERY = 'discovery';
-  var FORMSUBMIT_INFO = 'https://formsubmit.co/info@mangai.hr';
-  var FORMSUBMIT_MARKO = 'https://formsubmit.co/marko@mangai.hr';
-  var IFRAME_NAME = 'mangai_form_iframe';
-  var MQ_MOBILE = 640;
-  var quickRepliesBound = false;
-  var lastQuickReplyClick = { ts: 0, text: '' };
-  var QUICK_REPLY_DEBOUNCE_MS = 300;
 
-  function normalizeHr(text) {
+  var ICON_CHAT = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg>';
+  var ICON_CLOSE = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function normalize(text) {
     if (!text || typeof text !== 'string') return '';
-    var t = text.toLowerCase().trim();
-    return t
+    return text.toLowerCase().trim()
       .replace(/č/g, 'c').replace(/ć/g, 'c')
       .replace(/š/g, 's').replace(/ž/g, 'z').replace(/đ/g, 'd');
   }
 
-  function loadKnowledge(cb) {
-    if (knowledge) {
-      cb(knowledge);
-      return;
-    }
-    fetch(KNOWLEDGE_URL)
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        knowledge = data;
-        cb(knowledge);
-      })
-      .catch(function () {
-        knowledge = { faqs: [], quick_replies: [], flows: {} };
-        cb(knowledge);
-      });
+  function resolveFlow(name) {
+    name = name || DEFAULT_FLOW;
+    return FLOW_ALIASES[name] || name;
   }
 
-  function getReply(input, state) {
-    state = state || {};
-    var faqs = (state.faqs || knowledge?.faqs) || [];
-    var q = (input || '').trim();
-    var qNorm = normalizeHr(q);
-    var i, faq, best;
-    if (!q) return null;
+  function loadKnowledge(cb) {
+    if (knowledge) { cb(knowledge); return; }
+    fetch(KNOWLEDGE_URL)
+      .then(function (r) { return r.json(); })
+      .then(function (data) { knowledge = data; cb(knowledge); })
+      .catch(function () { knowledge = { faqs: [], quick_replies: [], flows: {} }; cb(knowledge); });
+  }
+
+  function getReply(input) {
+    var faqs = (knowledge && knowledge.faqs) || [];
+    var qNorm = normalize(input);
+    var i, j;
+    if (!qNorm) return null;
     for (i = 0; i < faqs.length; i++) {
-      faq = faqs[i];
-      if (normalizeHr(faq.q) === qNorm) {
-        return { answer: faq.a };
-      }
+      if (normalize(faqs[i].q) === qNorm) return faqs[i].a;
     }
     for (i = 0; i < faqs.length; i++) {
-      faq = faqs[i];
-      var tags = faq.tags || [];
-      for (var j = 0; j < tags.length; j++) {
-        if (qNorm.indexOf(normalizeHr(tags[j])) !== -1) {
-          if (!best) best = faq;
-          break;
-        }
+      var tags = faqs[i].tags || [];
+      for (j = 0; j < tags.length; j++) {
+        if (qNorm.indexOf(normalize(tags[j])) !== -1) return faqs[i].a;
       }
     }
-    if (best) return { answer: best.a };
     return null;
   }
 
+  /* ---------- DOM ---------- */
+
   function render() {
-    var root = document.getElementById('mangai-chat-root');
+    root = document.getElementById('mangai-chat-root');
     if (!root) {
       root = document.createElement('div');
       root.id = 'mangai-chat-root';
-      root.setAttribute('aria-hidden', 'true');
       document.body.appendChild(root);
     }
-    if (!root.querySelector('.mangai-chat-panel')) {
-      launcher = document.createElement('button');
-      launcher.type = 'button';
-      launcher.className = 'mangai-chat-launcher';
-      launcher.setAttribute('aria-label', STRINGS.launcherAria);
-      launcher.innerHTML = '<span class="mangai-chat-launcher-icon">💬</span>';
-      root.appendChild(launcher);
+    if (root.querySelector('.mangai-chat-panel')) return;
 
-      var interestOpts = STRINGS.interestOptions.map(function (o) {
-        return '<option value="' + (o.value || o.label) + '">' + (o.label || o.value) + '</option>';
-      }).join('');
-      panel = document.createElement('div');
-      panel.className = 'mangai-chat-panel';
-      panel.hidden = true;
-      panel.innerHTML =
-        '<div class="mangai-chat-header">' +
-        '  <span class="mangai-chat-title">' + STRINGS.title + '</span>' +
-        '  <button type="button" class="mangai-chat-close" aria-label="' + STRINGS.closeAria + '">×</button>' +
+    launcher = document.createElement('button');
+    launcher.type = 'button';
+    launcher.className = 'mangai-chat-launcher';
+    launcher.setAttribute('aria-label', STRINGS.launcherAria);
+    launcher.setAttribute('aria-expanded', 'false');
+    launcher.setAttribute('aria-controls', 'mangai-chat-panel');
+    launcher.innerHTML = ICON_CHAT + '<span class="mangai-chat-launcher-text">' + esc(STRINGS.launcher) + '</span>';
+    root.appendChild(launcher);
+
+    panel = document.createElement('div');
+    panel.className = 'mangai-chat-panel';
+    panel.id = 'mangai-chat-panel';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'false');
+    panel.setAttribute('aria-labelledby', 'mangai-chat-title');
+    panel.hidden = true;
+    panel.innerHTML =
+      '<div class="mangai-chat-header">' +
+        '<div class="mangai-chat-heading">' +
+          '<p class="mangai-chat-title" id="mangai-chat-title">' + esc(STRINGS.title) + '</p>' +
+          '<p class="mangai-chat-subtitle">' + esc(STRINGS.subtitle) + '</p>' +
         '</div>' +
-        '<div class="mangai-chat-messages"></div>' +
-        '<div class="mangai-chat-quick-replies"></div>' +
-        '<div class="mangai-chat-form-wrap" id="mangai-chat-form-wrap" hidden>' +
-        '  <label class="mangai-chat-form-label">' + STRINGS.formName + ' <span class="mangai-chat-required">*</span></label>' +
-        '  <input type="text" class="mangai-chat-form-input" id="mangai-chat-name" name="name" required placeholder="' + STRINGS.formNamePlaceholder + '">' +
-        '  <label class="mangai-chat-form-label">' + STRINGS.formEmail + ' <span class="mangai-chat-required">*</span></label>' +
-        '  <input type="email" class="mangai-chat-form-input" id="mangai-chat-email" name="email" required placeholder="' + STRINGS.formEmailPlaceholder + '">' +
-        '  <label class="mangai-chat-form-label">' + STRINGS.formWebsite + '</label>' +
-        '  <input type="url" class="mangai-chat-form-input" id="mangai-chat-website" name="website" placeholder="' + STRINGS.formWebsitePlaceholder + '">' +
-        '  <label class="mangai-chat-form-label">' + STRINGS.formMessage + ' <span class="mangai-chat-required">*</span></label>' +
-        '  <textarea class="mangai-chat-form-textarea" id="mangai-chat-message" name="message" required rows="3" placeholder="' + STRINGS.formMessagePlaceholder + '"></textarea>' +
-        '  <label class="mangai-chat-form-label">' + STRINGS.formInterest + '</label>' +
-        '  <select class="mangai-chat-form-select" id="mangai-chat-interest" name="interest">' + interestOpts + '</select>' +
-        '  <div class="mangai-chat-form-buttons">' +
-        '    <button type="button" class="mangai-chat-form-submit" id="mangai-chat-submit-info">' + STRINGS.submitBtn + '</button>' +
-        '    <button type="button" class="mangai-chat-form-submit mangai-chat-form-submit-marko" id="mangai-chat-submit-marko">' + STRINGS.submitMarko + '</button>' +
-        '  </div>' +
-        '  <p class="mangai-chat-form-error" id="mangai-chat-form-error" hidden></p>' +
-        '</div>' +
-        '<p class="mangai-chat-footer">⚡ Powered by MangAI · <a href="#contact" data-chat-scroll-contact="1">' + STRINGS.footerLink + '</a></p>';
-      root.appendChild(panel);
-      panel.hidden = true;
-      document.body.classList.remove('mangai-chat-open');
+        '<button type="button" class="mangai-chat-restart">' + esc(STRINGS.restart) + '</button>' +
+        '<button type="button" class="mangai-chat-close" aria-label="' + esc(STRINGS.closeAria) + '">' + ICON_CLOSE + '</button>' +
+      '</div>' +
+      '<div class="mangai-chat-messages" aria-live="polite"></div>' +
+      '<div class="mangai-chat-quick-replies"></div>' +
+      '<form class="mangai-chat-form" id="mangai-chat-form" novalidate hidden>' +
+        '<label for="mangai-chat-name">' + esc(STRINGS.formName) + '</label>' +
+        '<input type="text" id="mangai-chat-name" autocomplete="name" required>' +
+        '<label for="mangai-chat-email">' + esc(STRINGS.formEmail) + '</label>' +
+        '<input type="email" id="mangai-chat-email" autocomplete="email" required>' +
+        '<label for="mangai-chat-phone">' + esc(STRINGS.formPhone) + ' <span class="mangai-chat-optional">' + esc(STRINGS.optional) + '</span></label>' +
+        '<input type="tel" id="mangai-chat-phone" autocomplete="tel">' +
+        '<label for="mangai-chat-message">' + esc(STRINGS.formMessage) + '</label>' +
+        '<textarea id="mangai-chat-message" rows="4" required></textarea>' +
+        '<p class="mangai-chat-form-error" id="mangai-chat-form-error" role="alert" hidden></p>' +
+        '<button type="submit" class="mangai-chat-submit">' + esc(STRINGS.submitBtn) + '</button>' +
+      '</form>' +
+      '<p class="mangai-chat-footer">' + esc(STRINGS.footerText) + ' <a href="tel:+385923557476">' + esc(STRINGS.footerPhone) + '</a></p>';
+    root.appendChild(panel);
 
-      messagesEl = panel.querySelector('.mangai-chat-messages');
-      quickRepliesEl = panel.querySelector('.mangai-chat-quick-replies');
-      bindLeadFormSubmit();
+    messagesEl = panel.querySelector('.mangai-chat-messages');
+    quickRepliesEl = panel.querySelector('.mangai-chat-quick-replies');
+    formWrap = panel.querySelector('.mangai-chat-form');
 
-      launcher.addEventListener('click', function () {
-        window.MangAIChat.openFromLauncher();
-      });
-      panel.querySelector('.mangai-chat-close').addEventListener('click', function () {
-        window.MangAIChat.close();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && panel && !panel.hidden) {
-          window.MangAIChat.close();
-        }
-      });
-    } else {
-      launcher = root.querySelector('.mangai-chat-launcher');
-      panel = root.querySelector('.mangai-chat-panel');
-      messagesEl = panel && panel.querySelector('.mangai-chat-messages');
-      quickRepliesEl = panel && panel.querySelector('.mangai-chat-quick-replies');
-    }
-  }
-
-  var formSubmitIframe = null;
-  var formSubmitForm = null;
-
-  function ensureFormSubmitInfrastructure() {
-    if (formSubmitIframe && document.body.contains(formSubmitIframe)) return;
-    formSubmitIframe = document.createElement('iframe');
-    formSubmitIframe.name = IFRAME_NAME;
-    formSubmitIframe.setAttribute('style', 'display:none;');
-    document.body.appendChild(formSubmitIframe);
-    formSubmitForm = document.createElement('form');
-    formSubmitForm.method = 'POST';
-    formSubmitForm.target = IFRAME_NAME;
-    formSubmitForm.style.display = 'none';
-    formSubmitForm.innerHTML =
-      '<input type="text" name="name">' +
-      '<input type="email" name="email">' +
-      '<input type="text" name="website">' +
-      '<input type="hidden" name="interest">' +
-      '<input type="hidden" name="message">' +
-      '<input type="hidden" name="_subject" value="MangAI lead (chat widget)">' +
-      '<input type="hidden" name="_captcha" value="false">' +
-      '<input type="hidden" name="_template" value="table">';
-    document.body.appendChild(formSubmitForm);
-  }
-
-  function showLeadForm() {
-    var wrap = document.getElementById('mangai-chat-form-wrap');
-    if (wrap) {
-      wrap.hidden = false;
-      quickRepliesEl.innerHTML = '';
-      var nameEl = document.getElementById('mangai-chat-name');
-      if (nameEl) nameEl.focus();
-    }
-  }
-
-  function hideLeadForm() {
-    var wrap = document.getElementById('mangai-chat-form-wrap');
-    if (wrap) {
-      wrap.hidden = true;
-      setQuickReplies(knowledge ? knowledge.quick_replies : [], false);
-    }
-  }
-
-  function submitLeadForm(toMarko) {
-    var nameEl = document.getElementById('mangai-chat-name');
-    var emailEl = document.getElementById('mangai-chat-email');
-    var websiteEl = document.getElementById('mangai-chat-website');
-    var messageEl = document.getElementById('mangai-chat-message');
-    var interestEl = document.getElementById('mangai-chat-interest');
-    var errorEl = document.getElementById('mangai-chat-form-error');
-    var name = nameEl ? nameEl.value.trim() : '';
-    var email = emailEl ? emailEl.value.trim() : '';
-    var message = messageEl ? messageEl.value.trim() : '';
-    var website = websiteEl ? websiteEl.value.trim() : '';
-    var interest = interestEl ? (interestEl.value || '') : '';
-    if (!name) {
-      if (errorEl) { errorEl.textContent = STRINGS.formErrorName; errorEl.hidden = false; }
-      return;
-    }
-    if (!email) {
-      if (errorEl) { errorEl.textContent = STRINGS.formErrorEmail; errorEl.hidden = false; }
-      return;
-    }
-    if (!message) {
-      if (errorEl) { errorEl.textContent = STRINGS.formErrorMessage; errorEl.hidden = false; }
-      return;
-    }
-    if (errorEl) errorEl.hidden = true;
-    ensureFormSubmitInfrastructure();
-    var pageUrl = typeof window.location !== 'undefined' ? window.location.href : '';
-    var body = 'Poruka: ' + message;
-    if (website) body += '\n\nWeb: ' + website;
-    body += '\n\nStranica: ' + pageUrl;
-    formSubmitForm.action = toMarko ? FORMSUBMIT_MARKO : FORMSUBMIT_INFO;
-    formSubmitForm.querySelector('input[name="name"]').value = name;
-    formSubmitForm.querySelector('input[name="email"]').value = email;
-    formSubmitForm.querySelector('input[name="website"]').value = website;
-    formSubmitForm.querySelector('input[name="interest"]').value = interest;
-    formSubmitForm.querySelector('input[name="message"]').value = body;
-    formSubmitForm.submit();
-    appendMessage(STRINGS.successMessage, false);
-    hideLeadForm();
-    flowState = null;
-  }
-
-  function bindLeadFormSubmit() {
-    var btnInfo = document.getElementById('mangai-chat-submit-info');
-    var btnMarko = document.getElementById('mangai-chat-submit-marko');
-    if (btnInfo) btnInfo.addEventListener('click', function () { submitLeadForm(false); });
-    if (btnMarko) btnMarko.addEventListener('click', function () { submitLeadForm(true); });
-  }
-
-  function scrollToContactAndFocus() {
-    var section = document.getElementById(CONTACT_SECTION_ID);
-    var form = document.getElementById(CONTACT_FORM_ID);
-    var firstInput = form && form.querySelector('input:not([type="hidden"]), select, textarea');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    if (firstInput) {
-      setTimeout(function () {
-        firstInput.focus();
-      }, 400);
-    }
+    launcher.addEventListener('click', toggle);
+    panel.querySelector('.mangai-chat-close').addEventListener('click', close);
+    panel.querySelector('.mangai-chat-restart').addEventListener('click', function () { startFlow(DEFAULT_FLOW); });
+    formWrap.addEventListener('submit', function (e) { e.preventDefault(); submitLeadForm(); });
+    quickRepliesEl.addEventListener('click', onQuickReplyClick);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel && !panel.hidden) close();
+    });
   }
 
   function appendMessage(text, isUser) {
-    if (!messagesEl) return;
+    if (!messagesEl || !text) return;
     var div = document.createElement('div');
-    div.className = 'mangai-chat-msg' + (isUser ? ' mangai-chat-msg-user' : ' mangai-chat-msg-bot');
-    var inner = document.createElement('div');
-    inner.className = 'mangai-chat-msg-bubble';
-    inner.textContent = text;
-    div.appendChild(inner);
+    div.className = 'mangai-chat-msg ' + (isUser ? 'mangai-chat-msg-user' : 'mangai-chat-msg-bot');
+    var bubble = document.createElement('div');
+    bubble.className = 'mangai-chat-msg-bubble';
+    bubble.textContent = text;
+    div.appendChild(bubble);
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  var QUICK_REPLIES_GRID_CLASS = 'mangai-chat-quick-replies-grid';
-  var CHAT_OPTIONS_GRID_CLASS = 'chat-options-grid';
-  var CHAT_OPTION_BTN_CLASS = 'chat-option-btn';
-  var CHAT_OPTION_FULL_CLASS = 'chat-option-full';
-  var GOAL_OPTION_MARKER_HR = 'Želim više leadova';
-  var GOAL_OPTION_MARKER_EN = 'I want more leads';
-  var NOT_SURE_OPTION_HR = 'Nisam siguran, želim preporuku';
-  var NOT_SURE_OPTION_EN = 'Not sure — I want a recommendation';
-
-  function setQuickReplies(items, isOptions, flowName) {
-    if (quickRepliesEl) {
-      quickRepliesEl.classList.remove(QUICK_REPLIES_GRID_CLASS);
-      quickRepliesEl.classList.remove(CHAT_OPTIONS_GRID_CLASS);
-      quickRepliesEl.removeAttribute('data-options-layout');
-    }
+  function setQuickReplies(items, kind) {
     quickRepliesEl.innerHTML = '';
-    if (!items || !items.length) return;
-    items.forEach(function (label) {
+    quickRepliesEl.setAttribute('data-kind', kind || 'questions');
+    (items || []).forEach(function (label) {
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'mangai-chat-quick-reply';
       btn.textContent = label;
-      if (isOptions) {
-        btn.dataset.option = label;
-      } else {
-        btn.dataset.question = label;
-      }
+      btn.setAttribute(kind === 'options' ? 'data-option' : 'data-question', label);
       quickRepliesEl.appendChild(btn);
     });
-
-    var isGoalStep = flowName === FLOW_AI_SAVJETNIK &&
-      Array.isArray(items) &&
-      items.length >= 6 &&
-      (items.indexOf(GOAL_OPTION_MARKER_HR) !== -1 || items.indexOf(GOAL_OPTION_MARKER_EN) !== -1);
-    if (isGoalStep && quickRepliesEl) {
-      quickRepliesEl.classList.add(QUICK_REPLIES_GRID_CLASS);
-      quickRepliesEl.classList.add(CHAT_OPTIONS_GRID_CLASS);
-      quickRepliesEl.setAttribute('data-options-layout', 'grid-pills');
-      for (var i = 0; i < quickRepliesEl.children.length; i++) {
-        var child = quickRepliesEl.children[i];
-        var label = items[i];
-        child.classList.add(CHAT_OPTION_BTN_CLASS);
-        if (label === NOT_SURE_OPTION_HR || label === NOT_SURE_OPTION_EN) {
-          child.classList.add(CHAT_OPTION_FULL_CLASS);
-          child.setAttribute('data-option-role', 'full');
-        } else {
-          child.setAttribute('data-option-role', 'primary');
-        }
-      }
-    }
+    scrollMessages();
   }
+
+  function scrollMessages() {
+    if (!messagesEl) return;
+    var go = function () { messagesEl.scrollTop = messagesEl.scrollHeight; };
+    go();
+    if (window.requestAnimationFrame) window.requestAnimationFrame(go);
+  }
+
+  function showDefaultQuestions() {
+    flowState = null;
+    setQuickReplies((knowledge && knowledge.quick_replies) || [], 'questions');
+  }
+
+  /* ---------- Forma ---------- */
+
+  function buildSummary() {
+    var lines = [];
+    if (answers[0]) lines.push(STRINGS.summaryFor + ': ' + answers[0]);
+    if (answers.length > 1) lines.push(STRINGS.summaryNeed + ': ' + answers.slice(1).join(', '));
+    return lines.length ? lines.join('\n') + '\n\n' + STRINGS.summaryNote + ' ' : '';
+  }
+
+  function showLeadForm() {
+    quickRepliesEl.innerHTML = '';
+    var msg = document.getElementById('mangai-chat-message');
+    if (msg && !msg.value) msg.value = buildSummary();
+    formWrap.hidden = false;
+    scrollMessages();
+    var nameEl = document.getElementById('mangai-chat-name');
+    if (nameEl) nameEl.focus();
+    flowState = { step: 'lead_form' };
+  }
+
+  function hideLeadForm() {
+    if (formWrap) formWrap.hidden = true;
+  }
+
+  function submitLeadForm() {
+    var name = document.getElementById('mangai-chat-name').value.trim();
+    var email = document.getElementById('mangai-chat-email').value.trim();
+    var phone = document.getElementById('mangai-chat-phone').value.trim();
+    var message = document.getElementById('mangai-chat-message').value.trim();
+    var errorEl = document.getElementById('mangai-chat-form-error');
+    var error = !name ? STRINGS.formErrorName
+      : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? STRINGS.formErrorEmail
+      : !message ? STRINGS.formErrorMessage
+      : '';
+    if (error) {
+      errorEl.textContent = error;
+      errorEl.hidden = false;
+      return;
+    }
+    errorEl.hidden = true;
+
+    var iframe = document.querySelector('iframe[name="' + IFRAME_NAME + '"]');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.name = IFRAME_NAME;
+      iframe.title = 'form';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+    var f = document.createElement('form');
+    f.method = 'POST';
+    f.action = FORMSUBMIT_URL;
+    f.target = IFRAME_NAME;
+    f.style.display = 'none';
+    var fields = {
+      ime: name,
+      email: email,
+      telefon: phone,
+      upit: message,
+      stranica: window.location.href,
+      _subject: STRINGS.subject,
+      _captcha: 'false',
+      _template: 'table'
+    };
+    Object.keys(fields).forEach(function (k) {
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = k;
+      input.value = fields[k];
+      f.appendChild(input);
+    });
+    document.body.appendChild(f);
+    f.submit();
+    setTimeout(function () { f.remove(); }, 1000);
+
+    hideLeadForm();
+    formWrap.reset();
+    appendMessage(STRINGS.successMessage, false);
+    answers = [];
+    showDefaultQuestions();
+  }
+
+  /* ---------- Tijek ---------- */
 
   function runFlowStep(flowName, stepId) {
     var flow = knowledge && knowledge.flows && knowledge.flows[flowName];
     if (!flow || !flow.steps) return;
-    var steps = flow.steps;
-    var step = steps.find(function (s) { return s.id === stepId; });
+    var step = null;
+    for (var i = 0; i < flow.steps.length; i++) {
+      if (flow.steps[i].id === stepId) { step = flow.steps[i]; break; }
+    }
     if (!step) return;
 
-    (step.messages || []).forEach(function (msg) {
-      appendMessage(msg, false);
-    });
+    (step.messages || []).forEach(function (m) { appendMessage(m, false); });
 
     if (step.soft_cta) {
-      var softQuestion = (step.soft_cta_question && step.soft_cta_question.trim()) ? step.soft_cta_question.trim() : STRINGS.softCtaQuestion;
-      appendMessage(softQuestion, false);
+      appendMessage(step.soft_cta_question || STRINGS.softCtaQuestion, false);
       flowState = { flowName: flowName, step: 'soft_cta' };
-      setQuickReplies([STRINGS.softCtaYes, STRINGS.softCtaNo], true, flowName);
+      setQuickReplies([STRINGS.softCtaYes, STRINGS.softCtaNo], 'options');
       return;
     }
-
     if (step.options && step.options.length) {
       flowState = { flowName: flowName, stepId: stepId, next: step.next || {} };
-      setQuickReplies(step.options, true, flowName);
+      setQuickReplies(step.options, 'options');
       return;
     }
-
-    flowState = null;
-    setQuickReplies(knowledge.quick_replies || [], false);
+    showDefaultQuestions();
   }
 
-  function handleOptionClick(optionText) {
-    if (!flowState) return;
-    var flowName = flowState.flowName;
-    var flow = knowledge && knowledge.flows && knowledge.flows[flowName];
-    if (!flow) return;
+  function handleOption(text) {
+    appendMessage(text, true);
 
-    appendMessage(optionText, true);
-
-    if (flowState.step === 'soft_cta') {
-      if (optionText === STRINGS.softCtaYes) {
+    if (flowState && flowState.step === 'fallback_cta') {
+      showLeadForm();
+      return;
+    }
+    if (flowState && flowState.step === 'soft_cta') {
+      if (text === STRINGS.softCtaYes) {
         appendMessage(STRINGS.afterSoftCtaYes, false);
         showLeadForm();
-        flowState = { step: 'lead_form' };
-        return;
-      }
-      if (optionText === STRINGS.softCtaNo) {
+      } else {
         appendMessage(STRINGS.afterSoftCtaNo, false);
-        setQuickReplies(knowledge.quick_replies || [], false);
-        flowState = null;
-        return;
+        showDefaultQuestions();
       }
-    }
-
-    var next = flowState.next || {};
-    var nextStepId = next[optionText];
-    if (nextStepId === '_discovery') {
-      startFlow(FLOW_DISCOVERY);
       return;
     }
-    if (nextStepId) {
-      runFlowStep(flowName, nextStepId);
-    } else {
-      flowState = null;
-      setQuickReplies(knowledge.quick_replies || [], false);
-    }
+    if (!flowState) return;
+
+    answers.push(text);
+    var nextId = (flowState.next || {})[text];
+    if (nextId) runFlowStep(flowState.flowName, nextId);
+    else showDefaultQuestions();
   }
 
-  function handleQuestionClick(questionText) {
-    appendMessage(questionText, true);
-    var result = getReply(questionText, { faqs: knowledge.faqs });
-    if (result && result.answer) {
-      appendMessage(result.answer, false);
+  function handleQuestion(text) {
+    appendMessage(text, true);
+    var answer = getReply(text);
+    if (answer) {
+      appendMessage(answer, false);
+      showDefaultQuestions();
     } else {
       appendMessage(STRINGS.fallbackMessage, false);
-      setQuickReplies([STRINGS.fallbackCta], true);
       flowState = { step: 'fallback_cta' };
-      return;
+      setQuickReplies([STRINGS.fallbackCta], 'options');
     }
-    setQuickReplies(knowledge.quick_replies || [], false);
   }
 
-  function bindQuickReplies() {
-    if (!quickRepliesEl) return;
-    if (quickRepliesBound) return;
-    quickRepliesBound = true;
-    quickRepliesEl.addEventListener('click', function (e) {
-      var btn = e.target.closest('.mangai-chat-quick-reply');
-      if (!btn) return;
-      e.preventDefault();
-      e.stopPropagation();
-      var option = btn.dataset.option;
-      var question = btn.dataset.question;
-      var text = option || question || '';
-      if (!text) return;
-      var now = Date.now();
-      if (now - lastQuickReplyClick.ts < QUICK_REPLY_DEBOUNCE_MS && lastQuickReplyClick.text === text) {
-        return;
-      }
-      lastQuickReplyClick.ts = now;
-      lastQuickReplyClick.text = text;
-      if (option) {
-        if (flowState && flowState.step === 'fallback_cta' && option === STRINGS.fallbackCta) {
-          appendMessage(option, true);
-          appendMessage(STRINGS.afterSoftCtaYes, false);
-          showLeadForm();
-          flowState = { step: 'lead_form' };
-          return;
-        }
-        handleOptionClick(option);
-      } else if (question) {
-        handleQuestionClick(question);
-      }
-    });
+  function onQuickReplyClick(e) {
+    var btn = e.target.closest('.mangai-chat-quick-reply');
+    if (!btn || btn.disabled) return;
+    e.preventDefault();
+    Array.prototype.forEach.call(quickRepliesEl.children, function (b) { b.disabled = true; });
+    var option = btn.getAttribute('data-option');
+    var question = btn.getAttribute('data-question');
+    if (option) handleOption(option);
+    else if (question) handleQuestion(question);
   }
 
   function startFlow(flowName) {
     render();
+    flowName = resolveFlow(flowName);
     hideLeadForm();
-    loadKnowledge(function (k) {
-      knowledge = k;
+    loadKnowledge(function () {
       messagesEl.innerHTML = '';
-      quickRepliesEl.innerHTML = '';
+      answers = [];
       flowState = null;
       var flow = knowledge.flows && knowledge.flows[flowName];
       if (!flow || !flow.steps || !flow.steps.length) {
-        setQuickReplies(knowledge.quick_replies || [], false);
-        bindQuickReplies();
+        showDefaultQuestions();
         return;
       }
       runFlowStep(flowName, flow.steps[0].id);
-      bindQuickReplies();
     });
   }
 
+  /* ---------- Otvaranje / zatvaranje ---------- */
+
   function open(flowName) {
     render();
-    flowName = flowName || FLOW_DISCOVERY;
-    var isOpen = panel && !panel.hidden;
-    if (isOpen) {
-      startFlow(flowName);
-      return;
+    if (panel.hidden) {
+      lastFocus = document.activeElement;
+      panel.hidden = false;
+      launcher.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('mangai-chat-open');
     }
-    panel.hidden = false;
-    launcher.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('mangai-chat-open');
     startFlow(flowName);
+    setTimeout(function () {
+      var first = panel.querySelector('.mangai-chat-quick-reply') || panel.querySelector('.mangai-chat-close');
+      if (first) first.focus();
+    }, 150);
   }
 
   function close() {
-    if (panel) {
-      panel.hidden = true;
-      if (launcher) launcher.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('mangai-chat-open');
-    }
+    if (!panel || panel.hidden) return;
+    panel.hidden = true;
+    launcher.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('mangai-chat-open');
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
   }
 
-  function openFromLauncher() {
-    if (panel && !panel.hidden) {
-      close();
-    } else {
-      open(FLOW_DISCOVERY);
-    }
+  function toggle() {
+    if (panel && !panel.hidden) close();
+    else open(DEFAULT_FLOW);
+  }
+
+  function scrollToContact() {
+    var section = document.getElementById(CONTACT_SECTION_ID);
+    if (!section) { window.location.href = CONTACT_PAGE; return; }
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var form = document.getElementById(CONTACT_FORM_ID);
+    var first = form && form.querySelector('input:not([type="hidden"]), select, textarea');
+    if (first) setTimeout(function () { first.focus(); }, 400);
   }
 
   window.MangAIChat = {
     open: open,
     close: close,
-    openFromLauncher: openFromLauncher,
+    toggle: toggle,
+    openFromLauncher: toggle,
     startFlow: startFlow,
-    ask: function (questionText) {
-      render();
-      loadKnowledge(function () {
-        open();
-        appendMessage(questionText, true);
-        var result = getReply(questionText, { faqs: knowledge.faqs });
-        if (result && result.answer) {
-          appendMessage(result.answer, false);
-        } else {
-          appendMessage(STRINGS.fallbackMessage, false);
-          setQuickReplies([STRINGS.fallbackCta], true);
-          flowState = { step: 'fallback_cta' };
-        }
-        setQuickReplies(knowledge.quick_replies || [], false);
-        bindQuickReplies();
-      });
+    scrollToContact: scrollToContact,
+    ask: function (text) {
+      open(DEFAULT_FLOW);
+      loadKnowledge(function () { handleQuestion(text); });
     }
   };
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function init() {
     render();
-    bindQuickReplies();
     document.addEventListener('click', function (e) {
-      var el = e.target.closest('[data-open-chat="1"]');
-      if (el) {
+      var opener = e.target.closest('[data-open-chat="1"]');
+      if (opener) {
         e.preventDefault();
-        window.MangAIChat.openFromLauncher();
+        open(opener.getAttribute('data-chat-flow') || DEFAULT_FLOW);
+        return;
       }
-      var toContact = e.target.closest('[data-chat-scroll-contact="1"]');
-      if (toContact) {
+      if (e.target.closest('[data-chat-scroll-contact="1"]')) {
         e.preventDefault();
-        scrollToContactAndFocus();
+        scrollToContact();
       }
     });
-  });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();

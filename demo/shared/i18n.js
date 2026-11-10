@@ -1,10 +1,10 @@
 /**
  * Demo i18n – HR/EN strings. All UI text comes from here.
- * Language: demo_lang in localStorage. Contact: HR -> https://www.mangai.hr/#contact, EN -> https://www.mangai.hr/en/#contact
+ * Language: demo_lang in localStorage. Contact: HR -> https://mangai.hr/#contact, EN -> https://mangai.hr/en/#contact
  */
 (function (global) {
-  var CONTACT_HR = 'https://www.mangai.hr/#contact';
-  var CONTACT_EN = 'https://www.mangai.hr/en/#contact';
+  var CONTACT_HR = 'https://mangai.hr/#contact';
+  var CONTACT_EN = 'https://mangai.hr/en/#contact';
 
   var t = {
     hr: {

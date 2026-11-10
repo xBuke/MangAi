@@ -1,272 +1,176 @@
 {
   "faqs": [
-    { "q": "How can you help my business?", "a": "MangAI offers AI automation and solutions for businesses: automation and workflows, personal brand and growth systems, custom applications and micro-SaaS, and consulting and advisory. We work with real estate, beauty, marketing agencies, and service businesses.", "tags": ["help", "services", "business"] },
-    { "q": "What AI services do you offer?", "a": "We offer: automation and workflows (CRM, leads, social media, back-office), personal brand and growth systems (AI-assisted content creation, branding), custom applications and micro-SaaS, and consulting and advisory (AI roadmaps, audits, education).", "tags": ["services", "ai", "automation"] },
-    { "q": "AI agents or chatbots — what's the difference?", "a": "Both: AI agents and chatbots are part of our solutions. Chatbots answer inquiries and triage; agents can schedule appointments, qualify leads, and work 24/7. The choice depends on your goal — leads, sales, support, or bookings.", "tags": ["agents", "chatbot", "ai"] },
-    { "q": "I run an agency — what do I get?", "a": "For marketing agencies we offer AI for faster drafts, campaigns, and content; lead gen and follow-up automation; and custom systems for your clients (chatbots, bookings). White-label solutions for your clients are also possible.", "tags": ["agency", "marketing", "lead"] },
-    { "q": "How much does it cost?", "a": "For off-the-shelf tools, a realistic range is around €50–200 per month for a smaller business. Custom solutions have a higher upfront cost (e.g. several thousand euros for setup). Free AI business analysis via the form below.", "tags": ["cost", "price", "budget"] },
-    { "q": "What are AI tools?", "a": "AI tools are software applications that use artificial intelligence to perform tasks that would otherwise require human work — e.g. answering inquiries, preparing documents, or sales support. For small businesses in Croatia and the region that means tools that can work in local language and fit limited resources.", "tags": ["ai", "tools"] },
-    { "q": "Are AI tools expensive for small businesses?", "a": "Many off-the-shelf tools offer free tiers or packages of a few tens of euros per month. For 2–3 tools in a small firm a realistic range is around €50–200 per month. Cost depends on scope and number of users.", "tags": ["cost", "small business"] },
-    { "q": "Do I need a developer for AI automation?", "a": "For simple off-the-shelf tools (e.g. text generation, template chatbots) usually not. For automation and integrations with your systems it's often better to hire a consultant or partner with experience — you save time and reduce setup errors.", "tags": ["developer", "implementation"] },
-    { "q": "How long does implementation take?", "a": "It depends on complexity: one clear use case (e.g. answering common inquiries) can be live in a few weeks. Custom solutions or multiple processes take longer — typically from a few weeks to a few months.", "tags": ["implementation", "time"] },
-    { "q": "Is AI safe for business data?", "a": "It's important to use tools that keep data in the EU and comply with GDPR. For business and personal data check provider terms and prefer solutions with a clear privacy policy and data processing agreement option.", "tags": ["gdpr", "security"] },
-    { "q": "What is AI business automation?", "a": "AI business automation means using software with artificial intelligence to perform repetitive business tasks — from answering inquiries to admin and lead tracking — with less manual work and human control over decisions.", "tags": ["automation", "business"] },
-    { "q": "How much does automation cost in Croatia?", "a": "For off-the-shelf tools a realistic range is around €50–200 per month for a smaller business with 1–2 automated processes. Custom solutions have a higher upfront cost (e.g. several thousand euros for setup). Price depends on scope and complexity.", "tags": ["cost", "automation", "croatia"] },
-    { "q": "Can AI track meetings and write summaries?", "a": "Yes. A personal AI assistant can track meetings, create summaries, extract action items, and send follow-ups or notes via email or your existing tools.", "tags": ["meetings", "summaries", "ai assistant"] }
+    {
+      "q": "What do you do?",
+      "a": "Websites and online shops, AI assistants (chatbots) for enquiries and bookings, automation of repetitive work, custom apps, maintenance of existing sites, and consulting and training on AI tools. I work with small businesses, associations and public bodies.",
+      "tags": ["services", "what do you do", "offer", "help"]
+    },
+    {
+      "q": "How much does it cost?",
+      "a": "It depends on the scope, so I don't quote prices off the cuff. After a short call you get a written quote with a fixed price and deadline, with no hidden items. The first call is free.",
+      "tags": ["price", "cost", "how much", "budget", "quote"]
+    },
+    {
+      "q": "How long does it take?",
+      "a": "A small website is usually done in two to four weeks, and an AI assistant or a single automation is often quicker. Larger projects are built in phases. The exact deadline is always in the quote.",
+      "tags": ["how long", "deadline", "time", "fast"]
+    },
+    {
+      "q": "Do you work with public bodies?",
+      "a": "Yes. I respond to requests for quotes and tenders in the Croatian e-procurement system (EOJN RH), issue e-invoices, and hand over source code and documentation. Websites are built to WCAG 2.1 AA in line with Croatian web accessibility law. Send requests to marko@mangai.hr.",
+      "tags": ["public", "procurement", "tender", "municipality", "city", "school", "institution"]
+    },
+    {
+      "q": "What is an AI assistant?",
+      "a": "A program on your website, WhatsApp or email that answers common questions from your own information, takes enquiries and bookings, and sends you a summary. When it doesn't know the answer, it hands the conversation to you. You can try examples in the Examples section.",
+      "tags": ["chatbot", "assistant", "agent", "ai"]
+    },
+    {
+      "q": "Is my data safe?",
+      "a": "I use EU hosting and services wherever possible, and when a system handles personal data we sign a GDPR data processing agreement. You remain the owner of your data.",
+      "tags": ["gdpr", "security", "data", "privacy", "safe"]
+    },
+    {
+      "q": "Who does the work?",
+      "a": "Marko Škorić, the owner of MangAI. No middlemen and no subcontractors without your knowledge. I use AI tools to work faster, but everything is reviewed before handover.",
+      "tags": ["who", "marko", "team"]
+    },
+    {
+      "q": "Where are you based?",
+      "a": "The business is registered in Ploče, Croatia. Most work is done remotely, and I meet in person by arrangement, anywhere in Croatia.",
+      "tags": ["where", "ploce", "location", "on site", "in person"]
+    }
   ],
   "quick_replies": [
-    "How can you help my business?",
-    "What AI services do you offer?",
-    "AI agents or chatbots — what's the difference?",
-    "I run an agency — what do I get?",
+    "What do you do?",
     "How much does it cost?",
-    "Can AI track meetings and write summaries?"
+    "How long does it take?",
+    "Do you work with public bodies?",
+    "What is an AI assistant?",
+    "Is my data safe?"
   ],
   "flows": {
-    "ai_savjetnik": {
+    "savjetnik": {
       "steps": [
         {
           "id": "welcome",
           "messages": [
-            "👋 Hi! I'm the MangAI advisor. In a few questions I can suggest where AI fits best in your business.",
-            "What best describes your goal?"
+            "Hello! Two quick questions will help describe what you need, and Marko will then send you a proposal and a quote.",
+            "Who is the project for?"
           ],
-          "options": [
-            "I want more leads",
-            "I want more bookings/appointments",
-            "I want to automate support (24/7)",
-            "I want to automate admin and workflows",
-            "I run an agency (white-label / internal ops)",
-            "I want an AI assistant for meetings and follow-ups",
-            "Not sure — I want a recommendation"
-          ],
+          "options": ["A business", "An association or institution", "A public body", "An individual"],
           "next": {
-            "I want more leads": "lead_industry",
-            "I want more bookings/appointments": "rec_bookings",
-            "I want to automate support (24/7)": "automate_where",
-            "I want to automate admin and workflows": "rec_admin",
-            "I run an agency (white-label / internal ops)": "agency_type",
-            "I want an AI assistant for meetings and follow-ups": "rec_meetings",
-            "Not sure — I want a recommendation": "_discovery"
+            "A business": "biz_need",
+            "An association or institution": "biz_need",
+            "A public body": "gov_need",
+            "An individual": "biz_need"
           }
         },
         {
-          "id": "lead_industry",
-          "messages": ["Which industry are you in?"],
-          "options": ["Real Estate", "Beauty & Services", "Marketing Agency", "Other"],
-          "next": { "Real Estate": "rec_lead_nekretnine", "Beauty & Services": "rec_lead_beauty", "Marketing Agency": "rec_lead_agencija", "Other": "rec_lead_ostalo" }
+          "id": "biz_need",
+          "messages": ["What do you need most right now?"],
+          "options": [
+            "A new website or online shop",
+            "More enquiries and bookings",
+            "Less manual work",
+            "A custom app",
+            "Maintenance of an existing site",
+            "Advice on where AI makes sense"
+          ],
+          "next": {
+            "A new website or online shop": "rec_web",
+            "More enquiries and bookings": "rec_leads",
+            "Less manual work": "rec_admin",
+            "A custom app": "rec_app",
+            "Maintenance of an existing site": "rec_maint",
+            "Advice on where AI makes sense": "rec_advice"
+          }
         },
         {
-          "id": "automate_where",
-          "messages": ["Where do most inquiries come from?"],
-          "options": ["Website", "Social media", "Email", "A bit of everything"],
-          "next": { "Website": "rec_auto_web", "Social media": "rec_auto_social", "Email": "rec_auto_email", "A bit of everything": "rec_auto_sve" }
+          "id": "gov_need",
+          "messages": ["What do you need?"],
+          "options": [
+            "A new website or redesign",
+            "Maintenance of an existing site",
+            "Online services and digital forms",
+            "An AI assistant for citizens or visitors",
+            "Staff training",
+            "I have a request for quotes"
+          ],
+          "next": {
+            "A new website or redesign": "rec_gov_web",
+            "Maintenance of an existing site": "rec_gov_maint",
+            "Online services and digital forms": "rec_gov_eservices",
+            "An AI assistant for citizens or visitors": "rec_gov_ai",
+            "Staff training": "rec_gov_edu",
+            "I have a request for quotes": "rec_gov_tender"
+          }
         },
         {
-          "id": "agency_type",
-          "messages": ["What type of agency?"],
-          "options": ["Lead gen", "Performance", "Full-service"],
-          "next": { "Lead gen": "rec_agency_lead", "Performance": "rec_agency_perf", "Full-service": "rec_agency_full" }
+          "id": "rec_web",
+          "messages": ["I'd suggest a fast, mobile-friendly site with a clear call to action and an enquiry or booking form. Basic SEO, a link to your Google profile and a short editing tutorial are included. A small site is usually done in two to four weeks."],
+          "soft_cta": true
         },
         {
-          "id": "team_size",
-          "messages": ["How big is your team?"],
-          "options": ["1–5", "6–20", "20+"],
-          "next": { "1–5": "rec_size_small", "6–20": "rec_size_mid", "20+": "rec_size_large" }
-        },
-        {
-          "id": "rec_bookings",
-          "messages": ["For more bookings and appointments we recommend: an online booking system with an AI chatbot that handles inquiries, shows availability, and books slots. Ideal for salons, clinics, and service businesses — fewer missed calls and empty slots."],
+          "id": "rec_leads",
+          "messages": ["I'd suggest an AI assistant on your site or WhatsApp that answers common questions, takes enquiries and bookings, and sends you a summary. Fewer missed calls, and you step in only when needed. You can try it in the Examples section."],
           "soft_cta": true
         },
         {
           "id": "rec_admin",
-          "messages": ["For admin and workflows: AI can automate records, reminders, document processing, and repetitive tasks. You focus on what brings in revenue. We often combine this with a chatbot for inquiries and CRM — quick implementation in weeks."],
+          "messages": ["I'd suggest starting with the one task that takes most of your time, such as copying enquiries into a sheet, client reminders or weekly reports, and automating it. Once that works, we move to the next."],
           "soft_cta": true
         },
         {
-          "id": "rec_meetings",
-          "messages": ["AI assistant for meetings: captures summaries, extracts action items, and sends follow-ups or notes via email or your existing tools. Fewer missed commitments and faster replies to clients. Can integrate with your calendar and meeting tools."],
+          "id": "rec_app",
+          "messages": ["For a custom app we first write a short specification: who uses it, what it must do and which systems it connects to. Based on that, you get a quote with a fixed price and deadline."],
           "soft_cta": true
         },
         {
-          "id": "rec_lead_nekretnine",
-          "messages": ["For real estate we recommend: an AI chatbot on your website for first contact and qualification (buy/rent, location, budget), scheduling viewings, and handing leads to your sales team. Results in weeks."],
+          "id": "rec_maint",
+          "messages": ["I take over maintenance of existing sites: updates, backups, hosting and small changes. I start by reviewing the site and telling you what needs fixing."],
           "soft_cta": true
         },
         {
-          "id": "rec_lead_beauty",
-          "messages": ["For beauty and services: appointment booking, client reminders, and answers to questions about prices and services — reduces missed calls and empty slots. Ideal for smaller salons without full-time reception."],
+          "id": "rec_advice",
+          "messages": ["Let's start with a short call about your business: where you lose the most time and which questions clients keep asking. Afterwards you get a written proposal with two or three concrete steps, with no obligation."],
           "soft_cta": true
         },
         {
-          "id": "rec_lead_agencija",
-          "messages": ["For marketing agencies: AI for faster drafts and campaigns, lead gen and follow-up automation, and custom chatbots or booking systems for your clients. White-label options available."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_lead_ostalo",
-          "messages": ["For other industries: the first step is to identify where you have the most repeated inquiries or manual work. Often a web chatbot plus CRM automation delivers the fastest results. A free analysis tells you exactly where to start."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_auto_web",
-          "messages": ["For website inquiries, a chatbot on your site that answers common questions, triages inquiries, and hands complex cases to humans is ideal. We can connect it to your CRM and email — 24/7 responses without extra hours. We often include a personal AI assistant for meetings, notes, and automated follow-ups in this setup."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_auto_social",
-          "messages": ["For social media we can automate first response (DM or comments), qualification, and routing to booking or a form. Reduces delays and manual work. We often include a personal AI assistant for meetings, notes, and automated follow-ups in this setup."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_auto_email",
-          "messages": ["For email: AI can classify inquiries, generate reply drafts, and update your CRM. Complex cases are handed to a human with context. Saves hours per week. We often include a personal AI assistant for meetings, notes, and automated follow-ups in this setup."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_auto_sve",
-          "messages": ["When you have inquiries everywhere, the biggest impact usually comes from one unified system: one chatbot or agent that receives all channels and triages — web, social, email. Then handoff to humans with context. We often include a personal AI assistant for meetings, notes, and automated follow-ups in this setup."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_agency_lead",
-          "messages": ["For lead gen agencies: AI for lead qualification, automated follow-up, and handing hot leads to clients. You can deliver more leads with less manual work."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_agency_perf",
-          "messages": ["For performance agencies: campaign automation, faster creative drafts, and analytics. AI helps you scale without proportionally growing the team."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_agency_full",
-          "messages": ["For full-service: a combination — AI for content and campaigns, chatbots for clients, and internal automation. We can tailor packages for each client."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_size_small",
-          "messages": ["For teams of 1–5: focus on one or two use cases — e.g. answering inquiries or bookings. AI saves hours without hiring. Quick implementation in weeks."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_size_mid",
-          "messages": ["For teams of 6–20: it makes sense to automate more channels — web, email, maybe social. One unified system (chatbot + CRM) delivers the most value."],
-          "soft_cta": true
-        },
-        {
-          "id": "rec_size_large",
-          "messages": ["For 20+ employees: you can roll out AI across more processes — support, sales, marketing, admin. We recommend a phased approach with clear KPIs."],
-          "soft_cta": true
-        }
-      ]
-    },
-    "legal": {
-      "steps": [
-        {
-          "id": "welcome",
-          "messages": [
-            "Not legal advice — for basic qualification and scheduling only.",
-            "What legal topic are you interested in?"
-          ],
-          "options": ["Civil / contracts", "Real estate", "Family law", "Other"],
-          "next": { "Civil / contracts": "qual_who", "Real estate": "qual_who", "Family law": "qual_who", "Other": "qual_who" }
-        },
-        {
-          "id": "qual_who",
-          "messages": ["Personal or for a firm / company?"],
-          "options": ["Personal", "Firm / company"],
-          "next": { "Personal": "qual_urgency", "Firm / company": "qual_urgency" }
-        },
-        {
-          "id": "qual_urgency",
-          "messages": ["How soon do you need a consultation?"],
-          "options": ["Soon (1–2 weeks)", "Not urgent", "Just information"],
-          "next": { "Soon (1–2 weeks)": "offer_contact", "Not urgent": "offer_contact", "Just information": "offer_contact" }
-        },
-        {
-          "id": "offer_contact",
-          "messages": ["Thanks. Leave your contact below — we'll get back to you to schedule a consultation."],
-          "soft_cta": true
-        }
-      ]
-    },
-    "clinics": {
-      "steps": [
-        {
-          "id": "welcome",
-          "messages": ["What service are you interested in?"],
-          "options": ["Check-up", "Planned procedure", "Urgent", "Other / inquiry"],
-          "next": { "Check-up": "when", "Planned procedure": "when", "Urgent": "when", "Other / inquiry": "when" }
-        },
-        {
-          "id": "when",
-          "messages": ["When would suit you? (e.g. this week, next month)"],
-          "options": ["This week", "Next week", "Next month", "Not sure yet"],
-          "next": { "This week": "contact", "Next week": "contact", "Next month": "contact", "Not sure yet": "contact" }
-        },
-        {
-          "id": "contact",
-          "messages": ["Leave your name and contact below — we'll confirm availability and book your appointment."],
-          "soft_cta": true
-        }
-      ]
-    },
-    "discovery": {
-      "steps": [
-        {
-          "id": "welcome",
-          "messages": [
-            "👋 Hi! If you're not sure what kind of AI you need, I'm here to help.",
-            "What would AI help you with most?"
-          ],
-          "options": [
-            "More inquiries and clients",
-            "Less manual work and admin",
-            "Meeting tracking and automated follow-ups",
-            "24/7 client support",
-            "Not sure — I want a recommendation"
-          ],
-          "next": { "More inquiries and clients": "more_leads", "Less manual work and admin": "less_admin", "Meeting tracking and automated follow-ups": "meetings", "24/7 client support": "support_24_7", "Not sure — I want a recommendation": "not_sure" }
-        },
-        {
-          "id": "more_leads",
-          "messages": ["For more inquiries and clients we recommend AI that qualifies leads on your website or social media and hands them to your sales team. Result: more quality leads without extra hours.", "What industry are you in?"],
-          "options": ["Real estate", "Services (salons, clinics)", "Marketing / agency", "Other"],
-          "next": { "Real estate": "offer_contact", "Services (salons, clinics)": "offer_contact", "Marketing / agency": "offer_contact", "Other": "offer_contact" }
-        },
-        {
-          "id": "less_admin",
-          "messages": ["Less manual work – AI can handle records, reminders and repetitive tasks. You focus on what actually brings in revenue.", "What takes most of your time?"],
-          "options": ["Email and documents", "CRM and leads", "Both", "Not sure"],
-          "next": { "Email and documents": "offer_contact", "CRM and leads": "offer_contact", "Both": "offer_contact", "Not sure": "offer_contact" }
-        },
-        {
-          "id": "meetings",
-          "messages": [
-            "Meeting tracking and follow-up: AI captures summaries, action items and sends reminders. Fewer missed commitments and faster replies to clients. This includes a personal AI assistant that tracks meetings, creates summaries, extracts action items, and sends automated follow-ups.",
-            "Where would this help you most?"
-          ],
-          "options": ["Sales calls", "Internal meetings", "Client consultations", "All of the above"],
-          "next": { "Sales calls": "offer_contact", "Internal meetings": "offer_contact", "Client consultations": "offer_contact", "All of the above": "offer_contact" }
-        },
-        {
-          "id": "support_24_7",
-          "messages": ["24/7 support: a chatbot on your website or social media answers common questions and triages inquiries. Clients get an answer right away; you handle only complex cases.", "Where do most inquiries come from?"],
-          "options": ["Website", "Social media", "Email", "Everywhere"],
-          "next": { "Website": "offer_contact", "Social media": "offer_contact", "Email": "offer_contact", "Everywhere": "offer_contact" }
-        },
-        {
-          "id": "not_sure",
-          "messages": ["No problem – I'll recommend something based on a couple of questions.", "How big is your team?"],
-          "options": ["1–5", "6–20", "20+"],
-          "next": { "1–5": "offer_contact", "6–20": "offer_contact", "20+": "offer_contact" }
-        },
-        {
-          "id": "offer_contact",
-          "messages": [],
+          "id": "rec_gov_web",
+          "messages": ["I build websites in line with Croatian web accessibility law (WCAG 2.1 AA), with an accessibility statement and an editing system for staff. After handover you receive the source code, documentation and an e-invoice."],
           "soft_cta": true,
-          "soft_cta_question": "Want me to suggest a concrete solution and send you an estimate?"
+          "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
+        },
+        {
+          "id": "rec_gov_maint",
+          "messages": ["Maintenance covers updates, security patches, backups and uptime monitoring. I can take over a site from a previous contractor, starting with a review of its current state."],
+          "soft_cta": true,
+          "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
+        },
+        {
+          "id": "rec_gov_eservices",
+          "messages": ["Digital forms and applications that arrive straight in the office: grant and programme applications, utility reports, room bookings. Data stays on EU hosting, with a data processing agreement."],
+          "soft_cta": true,
+          "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
+        },
+        {
+          "id": "rec_gov_ai",
+          "messages": ["The AI assistant answers questions from citizens or visitors based on your official documents, in Croatian and other languages. When it doesn't know, it refers people to the right person or office."],
+          "soft_cta": true,
+          "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
+        },
+        {
+          "id": "rec_gov_edu",
+          "messages": ["A practical workshop on using AI tools safely in your institution's daily work, on site or online, with written guidelines for staff."],
+          "soft_cta": true,
+          "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
+        },
+        {
+          "id": "rec_gov_tender",
+          "messages": ["Send the request for quotes to marko@mangai.hr, or leave your details below and I'll get in touch. I reply with questions or a quote within the deadline the request sets."],
+          "soft_cta": true,
+          "soft_cta_question": "Would you like to leave your details?"
         }
       ]
     }
