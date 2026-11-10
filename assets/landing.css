@@ -443,3 +443,39 @@
 /* Engleski naslov je duži: manji rez da hero stane u jedan ekran */
 html[lang="en"] .landing .hero h1 { font-size: clamp(2.8rem, 7.2vw, 6.5rem); }
 html[lang="en"] .landing .hero h1 .h1-b { padding-left: 0; }
+
+/* ---------- Kraće: gušći raspored na početnoj ---------- */
+.landing .section { padding: clamp(56px, 7vw, 96px) 0; }
+.landing .section.cta-band { padding: clamp(96px, 12vw, 160px) 0; }
+@media (max-width: 640px) { .landing .section.cta-band { padding: 150px 0 160px; } }
+.landing .section-head { margin-bottom: clamp(28px, 4vw, 44px); }
+
+/* Usluge u tri stupca: šest usluga u dva retka */
+@media (min-width: 1000px) {
+  .landing .services-list { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(28px, 3.5vw, 48px); }
+  .landing .services-list li { padding: 22px 0 24px; }
+}
+.landing .services-list .examples { color: var(--ink-soft); font-size: .9rem; }
+
+/* Blog: tri članka u jednom retku */
+.landing .home-posts li { padding: 20px 0 6px; }
+.landing .home-posts h3 { font-size: 1.2rem; }
+.landing .section-head a.inline { font-weight: 600; white-space: nowrap; }
+
+/* Mobitel: primjeri kao vodoravni niz koji se povlači prstom, umjesto osam pločica jedna ispod druge */
+@media (max-width: 560px) {
+  .landing .demo-list {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 4px var(--gutter) 18px;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .landing .demo-list::-webkit-scrollbar { display: none; }
+  .landing .demo-list li { flex: 0 0 80%; scroll-snap-align: start; }
+  .landing .demo-list li:nth-child(8) { grid-column: auto; }
+  .landing .demo-list a { min-height: 14rem; }
+}
