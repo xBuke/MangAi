@@ -279,9 +279,7 @@
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .marquee-track.is-running { animation: none; }
-  .marquee-track { width: 100%; }
   .marquee-list[aria-hidden="true"] { display: none; }
-  .marquee-list { flex: 1 1 auto; flex-wrap: wrap; padding-inline: var(--gutter); }
 }
 
 /* ---------- Zvuči poznato ---------- */
@@ -308,13 +306,10 @@
   max-width: 22ch;
 }
 .pain .stk-slot.p1 { right: 4%; top: 6%; --r: 8deg; }
-.pain .stk-slot.p2 { right: 16%; bottom: -4%; --r: -10deg; }
 .pain .stk-slot.p1 .stk { --stk-size: 1.35rem; }
 @media (max-width: 900px) {
   .pain .stk-slot.p1 { right: 0; top: -36px; }
   .pain .stk-slot.p1 .stk { --stk-size: 1rem; }
-  .pain .stk-slot.p2 { right: 2%; bottom: -56px; }
-  .pain .stk-slot.p2 .stk { --stk-mango: 76px; }
 }
 
 /* ---------- Primjeri: pločice u bojama ---------- */
@@ -391,14 +386,17 @@
 .landing .about .plate { animation: none; transform: rotate(1.5deg); }
 .about .stk-slot.a1 { left: -36px; bottom: -40px; --r: -8deg; }
 .about .stk-slot.a1 .stk { --stk-size: 1rem; }
-.about .stk-slot.a2 { right: -30px; top: -58px; --r: 12deg; }
-.about .stk-slot.a2 .stk { --stk-mango: 92px; }
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
   .about-plate-wrap { max-width: 460px; margin-top: 24px; }
   .about .stk-slot.a1 { left: auto; right: 0; bottom: -44px; }
-  .about .stk-slot.a2 { right: -6px; top: -64px; }
 }
+
+/* Kako radim, unutar sekcije "Tko stoji iza" */
+.about-steps { margin-top: clamp(72px, 9vw, 120px); }
+.steps-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-bottom: clamp(28px, 4vw, 44px); padding-top: 22px; border-top: 2px solid var(--ink); }
+.steps-head h3 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+.steps-head p { color: var(--ink-soft); }
 
 /* ---------- CTA s tragom naljepnica ---------- */
 .landing .section.cta-band {
@@ -437,8 +435,6 @@
   .cta-band h2 { font-size: clamp(2.3rem, 11vw, 3.2rem) !important; }
 }
 
-/* Kontakt nakon CTA */
-.landing #contact, .landing #kontakt { border-top: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .js-landing .msg, .js-landing .chat-card, .js-landing .hero-copy, .js-landing .hero h1 .h1-line > span { opacity: 1 !important; transform: none !important; }

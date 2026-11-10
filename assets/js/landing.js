@@ -524,7 +524,7 @@
 
     // Kad sekcija uđe u prikaz: naljepnice "polete" po rubu sekcije i ostanu, a naslov ostaje čitljiv
     var played = false;
-    var SPOTS_DESK = [[.06, .62], [.09, .24], [.24, .1], [.42, .07], [.6, .09], [.79, .11], [.93, .3], [.94, .7], [.8, .9], [.18, .88]];
+    var SPOTS_DESK = [[.07, .6], [.13, .18], [.37, .08], [.68, .09], [.91, .26], [.93, .72], [.2, .88]];
     var SPOTS_MOB = [[.2, .06], [.72, .07], [.82, .93], [.24, .94], [.52, .965]];
     function demoTrail() {
       if (played) return;
