@@ -20,8 +20,7 @@
   var CONTACT_FORM_ID = 'contact-form';
   var DEFAULT_FLOW = 'savjetnik';
   var FLOW_ALIASES = { ai_savjetnik: 'savjetnik', discovery: 'savjetnik' };
-  var FORMSUBMIT_URL = 'https://formsubmit.co/info@mangai.hr';
-  var IFRAME_NAME = 'mangai_form_iframe';
+  var FORMSUBMIT_AJAX_URL = 'https://formsubmit.co/ajax/info@mangai.hr';
 
   var isEn = (function () {
     var path = (window.location && window.location.pathname) || '';
@@ -57,6 +56,7 @@
     formErrorName: 'Enter your full name.',
     formErrorEmail: 'Enter a valid email address.',
     formErrorMessage: 'Describe briefly what you need.',
+    sendError: 'The enquiry could not be sent. Please email marko@mangai.hr or call +385 92 355 7476.',
     footerText: 'Prefer to talk?',
     footerPhone: 'Call +385 92 355 7476',
     summaryFor: 'For',
@@ -89,6 +89,7 @@
     formErrorName: 'Upišite ime i prezime.',
     formErrorEmail: 'Upišite ispravnu adresu e-pošte.',
     formErrorMessage: 'Ukratko opišite što trebate.',
+    sendError: 'Upit nije poslan. Pošaljite ga na marko@mangai.hr ili nazovite 092 355 7476.',
     footerText: 'Radije razgovarate?',
     footerPhone: 'Nazovite 092 355 7476',
     summaryFor: 'Za',
@@ -290,45 +291,45 @@
     }
     errorEl.hidden = true;
 
-    var iframe = document.querySelector('iframe[name="' + IFRAME_NAME + '"]');
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.name = IFRAME_NAME;
-      iframe.title = 'form';
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-    }
-    var f = document.createElement('form');
-    f.method = 'POST';
-    f.action = FORMSUBMIT_URL;
-    f.target = IFRAME_NAME;
-    f.style.display = 'none';
-    var fields = {
+    var submitBtn = formWrap.querySelector('.mangai-chat-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = STRINGS.sending;
+
+    var payload = {
       ime: name,
       email: email,
       telefon: phone,
       upit: message,
       stranica: window.location.href,
       _subject: STRINGS.subject,
-      _captcha: 'false',
-      _template: 'table'
+      _template: 'table',
+      _captcha: 'false'
     };
-    Object.keys(fields).forEach(function (k) {
-      var input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = k;
-      input.value = fields[k];
-      f.appendChild(input);
-    });
-    document.body.appendChild(f);
-    f.submit();
-    setTimeout(function () { f.remove(); }, 1000);
 
-    hideLeadForm();
-    formWrap.reset();
-    appendMessage(STRINGS.successMessage, false);
-    answers = [];
-    showDefaultQuestions();
+    fetch(FORMSUBMIT_AJAX_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .then(function (data) {
+        var ok = data && (data.success === true || data.success === 'true');
+        if (!ok) throw new Error((data && data.message) || 'send failed');
+        hideLeadForm();
+        formWrap.reset();
+        appendMessage(STRINGS.successMessage, false);
+        answers = [];
+        showDefaultQuestions();
+      })
+      .catch(function (err) {
+        if (window.console) console.warn('MangAI savjetnik: slanje nije uspjelo', err);
+        errorEl.textContent = STRINGS.sendError;
+        errorEl.hidden = false;
+      })
+      .then(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = STRINGS.submitBtn;
+      });
   }
 
   /* ---------- Tijek ---------- */
