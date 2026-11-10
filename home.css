@@ -741,3 +741,4 @@ body[data-audience="gov"] [data-audience-show="biz"] { display: none; }
   .legal tr { border-top: 1px solid var(--line); padding: 10px 0; }
   .legal td:first-child { font-weight: 600; }
 }
+.nav a[aria-current="page"] { color: var(--reed); font-weight: 600; }
