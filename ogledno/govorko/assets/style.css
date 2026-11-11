@@ -1,0 +1,211 @@
+/* Vina Govorko — "rječnik" koncept
+   Boje: delta Neretve (tamnozelena), trstika, mandarina (naglasak), plavka (sekcija vina) */
+:root {
+  --paper: #eceee6;
+  --paper-2: #e1e5d9;
+  --ink: #1c2b27;
+  --ink-soft: #4b5a54;
+  --line: rgba(28, 43, 39, .18);
+  --mandarina: #d9691a;
+  --plavka: #43182d;
+  --plavka-2: #571f3a;
+  --plavka-ink: #f3eaee;
+  --reed: #a6ae8a;
+  --serif: 'Gloock', Georgia, 'Times New Roman', serif;
+  --sans: 'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gut: clamp(16px, 4vw, 56px);
+  --max: 1240px;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body.no-scroll { overflow: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; line-height: 1.02; letter-spacing: -.01em; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+p { margin: 0 0 1em; }
+:focus-visible { outline: 2px solid var(--mandarina); outline-offset: 3px; border-radius: 2px; }
+
+/* demo traka */
+.demo-bar { background: var(--ink); color: var(--paper); font-size: 13px; padding: 7px var(--gut); text-align: center; }
+.demo-bar a { color: #f3b27a; font-weight: 600; }
+
+/* zaglavlje */
+.top { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 28px; padding: 14px var(--gut); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-logo { width: 34px; height: 34px; border-radius: 50%; overflow: hidden; background: var(--ink); display: grid; place-items: center; flex: none; }
+.brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+.brand-logo.missing::after { content: "G"; font-family: var(--serif); color: var(--paper); font-size: 19px; }
+.brand-word { font-family: var(--serif); font-size: 26px; letter-spacing: -.01em; }
+.nav { display: flex; gap: 26px; margin-left: auto; }
+.nav a { text-decoration: none; font-size: 15px; font-weight: 500; padding: 4px 0; border-bottom: 1.5px solid transparent; }
+.nav a:hover { border-bottom-color: var(--mandarina); }
+.top-tools { display: flex; align-items: center; gap: 12px; }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; }
+.lang button { border: 0; background: none; font: inherit; font-size: 13px; font-weight: 600; color: var(--ink-soft); padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.cart-btn { position: relative; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.cart-btn:hover { background: var(--paper-2); }
+.cart-count { position: absolute; top: -3px; right: -3px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--mandarina); color: #fff; font-size: 12px; font-weight: 600; display: grid; place-items: center; }
+.cart-count.bump { animation: bump .4s ease; }
+@keyframes bump { 40% { transform: scale(1.35); } }
+
+/* gumbi */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; font: inherit; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; transition: background .15s, color .15s; }
+.btn-solid { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+.btn-solid:hover { background: var(--plavka); border-color: var(--plavka); }
+.btn-line { border: 1px solid var(--ink); color: var(--ink); background: transparent; }
+.btn-line:hover { background: var(--ink); color: var(--paper); }
+.btn-block { width: 100%; }
+
+/* placeholder kad se slika ne učita */
+.ph { position: relative; background: var(--paper-2); overflow: hidden; }
+.ph.missing img { visibility: hidden; }
+.ph.missing:not(.brand-logo) { background:
+  repeating-linear-gradient(100deg, transparent 0 22px, rgba(28,43,39,.07) 22px 24px),
+  linear-gradient(160deg, var(--reed), #6f7a58); }
+
+/* hero: rječnička natuknica */
+.hero { max-width: var(--max); margin: 0 auto; padding: clamp(40px, 7vw, 96px) var(--gut) clamp(56px, 8vw, 110px); display: grid; grid-template-columns: 1.25fr .85fr; gap: clamp(32px, 6vw, 88px); align-items: end; }
+.hw { font-size: clamp(5.2rem, 15vw, 12.5rem); line-height: .82; letter-spacing: -.035em; margin-left: -.04em; }
+.hw-pos { font-style: italic; color: var(--ink-soft); font-size: 1.15rem; margin: 18px 0 18px; }
+.hw-senses { list-style: none; counter-reset: s; padding: 0; margin: 0 0 18px; max-width: 34ch; }
+.hw-senses li { counter-increment: s; position: relative; padding-left: 2.1em; font-size: clamp(1.15rem, 1.8vw, 1.45rem); line-height: 1.4; margin-bottom: .45em; }
+.hw-senses li::before { content: counter(s) "."; position: absolute; left: 0; font-family: var(--serif); color: var(--mandarina); }
+.hw-ex { font-style: italic; color: var(--ink-soft); padding-left: 2.1em; font-size: 1.05rem; }
+.hero-lead { margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--line); max-width: 44ch; font-weight: 500; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-photo { margin: 0; aspect-ratio: 4 / 5; border-radius: 220px 220px 4px 4px; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo figcaption { position: absolute; left: 16px; bottom: 14px; color: #fff; font-size: 13px; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+
+/* jedini orkestrirani trenutak: natuknica se slaže pri učitavanju */
+@media (prefers-reduced-motion: no-preference) {
+  .hw, .hw-pos, .hw-senses li, .hw-ex { animation: settle .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hw-pos { animation-delay: .25s; }
+  .hw-senses li:nth-child(1) { animation-delay: .4s; }
+  .hw-senses li:nth-child(2) { animation-delay: .55s; }
+  .hw-ex { animation-delay: .75s; }
+}
+@keyframes settle { from { opacity: 0; transform: translateY(14px); } }
+
+/* priča */
+.story { max-width: var(--max); margin: 0 auto; padding: clamp(56px, 8vw, 120px) var(--gut); display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: start; border-top: 1px solid var(--line); }
+.story-photo { margin: 0; aspect-ratio: 4 / 3; border-radius: 4px; position: sticky; top: 100px; }
+.story-photo img { width: 100%; height: 100%; object-fit: cover; }
+.story-photo figcaption { position: absolute; left: 0; bottom: -28px; font-size: 13px; color: var(--ink-soft); }
+.story-text h2 { margin-bottom: 32px; max-width: 14ch; }
+.story-text p { max-width: 58ch; font-size: 1.08rem; }
+.story-text p:first-of-type::first-letter { font-family: var(--serif); float: left; font-size: 4.1em; line-height: .82; padding: .06em .1em 0 0; color: var(--plavka); }
+.sign { font-family: var(--serif); font-size: 1.4rem; margin-top: 28px; }
+
+/* vinograd */
+.vineyard { background: var(--ink); color: var(--paper); padding: clamp(56px, 8vw, 120px) var(--gut); }
+.vy-head, .vy-grid, .vy-note { max-width: var(--max); margin-left: auto; margin-right: auto; }
+.vy-head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 80px); align-items: end; margin-bottom: 48px; }
+.vy-head p { max-width: 50ch; color: #c9cfc3; margin: 0; }
+.vy-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 5vw, 80px); align-items: center; }
+.facts { margin: 0; }
+.facts div { display: grid; grid-template-columns: 9.5em 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid rgba(236,238,230,.18); }
+.facts div:last-child { border-bottom: 1px solid rgba(236,238,230,.18); }
+.facts dt { font-style: italic; color: var(--reed); }
+.facts dd { margin: 0; font-size: 1.05rem; }
+.vy-photo { margin: 0; aspect-ratio: 4 / 3; border-radius: 4px; }
+.vy-photo img { width: 100%; height: 100%; object-fit: cover; }
+.vy-note { margin-top: 56px; padding: 0; }
+.vy-note p { font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 2.1rem); line-height: 1.25; max-width: 30ch; margin: 0; }
+
+/* traka fotografija */
+.strip { display: flex; gap: 12px; overflow-x: auto; padding: 12px var(--gut); scroll-snap-type: x mandatory; scrollbar-width: thin; background: var(--ink); }
+.strip figure { margin: 0; flex: 0 0 auto; height: clamp(180px, 26vw, 300px); aspect-ratio: 3 / 4; scroll-snap-align: start; border-radius: 3px; }
+.strip figure:nth-child(odd) { aspect-ratio: 4 / 3; }
+.strip img { width: 100%; height: 100%; object-fit: cover; }
+
+/* vina — rječnik */
+.wines { background: var(--plavka); color: var(--plavka-ink); padding: clamp(64px, 9vw, 130px) var(--gut); }
+.wines-head { max-width: var(--max); margin: 0 auto 56px; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 80px); align-items: end; }
+.wines-head p { margin: 0; max-width: 46ch; color: #d9c6cf; }
+.entries { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(32px, 5vw, 80px); }
+.entry { display: grid; grid-template-columns: 96px 1fr; gap: 24px; padding: 34px 0; border-top: 1px solid rgba(243,234,238,.18); }
+.entry-bottle { display: flex; justify-content: center; align-items: flex-start; padding-top: 6px; }
+.entry-bottle .bottle { width: 72px; height: auto; filter: drop-shadow(0 10px 14px rgba(0,0,0,.35)); }
+.entry-word { font-size: clamp(2.3rem, 3.6vw, 3rem); line-height: .95; }
+.entry-pos { font-style: italic; color: #c4a8b6; margin: 8px 0 12px; font-size: .98rem; }
+.entry-def { font-size: 1rem; margin-bottom: .6em; max-width: 52ch; }
+.entry-def .sense { font-family: var(--serif); color: #f3b27a; margin-right: .3em; }
+.entry-buy { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; flex-wrap: wrap; }
+.price { font-family: var(--serif); font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+.price small { font-family: var(--sans); font-size: .85rem; color: #c4a8b6; }
+.btn-add { min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--plavka-ink); background: transparent; color: var(--plavka-ink); font: inherit; font-weight: 600; font-size: 14px; cursor: pointer; min-width: 168px; transition: background .15s, color .15s; }
+.btn-add:hover { background: var(--plavka-ink); color: var(--plavka); }
+.btn-add.done { background: #f3b27a; border-color: #f3b27a; color: var(--plavka); }
+.ship-note { max-width: var(--max); margin: 40px auto 0; font-size: 14px; color: #c4a8b6; }
+
+/* posjet */
+.visit { max-width: var(--max); margin: 0 auto; padding: clamp(56px, 8vw, 120px) var(--gut); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); }
+.visit h2 { margin-bottom: 22px; }
+.visit p { max-width: 44ch; margin-bottom: 28px; }
+.contact { margin: 0; }
+.contact div { display: grid; grid-template-columns: 8em 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+.contact dt { font-style: italic; color: var(--ink-soft); }
+.contact dd { margin: 0; }
+.contact a { text-decoration-color: var(--mandarina); text-underline-offset: 3px; }
+
+/* podnožje */
+.foot { border-top: 1px solid var(--line); padding: 40px var(--gut) 48px; text-align: center; font-size: 14px; color: var(--ink-soft); }
+.foot-slogan { font-family: var(--serif); font-size: clamp(2rem, 6vw, 4.4rem); color: var(--ink); margin-bottom: 14px; }
+.foot-age { font-size: 12px; }
+
+/* ladica košarice */
+.drawer { position: fixed; inset: 0; z-index: 60; }
+.drawer-scrim { position: absolute; inset: 0; background: rgba(28,43,39,.45); opacity: 0; transition: opacity .25s; }
+.drawer-panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(420px, 100%); background: var(--paper); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .26s cubic-bezier(.2,.7,.2,1); box-shadow: -20px 0 40px rgba(0,0,0,.12); }
+.drawer.open .drawer-scrim { opacity: 1; }
+.drawer.open .drawer-panel { transform: none; }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 1px solid var(--line); }
+.drawer-head h2 { font-size: 2rem; }
+.drawer-close { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: none; color: var(--ink); cursor: pointer; display: grid; place-items: center; }
+.cart-items { flex: 1; overflow-y: auto; padding: 8px 22px; }
+.cart-empty { color: var(--ink-soft); padding: 24px 0; }
+.cart-line { display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.cart-thumb .bottle { width: 34px; height: auto; margin: 0 auto; }
+.cart-info strong { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; display: block; line-height: 1.1; }
+.cart-info span { font-size: 13px; color: var(--ink-soft); }
+.qty { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; margin-top: 8px; }
+.qty button { width: 32px; height: 32px; border: 0; background: none; font: inherit; font-size: 17px; cursor: pointer; color: var(--ink); border-radius: 50%; }
+.qty button:hover { background: var(--paper-2); }
+.qty output { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; font-size: 14px; }
+.cart-price { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; font-size: 15px; }
+.cart-remove { display: block; margin: 10px 0 0 auto; border: 0; background: none; font: inherit; font-size: 12.5px; color: var(--ink-soft); text-decoration: underline; cursor: pointer; padding: 0; font-weight: 400; }
+.drawer-foot { padding: 18px 22px 22px; border-top: 1px solid var(--line); background: var(--paper-2); }
+.sum-row { display: flex; justify-content: space-between; font-size: 15px; padding: 3px 0; font-variant-numeric: tabular-nums; }
+.sum-total { font-weight: 600; font-size: 17px; padding-top: 8px; }
+.cart-note { font-size: 13px; color: var(--plavka-2); min-height: 1.3em; margin: 8px 0 12px; }
+.cart-age { font-size: 12px; color: var(--ink-soft); margin: 10px 0 0; text-align: center; }
+#checkout-btn[aria-disabled="true"] { opacity: .4; pointer-events: none; }
+
+/* mobitel */
+@media (max-width: 960px) {
+  .nav { display: none; }
+  .top-tools { margin-left: auto; }
+  .hero { grid-template-columns: 1fr; align-items: start; }
+  .hero-photo { aspect-ratio: 5 / 4; border-radius: 160px 160px 4px 4px; max-height: 70vh; }
+  .story, .vy-head, .vy-grid, .wines-head, .visit { grid-template-columns: 1fr; }
+  .story-photo { position: relative; top: 0; margin-bottom: 24px; }
+  .entries { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .top { gap: 12px; padding-top: 10px; padding-bottom: 10px; }
+  .brand-word { font-size: 22px; }
+  .entry { grid-template-columns: 64px 1fr; gap: 16px; }
+  .entry-bottle .bottle { width: 54px; }
+  .btn-add { min-width: 0; flex: 1; }
+  .facts div, .contact div { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Vinarija Điko — plaćanje</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/checkout.css">
+<style>
+  :root { --brand:#23271d; --brand-ink:#deddd6; --brand-soft:#aeaca2; --brand-btn:#5b1a2a; --brand-btn-ink:#f3e9e3; --brand-font:'Archivo', 'Arial Black', sans-serif; }
+</style>
+</head>
+<body class="co">
+  <section class="co-left" aria-labelledby="co-sum-title">
+    <div class="co-left-in">
+      <div class="co-top">
+        <a href="index.html#vina" aria-label="Natrag" data-i18n-aria="co.back">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="co-merchant">Vinarija Điko</span>
+        </a>
+        <span class="co-test" data-i18n="co.test">Testni način</span>
+        <div class="co-lang" role="group" aria-label="Jezik" data-i18n-aria="lang.aria">
+          <button type="button" data-lang-btn="hr">HR</button><button type="button" data-lang-btn="en">EN</button>
+        </div>
+      </div>
+      <p class="co-label" id="co-sum-title"><span data-i18n="co.pay.to">Plati</span> Vinarija Điko</p>
+      <p class="co-big" id="co-big-total">0,00 €</p>
+      <div id="co-summary"></div>
+      <div class="co-sum">
+        <div><span data-i18n="co.subtotal">Međuzbroj</span><span id="co-subtotal"></span></div>
+        <div><span data-i18n="co.shipping">Dostava</span><span id="co-shipping"></span></div>
+        <div class="co-tot"><span data-i18n="co.total">Ukupno</span><span id="co-total"></span></div>
+      </div>
+      <p class="co-foot" data-i18n="demo.bar">Demo stranica.</p>
+    </div>
+  </section>
+
+  <main class="co-right">
+    <div class="co-right-in">
+      <div id="co-form-wrap">
+        <form id="co-form" novalidate>
+          <h2 data-i18n="co.contact">Kontakt</h2>
+          <div class="co-field"><input name="email" type="email" autocomplete="email" data-i18n-ph="co.email" placeholder="E-mail" aria-label="E-mail" required></div>
+
+          <h2 data-i18n="co.shipTo">Adresa dostave</h2>
+          <div class="co-field">
+            <input name="name" autocomplete="name" data-i18n-ph="co.name" placeholder="Ime i prezime" aria-label="Ime i prezime" required>
+            <input name="address" autocomplete="street-address" data-i18n-ph="co.address" placeholder="Ulica i kućni broj" aria-label="Adresa" required>
+            <div class="co-row">
+              <input name="zip" inputmode="numeric" autocomplete="postal-code" data-i18n-ph="co.zip" placeholder="Poštanski broj" aria-label="Poštanski broj" required>
+              <input name="city" autocomplete="address-level2" data-i18n-ph="co.city" placeholder="Grad" aria-label="Grad" required>
+            </div>
+            <input name="phone" type="tel" autocomplete="tel" data-i18n-ph="co.phone" placeholder="Mobitel" aria-label="Mobitel">
+          </div>
+
+          <h2 data-i18n="co.card">Podaci o kartici</h2>
+          <div class="co-field">
+            <input name="card" inputmode="numeric" autocomplete="cc-number" data-i18n-ph="co.cardNo" placeholder="1234 1234 1234 1234" aria-label="Broj kartice" required>
+            <div class="co-row">
+              <input name="exp" inputmode="numeric" autocomplete="cc-exp" data-i18n-ph="co.exp" placeholder="MM / GG" aria-label="Datum isteka" required>
+              <input name="cvc" inputmode="numeric" autocomplete="cc-csc" data-i18n-ph="co.cvc" placeholder="CVC" aria-label="CVC" required>
+            </div>
+          </div>
+          <div class="co-hint"><span data-i18n="co.hint"></span><br><button type="button" id="co-fill-test" data-i18n="co.fill">Ispuni testnu karticu</button></div>
+
+          <label class="co-check"><input type="checkbox" name="age"><span data-i18n="co.age">Imam 18+ godina.</span></label>
+          <p class="co-error" id="co-error" role="alert"></p>
+          <button class="co-pay" id="co-pay" type="submit"><span data-i18n="co.payBtn">Plati</span> <span id="co-pay-amount"></span></button>
+          <p class="co-secure"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><path d="M2 6V4a4 4 0 0 1 8 0v2h1v8H1V6zm2 0h4V4a2 2 0 0 0-4 0z" fill="currentColor"/></svg><span data-i18n="co.secure"></span></p>
+        </form>
+      </div>
+
+      <div id="co-empty" class="co-empty" hidden>
+        <p data-i18n="co.empty">Košarica je prazna.</p>
+        <a href="index.html#vina" data-i18n="co.back">Natrag u trgovinu</a>
+      </div>
+
+      <div id="co-success" class="co-success" hidden tabindex="-1">
+        <div class="tick"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h1 data-i18n="co.ok.title">Hvala, narudžba je plaćena.</h1>
+        <p><span data-i18n="co.ok.text">Broj narudžbe</span>: <strong id="co-order-no"></strong></p>
+        <p><span data-i18n="co.ok.mail">Potvrdu šaljemo na</span> <strong id="co-order-email"></strong></p>
+        <p data-i18n="co.ok.next"></p>
+        <a href="index.html" data-i18n="co.ok.back">Natrag na stranicu</a>
+      </div>
+    </div>
+  </main>
+
+<script src="assets/common-i18n.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/shop.js"></script>
+</body>
+</html>
