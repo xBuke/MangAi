@@ -115,7 +115,7 @@ p { margin: 0 0 1em; }
 .hero__img { animation: kb 22s ease-out both; }
 .hero__video { opacity: 0; transition: opacity 1.2s; }
 .hero__video.is-on { opacity: 1; }
-.hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 19, 31, .55) 0%, rgba(8, 19, 31, .1) 30%, rgba(8, 19, 31, .25) 55%, rgba(8, 19, 31, .92) 100%); }
+.hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 19, 31, .55) 0%, rgba(8, 19, 31, .1) 30%, rgba(8, 19, 31, .45) 50%, rgba(8, 19, 31, .94) 100%); }
 @keyframes kb { from { transform: scale(1.08); } to { transform: scale(1); } }
 .hero__in { padding-top: 140px; padding-bottom: clamp(28px, 5vw, 56px); }
 .hero .kicker { color: var(--gold-2); }

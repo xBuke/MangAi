@@ -578,7 +578,7 @@ dialog .acts{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin
     };
   }
 
-  boot();
+  if (demo) { demo('session', { method: 'POST', body: { user: 'Ivan (demo)' } }).then(() => boot()); } else boot();
 })();
 </script>
 </body>
