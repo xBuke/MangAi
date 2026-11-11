@@ -59,5 +59,32 @@
         }
       ]
     }
-  ]
+  ],
+  "images": {
+    "sizes": [
+      320,
+      480,
+      600,
+      640,
+      800,
+      960,
+      1100,
+      1200,
+      1400,
+      1600,
+      2000
+    ],
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "cerinrestaurant.lovable.app",
+        "pathname": "/**"
+      }
+    ],
+    "formats": [
+      "image/avif",
+      "image/webp"
+    ],
+    "minimumCacheTTL": 2678400
+  }
 }
