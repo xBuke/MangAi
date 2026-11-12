@@ -53,6 +53,81 @@ function steps(items, title = 'Kako radim', intro = '') {
         </section>`;
 }
 
+/* Paketi za lokalne obrte – jedini izvor cijena na webu (kartice na /cijene/, izradi web stranica i početnoj) */
+const SETUP_PRICE = 390;
+const PACKAGES = [
+  {
+    id: 'start', name: 'Start', price: 19, year: 190,
+    tagline: 'Web stranica koja dovodi upite',
+    items: [
+      'Web stranica prilagođena mobitelu',
+      'Usluge s cijenama, radno vrijeme, galerija, kontakt i karta',
+      'Obrazac za upit i zahtjev za termin',
+      'Osnovna postavka za Google',
+      'Hosting, održavanje i sitne izmjene',
+    ],
+  },
+  {
+    id: 'plus', name: 'Plus', price: 29, year: 290,
+    tagline: 'Web i jedan dodatak po izboru',
+    items: [
+      'Sve iz paketa Start',
+      'Loyalty kartica s levelima i profil mušterije <em>ili</em> AI asistent na stranici',
+    ],
+  },
+  {
+    id: 'komplet', name: 'Komplet', price: 39, year: 390, featured: 'Najviše za vaš posao',
+    tagline: 'Web, loyalty i AI asistent',
+    items: [
+      'Sve iz paketa Start',
+      'Loyalty kartica s levelima i profil mušterije',
+      'AI asistent na stranici, do 300 razgovora mjesečno',
+      'Uređen Google Business profil',
+    ],
+  },
+];
+
+function pricingCards(headingLevel = 'h3') {
+  const h = headingLevel;
+  return `<div class="pricing">
+                    ${PACKAGES.map((pk) => `<article class="plan${pk.featured ? ' plan-featured' : ''}" aria-labelledby="plan-${pk.id}">
+                        ${pk.featured ? `<p class="plan-badge">${pk.featured}</p>` : ''}
+                        <${h} class="plan-name" id="plan-${pk.id}">${pk.name}</${h}>
+                        <p class="plan-for">${pk.tagline}</p>
+                        <p class="plan-price"><strong>${pk.price} €</strong> mjesečno</p>
+                        <p class="plan-setup">+ ${SETUP_PRICE} € jednokratno za izradu</p>
+                        <ul class="plan-list">
+                            ${pk.items.map((i) => `<li>${i}</li>`).join('\n                            ')}
+                        </ul>
+                        <p class="plan-year">ili ${pk.year} € godišnje (2 mjeseca gratis)</p>
+                        <a class="btn ${pk.featured ? 'btn-primary' : 'btn-ghost'}" href="/kontakt/?paket=${pk.id}">Odaberi ${pk.name}</a>
+                    </article>`).join('\n                    ')}
+                </div>
+                <p class="pricing-note">Cijene su konačne: obrt nije u sustavu PDV-a, pa se PDV ne obračunava. Održavanje se može otkazati uz otkazni rok od 30 dana.</p>`;
+}
+
+function pricingSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: 'Paketi web stranica za obrte',
+    url: `${SITE}/cijene/`,
+    itemListElement: PACKAGES.map((pk) => ({
+      '@type': 'Offer',
+      name: pk.name,
+      description: `${pk.tagline}. Uz ${SETUP_PRICE} € jednokratno za izradu.`,
+      url: `${SITE}/cijene/`,
+      priceCurrency: 'EUR',
+      price: String(pk.price),
+      priceSpecification: [
+        { '@type': 'UnitPriceSpecification', price: pk.price, priceCurrency: 'EUR', unitText: 'mjesečno', referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' } },
+        { '@type': 'PriceSpecification', price: SETUP_PRICE, priceCurrency: 'EUR', description: 'Jednokratna izrada' },
+      ],
+      seller: { '@id': `${SITE}/#obrt` },
+    })),
+  };
+}
+
 const STEPS_DEFAULT = [
   ['Razgovor', 'Pola sata telefonom ili uživo. Opišete što vam treba, ja pitam ono što nedostaje. Besplatno.'],
   ['Ponuda', 'Pisana ponuda s opsegom, cijenom i rokom. Bez skrivenih stavki i nadoplata.'],
@@ -91,7 +166,7 @@ const usluge = {
                 <ul class="services-list">
                     <li>
                         <h2 class="h3"><a href="/usluge/izrada-web-stranica/">Izrada web stranica i webshopa</a></h2>
-                        <p>Brza, pregledna stranica koja radi na mobitelu i dovodi upite, a ne samo stoji na internetu. Jednostavna stranica za obrt već od 390 €.</p>
+                        <p>Brza, pregledna stranica koja radi na mobitelu i dovodi upite, a ne samo stoji na internetu. Izrada 390 €, paketi od 19 € mjesečno.</p>
                         <p class="examples"><strong>Primjeri:</strong> stranica obrta, apartmana ili salona, WooCommerce webshop, landing za kampanju.</p>
                         <p class="more"><a href="/usluge/izrada-web-stranica/">Više o izradi web stranica ${arrow}</a></p>
                     </li>
@@ -169,9 +244,9 @@ const web = {
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], ['/usluge/', 'Usluge'], [null, 'Izrada web stranica']],
   metaTitle: 'Izrada web stranica za obrte i male tvrtke, od 390 €',
-  description: 'Izrada web stranica i webshopova za obrte, salone, apartmane i male tvrtke. Brza stranica za mobitel s upitima i rezervacijama, već od 390 € + 15 €/mj.',
+  description: 'Izrada web stranica za obrte, salone, apartmane i male tvrtke. Brza stranica za mobitel s upitima i zahtjevima za termin: 390 € jednokratno + od 19 €/mj.',
   h1: 'Izrada web stranica za obrte i male tvrtke',
-  lead: 'Brza, pregledna stranica koja radi na mobitelu i dovodi upite. Jednostavna stranica za obrt kreće od 390 € jednokratno, uz 15 € mjesečno za hosting i održavanje.',
+  lead: 'Brza, pregledna stranica koja radi na mobitelu i dovodi upite. Izrada je 390 € jednokratno, a zatim paket od 19 € mjesečno, s hostingom, održavanjem i sitnim izmjenama.',
   body: `
         <section class="section" aria-labelledby="ukljuceno-title">
             <div class="wrap page-split">
@@ -186,48 +261,49 @@ const web = {
                         <li>politiku privatnosti i usklađenost s GDPR-om,</li>
                         <li>vaše boje, logotip i tekstove, bez „izradio taj i taj” u podnožju.</li>
                     </ul>
-                    <p>Mjesečnih 15 € pokriva hosting, tehničko održavanje i sitne izmjene, poput nove cijene, promjene radnog vremena ili zamjene fotografije. Ne morate ništa uređivati sami: pošaljete poruku i promjena je na stranici.</p>
+                    <p>Mjesečni paket pokriva hosting, tehničko održavanje i sitne izmjene, poput nove cijene, promjene radnog vremena ili zamjene fotografije. Ne morate ništa uređivati sami: pošaljete poruku i promjena je na stranici.</p>
                 </div>
                 <aside class="price-box" aria-label="Cijena">
-                    <p class="price-label">Jednostavna stranica za obrt</p>
-                    <p class="price">već od <strong>390 €</strong></p>
-                    <p class="price-sub">jednokratno + <strong>15 €/mj</strong> za hosting i održavanje</p>
-                    <p class="price-note">Obrt nije u sustavu PDV-a, pa je to konačna cijena. Točan opseg i rok dobivate u pisanoj ponudi.</p>
-                    <a href="/kontakt/" class="btn btn-primary">Zatraži ponudu</a>
+                    <p class="price-label">Web stranica za obrt</p>
+                    <p class="price"><strong>390 €</strong></p>
+                    <p class="price-sub">jednokratno + paket od <strong>19 €/mj</strong></p>
+                    <p class="price-note">Cijene su konačne, bez PDV-a. Pakete s loyalty karticom i AI asistentom pogledajte ispod.</p>
+                    <a href="#paketi" class="btn btn-primary">Pogledaj pakete</a>
                 </aside>
+            </div>
+        </section>
+
+        <section class="section" id="paketi" aria-labelledby="paketi-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2 id="paketi-title">Paketi i cijene</h2>
+                    <p>Izrada je uvijek ${SETUP_PRICE} € jednokratno, a mjesečni paket birate prema tome što vam treba. Paket možete kasnije proširiti.</p>
+                </div>
+                ${pricingCards()}
             </div>
         </section>
 
         <section class="section" aria-labelledby="dodaci-title">
             <div class="wrap">
                 <div class="section-head">
-                    <h2 id="dodaci-title">Dodaci kad zatrebaju</h2>
-                    <p>Stranica može krenuti jednostavno, a dodatke uključite kad vidite da vam trebaju. Svaki se dogovara i naplaćuje zasebno.</p>
+                    <h2 id="dodaci-title">Što je u paketima</h2>
                 </div>
                 <ul class="services-list">
                     <li>
-                        <h3>Online rezervacije</h3>
-                        <p>Klijent zatraži termin za odabranu uslugu, a vi ga potvrdite. Kad posla bude više, prelazi se na pravi kalendar sa slobodnim terminima i podsjetnicima.</p>
+                        <h3>Loyalty kartica s levelima</h3>
+                        <p>Digitalna kartica s QR kodom: vi upisujete posjete, a mušterija vidi svoj level i pogodnost. Stalnim mušterijama možete odmah dodijeliti viši level. U paketima Plus i Komplet.</p>
                     </li>
                     <li>
                         <h3><a href="/usluge/ai-chatbot/">AI asistent na stranici</a></h3>
-                        <p>Odgovara na pitanja o uslugama, cijenama i radnom vremenu iz vaših podataka, a kad ne zna, uzme ime i broj da vas klijent dobije na telefon.</p>
-                    </li>
-                    <li>
-                        <h3>Loyalty kartica s levelima</h3>
-                        <p>Digitalna kartica s QR kodom: vi upisujete posjete, a mušterija vidi svoj level i pogodnost. Stalnim mušterijama možete odmah dodijeliti viši level.</p>
+                        <p>Odgovara na pitanja o uslugama, cijenama i radnom vremenu iz vaših podataka, a kad ne zna, uzme ime i broj da vas klijent dobije na telefon. U paketima Plus i Komplet.</p>
                     </li>
                     <li>
                         <h3>Google Business profil</h3>
-                        <p>Uređen profil na Google Kartama s točnim radnim vremenom, uslugama i fotografijama, povezan sa stranicom. Za lokalni posao često važniji od same stranice.</p>
+                        <p>Uređen profil na Google Kartama s točnim radnim vremenom, uslugama i fotografijama, povezan sa stranicom. Za lokalni posao često važniji od same stranice. Uključen u Komplet.</p>
                     </li>
                     <li>
-                        <h3>Webshop</h3>
-                        <p>WooCommerce ili trgovina po mjeri, s plaćanjem karticom, dostavom i e-računima. Cijena ovisi o broju proizvoda i načinu plaćanja, pa ide po ponudi.</p>
-                    </li>
-                    <li>
-                        <h3>Više jezika</h3>
-                        <p>Engleska, njemačka ili talijanska verzija za apartmane, restorane i sve koji rade s turistima.</p>
+                        <h3>Izvan paketa, po ponudi</h3>
+                        <p>Webshop, više jezika za turiste, asistent na WhatsAppu ili Messengeru te veće stranice po mjeri. Za njih dobivate pisanu ponudu s fiksnom cijenom.</p>
                     </li>
                 </ul>
             </div>
@@ -245,7 +321,7 @@ const web = {
                 </div>
                 <div class="prose">
                     <h2>Za koga radim stranice</h2>
-                    <p>Najčešće za lokalne obrte koji danas imaju samo Facebook ili Google Karte: frizerske i kozmetičke salone, veterinare, servise, apartmane, restorane i udruge. Za njih je jednostavna stranica od 390 € zamišljena kao brz i povoljan početak.</p>
+                    <p>Najčešće za lokalne obrte koji danas imaju samo Facebook ili Google Karte: frizerske i kozmetičke salone, veterinare, servise, apartmane, restorane i udruge. Za njih su paketi zamišljeni kao brz i povoljan početak.</p>
                     <p>Veće stranice, webshop i stranice javnih naručitelja rade se po mjeri, s pisanom ponudom i predajom izvornog koda. Za općine, gradove i ustanove pogledajte <a href="/javni-sektor/">usluge za javni sektor</a>.</p>
                 </div>
             </div>
@@ -262,8 +338,9 @@ ${related('Povezano', [
     ['/primjeri/', 'Primjeri po djelatnostima', 'isprobajte kako izgleda asistent za salon ili apartmane'],
   ])}`,
   faq: [
-    { q: 'Koliko košta izrada web stranice?', a: 'Jednostavna stranica za obrt, s uslugama i cijenama, radnim vremenom, galerijom, kontaktom i obrascem za upit, kreće od 390 € jednokratno uz 15 € mjesečno. Veće stranice, webshop i dodatne funkcije idu po pisanoj ponudi s fiksnom cijenom.' },
-    { q: 'Što uključuje 15 € mjesečno?', a: 'Hosting, tehničko održavanje i sitne izmjene, poput promjene cijena, radnog vremena, teksta ili fotografija. Održavanje se može otkazati uz otkazni rok od 30 dana.' },
+    { q: 'Koliko košta izrada web stranice?', a: 'Izrada je 390 € jednokratno, a zatim mjesečni paket: Start 19 €, Plus 29 € (s loyalty karticom ili AI asistentom) ili Komplet 39 € (s oboje i Google Business profilom). Webshop i veće stranice idu po pisanoj ponudi s fiksnom cijenom.' },
+    { q: 'Što uključuje mjesečni paket?', a: 'Svaki paket uključuje hosting, tehničko održavanje i sitne izmjene, poput promjene cijena, radnog vremena, teksta ili fotografija. Paket se može otkazati uz otkazni rok od 30 dana.' },
+    { q: 'Mogu li platiti godišnje?', a: 'Da. Uz godišnje plaćanje dobivate dva mjeseca gratis: Start 190 €, Plus 290 € i Komplet 390 € godišnje.' },
     { q: 'Koliko traje izrada?', a: 'Najviše ovisi o tome koliko brzo stignu tekstovi, cijene i fotografije. Rok je naveden u ponudi, a jednostavna stranica ne traži mjesece rada.' },
     { q: 'Mogu li sam mijenjati sadržaj stranice?', a: 'Sitne izmjene uključene su u mjesečno održavanje, pa ih ne morate raditi sami. Ako želite sami uređivati sadržaj, dogovorimo stranicu s administracijom.' },
     { q: 'Hoće li se stranica vidjeti na Googleu?', a: 'Svaku stranicu postavljam s naslovima, opisima i sitemapom, prijavim je u Google Search Console i povežem s Google Business profilom. Pozicija ovisi i o konkurenciji, ali tehnički dio je ispravan od prvog dana.' },
@@ -278,11 +355,11 @@ ${related('Povezano', [
         '@type': 'Offer',
         price: '390',
         priceCurrency: 'EUR',
-        description: 'Jednostavna web stranica za obrt, jednokratno, uz 15 € mjesečno za hosting i održavanje.',
-        url: `${SITE}/usluge/izrada-web-stranica/`,
+        description: 'Izrada web stranice za obrt, jednokratno, uz mjesečni paket od 19 € (hosting, održavanje i sitne izmjene).',
+        url: `${SITE}/cijene/`,
       },
     }
-  )],
+  ), pricingSchema()],
 };
 
 /* ======================================================================
@@ -347,7 +424,7 @@ ${steps([
                 <div class="prose">
                     <h2 id="cijena-title">Od čega se sastoji cijena</h2>
                     <p>Cijena ima jednokratni dio, za postavljanje, podatke, pravila i testiranje, te mjesečni dio: korištenje AI modela, hosting, održavanje i, ako asistent radi na WhatsAppu, Metine naknade za poruke po predlošku.</p>
-                    <p>Svaka stavka u ponudi je navedena zasebno, pa unaprijed znate koliko plaćate mjesečno. Asistent se može naručiti uz novu web stranicu ili zasebno, za stranicu koju već imate.</p>
+                    <p>Uz novu web stranicu asistent je u paketima <a href="/cijene/">Plus (29 €/mj) i Komplet (39 €/mj)</a>, s do 300 razgovora mjesečno. Za stranicu koju već imate, za WhatsApp i za veći broj razgovora dobivate pisanu ponudu u kojoj je svaka stavka navedena zasebno.</p>
                     <p>Detaljniji pregled gotovih alata i rješenja po mjeri pročitajte u članku <a href="/blog/ai-chatbot-za-web-stranicu.html">AI chatbot za web stranicu i prodaju</a>.</p>
                 </div>
                 <div class="prose">
@@ -573,8 +650,8 @@ const odrzavanje = {
                 </div>
                 <aside class="price-box" aria-label="Cijena održavanja">
                     <p class="price-label">Za stranice koje izradim</p>
-                    <p class="price"><strong>15 €</strong>/mj</p>
-                    <p class="price-sub">hosting, održavanje i sitne izmjene</p>
+                    <p class="price">od <strong>19 €</strong>/mj</p>
+                    <p class="price-sub">hosting, održavanje i sitne izmjene, uključeno u <a href="/cijene/">pakete</a></p>
                     <p class="price-note">Za postojeće stranice, webshopove i aplikacije cijena ovisi o sustavu i dobivate je nakon pregleda. Otkazni rok je 30 dana.</p>
                     <a href="/kontakt/" class="btn btn-primary">Zatraži pregled stranice</a>
                 </aside>
@@ -1013,12 +1090,70 @@ const kontakt = {
                     submitBtn.textContent = 'Šaljem…';
                 });
             }
+            var names = { start: 'Start', plus: 'Plus', komplet: 'Komplet' };
+            var paket = names[url.searchParams.get('paket')];
+            var desc = document.getElementById('description');
+            if (paket && desc && !desc.value) {
+                desc.value = 'Zanima me paket ' + paket + '. ';
+            }
         })();
     </script>
 `,
 };
 
-const pages = [usluge, web, chatbot, automatizacija, aplikacije, odrzavanje, javni, primjeri, oMeni, kontakt]
+/* ======================================================================
+   /cijene/
+   ====================================================================== */
+const cijene = {
+  path: '/cijene/',
+  nav: '/cijene/',
+  crumbs: [['/', 'Početna'], [null, 'Cijene']],
+  metaTitle: 'Cijene web stranica za obrte: 390 € + od 19 €/mj',
+  description: 'Transparentne cijene: izrada web stranice 390 € jednokratno, a zatim paket Start 19 €, Plus 29 € ili Komplet 39 € mjesečno, s hostingom i održavanjem. Bez PDV-a.',
+  h1: 'Cijene',
+  lead: 'Izrada web stranice je 390 € jednokratno, a zatim mjesečni paket po izboru. U svaki su uključeni hosting, održavanje i sitne izmjene, bez skrivenih stavki i bez PDV-a.',
+  heroActions: false,
+  body: `
+        <section class="section" id="paketi" aria-label="Paketi">
+            <div class="wrap">
+                ${pricingCards('h2')}
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="ukljuceno-cijene-title">
+            <div class="wrap page-split">
+                <div class="prose">
+                    <h2 id="ukljuceno-cijene-title">Što je uključeno u svaki paket</h2>
+                    <ul>
+                        <li>izrada stranice prema vašim bojama, logotipu, tekstovima i fotografijama,</li>
+                        <li>stranica prilagođena mobitelu, s ciljem ocjene 90+ u Googleovom Lighthouseu,</li>
+                        <li>obrazac za upit i zahtjev za termin, koji vam stiže odmah,</li>
+                        <li>prijava u Google Search Console i osnovna postavka za tražilice,</li>
+                        <li>politika privatnosti i usklađenost s GDPR-om,</li>
+                        <li>hosting, tehničko održavanje i sitne izmjene na vaš zahtjev.</li>
+                    </ul>
+                    <p>Više o tome kako nastaje stranica pročitajte na stranici <a href="/usluge/izrada-web-stranica/">izrada web stranica</a>, a kako radi asistent na stranici <a href="/usluge/ai-chatbot/">AI chatbot</a>.</p>
+                </div>
+                <div class="prose">
+                    <h2>Izvan paketa</h2>
+                    <p>Webshop, više jezika za turiste, asistent na WhatsAppu ili Messengeru, aplikacije po mjeri i stranice za javne naručitelje rade se po pisanoj ponudi s fiksnom cijenom i rokom.</p>
+                    <p>Za općine, gradove i ustanove pogledajte <a href="/javni-sektor/">usluge za javni sektor</a>.</p>
+                    <h2>Usporedba</h2>
+                    <p>Kad obrt sam slaže web, rezervacije, loyalty karticu i chatbot iz zasebnih alata, mjesečni računi lako prijeđu 100 €, a postavljanje i održavanje ostaju na njemu. U paketu sve to postavljam i održavam ja.</p>
+                </div>
+            </div>
+        </section>`,
+  faq: [
+    { q: 'Ima li skrivenih troškova?', a: 'Nema. Plaćate 390 € za izradu i mjesečni paket. Obrt nije u sustavu PDV-a, pa su to konačne cijene.' },
+    { q: 'Mogu li kasnije prijeći na veći paket?', a: 'Da. Možete krenuti sa Startom, a loyalty karticu ili AI asistenta uključiti kad vidite da vam trebaju.' },
+    { q: 'Što ako AI asistent ima više od 300 razgovora mjesečno?', a: 'To je dobar znak. Javim vam se i dogovorimo nastavak, a asistent u međuvremenu ne prestaje raditi.' },
+    { q: 'Mogu li otkazati?', a: 'Da, uz otkazni rok od 30 dana. Po prestanku dobivate sve pristupe i sadržaj stranice.' },
+    { q: 'Mogu li platiti godišnje?', a: 'Da. Uz godišnje plaćanje dobivate dva mjeseca gratis: Start 190 €, Plus 290 € i Komplet 390 € godišnje.' },
+  ],
+  schema: [pricingSchema()],
+};
+
+const pages = [cijene, usluge, web, chatbot, automatizacija, aplikacije, odrzavanje, javni, primjeri, oMeni, kontakt]
   .map((p) => ({ lastmod: LASTMOD, heroActions: true, cta: true, faq: [], schema: [], scripts: '', ...p }));
 
-module.exports = { pages, PHONE_HREF };
+module.exports = { pages, PHONE_HREF, pricingCards };

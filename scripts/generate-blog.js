@@ -17,7 +17,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mangai.hr';
 const BRAND = 'MangAI';
-const { pages: PAGES_HR } = require('./pages-hr.js');
+const { pages: PAGES_HR, pricingCards } = require('./pages-hr.js');
 
 /* ---------- pomoćne funkcije ---------- */
 
@@ -115,14 +115,14 @@ const L = {
     homeAria: `${BRAND}, početna`,
     menu: 'Otvori izbornik',
     navAria: 'Glavni izbornik',
-    nav: [['/usluge/', 'Usluge'], ['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/blog/', 'Blog']],
+    nav: [['/usluge/', 'Usluge'], ['/cijene/', 'Cijene'], ['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/blog/', 'Blog']],
     cta: 'Pošalji upit',
     contact: '/kontakt/',
     tagline: 'Web stranice, aplikacije i AI rješenja za obrte, tvrtke, udruge i javne naručitelje.',
     bizTitle: 'Podaci o obrtu',
     country: '',
     pagesTitle: 'Stranice',
-    footerLinks: [['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/o-meni/', 'O meni'], ['/kontakt/', 'Kontakt'], ['/blog/', 'Blog'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja']],
+    footerLinks: [['/cijene/', 'Cijene'], ['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/o-meni/', 'O meni'], ['/kontakt/', 'Kontakt'], ['/blog/', 'Blog'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja']],
     servicesTitle: 'Usluge',
     footerServices: [['/usluge/izrada-web-stranica/', 'Izrada web stranica'], ['/usluge/ai-chatbot/', 'AI chatbot'], ['/usluge/ai-automatizacija/', 'AI automatizacija'], ['/usluge/aplikacije-po-mjeri/', 'Aplikacije po mjeri'], ['/usluge/odrzavanje/', 'Održavanje i hosting']],
     homeLabel: 'Početna',
@@ -620,6 +620,15 @@ function main() {
 
   for (const page of PAGES_HR) {
     write(path.join(ROOT, ...page.path.split('/').filter(Boolean), 'index.html'), pagePage(L.hr, page));
+  }
+
+  // paketi na početnoj: blok između oznaka <!-- paketi:start --> i <!-- paketi:end --> u index.html
+  const homeFile = path.join(ROOT, 'index.html');
+  const home = fs.readFileSync(homeFile, 'utf8');
+  const marked = /(<!-- paketi:start -->)[\s\S]*?(<!-- paketi:end -->)/;
+  if (marked.test(home)) {
+    fs.writeFileSync(homeFile, home.replace(marked, `$1\n                ${pricingCards('h3')}\n                $2`), 'utf8');
+    console.log('Updated: index.html (paketi)');
   }
 
   // sitemap.xml
