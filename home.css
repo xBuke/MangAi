@@ -746,3 +746,19 @@ body[data-audience="gov"] [data-audience-show="biz"] { display: none; }
 .home-posts h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
 .services-list h3 a { color: var(--ink); text-decoration: none; }
 .services-list h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+
+/* Podnožje s četiri stupca (dodan stupac Usluge) */
+.footer-grid.footer-grid-4 { grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 3fr) minmax(0, 3fr); }
+.footer-grid h2 a { color: inherit; text-decoration: none; }
+.footer-grid h2 a:hover { text-decoration: underline; }
+@media (max-width: 1000px) {
+    .footer-grid.footer-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+    .footer-grid.footer-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* Drugi gumb na tamnoj traci (javni sektor) */
+.gov .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .6); }
+.gov .btn-ghost:hover { background: #fff; color: var(--ink); }
+.gov-cta .btn { margin: 0 8px 8px 0; }

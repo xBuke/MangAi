@@ -30,6 +30,116 @@
       "source": "/en/blog/index.html",
       "destination": "/en/blog/",
       "permanent": true
+    },
+    {
+      "source": "/blog/ai-automatizacija-poslovanja.html",
+      "destination": "/blog/ai-automatizacija-poslovanja-hrvatska.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-alati-hrvatska.html",
+      "destination": "/blog/ai-alati-male-tvrtke-hrvatska-2026.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-alati-poduzetnici-kategorije.html",
+      "destination": "/blog/ai-alati-male-tvrtke-hrvatska-2026.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-strategija-mali-biznis.html",
+      "destination": "/blog/ai-implementacija-plan-roi-hrvatska.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-agenti-korisnicka-podrska-prodaja.html",
+      "destination": "/blog/ai-chatbot-za-web-stranicu.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/ai-automatizacija-poslovanja.html",
+      "destination": "/en/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/ai-alati-hrvatska.html",
+      "destination": "/en/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/ai-alati-poduzetnici-kategorije.html",
+      "destination": "/en/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/ai-strategija-mali-biznis.html",
+      "destination": "/en/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/ai-agenti-korisnicka-podrska-prodaja.html",
+      "destination": "/en/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/demo",
+      "destination": "/primjeri/",
+      "permanent": true
+    },
+    {
+      "source": "/demo/",
+      "destination": "/primjeri/",
+      "permanent": true
+    },
+    {
+      "source": "/usluge",
+      "destination": "/usluge/",
+      "permanent": true
+    },
+    {
+      "source": "/primjeri",
+      "destination": "/primjeri/",
+      "permanent": true
+    },
+    {
+      "source": "/javni-sektor",
+      "destination": "/javni-sektor/",
+      "permanent": true
+    },
+    {
+      "source": "/o-meni",
+      "destination": "/o-meni/",
+      "permanent": true
+    },
+    {
+      "source": "/kontakt",
+      "destination": "/kontakt/",
+      "permanent": true
+    },
+    {
+      "source": "/usluge/izrada-web-stranica",
+      "destination": "/usluge/izrada-web-stranica/",
+      "permanent": true
+    },
+    {
+      "source": "/usluge/ai-chatbot",
+      "destination": "/usluge/ai-chatbot/",
+      "permanent": true
+    },
+    {
+      "source": "/usluge/ai-automatizacija",
+      "destination": "/usluge/ai-automatizacija/",
+      "permanent": true
+    },
+    {
+      "source": "/usluge/aplikacije-po-mjeri",
+      "destination": "/usluge/aplikacije-po-mjeri/",
+      "permanent": true
+    },
+    {
+      "source": "/usluge/odrzavanje",
+      "destination": "/usluge/odrzavanje/",
+      "permanent": true
     }
   ],
   "headers": [

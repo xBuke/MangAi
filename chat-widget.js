@@ -29,7 +29,7 @@
   })();
 
   var KNOWLEDGE_URL = isEn ? '/chat/knowledge.en.json' : '/chat/knowledge.hr.json';
-  var CONTACT_PAGE = isEn ? '/en/#contact' : '/#contact';
+  var CONTACT_PAGE = isEn ? '/en/#contact' : '/kontakt/';
 
   var STRINGS = isEn ? {
     launcher: 'Advisor',

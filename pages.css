@@ -1,0 +1,125 @@
+/* Zasebne stranice (usluge, javni sektor, primjeri, o meni, kontakt) – nadogradnja na home.css i blog/blog.css */
+
+.page-hero {
+    padding: clamp(36px, 6vw, 72px) 0 clamp(40px, 6vw, 72px);
+    border-bottom: 1px solid var(--line);
+}
+.crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+}
+.crumbs a { color: var(--reed); }
+.crumbs [aria-current="page"] { color: var(--ink); }
+.crumb-sep { color: var(--line); }
+.page-hero h1 {
+    margin-top: 16px;
+    font-size: clamp(2.4rem, 5.6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    max-width: 18ch;
+}
+.page-lead {
+    margin-top: 20px;
+    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+    color: var(--ink-soft);
+    max-width: 62ch;
+}
+
+/* Dvije kolone: tekst + okvir sa strane */
+.page-split {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(32px, 6vw, 80px);
+    align-items: start;
+}
+.page-split > .prose + .prose { max-width: 60ch; }
+@media (max-width: 900px) {
+    .page-split { grid-template-columns: 1fr; }
+}
+.section .prose h2 { font-size: clamp(1.5rem, 2.6vw, 1.9rem); }
+.section .prose h2:first-child { margin-top: 0; }
+
+/* Naslovi u popisu usluga koji su h2 zbog strukture stranice */
+.section .services-list .h3 { font-size: 1.4rem; }
+.services-list .more { margin-top: 14px; }
+.services-list .more a { font-weight: 600; }
+.contact-success .h3 { font-size: 1.5rem; }
+
+/* Cijena */
+.price-box {
+    position: sticky;
+    top: calc(var(--nav-h) + 24px);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--mandarin);
+    border-radius: 14px;
+    padding: clamp(22px, 3vw, 32px);
+}
+.price-label { font-weight: 600; }
+.price {
+    margin-top: 8px;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+}
+.price strong {
+    font-size: clamp(2.6rem, 5vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+.price-sub { margin-top: 4px; }
+.price-note { margin-top: 14px; font-size: 0.925rem; color: var(--ink-soft); }
+.price-box .btn { margin-top: 20px; width: 100%; }
+@media (max-width: 900px) {
+    .price-box { position: static; }
+}
+
+/* Tamna traka na stranici usluga */
+.page-lead-dark { margin-top: 14px; max-width: 58ch; }
+.gov .page-split { align-items: center; }
+
+/* Popis poveznica */
+.link-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 0; }
+.link-list li { padding: 14px 0; border-top: 1px solid var(--line); display: grid; gap: 2px; }
+.link-list li:last-child { border-bottom: 1px solid var(--line); }
+.link-list a { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink); }
+.link-list a:hover { color: var(--reed); }
+.link-list span { color: var(--ink-soft); font-size: 0.95rem; }
+.prose .link-list { padding-left: 0; }
+.prose .link-list li + li { margin-top: 0; }
+.link-list.compact a { font-size: 1.05rem; }
+.page-related h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.page-related .link-list { max-width: 760px; }
+
+/* Primjeri s dužim opisom */
+.demo-list-rich a { grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) auto; align-items: start; }
+@media (max-width: 760px) {
+    .demo-list-rich a { grid-template-columns: 1fr; }
+}
+
+/* Alati (oznake) */
+.tag-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.tag-list li {
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    font-weight: 500;
+}
+
+/* Kontakt */
+.contact-tips { margin-top: 36px; }
+.contact-tips h2 { font-size: 1.3rem; }
+
+/* Završni poziv */
+.page-cta-band { padding-top: 0; }
+.section + .page-cta-band { border-top: 0; }
+.page-cta { max-width: none; margin-top: 0; }
+.page-cta .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .6); }
+.page-cta .btn-ghost:hover { background: #fff; color: var(--ink); }
+.page-cta-band:first-child { padding-top: clamp(64px, 9vw, 112px); }
+.services-list .h3 a { color: var(--ink); text-decoration: none; }
+.services-list .h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; }

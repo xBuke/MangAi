@@ -12,6 +12,7 @@
     <meta property="og:description" content="Obrt iz Ploča: web stranice, AI chatbotovi i AI automatizacija poslovanja za male tvrtke i javne naručitelje.">
     <meta property="og:url" content="https://mangai.hr/">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MangAI">
     <meta property="og:locale" content="hr_HR">
     <meta property="og:image" content="https://mangai.hr/assets/og.png">
     <meta property="og:image:width" content="1200">
@@ -24,14 +25,29 @@
     <link rel="alternate" hreflang="hr" href="https://mangai.hr/">
     <link rel="alternate" hreflang="en" href="https://mangai.hr/en/">
     <link rel="alternate" hreflang="x-default" href="https://mangai.hr/">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/fonts/fonts.css">
     <link rel="stylesheet" href="/chat-widget.css">
     <link rel="stylesheet" href="/home.css">
     <link rel="stylesheet" href="/assets/landing.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://mangai.hr/#website",
+      "name": "MangAI",
+      "alternateName": ["MangAI Ploče", "mangai.hr"],
+      "url": "https://mangai.hr/",
+      "inLanguage": ["hr", "en"],
+      "publisher": { "@id": "https://mangai.hr/#obrt" }
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -63,12 +79,12 @@
         "@type": "OfferCatalog",
         "name": "Usluge",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Izrada web stranica i webshopa" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI chatbot i asistent" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatizacija poslovnih procesa" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Izrada aplikacija po mjeri" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Održavanje web stranica i hosting" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pristupačne web stranice za javni sektor (WCAG 2.1 AA)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Izrada web stranica i webshopa", "url": "https://mangai.hr/usluge/izrada-web-stranica/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI chatbot i asistent", "url": "https://mangai.hr/usluge/ai-chatbot/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatizacija poslovnih procesa", "url": "https://mangai.hr/usluge/ai-automatizacija/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Izrada aplikacija po mjeri", "url": "https://mangai.hr/usluge/aplikacije-po-mjeri/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Održavanje web stranica i hosting", "url": "https://mangai.hr/usluge/odrzavanje/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pristupačne web stranice za javni sektor (WCAG 2.1 AA)", "url": "https://mangai.hr/javni-sektor/" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Savjetovanje i edukacija o AI alatima" } }
         ]
       },
@@ -93,7 +109,7 @@
       "name": "Koliko košta?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ovisi o opsegu. Nakon kratkog razgovora dobivate pisanu ponudu s fiksnom cijenom i rokom. Prvi razgovor ne naplaćujem."
+        "text": "Jednostavna web stranica za obrt kreće od 390 € jednokratno uz 15 € mjesečno za hosting i održavanje. Za sve ostalo, nakon kratkog razgovora dobivate pisanu ponudu s fiksnom cijenom i rokom. Prvi razgovor ne naplaćujem."
       }
     },
     {
@@ -143,9 +159,9 @@
             </button>
             <div class="nav-menu-panel" id="nav-menu">
                 <nav class="nav" aria-label="Glavni izbornik">
-                    <a href="#usluge">Usluge</a>
-                    <a href="#primjeri">Primjeri</a>
-                    <a href="#javni-sektor">Javni sektor</a>
+                    <a href="/usluge/">Usluge</a>
+                    <a href="/primjeri/">Primjeri</a>
+                    <a href="/javni-sektor/">Javni sektor</a>
                     <a href="/blog/">Blog</a>
                     <span class="lang-switcher">
                         <span aria-current="page">HR</span>
@@ -240,38 +256,38 @@
             <div class="wrap">
                 <div class="section-head">
                     <h2>Usluge</h2>
-                    <p data-audience-show="biz">Od jednostavne web stranice do aplikacije po mjeri. Svaki posao dobiva pisanu ponudu s cijenom i rokom prije početka.</p>
-                    <p data-audience-show="gov">Usluge koje se najčešće nabavljaju jednostavnom nabavom ili preko EOJN-a, s jasnim opsegom i rokom.</p>
+                    <p data-audience-show="biz">Od jednostavne web stranice do aplikacije po mjeri. Svaki posao dobiva pisanu ponudu s cijenom i rokom prije početka. <a class="inline" href="/usluge/">Sve usluge</a></p>
+                    <p data-audience-show="gov">Usluge koje se najčešće nabavljaju jednostavnom nabavom ili preko EOJN-a, s jasnim opsegom i rokom. <a class="inline" href="/javni-sektor/">Sve za javne naručitelje</a></p>
                 </div>
 
                 <ul class="services-list" data-audience-show="biz">
                     <li>
-                        <h3>Izrada web stranica i webshopa</h3>
+                        <h3><a href="/usluge/izrada-web-stranica/">Izrada web stranica i webshopa</a></h3>
                         <p>Brza, pregledna stranica koja radi na mobitelu i dovodi upite, a ne samo stoji na internetu.</p>
                         <p class="examples"><strong>Primjeri:</strong> stranica obrta, apartmana ili salona, WooCommerce webshop, landing za kampanju.</p>
                     </li>
                     <li>
-                        <h3><a href="/blog/ai-chatbot-za-web-stranicu.html">AI chatbot i asistent</a></h3>
+                        <h3><a href="/usluge/ai-chatbot/">AI chatbot i asistent</a></h3>
                         <p>Odgovara na česta pitanja, prima rezervacije i upite 0–24 te vam šalje sažetak.</p>
                         <p class="examples"><strong>Primjeri:</strong> rezervacije termina, upiti za nekretnine, asistent na webu ili WhatsAppu.</p>
                     </li>
                     <li>
-                        <h3><a href="/blog/ai-automatizacija-poslovanja-hrvatska.html">AI automatizacija poslovanja</a></h3>
+                        <h3><a href="/usluge/ai-automatizacija/">AI automatizacija poslovanja</a></h3>
                         <p>Ponavljajuće zadatke prepuštate sustavu: podsjetnike, izvještaje, unos podataka i follow-up.</p>
                         <p class="examples"><strong>Primjeri:</strong> upiti iz forme ravno u tablicu ili CRM, automatski podsjetnici klijentima.</p>
                     </li>
                     <li>
-                        <h3>Aplikacije po mjeri</h3>
+                        <h3><a href="/usluge/aplikacije-po-mjeri/">Aplikacije po mjeri</a></h3>
                         <p>Interni alati i web aplikacije za točno vaš način rada, bez plaćanja funkcija koje ne koristite.</p>
                         <p class="examples"><strong>Primjeri:</strong> evidencija narudžbi, nadzorna ploča, portal za klijente.</p>
                     </li>
                     <li>
-                        <h3>Savjetovanje i edukacija</h3>
+                        <h3><a href="/usluge/#savjetovanje">Savjetovanje i edukacija</a></h3>
                         <p>Gdje vam AI stvarno štedi vrijeme, a gdje nije vrijedan novca. Konkretno, za vaš posao.</p>
                         <p class="examples"><strong>Primjeri:</strong> pregled procesa, plan uvođenja AI alata, radionica za zaposlenike.</p>
                     </li>
                     <li>
-                        <h3>Održavanje</h3>
+                        <h3><a href="/usluge/odrzavanje/">Održavanje</a></h3>
                         <p>Ažuriranja, sigurnosne kopije, hosting i manje izmjene, da stranica i sustavi rade i iduće godine.</p>
                         <p class="examples"><strong>Primjeri:</strong> mjesečni paket održavanja, preuzimanje postojeće stranice.</p>
                     </li>
@@ -327,7 +343,7 @@
             <div class="wrap">
                 <div class="section-head">
                     <h2>Primjeri</h2>
-                    <p>Probajte kako izgleda AI asistent za pojedinu djelatnost: odgovarate kao klijent, a ploča vlasnika puni se sama.</p>
+                    <p>Probajte kako izgleda AI asistent za pojedinu djelatnost: odgovarate kao klijent, a ploča vlasnika puni se sama. <a class="inline" href="/primjeri/">Svi primjeri s opisima</a></p>
                 </div>
                 <ul class="demo-list">
                     <li><a href="/demo/salon/">
@@ -381,6 +397,7 @@
                     <h2>Jedan čovjek, bez agencijskog procesa.</h2>
                     <p>Ne prolazite kroz prodajnog predstavnika, voditelja projekta i podizvođača. Razgovarate sa mnom, ja radim posao i ja za njega odgovaram.</p>
                     <p>Programiram u TypeScriptu, Reactu, Next.js-u, Pythonu i PostgreSQL-u, a AI alate koristim da bih radio brže. Svaku liniju koda i svaki tekst provjeravam prije predaje.</p>
+                    <p><a class="inline" href="/o-meni/">Više o meni</a></p>
                 </div>
                 <div class="about-plate-wrap" data-slap>
                     <span class="stk-slot a1" data-stk="local"></span>
@@ -456,6 +473,7 @@
                         <div class="gov-cta">
                             <p>Pošaljite poziv na dostavu ponude na <a class="inline" href="mailto:marko@mangai.hr">marko@mangai.hr</a>.</p>
                             <a href="#contact" class="btn btn-primary" data-audience-set="gov">Pošalji upit kao naručitelj</a>
+                            <a href="/javni-sektor/" class="btn btn-ghost btn-on-dark">Sve za javne naručitelje</a>
                         </div>
                     </div>
                 </div>
@@ -497,7 +515,7 @@
                     </details>
                     <details>
                         <summary>Koliko košta?</summary>
-                        <p>Ovisi o opsegu. Nakon kratkog razgovora dobivate pisanu ponudu s fiksnom cijenom i rokom. Prvi razgovor ne naplaćujem.</p>
+                        <p>Jednostavna web stranica za obrt kreće od 390 € jednokratno uz 15 € mjesečno za hosting i održavanje. Za sve ostalo, nakon kratkog razgovora dobivate pisanu ponudu s fiksnom cijenom i rokom. Prvi razgovor ne naplaćujem.</p>
                     </details>
                     <details>
                         <summary>Radite li AI automatizaciju i AI rješenja po mjeri za tvrtke u Hrvatskoj?</summary>
@@ -605,7 +623,7 @@
 
     <footer class="site-footer">
         <div class="wrap">
-            <div class="footer-grid">
+            <div class="footer-grid footer-grid-4">
                 <div>
                     <a href="/" class="logo">Mang<span>AI</span></a>
                     <p class="footer-tag">Web stranice, aplikacije i AI rješenja za obrte, tvrtke, udruge i javne naručitelje.</p>
@@ -615,18 +633,32 @@
                     <address>
                         MANGAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić<br>
                         Vukovarska 5, 20340 Ploče<br>
-                        <!-- Nakon rješenja: dodati naziv upisnika i MBO (bez OIB-a) -->
                         <a href="tel:+385923557476">+385 92 355 7476</a><br>
                         <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
                     </address>
                 </div>
+
+                <div>
+                    <h2><a href="/usluge/">Usluge</a></h2>
+                    <ul>
+                        <li><a href="/usluge/izrada-web-stranica/">Izrada web stranica</a></li>
+                        <li><a href="/usluge/ai-chatbot/">AI chatbot</a></li>
+                        <li><a href="/usluge/ai-automatizacija/">AI automatizacija</a></li>
+                        <li><a href="/usluge/aplikacije-po-mjeri/">Aplikacije po mjeri</a></li>
+                        <li><a href="/usluge/odrzavanje/">Održavanje i hosting</a></li>
+                    </ul>
+                </div>
                 <div>
                     <h2>Stranice</h2>
                     <ul>
+                        <li><a href="/primjeri/">Primjeri</a></li>
+                        <li><a href="/javni-sektor/">Javni sektor</a></li>
+                        <li><a href="/o-meni/">O meni</a></li>
+                        <li><a href="/kontakt/">Kontakt</a></li>
                         <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/uvjeti-poslovanja.html">Uvjeti poslovanja</a></li>
                         <li><a href="/privacy_hr.html">Pravila privatnosti</a></li>
                         <li><a href="/terms_hr.html">Uvjeti korištenja</a></li>
-                        <li><a href="/uvjeti-poslovanja.html">Uvjeti poslovanja</a></li>
                         <li><a href="/en/" hreflang="en" lang="en">English</a></li>
                     </ul>
                 </div>

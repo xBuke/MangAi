@@ -8,6 +8,7 @@
  * Ulaz:  blog/posts.json (HR), en/blog/posts.json (EN)
  * Izlaz: blog/index.html, blog/<slug>.html, blog/post.html (stari linkovi),
  *        en/blog/index.html, en/blog/<slug>.html, en/blog/post.html, sitemap.xml
+ *        + zasebne stranice iz scripts/pages-hr.js (usluge/, javni-sektor/, primjeri/, o-meni/, kontakt/)
  */
 
 const fs = require('fs');
@@ -16,6 +17,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mangai.hr';
 const BRAND = 'MangAI';
+const { pages: PAGES_HR } = require('./pages-hr.js');
 
 /* ---------- pomoćne funkcije ---------- */
 
@@ -76,6 +78,31 @@ function readPosts(file) {
 
 const byDateDesc = (a, b) => (b.date || '').localeCompare(a.date || '');
 
+/** Favicon i ikone – isti blok ide i u ručno pisane stranice (index.html, pravne stranice) */
+const ICON_LINKS = `    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">`;
+
+function jsonLd(obj) {
+  return `    <script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n    </script>\n`;
+}
+
+/** crumbs: [[href, naziv], ...], zadnja stavka (href null) je trenutna stranica s URL-om canonical */
+function breadcrumbSchema(crumbs, canonical) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map(([href, name], i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name,
+      item: href ? SITE + href : canonical,
+    })),
+  };
+}
+
 /* ---------- tekstovi po jeziku ---------- */
 
 const L = {
@@ -88,14 +115,17 @@ const L = {
     homeAria: `${BRAND}, početna`,
     menu: 'Otvori izbornik',
     navAria: 'Glavni izbornik',
-    nav: [['/#usluge', 'Usluge'], ['/#primjeri', 'Primjeri'], ['/#javni-sektor', 'Javni sektor'], ['/blog/', 'Blog']],
+    nav: [['/usluge/', 'Usluge'], ['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/blog/', 'Blog']],
     cta: 'Pošalji upit',
-    contact: '/#contact',
+    contact: '/kontakt/',
     tagline: 'Web stranice, aplikacije i AI rješenja za obrte, tvrtke, udruge i javne naručitelje.',
     bizTitle: 'Podaci o obrtu',
     country: '',
     pagesTitle: 'Stranice',
-    footerLinks: [['/blog/', 'Blog'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja']],
+    footerLinks: [['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/o-meni/', 'O meni'], ['/kontakt/', 'Kontakt'], ['/blog/', 'Blog'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja']],
+    servicesTitle: 'Usluge',
+    footerServices: [['/usluge/izrada-web-stranica/', 'Izrada web stranica'], ['/usluge/ai-chatbot/', 'AI chatbot'], ['/usluge/ai-automatizacija/', 'AI automatizacija'], ['/usluge/aplikacije-po-mjeri/', 'Aplikacije po mjeri'], ['/usluge/odrzavanje/', 'Održavanje i hosting']],
+    homeLabel: 'Početna',
     otherLangLabel: 'English',
     indexTitle: `Blog o AI automatizaciji i web stranicama | ${BRAND}`,
     indexDesc: 'Praktični vodiči o AI alatima, automatizaciji i web rješenjima za obrte, male tvrtke i ustanove u Hrvatskoj.',
@@ -137,6 +167,7 @@ const L = {
     country: ', Croatia',
     pagesTitle: 'Pages',
     footerLinks: [['/en/blog/', 'Blog'], ['/privacy.html', 'Privacy policy'], ['/terms.html', 'Terms of use'], ['/en/terms-of-business.html', 'Terms of business']],
+    homeLabel: 'Home',
     otherLangLabel: 'Hrvatski',
     indexTitle: `Blog | ${BRAND} – AI, web and automation for businesses in Croatia`,
     indexDesc: 'Practical guides on AI tools, automation and web solutions for small businesses and institutions in Croatia.',
@@ -165,7 +196,7 @@ const L = {
 
 /* ---------- zajednički dijelovi stranice ---------- */
 
-function head(t, { title, description, canonical, hrUrl, enUrl, type = 'website', extra = '', robots = 'index,follow' }) {
+function head(t, { title, description, canonical, hrUrl, enUrl, type = 'website', extra = '', robots = 'index,follow', css = '/blog/blog.css' }) {
   const alternates = [
     hrUrl ? `    <link rel="alternate" hreflang="hr" href="${hrUrl}">` : '',
     enUrl ? `    <link rel="alternate" hreflang="en" href="${enUrl}">` : '',
@@ -182,6 +213,7 @@ function head(t, { title, description, canonical, hrUrl, enUrl, type = 'website'
 ${alternates}
     <meta name="theme-color" content="#ECEFEA">
     <meta property="og:type" content="${type}">
+    <meta property="og:site_name" content="${BRAND}">
     <meta property="og:locale" content="${t.ogLocale}">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
@@ -193,20 +225,19 @@ ${alternates}
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:image" content="${SITE}/assets/og.png">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+${ICON_LINKS}
     <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/fonts/fonts.css">
     <link rel="stylesheet" href="/chat-widget.css">
     <link rel="stylesheet" href="/home.css">
-    <link rel="stylesheet" href="/blog/blog.css">
+${[].concat(css).map((href) => `    <link rel="stylesheet" href="${href}">`).join('\n')}
 ${extra}</head>`;
 }
 
-function header(t, otherLangUrl) {
+function header(t, otherLangUrl, current = t.blog) {
   const navLinks = t.nav
-    .map(([href, label]) => `<a href="${href}"${label === 'Blog' ? ' aria-current="page"' : ''}>${label}</a>`)
+    .map(([href, label]) => `<a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`)
     .join('\n                    ');
   const switcher = t.lang === 'hr'
     ? `<span aria-current="page">HR</span><span aria-hidden="true">/</span><a href="${otherLangUrl}" hreflang="en" lang="en">EN</a>`
@@ -238,10 +269,19 @@ function footer(t, otherLangUrl, scripts = '') {
     .map(([href, label]) => `<li><a href="${href}">${label}</a></li>`)
     .join('\n                        ');
   const otherLang = t.lang === 'hr' ? 'en' : 'hr';
+  const servicesCol = t.footerServices
+    ? `
+                <div>
+                    <h2><a href="/usluge/">${t.servicesTitle}</a></h2>
+                    <ul>
+                        ${t.footerServices.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join('\n                        ')}
+                    </ul>
+                </div>`
+    : '';
   return `
     <footer class="site-footer">
         <div class="wrap">
-            <div class="footer-grid">
+            <div class="footer-grid${t.footerServices ? ' footer-grid-4' : ''}">
                 <div>
                     <a href="${t.home}" class="logo">Mang<span>AI</span></a>
                     <p class="footer-tag">${t.tagline}</p>
@@ -255,6 +295,7 @@ function footer(t, otherLangUrl, scripts = '') {
                         <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
                     </address>
                 </div>
+${servicesCol}
                 <div>
                     <h2>${t.pagesTitle}</h2>
                     <ul>
@@ -384,6 +425,7 @@ function postPage(t, post, posts, otherLangUrl) {
       keywords: Array.isArray(post.keywords) ? post.keywords.join(', ') : post.keywords || undefined,
     },
   ];
+  schemas.push(breadcrumbSchema([[t.home, t.homeLabel], [t.blog, 'Blog'], [null, title]], canonical));
   if (faq.length) {
     schemas.push({
       '@context': 'https://schema.org',
@@ -443,6 +485,86 @@ function postPage(t, post, posts, otherLangUrl) {
   );
 }
 
+/* ---------- zasebne stranice (usluge, javni sektor, primjeri, o meni, kontakt) ---------- */
+
+function pagePage(t, page) {
+  const canonical = SITE + page.path;
+  const crumbsHtml = page.crumbs
+    .map(([href, name]) => (href ? `<a href="${href}">${esc(name)}</a>` : `<span aria-current="page">${esc(name)}</span>`))
+    .join('<span class="crumb-sep" aria-hidden="true">/</span>');
+  const faqHtml = page.faq.length
+    ? `
+        <section class="section" aria-labelledby="faq-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2 id="faq-title">${t.faq}</h2>
+                </div>
+                <div class="faq">
+                    ${page.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('\n                    ')}
+                </div>
+            </div>
+        </section>`
+    : '';
+  const ctaHtml = page.cta
+    ? `
+        <section class="section page-cta-band">
+            <div class="wrap">
+                <div class="post-cta page-cta">
+                    <h2>${t.ctaTitle}</h2>
+                    <p>${t.ctaText}</p>
+                    <div class="post-cta-actions">
+                        <a href="${t.contact}" class="btn btn-primary">${t.ctaBtn}</a>
+                        <a href="tel:+385923557476" class="btn btn-ghost">Nazovi 092 355 7476</a>
+                    </div>
+                </div>
+            </div>
+        </section>`
+    : '';
+  const heroActions = page.heroActions
+    ? `
+                <div class="hero-actions">
+                    <a href="${t.contact}" class="btn btn-primary">${t.cta}</a>
+                    <a href="tel:+385923557476" class="btn btn-ghost">Nazovi 092 355 7476</a>
+                </div>`
+    : '';
+
+  const schemas = [...page.schema, breadcrumbSchema(page.crumbs, canonical)];
+  if (page.faq.length) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: page.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    });
+  }
+
+  return (
+    head(t, {
+      title: `${page.metaTitle} | ${BRAND}`,
+      description: page.description,
+      canonical,
+      hrUrl: canonical,
+      css: ['/blog/blog.css', '/pages.css'],
+      extra: schemas.map(jsonLd).join(''),
+    }) +
+    header(t, '/en/', page.nav) +
+    `
+    <main id="main" class="page">
+        <section class="page-hero">
+            <div class="wrap">
+                <nav class="crumbs" aria-label="Putanja">${crumbsHtml}</nav>
+                <h1>${esc(page.h1)}</h1>
+                <p class="page-lead">${esc(page.lead)}</p>${heroActions}
+            </div>
+        </section>
+${page.body}
+${faqHtml}
+${ctaHtml}
+    </main>
+` +
+    footer(t, '/en/', page.scripts)
+  );
+}
+
 /* ---------- stari linkovi post.html?slug=… ---------- */
 
 function legacyPage(t) {
@@ -496,10 +618,15 @@ function main() {
     write(path.join(ROOT, 'en', 'blog', `${p.slug}.html`), postPage(L.en, p, en, other));
   }
 
+  for (const page of PAGES_HR) {
+    write(path.join(ROOT, ...page.path.split('/').filter(Boolean), 'index.html'), pagePage(L.hr, page));
+  }
+
   // sitemap.xml
   const today = new Date().toISOString().slice(0, 10);
   const urls = [
     { loc: '/', lastmod: today, changefreq: 'weekly', priority: '1.0' },
+    ...PAGES_HR.map((p) => ({ loc: p.path, lastmod: p.lastmod, changefreq: 'monthly', priority: p.path.split('/').filter(Boolean).length > 1 ? '0.8' : '0.9' })),
     { loc: '/blog/', lastmod: today, changefreq: 'weekly', priority: '0.8' },
     ...hr.map((p) => ({ loc: `/blog/${p.slug}.html`, lastmod: (p.date || today).slice(0, 10), changefreq: 'monthly', priority: '0.7' })),
     { loc: '/en/', lastmod: today, changefreq: 'weekly', priority: '0.9' },

@@ -2,3 +2,4 @@
 *.md
 .htaccess.redirects-example
 _redirects
+scripts/

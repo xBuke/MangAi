@@ -85,7 +85,7 @@ chatbot_hr = {
 <li>Kako se mjeri uspjeh, npr. broj upita, rezervacija ili ušteđenih sati?</li>
 <li>Kako izgleda testiranje prije puštanja u rad?</li>
 </ol>
-<p>MangAI izrađuje AI chatbotove po mjeri za male tvrtke, obrte i javne naručitelje, a svaka ponuda navodi sve stavke iz ovog članka. <a href="/#contact">Opišite ukratko što trebate</a> i dobit ćete pisani prijedlog.</p>
+<p>MangAI izrađuje AI chatbotove po mjeri za male tvrtke, obrte i javne naručitelje, a svaka ponuda navodi sve stavke iz ovog članka. <a href="/kontakt/">Opišite ukratko što trebate</a> i dobit ćete pisani prijedlog.</p>
 <h2>Izvori</h2>
 <ul>
 <li>{L(WA_PRICING, 'Pricing on the WhatsApp Business Platform, Meta')}</li>
@@ -159,7 +159,7 @@ auto_hr = {
 <li><strong>Jedan pilot proces</strong> s fiksnom cijenom i rokom, najčešće gotov za nekoliko tjedana.</li>
 <li><strong>Mjerenje</strong> nakon mjesec dana, pa odluka o sljedećem procesu.</li>
 </ol>
-<p>Tako rizik ostaje malen, a nakon prvog procesa vidite stvarnu uštedu umjesto obećanja. <a href="/#contact">Pošaljite upit</a> i navedite posao koji vam najviše smeta, a mi ćemo predložiti kako ga automatizirati.</p>
+<p>Tako rizik ostaje malen, a nakon prvog procesa vidite stvarnu uštedu umjesto obećanja. <a href="/kontakt/">Pošaljite upit</a> i navedite posao koji vam najviše smeta, a mi ćemo predložiti kako ga automatizirati.</p>
 <h2>Izvori</h2>
 <ul>
 <li>{L(ERACUN, 'Izdavanje i primanje eRačuna i fiskalizacija eRačuna, Porezna uprava')}</li>
@@ -219,7 +219,7 @@ aeo_hr = {
 </ul>
 <h2>A ako ne želite da AI prikazuje neki sadržaj</h2>
 <p>Google podržava oznake nosnippet, data-nosnippet i max-snippet kojima ograničavate što se prikazuje u rezultatima i AI sažecima, a noindex potpuno isključuje stranicu iz pretrage. Za OpenAI se pristup uređuje u robots.txt, posebno za pretragu i posebno za treniranje.</p>
-<p>MangAI izrađuje brze web stranice s urednim strukturiranim podacima i sadržajem pisanim za stvarna pitanja klijenata. <a href="/#contact">Pošaljite upit</a> za pregled vidljivosti vaše stranice.</p>
+<p>MangAI izrađuje brze web stranice s urednim strukturiranim podacima i sadržajem pisanim za stvarna pitanja klijenata. <a href="/kontakt/">Pošaljite upit</a> za pregled vidljivosti vaše stranice.</p>
 <h2>Izvori</h2>
 <ul>
 <li>{L(GOOGLE_AI, 'AI features and your website, Google Search Central')}</li>
