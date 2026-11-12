@@ -798,10 +798,10 @@ const oMeni = {
   path: '/o-meni/',
   nav: null,
   crumbs: [['/', 'Početna'], [null, 'O meni']],
-  metaTitle: 'O meni: Marko Škorić, obrt MangAI iz Ploča',
-  description: 'MangAI je obrt Marka Škorića iz Ploča. Web stranice, aplikacije i AI rješenja radim sam, od prvog razgovora do predaje i održavanja.',
+  metaTitle: 'O meni: Marko Škorić, osnivač MangAI-ja',
+  description: 'Marko Škorić, osnivač MangAI-ja iz Ploča. Web stranice, aplikacije i AI rješenja radim sam, od prvog razgovora do predaje i održavanja.',
   h1: 'Jedan čovjek, bez agencijskog procesa',
-  lead: 'Ja sam Marko Škorić, a MangAI je moj obrt iz Ploča. Web stranice, aplikacije i AI rješenja radim sam, od prvog razgovora do predaje i održavanja.',
+  lead: 'Ja sam Marko Škorić, osnivač MangAI-ja iz Ploča. Web stranice, aplikacije i AI rješenja radim sam, od prvog razgovora do predaje i održavanja.',
   body: `
         <section class="section" aria-labelledby="zasto-title">
             <div class="wrap page-split">
@@ -813,10 +813,17 @@ const oMeni = {
                     <h2>Za koga radim</h2>
                     <p>Za obrte, male tvrtke i udruge kojima treba stranica koja dovodi upite ili sustav koji preuzima ponavljajući posao, i za općine, gradove i ustanove kojima trebaju pristupačne stranice i e-usluge za građane.</p>
                     <h2>Gdje radim</h2>
-                    <p>Sjedište obrta je u Pločama, u Dubrovačko-neretvanskoj županiji. Većinu posla radim na daljinu za cijelu Hrvatsku, a na sastanke i primopredaju dolazim po dogovoru.</p>
+                    <p>Sjedište je u Pločama, u Dubrovačko-neretvanskoj županiji. Većinu posla radim na daljinu za cijelu Hrvatsku, a na sastanke i primopredaju dolazim po dogovoru.</p>
                     <p>Pravila suradnje, od ponude do predaje izvornog koda, napisana su u <a href="/uvjeti-poslovanja.html">uvjetima poslovanja</a>.</p>
                 </div>
                 <div class="about-plate-wrap">
+                    <figure class="portrait">
+                        <picture>
+                            <source srcset="/assets/img/marko-skoric.webp" type="image/webp">
+                            <img src="/assets/img/marko-skoric.jpg" width="720" height="900" alt="Marko Škorić, osnivač MangAI-ja" decoding="async">
+                        </picture>
+                        <figcaption>Marko Škorić, osnivač MangAI-ja</figcaption>
+                    </figure>
                     <aside class="plate" aria-label="Podaci o obrtu">
                         <span class="plate-screw tl" aria-hidden="true"></span>
                         <span class="plate-screw tr" aria-hidden="true"></span>
@@ -864,7 +871,8 @@ ${steps(STEPS_DEFAULT, 'Kako radim', 'Isti postupak za mali obrt i za ustanovu, 
       '@type': 'Person',
       '@id': `${SITE}/o-meni/#marko`,
       name: 'Marko Škorić',
-      jobTitle: 'Vlasnik i programer',
+      jobTitle: 'Osnivač',
+      image: `${SITE}/assets/img/marko-skoric.jpg`,
       worksFor: { '@id': `${SITE}/#obrt` },
       url: `${SITE}/o-meni/`,
       knowsAbout: ['Izrada web stranica', 'AI chatbotovi', 'Automatizacija poslovnih procesa', 'TypeScript', 'React', 'Next.js', 'Python', 'PostgreSQL'],

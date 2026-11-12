@@ -123,3 +123,11 @@
 .page-cta-band:first-child { padding-top: clamp(64px, 9vw, 112px); }
 .services-list .h3 a { color: var(--ink); text-decoration: none; }
 .services-list .h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+
+/* Fotografija na stranici O meni */
+.portrait { margin: 0 0 32px; max-width: 420px; }
+.portrait img { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); background: var(--paper); }
+.portrait figcaption { margin-top: 10px; font-size: 0.925rem; color: var(--ink-soft); }
+@media (max-width: 900px) {
+    .portrait { max-width: 340px; }
+}
