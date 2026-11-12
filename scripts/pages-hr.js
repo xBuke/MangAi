@@ -64,24 +64,25 @@ const PACKAGES = [
       'Usluge s cijenama, radno vrijeme, galerija, kontakt i karta',
       'Obrazac za upit i zahtjev za termin',
       'Osnovna postavka za Google',
+      'Gumb za poziv i WhatsApp',
       'Hosting, održavanje i sitne izmjene',
     ],
   },
   {
     id: 'plus', name: 'Plus', price: 29, year: 290,
-    tagline: 'Web i jedan dodatak po izboru',
+    tagline: 'Web i jedan modul po izboru',
     items: [
       'Sve iz paketa Start',
-      'Loyalty kartica s levelima i profil mušterije <em>ili</em> AI asistent na stranici',
+      '<em>Jedan modul po izboru:</em> AI asistent, loyalty kartica, Google recenzije, upit s fotografijama ili digitalni cjenik',
     ],
   },
   {
     id: 'komplet', name: 'Komplet', price: 39, year: 390, featured: 'Najviše za vaš posao',
-    tagline: 'Web, loyalty i AI asistent',
+    tagline: 'Web, AI asistent i modul po izboru',
     items: [
       'Sve iz paketa Start',
-      'Loyalty kartica s levelima i profil mušterije',
       'AI asistent na stranici, do 300 razgovora mjesečno',
+      '<em>Jedan modul po izboru</em> od ostalih modula',
       'Uređen Google Business profil',
     ],
   },
@@ -104,6 +105,38 @@ function pricingCards(headingLevel = 'h3') {
                     </article>`).join('\n                    ')}
                 </div>
                 <p class="pricing-note">Cijene su konačne: obrt nije u sustavu PDV-a, pa se PDV ne obračunava. Održavanje se može otkazati uz otkazni rok od 30 dana.</p>`;
+}
+
+const MODULES = [
+  { name: 'AI asistent', href: '/usluge/ai-chatbot/', text: 'Odgovara na pitanja o uslugama, cijenama i radnom vremenu iz vaših podataka, 0–24. Kad ne zna odgovor, uzme ime i broj da vas klijent dobije na telefon.', who: 'sve djelatnosti; u Kompletu je uvijek uključen' },
+  { name: 'Loyalty kartica', text: 'Digitalna kartica s QR kodom: vi upisujete posjete, a mušterija vidi svoj level i pogodnost. Stalnim mušterijama možete odmah dodijeliti viši level.', who: 'saloni, kafići, autopraonice, teretane' },
+  { name: 'Google recenzije', text: 'Kad posao označite kao završen, klijent dobije poruku s poveznicom za recenziju, a na pultu stoji QR kod. Više recenzija znači bolju poziciju na Google Kartama.', who: 'svi lokalni obrti' },
+  { name: 'Upit s fotografijama', text: 'Klijent opiše problem i priloži fotografije, a vi pošaljete okvirnu procjenu bez izlaska na teren i bez praznih poziva.', who: 'majstori, servisi, auto-limari, stolari, klima-servisi' },
+  { name: 'Digitalni cjenik ili meni', text: 'Cjenik ili meni na mobitelu gosta, preko QR koda na stolu ili pultu. Promjenu cijena pošaljete porukom i za kratko je na meniju, bez novog tiska.', who: 'restorani, kafići, saloni' },
+];
+
+function modulesSection(id = 'moduli') {
+  return `
+        <section class="section" id="${id}" aria-labelledby="${id}-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2 id="${id}-title">Moduli</h2>
+                    <p>U paketu Plus birate jedan modul, a u Kompletu AI asistenta i još jedan modul. Birate ono što vašem poslu stvarno treba.</p>
+                </div>
+                <ul class="services-list modules-list">
+                    ${MODULES.map((m) => `<li>
+                        <h3>${m.href ? `<a href="${m.href}">${m.name}</a>` : m.name}</h3>
+                        <p>${m.text}</p>
+                        <p class="examples"><strong>Za koga:</strong> ${m.who}.</p>
+                    </li>`).join('\n                    ')}
+                    <li>
+                        <h3>Primjeri kombinacija</h3>
+                        <p>Frizerski salon: AI asistent i loyalty kartica. Restoran: AI asistent i digitalni meni. Vodoinstalater: AI asistent i upit s fotografijama.</p>
+                        <p class="examples"><strong>Niste sigurni?</strong> <a href="/kontakt/">Javite se</a> pa zajedno odaberemo.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>`;
 }
 
 function pricingSchema() {
@@ -277,37 +310,13 @@ const web = {
             <div class="wrap">
                 <div class="section-head">
                     <h2 id="paketi-title">Paketi i cijene</h2>
-                    <p>Izrada je uvijek ${SETUP_PRICE} € jednokratno, a mjesečni paket birate prema tome što vam treba. Paket možete kasnije proširiti.</p>
+                    <p>Izrada je uvijek ${SETUP_PRICE} € jednokratno, a mjesečni paket birate prema tome što vam treba. Paket možete kasnije proširiti. Webshop, više jezika i asistent na WhatsAppu idu po pisanoj ponudi.</p>
                 </div>
                 ${pricingCards()}
             </div>
         </section>
 
-        <section class="section" aria-labelledby="dodaci-title">
-            <div class="wrap">
-                <div class="section-head">
-                    <h2 id="dodaci-title">Što je u paketima</h2>
-                </div>
-                <ul class="services-list">
-                    <li>
-                        <h3>Loyalty kartica s levelima</h3>
-                        <p>Digitalna kartica s QR kodom: vi upisujete posjete, a mušterija vidi svoj level i pogodnost. Stalnim mušterijama možete odmah dodijeliti viši level. U paketima Plus i Komplet.</p>
-                    </li>
-                    <li>
-                        <h3><a href="/usluge/ai-chatbot/">AI asistent na stranici</a></h3>
-                        <p>Odgovara na pitanja o uslugama, cijenama i radnom vremenu iz vaših podataka, a kad ne zna, uzme ime i broj da vas klijent dobije na telefon. U paketima Plus i Komplet.</p>
-                    </li>
-                    <li>
-                        <h3>Google Business profil</h3>
-                        <p>Uređen profil na Google Kartama s točnim radnim vremenom, uslugama i fotografijama, povezan sa stranicom. Za lokalni posao često važniji od same stranice. Uključen u Komplet.</p>
-                    </li>
-                    <li>
-                        <h3>Izvan paketa, po ponudi</h3>
-                        <p>Webshop, više jezika za turiste, asistent na WhatsAppu ili Messengeru te veće stranice po mjeri. Za njih dobivate pisanu ponudu s fiksnom cijenom.</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
+${modulesSection()}
 
         <section class="section" aria-labelledby="dobra-title">
             <div class="wrap page-split">
@@ -338,7 +347,7 @@ ${related('Povezano', [
     ['/primjeri/', 'Primjeri po djelatnostima', 'isprobajte kako izgleda asistent za salon ili apartmane'],
   ])}`,
   faq: [
-    { q: 'Koliko košta izrada web stranice?', a: 'Izrada je 390 € jednokratno, a zatim mjesečni paket: Start 19 €, Plus 29 € (s loyalty karticom ili AI asistentom) ili Komplet 39 € (s oboje i Google Business profilom). Webshop i veće stranice idu po pisanoj ponudi s fiksnom cijenom.' },
+    { q: 'Koliko košta izrada web stranice?', a: 'Izrada je 390 € jednokratno, a zatim mjesečni paket: Start 19 €, Plus 29 € (s jednim modulom po izboru) ili Komplet 39 € (s AI asistentom, jednim modulom i Google Business profilom). Webshop i veće stranice idu po pisanoj ponudi s fiksnom cijenom.' },
     { q: 'Što uključuje mjesečni paket?', a: 'Svaki paket uključuje hosting, tehničko održavanje i sitne izmjene, poput promjene cijena, radnog vremena, teksta ili fotografija. Paket se može otkazati uz otkazni rok od 30 dana.' },
     { q: 'Mogu li platiti godišnje?', a: 'Da. Uz godišnje plaćanje dobivate dva mjeseca gratis: Start 190 €, Plus 290 € i Komplet 390 € godišnje.' },
     { q: 'Koliko traje izrada?', a: 'Najviše ovisi o tome koliko brzo stignu tekstovi, cijene i fotografije. Rok je naveden u ponudi, a jednostavna stranica ne traži mjesece rada.' },
@@ -1119,6 +1128,7 @@ const cijene = {
                 ${pricingCards('h2')}
             </div>
         </section>
+${modulesSection()}
 
         <section class="section" aria-labelledby="ukljuceno-cijene-title">
             <div class="wrap page-split">
@@ -1145,7 +1155,8 @@ const cijene = {
         </section>`,
   faq: [
     { q: 'Ima li skrivenih troškova?', a: 'Nema. Plaćate 390 € za izradu i mjesečni paket. Obrt nije u sustavu PDV-a, pa su to konačne cijene.' },
-    { q: 'Mogu li kasnije prijeći na veći paket?', a: 'Da. Možete krenuti sa Startom, a loyalty karticu ili AI asistenta uključiti kad vidite da vam trebaju.' },
+    { q: 'Mogu li kasnije prijeći na veći paket?', a: 'Da. Možete krenuti sa Startom, a modul ili AI asistenta uključiti kad vidite da vam trebaju.' },
+    { q: 'Koji modul odabrati?', a: 'Onaj koji rješava vaš najčešći problem: loyalty karticu ako želite da se mušterije vraćaju, Google recenzije ako vas na Kartama nitko ne nalazi, upit s fotografijama ako gubite vrijeme na izlaske za procjenu, digitalni cjenik ako često mijenjate cijene.' },
     { q: 'Što ako AI asistent ima više od 300 razgovora mjesečno?', a: 'To je dobar znak. Javim vam se i dogovorimo nastavak, a asistent u međuvremenu ne prestaje raditi.' },
     { q: 'Mogu li otkazati?', a: 'Da, uz otkazni rok od 30 dana. Po prestanku dobivate sve pristupe i sadržaj stranice.' },
     { q: 'Mogu li platiti godišnje?', a: 'Da. Uz godišnje plaćanje dobivate dva mjeseca gratis: Start 190 €, Plus 290 € i Komplet 390 € godišnje.' },
