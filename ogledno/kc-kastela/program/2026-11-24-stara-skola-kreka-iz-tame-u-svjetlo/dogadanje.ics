@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MangAI//Ogledni prijedlog KC Kastela//HR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Stara škola kreka - iz tame u svjetlo
+X-WR-TIMEZONE:Europe/Zagreb
+BEGIN:VTIMEZONE
+TZID:Europe/Zagreb
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:2026-11-24-stara-skola-kreka-iz-tame-u-svjetlo@kc-kastel
+ a.ogledno.mangai.hr
+DTSTAMP:20261113T205447Z
+DTSTART;TZID=Europe/Zagreb:20261124T200000
+DTEND;TZID=Europe/Zagreb:20261124T220000
+SUMMARY:Stara škola kreka - iz tame u svjetlo
+DESCRIPTION:Marin Ivanović Stoka. Ulaz slobodan Ulaz sloboda
+ n uz rezervaciju mjesta Izvor: Plakat DOT KCK 26. Ogledni p
+ rijedlog stranice (MangAI)\, nije službena stranica ustanov
+ e.
+LOCATION:Kulturni centar Kaštela\, Kaštel Lukšić
+URL:https://mangai.hr/ogledno/kc-kastela/program/2026-11-24-
+ stara-skola-kreka-iz-tame-u-svjetlo/
+END:VEVENT
+END:VCALENDAR
