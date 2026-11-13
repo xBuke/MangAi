@@ -289,8 +289,9 @@ function footer(t, otherLangUrl, scripts = '') {
                 <div>
                     <h2>${t.bizTitle}</h2>
                     <address>
-                        MANGAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić<br>
+                        MangAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić<br>
                         Vukovarska 5, 20340 Ploče${t.country}<br>
+                        MBO: 99415437<br>
                         <a href="tel:+385923557476">+385 92 355 7476</a><br>
                         <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
                     </address>
