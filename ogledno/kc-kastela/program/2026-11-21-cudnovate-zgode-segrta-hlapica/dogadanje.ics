@@ -25,7 +25,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:2026-11-21-cudnovate-zgode-segrta-hlapica@kc-kastela.ogl
  edno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261121T183000
 DTEND;TZID=Europe/Zagreb:20261121T203000
 SUMMARY:Čudnovate zgode šegrta Hlapića

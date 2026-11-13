@@ -25,7 +25,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:2026-10-17-kastelanske-cakule-premijera@kc-kastela.ogled
  no.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261017T203000
 DTEND;TZID=Europe/Zagreb:20261017T223000
 SUMMARY:Kaštelanske čakule – premijera
@@ -39,7 +39,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-10-17-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-18-psici-u-ophodnji@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261018T170000
 DTEND;TZID=Europe/Zagreb:20261018T190000
 SUMMARY:Psići u ophodnji
@@ -52,7 +52,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-10-18-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-18-koke@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261018T193000
 DTEND;TZID=Europe/Zagreb:20261018T213000
 SUMMARY:Koke
@@ -66,7 +66,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-21-stand-up-ante-travizija@kc-kastela.ogledno.ma
  ngai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261021T200000
 DTEND;TZID=Europe/Zagreb:20261021T220000
 SUMMARY:Stand-up Ante Travizija
@@ -80,7 +80,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-24-zaboravljeni-otok@kc-kastela.ogledno.mangai.h
  r
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261024T170000
 DTEND;TZID=Europe/Zagreb:20261024T190000
 SUMMARY:Zaboravljeni otok
@@ -93,7 +93,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-10-24-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-24-srce-zvijeri@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261024T193000
 DTEND;TZID=Europe/Zagreb:20261024T213000
 SUMMARY:Srce zvijeri
@@ -106,7 +106,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-10-24-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-25-eko-eho@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261025T170000
 DTEND;TZID=Europe/Zagreb:20261025T190000
 SUMMARY:Eko Eho
@@ -120,7 +120,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-28-ludi-svijet-brace-marks@kc-kastela.ogledno.ma
  ngai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261028T200000
 DTEND;TZID=Europe/Zagreb:20261028T220000
 SUMMARY:Ludi svijet braće Marks
@@ -134,7 +134,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-10-28-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-30-prima-facie@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261030T200000
 DTEND;TZID=Europe/Zagreb:20261030T220000
 SUMMARY:Prima Facie
@@ -148,7 +148,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-10-30-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-08-ca-si-rekla-nona@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261108T200000
 DTEND;TZID=Europe/Zagreb:20261108T220000
 SUMMARY:Ča si rekla nona?
@@ -162,7 +162,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-09-dalmatia-film-festival@kc-kastela.ogledno.man
  gai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261109T180000
 DTEND;TZID=Europe/Zagreb:20261109T220000
 SUMMARY:Dalmatia Film Festival
@@ -176,7 +176,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-10-dalmatia-film-festival@kc-kastela.ogledno.man
  gai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261110T180000
 DTEND;TZID=Europe/Zagreb:20261110T220000
 SUMMARY:Dalmatia Film Festival
@@ -189,7 +189,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-11-10-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-13-tko-je-ubio-sis@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261113T200000
 DTEND;TZID=Europe/Zagreb:20261113T220000
 SUMMARY:Tko je ubio Sis...?
@@ -203,7 +203,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-15-20-obljetnica-kastelanskog-kazalista@kc-kaste
  la.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261115T200000
 DTEND;TZID=Europe/Zagreb:20261115T220000
 SUMMARY:20. obljetnica Kaštelanskog kazališta
@@ -217,7 +217,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-19-divlji-konj-broj-devet@kc-kastela.ogledno.man
  gai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261119T193000
 DTEND;TZID=Europe/Zagreb:20261119T213000
 SUMMARY:Divlji konj broj devet
@@ -231,7 +231,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-21-cudnovate-zgode-segrta-hlapica@kc-kastela.ogl
  edno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261121T183000
 DTEND;TZID=Europe/Zagreb:20261121T203000
 SUMMARY:Čudnovate zgode šegrta Hlapića
@@ -245,7 +245,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-11-21-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-macak-u-sesiru@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261122T170000
 DTEND;TZID=Europe/Zagreb:20261122T190000
 SUMMARY:Mačak u šeširu
@@ -258,7 +258,7 @@ URL:https://mangai.hr/ogledno/kc-kastela/program/2026-11-22-
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-male-stvari@kc-kastela.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261122T193000
 DTEND;TZID=Europe/Zagreb:20261122T213000
 SUMMARY:Male stvari
@@ -272,7 +272,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-24-stara-skola-kreka-iz-tame-u-svjetlo@kc-kastel
  a.ogledno.mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261124T200000
 DTEND;TZID=Europe/Zagreb:20261124T220000
 SUMMARY:Stara škola kreka - iz tame u svjetlo
@@ -287,7 +287,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-26-kak-i-smo-tak-i-smo@kc-kastela.ogledno.mangai
  .hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261126T200000
 DTEND;TZID=Europe/Zagreb:20261126T220000
 SUMMARY:Kak’i smo\, tak’i smo
@@ -302,7 +302,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-27-koncert-jazz-orkestra-hrm@kc-kastela.ogledno.
  mangai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261127T200000
 DTEND;TZID=Europe/Zagreb:20261127T220000
 SUMMARY:Koncert Jazz orkestra HRM
@@ -316,7 +316,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-03-dozvola-za-nove-fockere@kc-kastela.ogledno.ma
  ngai.hr
-DTSTAMP:20261113T205447Z
+DTSTAMP:20261113T210142Z
 DTSTART;TZID=Europe/Zagreb:20261203T200000
 DTEND;TZID=Europe/Zagreb:20261203T220000
 SUMMARY:Dozvola za nove Fockere
