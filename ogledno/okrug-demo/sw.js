@@ -1,13 +1,14 @@
 // Service worker oglednog primjera (scope: /ogledno/okrug-demo/). Generira se pri buildu iz
 // scripts/sw-predlozak.js – popis datoteka i verziju upisuje scripts/sw-integration.mjs.
 const BASE = '/ogledno/okrug-demo/';
-const VERZIJA = '3595dbb6ea8d';
-const DATOTEKE = ["_astro/Karta.astro_astro_type_script_index_0_lang.CRNiG3E_.js","_astro/_id_.astro_astro_type_script_index_0_lang.DGUz9sRu.js","_astro/karta.DjYaVqop.js","_astro/maplibre-gl-worker.Boc9pDRP.mjs","_astro/maplibre-gl.8qRUISz9.css","_astro/napredak.27EN44xG.js","de/","de/pristupacnost/","de/ruta/centar/","de/ruta/juzne-uvale/","de/tocka/bocici/","de/tocka/kuzmica-uvala/","de/tocka/labadusa/","de/tocka/ljetnikovac-racettini/","de/tocka/lucica-toc/","de/tocka/mavarcica/","de/tocka/opcina/","de/tocka/otocic-fumija/","de/tocka/plaza-copacabana/","de/tocka/sv-karlo/","de/tocka/sv-kriz/","de/tocka/sv-tudor/","de/tocka/tatinja/","de/tocka/uvala-duga/","en/","en/pristupacnost/","en/ruta/centar/","en/ruta/juzne-uvale/","en/tocka/bocici/","en/tocka/kuzmica-uvala/","en/tocka/labadusa/","en/tocka/ljetnikovac-racettini/","en/tocka/lucica-toc/","en/tocka/mavarcica/","en/tocka/opcina/","en/tocka/otocic-fumija/","en/tocka/plaza-copacabana/","en/tocka/sv-karlo/","en/tocka/sv-kriz/","en/tocka/sv-tudor/","en/tocka/tatinja/","en/tocka/uvala-duga/","ikone/ikona-180.png","ikone/ikona-192.png","ikone/ikona-512.png","ikone/ikona-maskable-512.png","ikone/ikona-maskable.svg","ikone/ikona.svg","ilustracije/crkva.svg","ilustracije/lucica.svg","ilustracije/otok.svg","ilustracije/plaza.svg","ilustracije/uvala.svg","ilustracije/zgrada.svg","","manifest.webmanifest","pristupacnost/","qr/","ruta/centar/","ruta/juzne-uvale/","t/bocici/","t/labadusa/","t/lucica-toc/","t/mavarcica/","t/opcina/","t/plaza-copacabana/","t/sv-karlo/","t/sv-kriz/","t/sv-tudor/","t/tatinja/","t/uvala-duga/","tocka/bocici/","tocka/kuzmica-uvala/","tocka/labadusa/","tocka/ljetnikovac-racettini/","tocka/lucica-toc/","tocka/mavarcica/","tocka/opcina/","tocka/otocic-fumija/","tocka/plaza-copacabana/","tocka/sv-karlo/","tocka/sv-kriz/","tocka/sv-tudor/","tocka/tatinja/","tocka/uvala-duga/"];
+const VERZIJA = 'bff771443a39';
+const DATOTEKE = ["_astro/Karta.astro_astro_type_script_index_0_lang.DkgNsdyW.js","_astro/Kraj.astro_astro_type_script_index_0_lang.DVLLmyLH.js","_astro/_id_.astro_astro_type_script_index_0_lang.CBnem-cP.js","_astro/_id_.astro_astro_type_script_index_0_lang.Cojn4OnP.js","_astro/karta.BMHZ9uZl.js","_astro/maplibre-gl-worker.Boc9pDRP.mjs","_astro/maplibre-gl.8qRUISz9.css","_astro/napredak.27EN44xG.js","_astro/zalazak.Bv5HMXqe.js","de/","de/pristupacnost/","de/ruta/centar/","de/ruta/juzne-uvale/","de/tocka/bocici/","de/tocka/kuzmica-uvala/","de/tocka/labadusa/","de/tocka/ljetnikovac-racettini/","de/tocka/lucica-toc/","de/tocka/mavarcica/","de/tocka/opcina/","de/tocka/otocic-fumija/","de/tocka/plaza-copacabana/","de/tocka/sv-karlo/","de/tocka/sv-kriz/","de/tocka/sv-tudor/","de/tocka/tatinja/","de/tocka/uvala-duga/","en/","en/pristupacnost/","en/ruta/centar/","en/ruta/juzne-uvale/","en/tocka/bocici/","en/tocka/kuzmica-uvala/","en/tocka/labadusa/","en/tocka/ljetnikovac-racettini/","en/tocka/lucica-toc/","en/tocka/mavarcica/","en/tocka/opcina/","en/tocka/otocic-fumija/","en/tocka/plaza-copacabana/","en/tocka/sv-karlo/","en/tocka/sv-kriz/","en/tocka/sv-tudor/","en/tocka/tatinja/","en/tocka/uvala-duga/","ikone/ikona-180.png","ikone/ikona-192.png","ikone/ikona-512.png","ikone/ikona-maskable-512.png","ikone/ikona-maskable.svg","ikone/ikona.svg","ilustracije/crkva.svg","ilustracije/lucica.svg","ilustracije/otok.svg","ilustracije/plaza.svg","ilustracije/uvala.svg","ilustracije/zgrada.svg","","manifest.webmanifest","naslovna/okrug-ortofoto-1600.webp","naslovna/okrug-ortofoto-800.webp","pristupacnost/","qr/","ruta/centar/","ruta/juzne-uvale/","t/bocici/","t/labadusa/","t/lucica-toc/","t/mavarcica/","t/opcina/","t/plaza-copacabana/","t/sv-karlo/","t/sv-kriz/","t/sv-tudor/","t/tatinja/","t/uvala-duga/","tocka/bocici/","tocka/kuzmica-uvala/","tocka/labadusa/","tocka/ljetnikovac-racettini/","tocka/lucica-toc/","tocka/mavarcica/","tocka/opcina/","tocka/otocic-fumija/","tocka/plaza-copacabana/","tocka/sv-karlo/","tocka/sv-kriz/","tocka/sv-tudor/","tocka/tatinja/","tocka/uvala-duga/"];
 const CACHE_STRANICA = `okrug-staza-${VERZIJA}`;
 const CACHE_KARTE = 'okrug-karta-v1'; // puni ga gumb „Spremi za šetnju bez signala” (src/scripts/offline.ts)
 const KARTA_HOST = 'tiles.openfreemap.org';
 const CACHE_SLIKA = 'okrug-slike-v1'; // fotografije s Wikimedia Commonsa, spremaju se kad se prvi put prikažu
 const SLIKE_HOST = 'upload.wikimedia.org';
+const CACHE_ZVUKA = 'okrug-audio-v1'; // zvučni zapisi: sprema ih stranica kad korisnik pokrene zapis ili „Spremi za šetnju”
 
 // Pri prvom posjetu spremi sve stranice, CSS, JS i ilustracije.
 self.addEventListener('install', (e) => {
@@ -76,14 +77,44 @@ async function mrezaPaCache(zahtjev, naziv) {
   }
 }
 
-// Fotografije: prvo cache, inače mreža (i spremi). Odgovori su „opaque” (bez CORS-a), pa ih spremamo bez provjere statusa.
+// Fotografije (lokalne u slike/ i satelit/, ili s Wikimedije): prvo cache, inače mreža (i spremi).
+// Odgovori s Wikimedije su „opaque” (bez CORS-a), pa ih spremamo bez provjere statusa.
+// Bez mreže: ako tražena veličina nije spremljena, vrati drugu veličinu iste fotografije.
 async function slika(zahtjev) {
   const cache = await caches.open(CACHE_SLIKA);
   const spremljeno = await cache.match(zahtjev, { ignoreVary: true });
   if (spremljeno) return spremljeno;
-  const o = await fetch(zahtjev);
-  if (o.ok || o.type === 'opaque') cache.put(zahtjev, o.clone()).catch(() => {});
-  return o;
+  try {
+    const o = await fetch(zahtjev);
+    if (o.ok || o.type === 'opaque') cache.put(zahtjev, o.clone()).catch(() => {});
+    return o;
+  } catch (g) {
+    const osnova = /^(.*\/slike\/.+-)\d+\.webp$/.exec(zahtjev.url);
+    if (osnova) for (const k of await cache.keys()) if (k.url.startsWith(osnova[1])) return cache.match(k);
+    throw g;
+  }
+}
+
+// Zvučni zapis: ako je spremljen, vraćamo ga iz cachea i sami režemo traženi dio (Range), jer <audio> traži dijelove.
+async function zvuk(zahtjev) {
+  const cache = await caches.open(CACHE_ZVUKA);
+  const spremljeno = await cache.match(zahtjev.url);
+  if (!spremljeno) return fetch(zahtjev);
+  const raspon = /^bytes=(\d*)-(\d*)$/.exec(zahtjev.headers.get('range') || '');
+  if (!raspon) return spremljeno;
+  const sve = await spremljeno.arrayBuffer();
+  const kraj = raspon[2] ? Math.min(Number(raspon[2]), sve.byteLength - 1) : sve.byteLength - 1;
+  const pocetak = raspon[1] ? Number(raspon[1]) : sve.byteLength - Number(raspon[2]);
+  if (pocetak > kraj || pocetak < 0) return new Response(null, { status: 416, headers: { 'Content-Range': `bytes */${sve.byteLength}` } });
+  return new Response(sve.slice(pocetak, kraj + 1), {
+    status: 206,
+    headers: {
+      'Content-Type': spremljeno.headers.get('Content-Type') || 'audio/mpeg',
+      'Content-Range': `bytes ${pocetak}-${kraj}/${sve.byteLength}`,
+      'Content-Length': String(kraj - pocetak + 1),
+      'Accept-Ranges': 'bytes',
+    },
+  });
 }
 
 self.addEventListener('fetch', (e) => {
@@ -93,6 +124,14 @@ self.addEventListener('fetch', (e) => {
 
   if (url.origin === self.location.origin && url.pathname.startsWith(BASE)) {
     if (url.pathname.endsWith('.zip')) return;
+    if (url.pathname.startsWith(BASE + 'slike/') || url.pathname.startsWith(BASE + 'satelit/')) {
+      e.respondWith(slika(zahtjev));
+      return;
+    }
+    if (url.pathname.startsWith(BASE + 'audio/')) {
+      e.respondWith(zvuk(zahtjev));
+      return;
+    }
     if (zahtjev.mode === 'navigate') e.respondWith(stranica(zahtjev));
     else e.respondWith(izCachea(zahtjev, CACHE_STRANICA));
     return;
