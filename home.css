@@ -123,7 +123,8 @@ p { margin: 0; }
   color: var(--ink);
   text-decoration: none;
 }
-.logo span { color: var(--reed); }
+.logo span,
+.plate-name span { color: var(--reed); }
 .logo:hover { color: var(--ink); }
 
 .nav-menu-panel {
