@@ -79,11 +79,11 @@ function readPosts(file) {
 const byDateDesc = (a, b) => (b.date || '').localeCompare(a.date || '');
 
 /** Favicon i ikone – isti blok ide i u ručno pisane stranice (index.html, pravne stranice) */
-const ICON_LINKS = `    <link rel="icon" href="/favicon.ico" sizes="48x48">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">`;
+const ICON_LINKS = `    <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=2">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="/site.webmanifest?v=2">`;
 
 function jsonLd(obj) {
   return `    <script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n    </script>\n`;
