@@ -1,19 +1,20 @@
 2:"$Sreact.fragment"
-3:"/ogledno/ain-demo/_next/static/chunks/38vz4846-irxl.js"
-4:I[39756,["$3"],"default"]
-5:I[37457,["$3"],"default"]
-e:"/ogledno/ain-demo/_next/static/chunks/1tmdcz2lrx4ko.js"
-f:I[22016,["$3","$e"],""]
-15:"ViewportBoundary"
-16:I[97367,["$3"],"$15"]
-17:"MetadataBoundary"
-18:I[97367,["$3"],"$17"]
-19:"$Sreact.suspense"
-1a:I[27201,["$3"],"IconMark"]
-7:X
-7:C
+3:"/ogledno/ain-demo/_next/static/chunks/0abq1ruscwyt_.js"
+4:"/ogledno/ain-demo/_next/static/chunks/3o4o31bj0tl3d.js"
+5:I[39756,["$3","$4"],"default"]
+6:I[37457,["$3","$4"],"default"]
+f:"/ogledno/ain-demo/_next/static/chunks/1tmdcz2lrx4ko.js"
+10:I[22016,["$3","$4","$f"],""]
+16:"ViewportBoundary"
+17:I[97367,["$3","$4"],"$16"]
+18:"MetadataBoundary"
+19:I[97367,["$3","$4"],"$18"]
+1a:"$Sreact.suspense"
+1b:I[27201,["$3","$4"],"IconMark"]
 8:X
-10:T13b6,<h2>Sažetak</h2>
+8:C
+9:X
+11:T13b6,<h2>Sažetak</h2>
 <p>Dana 21. rujna 2024. u 07:18 po lokalnom vremenu dvomotorni turboelisni zrakoplov 9A-DMA, na redovitom letu s 58 putnika i četiri člana posade, započeo je zalet na stazi 14 Zračne luke Demo-Sjever. Pri brzini od 96 čvorova zrakoplov je proletio kroz jato galebova. Posada je osjetila udarce i vibracije desnog motora te je prekinula polijetanje. Zrakoplov se zaustavio 420 metara prije kraja staze. Putnici su iskrcani redovitim putem na stajanci. Nije bilo ozlijeđenih.</p>
 <p>Istraga je utvrdila da je do sudara došlo jer se jato ptica zadržavalo uz stazu privučeno privremenom vodenom površinom i pokošenom travom, a ophodnja staze toga jutra nije obavljena prije prvog polijetanja.</p>
 <p>Cilj istrage je utvrđivanje uzroka i davanje sigurnosnih preporuka, a ne utvrđivanje krivnje ili odgovornosti.</p>
@@ -50,23 +51,23 @@ f:I[22016,["$3","$e"],""]
 <ul>
 <li><strong>DEMO-SR-09/2025</strong> – operatoru aerodroma: u program upravljanja opasnostima od divljih životinja uvesti rezervni postupak ophodnje, obvezu obavješćivanja kontrolnog tornja kada ophodnja nije obavljena te odgovornu osobu za mjere nakon zapisa o povećanoj prisutnosti ptica.</li>
 </ul>
-d:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","article",null,{"children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$Lf",null,{"href":"/istrage","className":"text-plava-700 underline","children":"Istrage"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ",["$","$Lf",null,{"href":"/istrage/sudar-s-pticama-pri-polijetanju-9a-dma","className":"text-plava-700 underline","children":"DEMO-Z-2024-002"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Konačno izvješće"]}],["$","p",null,{"className":"mt-4 flex flex-wrap items-center gap-3","children":[["$","span",null,{"className":"font-semibold uppercase tracking-wide text-siva-700","children":"Konačno izvješće"}],["$","span",null,{"className":"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-sm font-semibold bg-[#e3f1e8] text-[#17502f]","children":[["$","span",null,{"aria-hidden":"true","className":"h-2 w-2 rounded-full bg-[#1f7a45]"}],"Zatvorena istraga"]}],["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}],["$","h1",null,{"className":"mt-2 max-w-4xl text-3xl font-bold text-plava-900 sm:text-4xl","children":"Sudar s pticama i prekinuto polijetanje zrakoplova 9A-DMA"}],["$","p",null,{"className":"mt-2 text-siva-700","children":["DEMO-Z-2024-002"," · događaj ","21. 9. 2024."," · objavljeno ","30. 5. 2025."]}],["$","p",null,{"className":"mt-4 max-w-[44rem] rounded-lg bg-siva-100 p-3 text-sm","children":"Izmišljeni dokument napisan za ovaj demo. Ne opisuje stvaran događaj, osobe ni organizacije."}],["$","div",null,{"className":"mt-4","children":["$","div",null,{"className":"proza","dangerouslySetInnerHTML":{"__html":"$10"}}]}],"$L11"]}],["$L12"],"$L13"]}],"p":"$@14","v":null,"s":"$8"}}]]
-b:[["children",{"s":"izvjesce","h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@c","v":"$7","s":"$8"},"c":"$Qd"}]]
-9:[["children",{"s":{"n":"slug","t":"d","k":"sudar-s-pticama-pri-polijetanju-9a-dma","s":[]},"h":65632,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@a","v":"$7","s":"$8"},"c":"$Qb"}]]
-1:[["children",{"s":"istrage","h":131136,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@6","v":"$7","s":"$8"},"c":"$Q9"}]]
-0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L18",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$19",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Konačno izvješće DEMO-Z-2024-002 · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1a","5",{}]]}]}],null]}],null]}],"p":"$@1b","v":null,"s":"$8"}},"a":"$@1c","u":"$@1d","b":"5dxuuctNlvMvyHbiT-hLI"}
-1e:I[22003,["$3","$e"],"PitajGumb"]
-1f:I[97367,["$3"],"OutletBoundary"]
-11:["$","div",null,{"className":"mt-8 flex flex-wrap gap-3","children":[["$","$L1e",null,{"istraga":{"slug":"sudar-s-pticama-pri-polijetanju-9a-dma","naslov":"Sudar s pticama i prekinuto polijetanje zrakoplova 9A-DMA","broj":"DEMO-Z-2024-002"},"children":"Pitaj savjetnika o ovoj istrazi"}],["$","$Lf",null,{"href":"/istrage/sudar-s-pticama-pri-polijetanju-9a-dma","className":"gumb gumb-obrub","children":"Natrag na istragu"}]]}]
-12:["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/1tmdcz2lrx4ko.js","async":true}]
-13:["$","$L1f",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@20"}]}]
-1d:true
-8:300
-20:null
-8:C
-1c:0
-c:"$undefined"
-a:"$undefined"
-6:"$undefined"
-1b:"$undefined"
-14:"$undefined"
+e:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","article",null,{"children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$L10",null,{"href":"/istrage","className":"text-plava-700 underline","children":"Istrage"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ",["$","$L10",null,{"href":"/istrage/sudar-s-pticama-pri-polijetanju-9a-dma","className":"text-plava-700 underline","children":"DEMO-Z-2024-002"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Konačno izvješće"]}],["$","p",null,{"className":"mt-4 flex flex-wrap items-center gap-3","children":[["$","span",null,{"className":"font-semibold uppercase tracking-wide text-siva-700","children":"Konačno izvješće"}],["$","span",null,{"className":"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-sm font-semibold bg-[#e3f1e8] text-[#17502f]","children":[["$","span",null,{"aria-hidden":"true","className":"h-2 w-2 rounded-full bg-[#1f7a45]"}],"Zatvorena istraga"]}],["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}],["$","h1",null,{"className":"mt-2 max-w-4xl text-3xl font-bold text-plava-900 sm:text-4xl","children":"Sudar s pticama i prekinuto polijetanje zrakoplova 9A-DMA"}],["$","p",null,{"className":"mt-2 text-siva-700","children":["DEMO-Z-2024-002"," · događaj ","21. 9. 2024."," · objavljeno ","30. 5. 2025."]}],["$","p",null,{"className":"mt-4 max-w-[44rem] rounded-lg bg-siva-100 p-3 text-sm","children":"Izmišljeni dokument napisan za ovaj demo. Ne opisuje stvaran događaj, osobe ni organizacije."}],["$","div",null,{"className":"mt-4","children":["$","div",null,{"className":"proza","dangerouslySetInnerHTML":{"__html":"$11"}}]}],"$L12"]}],["$L13"],"$L14"]}],"p":"$@15","v":null,"s":"$9"}}]]
+c:[["children",{"s":"izvjesce","h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@d","v":"$8","s":"$9"},"c":"$Qe"}]]
+a:[["children",{"s":{"n":"slug","t":"d","k":"sudar-s-pticama-pri-polijetanju-9a-dma","s":[]},"h":65632,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+1:[["children",{"s":"istrage","h":131136,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L19",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1a",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Konačno izvješće DEMO-Z-2024-002 · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1b","5",{}]]}]}],null]}],null]}],"p":"$@1c","v":null,"s":"$9"}},"a":"$@1d","u":"$@1e","b":"YDihWCHBBJPyKuIZrITx2"}
+1f:I[22003,["$3","$4","$f"],"PitajGumb"]
+20:I[97367,["$3","$4"],"OutletBoundary"]
+12:["$","div",null,{"className":"mt-8 flex flex-wrap gap-3","children":[["$","$L1f",null,{"istraga":{"slug":"sudar-s-pticama-pri-polijetanju-9a-dma","naslov":"Sudar s pticama i prekinuto polijetanje zrakoplova 9A-DMA","broj":"DEMO-Z-2024-002"},"children":"Pitaj savjetnika o ovoj istrazi"}],["$","$L10",null,{"href":"/istrage/sudar-s-pticama-pri-polijetanju-9a-dma","className":"gumb gumb-obrub","children":"Natrag na istragu"}]]}]
+13:["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/1tmdcz2lrx4ko.js","async":true}]
+14:["$","$L20",null,{"children":["$","$1a",null,{"name":"Next.MetadataOutlet","children":"$@21"}]}]
+1e:true
+9:300
+21:null
+9:C
+1d:0
+d:"$undefined"
+b:"$undefined"
+7:"$undefined"
+1c:"$undefined"
+15:"$undefined"
