@@ -1,0 +1,39 @@
+2:"$Sreact.fragment"
+3:"/ogledno/ain-demo/_next/static/chunks/38vz4846-irxl.js"
+4:I[39756,["$3"],"default"]
+5:I[37457,["$3"],"default"]
+c:"/ogledno/ain-demo/_next/static/chunks/1tmdcz2lrx4ko.js"
+d:I[22016,["$3","$c"],""]
+18:"ViewportBoundary"
+19:I[97367,["$3"],"$18"]
+1a:"MetadataBoundary"
+1b:I[97367,["$3"],"$1a"]
+1c:"$Sreact.suspense"
+1d:I[27201,["$3"],"IconMark"]
+7:X
+7:C
+8:X
+b:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","article",null,{"children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$Ld",null,{"href":"/istrage","className":"text-plava-700 underline","children":"Istrage"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","DEMO-Z-2026-001"]}],["$","div",null,{"className":"mt-3 flex flex-wrap items-center gap-3","children":[["$","span",null,{"className":"inline-flex items-center gap-1.5 text-sm font-semibold text-plava-800","children":[["$","svg",null,{"className":"h-4 w-4","viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.7,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"children":["$","path",null,{"d":"M12 3c.9 0 1.5 1 1.5 2.5V9l7 4v2l-7-2v4l2 1.5V20l-3.5-1L8.5 20v-1.5l2-1.5v-4l-7 2v-2l7-4V5.500C10.500 4 11.100 3 12 3z"}]}],"Zrak"]}],["$","span",null,{"className":"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-sm font-semibold bg-[#fff1d6] text-[#7a3e00]","children":[["$","span",null,{"aria-hidden":"true","className":"h-2 w-2 rounded-full bg-[#b45f06]"}],"Otvorena istraga"]}],["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}],["$","h1",null,{"className":"mt-3 max-w-4xl text-3xl font-bold text-plava-900 sm:text-4xl","children":"Prisilno slijetanje helikoptera 9A-HDM nakon gubitka snage motora"}],["$","div",null,{"className":"mt-6 grid gap-8 lg:grid-cols-[2fr_1fr]","children":[["$","div",null,{"children":[["$","h2",null,{"className":"text-2xl font-bold text-plava-900","children":"Sažetak"}],["$","p",null,{"className":"mt-2 max-w-3xl text-lg","children":"Jednomotorni helikopter 9A-HDM prisilno je sletio na poljoprivrednu površinu nakon gubitka snage motora tijekom leta radi nadzora dalekovoda. Pilot i tehničar nisu ozlijeđeni. Helikopter je znatno oštećen. Istraga je u tijeku."}],["$","p",null,{"className":"mt-4 max-w-3xl rounded-lg border border-[#e7c98f] bg-[#fff8e8] p-4","children":"Istraga je u tijeku. Uzroci još nisu utvrđeni; objavljena je samo privremena izjava s do sada potvrđenim činjenicama."}],["$","h2",null,{"className":"mt-8 text-2xl font-bold text-plava-900","children":"Dokumenti"}],["$","ul",null,{"className":"mt-3 space-y-3","children":["$","li",null,{"className":"kartica flex flex-wrap items-center justify-between gap-3 p-4","children":[["$","div",null,{"children":[["$","p",null,{"className":"font-semibold","children":"Privremena izjava"}],["$","p",null,{"className":"text-sm text-siva-700","children":["Objavljeno ","25. 5. 2026."," · ",139," riječi · stranica (HTML) ",["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}]]}],["$","$Ld",null,{"href":"/istrage/prisilno-slijetanje-helikoptera-9a-hdm/izjava","className":"gumb gumb-obrub","children":["Otvori ","izjavu"]}]]}]}],["$","h2",null,{"className":"mt-8 text-2xl font-bold text-plava-900","children":"Povezane sigurnosne preporuke"}],["$","p",null,{"className":"mt-2 text-siva-700","children":"Preporuke se izdaju uz konačno izvješće."}]]}],["$","aside",null,{"aria-label":"Podaci o predmetu","className":"space-y-4","children":[["$","dl",null,{"className":"kartica divide-y divide-siva-200","children":[["$","div","Broj predmeta",{"className":"px-4 py-2.5","children":[["$","dt",null,{"className":"text-sm text-siva-700","children":"Broj predmeta"}],["$","dd",null,{"className":"font-semibold","children":"DEMO-Z-2026-001"}]]}],["$","div","Vrsta prometa",{"className":"px-4 py-2.5","children":[["$","dt",null,{"className":"text-sm text-siva-700","children":"Vrsta prometa"}],"$Le"]}],"$Lf","$L10","$L11","$L12","$L13"]}],"$L14"]}]]}]]}],["$L15"],"$L16"]}],"p":"$@17","v":null,"s":"$8"}}]]
+9:[["children",{"s":{"n":"slug","t":"d","k":"prisilno-slijetanje-helikoptera-9a-hdm","s":[]},"h":65632,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@a","v":"$7","s":"$8"},"c":"$Qb"}]]
+1:[["children",{"s":"istrage","h":131136,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@6","v":"$7","s":"$8"},"c":"$Q9"}]]
+0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"DEMO-Z-2026-001 Prisilno slijetanje helikoptera 9A-HDM nakon gubitka snage motora · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1d","5",{}]]}]}],null]}],null]}],"p":"$@1e","v":null,"s":"$8"}},"a":"$@1f","u":"$@20","b":"5dxuuctNlvMvyHbiT-hLI"}
+21:I[22003,["$3","$c"],"PitajGumb"]
+22:I[97367,["$3"],"OutletBoundary"]
+e:["$","dd",null,{"className":"font-semibold","children":"Zračni promet"}]
+f:["$","div","Klasa događaja",{"className":"px-4 py-2.5","children":[["$","dt",null,{"className":"text-sm text-siva-700","children":"Klasa događaja"}],["$","dd",null,{"className":"font-semibold","children":"Nesreća – prisilno slijetanje"}]]}]
+10:["$","div","Datum događaja",{"className":"px-4 py-2.5","children":[["$","dt",null,{"className":"text-sm text-siva-700","children":"Datum događaja"}],["$","dd",null,{"className":"font-semibold","children":"27. 4. 2026."}]]}]
+11:["$","div","Mjesto",{"className":"px-4 py-2.5","children":[["$","dt",null,{"className":"text-sm text-siva-700","children":"Mjesto"}],["$","dd",null,{"className":"font-semibold","children":"Polje kod Kamenjaka Gornjeg (izmišljeno mjesto)"}]]}]
+12:["$","div","Status",{"className":"px-4 py-2.5","children":[["$","dt",null,{"className":"text-sm text-siva-700","children":"Status"}],["$","dd",null,{"className":"font-semibold","children":"Otvorena"}]]}]
+13:["$","div","Izjava objavljena",{"className":"px-4 py-2.5","children":[["$","dt",null,{"className":"text-sm text-siva-700","children":"Izjava objavljena"}],["$","dd",null,{"className":"font-semibold","children":"25. 5. 2026."}]]}]
+14:["$","$L21",null,{"istraga":{"slug":"prisilno-slijetanje-helikoptera-9a-hdm","naslov":"Prisilno slijetanje helikoptera 9A-HDM nakon gubitka snage motora","broj":"DEMO-Z-2026-001"},"className":"gumb gumb-pun w-full","children":"Pitaj savjetnika o ovoj istrazi"}]
+15:["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/1tmdcz2lrx4ko.js","async":true}]
+16:["$","$L22",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]
+20:true
+8:300
+23:null
+8:C
+1f:0
+a:"$undefined"
+6:"$undefined"
+1e:"$undefined"
+17:"$undefined"

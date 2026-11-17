@@ -1,0 +1,74 @@
+2:"$Sreact.fragment"
+3:"/ogledno/ain-demo/_next/static/chunks/38vz4846-irxl.js"
+4:I[39756,["$3"],"default"]
+5:I[37457,["$3"],"default"]
+e:"/ogledno/ain-demo/_next/static/chunks/1tmdcz2lrx4ko.js"
+f:I[22016,["$3","$e"],""]
+15:"ViewportBoundary"
+16:I[97367,["$3"],"$15"]
+17:"MetadataBoundary"
+18:I[97367,["$3"],"$17"]
+19:"$Sreact.suspense"
+1a:I[27201,["$3"],"IconMark"]
+7:X
+7:C
+8:X
+10:T13d7,<h2>Sažetak</h2>
+<p>Dana 14. svibnja 2023. u 15:12 po lokalnom vremenu jednomotorni četverosjed oznake 9A-DMO, na privatnom letu s jednim putnikom, sletio je na travnatu stazu 09 letjelišta Ravnica. Nakon dodira glavnih kotača zrakoplov je počeo skretati ulijevo, napustio je stazu, prešao 60 metara po neravnom terenu i prevrnuo se preko nosa u odvodnom kanalu. Pilot je zadobio lakše ozljede, a putnik je ostao neozlijeđen. Nije bilo požara.</p>
+<p>Istraga je utvrdila da je do gubitka kontrole po pravcu došlo pri slijetanju s bočnim vjetrom na udare koji je prelazio pilotovo nedavno iskustvo, uz prilaz povećanom brzinom i nepotpunu informaciju o vjetru na letjelištu.</p>
+<p>Cilj istrage je utvrđivanje uzroka i davanje sigurnosnih preporuka, a ne utvrđivanje krivnje ili odgovornosti.</p>
+<h2>Činjenične informacije</h2>
+<h3>Let</h3>
+<p>Zrakoplov je poletio s istog letjelišta u 13:40 radi panoramskog leta. Na polijetanju je vjetar bio slab. Tijekom leta prošla je slaba hladna fronta. Pri povratku je pilot preko radijske postaje upitao za vjetar; s tla mu je član aerokluba javio „vjetar sjeverni, malo puše”.</p>
+<p>Svjedoci opisuju prilaz kao strm i brz. Zrakoplov je dodirnuo stazu otprilike na trećini njezine duljine, odskočio i ponovno dodirnuo. Pri drugom dodiru lijevo krilo se podiglo, nos je skrenuo ulijevo, u vjetar, i zrakoplov je napustio stazu.</p>
+<h3>Pilot</h3>
+<p>Pilot je imao dozvolu privatnog pilota i ukupno 212 sati naleta, od toga 38 na tipu. U prethodnih 90 dana letio je četiri sata. Posljednje zabilježeno uvježbavanje slijetanja s bočnim vjetrom bilo je na provjeri stručnosti 19 mjeseci ranije.</p>
+<h3>Zrakoplov</h3>
+<p>Zrakoplov je bio plovidben i održavan prema programu. Pregledom nakon nesreće nisu nađene neispravnosti upravljačkih komandi, kočnica ni nosnog kotača koje bi postojale prije događaja. Masa i težište bili su unutar ograničenja. Najveća demonstrirana komponenta bočnog vjetra za tip iznosi 15 čvorova.</p>
+<h3>Letjelište i meteorološki uvjeti</h3>
+<p>Staza 09/27 je travnata, duga 720 i široka 30 metara. Uz sjeverni rub, na 25 metara od ruba staze, prolazi otvoreni odvodni kanal. Letjelište ima vjetrokaz na zapadnom kraju, djelomično zaklonjen hangarom pri sjevernom vjetru. Nema mjerača vjetra.</p>
+<p>Najbliža meteorološka postaja, udaljena 18 kilometara, zabilježila je u vrijeme događaja vjetar iz smjera 350° brzine 14 čvorova s udarima do 24 čvora. To za stazu 09 znači gotovo čist bočni vjetar slijeva.</p>
+<h2>Analiza</h2>
+<h3>Odluka o slijetanju</h3>
+<p>Pilot nije imao pouzdan podatak o vjetru. Opis „malo puše” i djelomično zaklonjen vjetrokaz nisu upućivali na udare koji prelaze demonstriranu vrijednost za tip. Staza 27 ne bi promijenila bočnu komponentu, a letjelište nema drugu stazu. Mogućnost odlaska na alternativni aerodrom s tvrdom stazom povoljnijeg smjera, udaljen 20 minuta leta, pilot nije razmatrao jer nije prepoznao da su uvjeti izvan njegovih mogućnosti.</p>
+<h3>Prilaz i dodir</h3>
+<p>Povećana brzina u prilazu uobičajena je reakcija na turbulenciju, ali produljuje ravnanje i izlaže zrakoplov udarima dulje vrijeme neposredno iznad staze. Nakon odskoka pilot nije prekinuo slijetanje. Pri drugom dodiru, s premalo otklona krilaca u vjetar, udar je podigao navjetrinsko krilo i zrakoplov se okrenuo prema vjetru. Na travi je učinkovitost kočenja i upravljanja nosnim kotačem manja nego na tvrdoj podlozi.</p>
+<h3>Uvježbanost</h3>
+<p>Četiri sata naleta u tri mjeseca i dugo razdoblje bez uvježbavanja bočnog vjetra znače da je vještina bila oslabljena. Aeroklub nema vlastito pravilo o osvježavanju vještina nakon stanke ni preporučena ograničenja vjetra za pilote s malim nedavnim naletom.</p>
+<h3>Okolina staze</h3>
+<p>Otvoreni kanal na 25 metara od ruba staze pretvorio je izlijetanje sa staze, koje bi inače završilo manjom štetom, u prevrtanje. Operator letjelišta nije imao procjenu rizika za prepreke u pojasu staze.</p>
+<h3>Preživljavanje</h3>
+<p>Oba su sjedala imala pojaseve s ramenim dijelom i oboje ih je koristilo. To je presudno ograničilo ozljede pri prevrtanju.</p>
+<h2>Zaključci</h2>
+<ol>
+<li>Pilot je izgubio kontrolu po pravcu nakon odskoka pri slijetanju s jakim bočnim vjetrom na udare.</li>
+<li>Bočna komponenta vjetra na udarima prelazila je demonstriranu vrijednost za tip i pilotovo nedavno iskustvo.</li>
+<li>Pilot nije raspolagao pouzdanim podatkom o vjetru; letjelište nema mjerač vjetra, a vjetrokaz je djelomično zaklonjen.</li>
+<li>Nakon odskoka slijetanje nije prekinuto.</li>
+<li>Odvodni kanal u blizini staze povećao je težinu posljedica.</li>
+<li>Tehničko stanje zrakoplova nije pridonijelo događaju.</li>
+</ol>
+<h2>Sigurnosne preporuke</h2>
+<ul>
+<li><strong>DEMO-SR-08/2024</strong> – operatoru letjelišta i aeroklubu: postaviti vjetrokaz na mjesto koje nije zaklonjeno i uvesti preporučena ograničenja bočnog vjetra te osvježavanje vještina za pilote s malim nedavnim naletom; procijeniti rizik otvorenog kanala u pojasu staze.</li>
+</ul>
+d:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","article",null,{"children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$Lf",null,{"href":"/istrage","className":"text-plava-700 underline","children":"Istrage"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ",["$","$Lf",null,{"href":"/istrage/gubitak-kontrole-pri-slijetanju-9a-dmo","className":"text-plava-700 underline","children":"DEMO-Z-2023-005"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Konačno izvješće"]}],["$","p",null,{"className":"mt-4 flex flex-wrap items-center gap-3","children":[["$","span",null,{"className":"font-semibold uppercase tracking-wide text-siva-700","children":"Konačno izvješće"}],["$","span",null,{"className":"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-sm font-semibold bg-[#e3f1e8] text-[#17502f]","children":[["$","span",null,{"aria-hidden":"true","className":"h-2 w-2 rounded-full bg-[#1f7a45]"}],"Zatvorena istraga"]}],["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}],["$","h1",null,{"className":"mt-2 max-w-4xl text-3xl font-bold text-plava-900 sm:text-4xl","children":"Gubitak kontrole pri slijetanju zrakoplova 9A-DMO na letjelištu Ravnica"}],["$","p",null,{"className":"mt-2 text-siva-700","children":["DEMO-Z-2023-005"," · događaj ","14. 5. 2023."," · objavljeno ","27. 2. 2024."]}],["$","p",null,{"className":"mt-4 max-w-[44rem] rounded-lg bg-siva-100 p-3 text-sm","children":"Izmišljeni dokument napisan za ovaj demo. Ne opisuje stvaran događaj, osobe ni organizacije."}],["$","div",null,{"className":"mt-4","children":["$","div",null,{"className":"proza","dangerouslySetInnerHTML":{"__html":"$10"}}]}],"$L11"]}],["$L12"],"$L13"]}],"p":"$@14","v":null,"s":"$8"}}]]
+b:[["children",{"s":"izvjesce","h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@c","v":"$7","s":"$8"},"c":"$Qd"}]]
+9:[["children",{"s":{"n":"slug","t":"d","k":"gubitak-kontrole-pri-slijetanju-9a-dmo","s":[]},"h":65632,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@a","v":"$7","s":"$8"},"c":"$Qb"}]]
+1:[["children",{"s":"istrage","h":131136,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@6","v":"$7","s":"$8"},"c":"$Q9"}]]
+0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L18",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$19",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Konačno izvješće DEMO-Z-2023-005 · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1a","5",{}]]}]}],null]}],null]}],"p":"$@1b","v":null,"s":"$8"}},"a":"$@1c","u":"$@1d","b":"5dxuuctNlvMvyHbiT-hLI"}
+1e:I[22003,["$3","$e"],"PitajGumb"]
+1f:I[97367,["$3"],"OutletBoundary"]
+11:["$","div",null,{"className":"mt-8 flex flex-wrap gap-3","children":[["$","$L1e",null,{"istraga":{"slug":"gubitak-kontrole-pri-slijetanju-9a-dmo","naslov":"Gubitak kontrole pri slijetanju zrakoplova 9A-DMO na letjelištu Ravnica","broj":"DEMO-Z-2023-005"},"children":"Pitaj savjetnika o ovoj istrazi"}],["$","$Lf",null,{"href":"/istrage/gubitak-kontrole-pri-slijetanju-9a-dmo","className":"gumb gumb-obrub","children":"Natrag na istragu"}]]}]
+12:["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/1tmdcz2lrx4ko.js","async":true}]
+13:["$","$L1f",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@20"}]}]
+1d:true
+8:300
+20:null
+8:C
+1c:0
+c:"$undefined"
+a:"$undefined"
+6:"$undefined"
+1b:"$undefined"
+14:"$undefined"

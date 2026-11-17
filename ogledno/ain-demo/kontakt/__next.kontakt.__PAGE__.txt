@@ -1,0 +1,25 @@
+2:"$Sreact.fragment"
+3:"/ogledno/ain-demo/_next/static/chunks/38vz4846-irxl.js"
+4:I[39756,["$3"],"default"]
+5:I[37457,["$3"],"default"]
+a:I[97367,["$3"],"OutletBoundary"]
+b:"$Sreact.suspense"
+e:"ViewportBoundary"
+f:I[97367,["$3"],"$e"]
+10:"MetadataBoundary"
+11:I[97367,["$3"],"$10"]
+12:I[27201,["$3"],"IconMark"]
+7:X
+7:C
+8:X
+9:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","article",null,{"children":[["$","h1",null,{"className":"text-3xl font-bold text-plava-900 sm:text-4xl","children":"Kontakt"}],["$","p",null,{"className":"mt-2 max-w-[44rem] rounded-lg bg-siva-100 p-3 text-sm","children":"Ogledni tekst napisan za ovaj demo. Nije službeni tekst agencije."}],["$","div",null,{"className":"mt-4","children":["$","div",null,{"className":"proza","dangerouslySetInnerHTML":{"__html":"<h2>Hitni slučajevi</h2>\n<p><strong>Ako se događaj upravo odvija, nazovite 112. Na moru nazovite 195.</strong></p>\n<h2>Prijava događaja</h2>\n<p>Događaj možete prijaviti na stranici <a href=\"/ogledno/ain-demo/prijava/\">Prijavi događaj</a>, uz savjetnika ili klasičnim obrascem.</p>\n<h2>Opći upiti</h2>\n<p>Upit osoblju možete poslati kroz <a href=\"/ogledno/ain-demo/savjetnik/\">savjetnika</a>: napišite pitanje, a ako odgovor nije u objavljenim dokumentima, savjetnik će ponuditi da upit proslijedi osoblju.</p>\n<h2>Adresa, telefoni i e-pošta</h2>\n<p>Kontakt podaci u pravom sustavu. U ovom demu namjerno nema stvarnih telefona, adresa ni adresa e-pošte.</p>\n<h2>Upiti medija i pristup informacijama</h2>\n<p>Kontakt podaci u pravom sustavu.</p>\n"}}]}]]}],null,["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],"p":"$@d","v":null,"s":"$8"}}]]
+1:[["children",{"s":"kontakt","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@6","v":"$7","s":"$8"},"c":"$Q9"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$Lf",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L11",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Kontakt · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L12","5",{}]]}]}],null]}],null]}],"p":"$@13","v":null,"s":"$8"}},"a":"$@14","u":"$@15","b":"5dxuuctNlvMvyHbiT-hLI"}
+c:null
+15:true
+8:300
+8:C
+14:0
+6:"$undefined"
+13:"$undefined"
+d:"$undefined"
