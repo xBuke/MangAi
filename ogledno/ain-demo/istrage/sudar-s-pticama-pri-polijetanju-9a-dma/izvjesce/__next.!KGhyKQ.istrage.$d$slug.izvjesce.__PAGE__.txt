@@ -1,0 +1,75 @@
+3:"$Sreact.fragment"
+4:"/ogledno/ain-demo/_next/static/chunks/3qfy96eoyh-ek.js"
+5:I[39756,["$4"],"default"]
+6:I[37457,["$4"],"default"]
+f:"/ogledno/ain-demo/_next/static/chunks/1cp30a01q9c8c.js"
+10:"/ogledno/ain-demo/_next/static/chunks/20f8oh_fhoxui.js"
+11:"/ogledno/ain-demo/_next/static/chunks/2nqgieprzz0cx.js"
+12:I[22016,["$f","$10","$11"],""]
+18:"ViewportBoundary"
+19:I[97367,["$4"],"$18"]
+1a:"MetadataBoundary"
+1b:I[97367,["$4"],"$1a"]
+1c:"$Sreact.suspense"
+1d:I[27201,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+13:T1415,<h2 id="sazetak">Sažetak</h2>
+<p>Dana 21. rujna 2024. u 07:18 po lokalnom vremenu dvomotorni turboelisni zrakoplov 9A-DMA, na redovitom letu s 58 putnika i četiri člana posade, započeo je zalet na stazi 14 Zračne luke Demo-Sjever. Pri brzini od 96 čvorova zrakoplov je proletio kroz jato galebova. Posada je osjetila udarce i vibracije desnog motora te je prekinula polijetanje. Zrakoplov se zaustavio 420 metara prije kraja staze. Putnici su iskrcani redovitim putem na stajanci. Nije bilo ozlijeđenih.</p>
+<p>Istraga je utvrdila da je do sudara došlo jer se jato ptica zadržavalo uz stazu privučeno privremenom vodenom površinom i pokošenom travom, a ophodnja staze toga jutra nije obavljena prije prvog polijetanja.</p>
+<p>Cilj istrage je utvrđivanje uzroka i davanje sigurnosnih preporuka, a ne utvrđivanje krivnje ili odgovornosti.</p>
+<h2 id="cinjenicne-informacije">Činjenične informacije</h2>
+<h3>Tijek događaja</h3>
+<p>Bio je to prvi komercijalni let toga dana. Kontrolor je izdao odobrenje za polijetanje u 07:17 bez upozorenja o pticama. Kapetan je bio pilot koji upravlja. Brzina odluke V1 za to polijetanje iznosila je 104 čvora.</p>
+<p>Kopilot je pri 90 čvorova uočio ptice kako se podižu s trave lijevo od staze i uzviknuo upozorenje. Dvije sekunde kasnije čuli su se udarci. Pokazivači desnog motora pokazali su pad okretnog momenta i porast temperature. Kapetan je pri 96 čvorova objavio prekid, povukao ručice snage i primijenio kočnice i povratni potisak lijeve elise.</p>
+<p>Nakon zaustavljanja posada je ugasila desni motor prema listi provjere i zatražila pregled vatrogasne službe. Znakova požara nije bilo. Zrakoplov je vlastitim pogonom odvezen na stajanku.</p>
+<h3>Oštećenja</h3>
+<p>U desnom motoru nađeni su ostaci najmanje četiri ptice i oštećenja lopatica prvog stupnja kompresora. Tragovi udara nađeni su i na nosu trupa te lijevom krilu. Na stazi je prikupljeno 11 uginulih ptica; vrsta je potvrđena analizom ostataka.</p>
+<h3>Upravljanje divljim životinjama na aerodromu</h3>
+<p>Operator aerodroma ima program upravljanja opasnostima od divljih životinja. Program propisuje ophodnju staze prije prvog polijetanja i nakon duljih prekida prometa. Toga jutra jedino vozilo ophodnje bilo je na popravku, a zamjensko vozilo nije imalo radijsku postaju za vezu s tornjem, pa ophodnja nije obavljena. O tome nije obaviješten kontrolni toranj.</p>
+<p>Tri dana ranije trava uz stazu pokošena je na visinu od 8 cm; program propisuje održavanje na 20 do 25 cm. Nakon jake kiše, u udubljenju 150 metara od staze zadržala se voda. U dnevniku ophodnje za prethodna dva dana upisana su „veća jata galebova uz stazu 14”, bez daljnjih mjera.</p>
+<h3>Posada</h3>
+<p>Oba pilota imala su valjane dozvole i ovlaštenja. Prekinuto polijetanje uvježbali su na simulatoru četiri mjeseca ranije.</p>
+<h2 id="analiza">Analiza</h2>
+<h3>Zašto su ptice bile uz stazu</h3>
+<p>Niska trava olakšava pticama pristup kukcima i crvima te im daje pregled okoline, zbog čega programi u pravilu traže višu travu. Voda u udubljenju bila je dodatni mamac. Oba su uvjeta nastala nekoliko dana prije događaja i bila su uočljiva. Zapisi u dnevniku pokazuju da je povećana prisutnost ptica primijećena, ali program ne propisuje tko na temelju takvog zapisa mora nešto poduzeti.</p>
+<h3>Izostanak ophodnje</h3>
+<p>Ophodnja prije prvog leta posljednja je zaštita u nizu: rastjeruje ptice i daje podatak tornju. Kada je vozilo ispalo iz uporabe, nije postojao rezervni postupak. Odluka da se ophodnja preskoči donesena je na operativnoj razini, bez obavijesti kontroli, pa posada nije dobila ni opće upozorenje.</p>
+<h3>Odluka posade</h3>
+<p>Prekid je započet osam čvorova ispod V1, pri jasnim znakovima oštećenja motora. Odluka je bila u skladu s postupcima i izvedena je bez odstupanja. Preostala duljina staze bila je dovoljna. Da se sudar dogodio nekoliko sekundi kasnije, posada bi nastavila polijetanje s jednim oštećenim motorom, što je zahtjevnija situacija.</p>
+<h3>Razmjena podataka</h3>
+<p>Kontrolor je s tornja vidio ptice u daljini, ali ih nije ocijenio kao opasnost za stazu. Bez podatka ophodnje nije imao osnovu za upozorenje.</p>
+<h2 id="zakljucci">Zaključci</h2>
+<ol>
+<li>Zrakoplov se tijekom zaleta sudario s jatom galebova, pri čemu je oštećen desni motor.</li>
+<li>Ptice su se zadržavale uz stazu zbog prenisko pokošene trave i zaostale vode.</li>
+<li>Ophodnja staze prije prvog polijetanja nije obavljena jer nije bilo ispravnog vozila s radijskom vezom, a rezervni postupak nije postojao.</li>
+<li>Zapisi o povećanoj prisutnosti ptica nisu doveli do mjera jer program ne određuje odgovornu osobu.</li>
+<li>Posada je prekinula polijetanje pravodobno i u skladu s postupcima.</li>
+</ol>
+<h2 id="sigurnosne-preporuke">Sigurnosne preporuke</h2>
+<ul>
+<li><strong>DEMO-SR-09/2025</strong> – operatoru aerodroma: u program upravljanja opasnostima od divljih životinja uvesti rezervni postupak ophodnje, obvezu obavješćivanja kontrolnog tornja kada ophodnja nije obavljena te odgovornu osobu za mjere nakon zapisa o povećanoj prisutnosti ptica.</li>
+</ul>
+e:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[[["$","div",null,{"className":"tamno na-tamnom relative overflow-hidden bg-plava-900 text-white","children":["$","div",null,{"className":"mx-auto flex min-h-36 w-full max-w-6xl items-center gap-6 px-4 py-7","children":[["$","div",null,{"className":"relative z-10 min-w-0 flex-1","children":[["$","h1",null,{"className":"text-3xl font-bold sm:text-4xl","children":"Sudar s pticama i prekinuto polijetanje zrakoplova 9A-DMA"}],"$undefined"]}],["$","div",null,{"className":"pointer-events-none absolute inset-y-0 right-0 flex w-full items-center justify-end gap-2 opacity-25 sm:static sm:w-auto sm:opacity-80","children":[["$","svg","zrak",{"viewBox":"0 0 240 96","className":"h-28 w-auto","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":"true","focusable":"false","children":[["$","path",null,{"className":"tece","d":"M0 92Q120 70 240 86","strokeDasharray":"4 10","opacity":".55"}],false,false,["$","g",null,{"className":"crtez-vozilo anim-klizi","children":["$","g",null,{"children":[["$","path",null,{"pathLength":1,"className":"crta","d":"M20 48C20 40 34 36 60 36H170C196 36 214 42 220 48C214 54 196 58 170 58H40C28 58 20 54 20 48Z"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.25s"},"d":"M36 37 24 14H40L62 36"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.4s"},"d":"M112 53 86 80H100L144 54"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.55s"},"d":"M196 43q9 1 13 5"}],["$","path",null,{"d":"M78 46H164","strokeDasharray":"2 9"}]]}]}]]}]]}]]}]}],["$","article",null,{"className":"okvir","children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$L12",null,{"href":"/istrage","className":"text-plava-700 underline","children":"Istrage"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ",["$","$L12",null,{"href":"/istrage/sudar-s-pticama-pri-polijetanju-9a-dma","className":"text-plava-700 underline","children":"DEMO-Z-2024-002"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Konačno izvješće"]}],["$","p",null,{"className":"mt-4 flex flex-wrap items-center gap-3","children":[["$","span",null,{"className":"font-semibold uppercase tracking-wide text-siva-700","children":"Konačno izvješće"}],["$","span",null,{"className":"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-sm font-semibold bg-[#e3f1e8] text-[#17502f]","children":[["$","span",null,{"aria-hidden":"true","className":"h-2 w-2 rounded-full bg-[#1f7a45]"}],"Zatvorena istraga"]}],["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}],["$","p",null,{"className":"mt-2 text-siva-700","children":["DEMO-Z-2024-002"," · događaj ","21. 9. 2024."," · objavljeno ","30. 5. 2025."]}],["$","p",null,{"className":"mt-4 max-w-[44rem] rounded-lg bg-siva-100 p-3 text-sm","children":"Izmišljeni dokument napisan za ovaj demo. Ne opisuje stvaran događaj, osobe ni organizacije."}],["$","div",null,{"className":"mt-4","children":["$","div",null,{"className":"proza","dangerouslySetInnerHTML":{"__html":"$13"}}]}],"$L14"]}]],["$L15"],"$L16"]}],"p":"$@17","v":null,"s":"$9"}}]]
+c:[["children",{"s":"izvjesce","h":96,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@d","v":"$8","s":"$9"},"c":"$Qe"}]]
+a:[["children",{"s":{"n":"slug","t":"d","k":"sudar-s-pticama-pri-polijetanju-9a-dma","s":["pomorske","zeljeznicke","zrakoplovne"]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"istrage","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(hr)","h":131120,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131152,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Konačno izvješće DEMO-Z-2024-002 · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1d","5",{}]]}]}],null]}],null]}],"p":"$@1e","v":null,"s":"$9"}},"a":"$@1f","u":"$@20","b":"B0iV2KpfYqCapLzKf_7Or"}
+21:I[22003,["$f","$10","$11"],"PitajGumb"]
+22:I[97367,["$4"],"OutletBoundary"]
+14:["$","div",null,{"className":"mt-8 flex flex-wrap gap-3","children":[["$","$L21",null,{"istraga":{"slug":"sudar-s-pticama-pri-polijetanju-9a-dma","naslov":"Sudar s pticama i prekinuto polijetanje zrakoplova 9A-DMA","broj":"DEMO-Z-2024-002"},"children":"Pitaj savjetnika o ovoj istrazi"}],["$","$L12",null,{"href":"/istrage/sudar-s-pticama-pri-polijetanju-9a-dma","className":"gumb gumb-obrub","children":"Natrag na istragu"}]]}]
+15:["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/2nqgieprzz0cx.js","async":true}]
+16:["$","$L22",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]
+20:true
+9:300
+23:null
+9:C
+1f:0
+d:"$undefined"
+b:"$undefined"
+7:"$undefined"
+1e:"$undefined"
+17:"$undefined"

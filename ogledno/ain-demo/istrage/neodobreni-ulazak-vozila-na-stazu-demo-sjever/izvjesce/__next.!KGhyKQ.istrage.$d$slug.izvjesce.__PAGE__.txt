@@ -1,0 +1,77 @@
+3:"$Sreact.fragment"
+4:"/ogledno/ain-demo/_next/static/chunks/3qfy96eoyh-ek.js"
+5:I[39756,["$4"],"default"]
+6:I[37457,["$4"],"default"]
+f:"/ogledno/ain-demo/_next/static/chunks/1cp30a01q9c8c.js"
+10:"/ogledno/ain-demo/_next/static/chunks/20f8oh_fhoxui.js"
+11:"/ogledno/ain-demo/_next/static/chunks/2nqgieprzz0cx.js"
+12:I[22016,["$f","$10","$11"],""]
+18:"ViewportBoundary"
+19:I[97367,["$4"],"$18"]
+1a:"MetadataBoundary"
+1b:I[97367,["$4"],"$1a"]
+1c:"$Sreact.suspense"
+1d:I[27201,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+13:T1560,<h2 id="sazetak">Sažetak</h2>
+<p>Dana 2. prosinca 2025. u 17:46 po lokalnom vremenu, po mraku i u magli s vidljivošću uzduž staze od 600 metara, vozilo službe održavanja ušlo je na stazu 32 Zračne luke Demo-Sjever preko spojnice C. U tom se trenutku mlazni putnički zrakoplov 9A-DMB, s 124 putnika, nalazio 1,4 nautičke milje od praga staze s odobrenjem za slijetanje. Kontrolor je vozilo uočio na zaslonu sustava za nadzor kretanja na tlu i naredio posadi neuspjeli prilaz. Zrakoplov je prekinuo prilaz na visini od oko 300 stopa iznad tla. Vozilo je napustilo stazu nakon 50 sekundi.</p>
+<p>Istraga je utvrdila da je vozač odobrenje za vožnju do točke čekanja razumio kao odobrenje za prelazak staze, u okolnostima neujednačene frazeologije, slabe uočljivosti oznaka i izostanka zaštitnih svjetala na spojnici.</p>
+<p>Cilj istrage je utvrđivanje uzroka i davanje sigurnosnih preporuka, a ne utvrđivanje krivnje ili odgovornosti.</p>
+<h2 id="cinjenicne-informacije">Činjenične informacije</h2>
+<h3>Tijek događaja</h3>
+<p>Vozilo je upućeno na provjeru svjetla prilaza s druge strane staze. Vozač je na frekvenciji zemaljske kontrole zatražio „prelazak preko C”. Kontrolor je odgovorio: „Održavanje 4, vozite do C, javite spremni.” Vozač je ponovio: „Do C, javit ću.” Vozilo se nije zaustavilo na poziciji čekanja nego je nastavilo na stazu brzinom od oko 25 km/h.</p>
+<p>Kontrolor tornja, koji radi na drugoj frekvenciji, dvanaest sekundi kasnije primio je upozorenje sustava za nadzor i izdao naredbu zrakoplovu. Posada je naredbu izvršila bez odgode. Vozač je pozvan na obje frekvencije i odgovorio je nakon trećeg poziva.</p>
+<h3>Vozač i vozilo</h3>
+<p>Vozač je imao valjanu dozvolu za vožnju po manevarskim površinama, stečenu sedam mjeseci ranije. Do tada je vozio pretežno danju. Vozilo je imalo ispravno rotacijsko svjetlo i radijsku postaju ugođenu na zemaljsku frekvenciju.</p>
+<h3>Spojnica C</h3>
+<p>Oznaka pozicije čekanja na spojnici C bila je izblijedjela; obnova je bila planirana za proljeće. Spojnica nema zaustavne prečke ni zaštitna svjetla staze, jer se prema klasifikaciji aerodroma ne koristi u uvjetima smanjene vidljivosti za zrakoplove. Za vozila takvo ograničenje nije bilo propisano. Ploča s oznakom staze nalazi se s lijeve strane, a vozač je sjedio desno, u vozilu s upravljačem na desnoj strani nabavljenom iz druge države.</p>
+<h3>Postupci</h3>
+<p>Priručnik aerodroma propisuje da se za prelazak staze koristi izričita fraza i da se vozilo za tu radnju prebacuje na frekvenciju tornja. U praksi su se oba dijela preskakala kada je promet slab. Frazu „javite spremni” priručnik ne poznaje.</p>
+<p>Postupci za smanjenu vidljivost bili su na snazi od 17:10. Oni ograničavaju kretanje vozila na „nužno”; što je nužno, procjenjuje voditelj smjene održavanja.</p>
+<h2 id="analiza">Analiza</h2>
+<h3>Nesporazum u komunikaciji</h3>
+<p>Vozač je tražio prelazak i čuo odgovor koji je sadržavao oznaku spojnice. Njegovo ponavljanje bilo je skraćeno i nije otkrilo nesporazum. Kontrolor je očekivao zaustavljanje i ponovno javljanje, ali to nije izrekao propisanom frazom „čekajte ispred staze”. Kada obje strane odstupaju od standarda, ponavljanje prestaje biti zaštita.</p>
+<h3>Uočljivost granice staze</h3>
+<p>U magli i mraku vozač je imao malo vizualnih znakova da prilazi stazi: oznaka na kolniku bila je slaba, ploča izvan njegova vidnog polja, a svjetla upozorenja nije bilo. Rubna svjetla staze u magli se vide tek s male udaljenosti.</p>
+<h3>Dvije frekvencije</h3>
+<p>Budući da je vozilo ostalo na zemaljskoj frekvenciji, vozač nije mogao čuti odobrenje za slijetanje izdano zrakoplovu, a posada nije mogla čuti vozilo. Zajednička frekvencija za sve na stazi dala bi objema stranama priliku da uoče sukob.</p>
+<h3>Djelotvorna zaštita</h3>
+<p>Sustav za nadzor kretanja na tlu i brza reakcija kontrolora tornja spriječili su da zrakoplov nastavi prema zauzetoj stazi. Najmanja udaljenost između zrakoplova i vozila procijenjena je na oko 1 800 metara vodoravno. Bez tog sustava, u ovoj vidljivosti, ni kontrolor ni posada ne bi vidjeli vozilo.</p>
+<h3>Nužnost zadatka</h3>
+<p>Provjera jednog svjetla prilaza nije bila hitna. Odluka da se vozilo pošalje preko staze u magli donesena je bez posebne procjene, jer postupci to ne traže.</p>
+<h2 id="zakljucci">Zaključci</h2>
+<ol>
+<li>Vozilo je ušlo na stazu bez odobrenja dok je zrakoplov bio u završnom prilazu.</li>
+<li>Vozač je odobrenje za vožnju do spojnice razumio kao odobrenje za prelazak; frazeologija obiju strana odstupala je od propisane.</li>
+<li>Oznake i svjetla na spojnici C nisu u uvjetima smanjene vidljivosti dovoljno upozoravali na granicu staze.</li>
+<li>Vozilo nije bilo na frekvenciji tornja, suprotno priručniku aerodroma.</li>
+<li>Postupci za smanjenu vidljivost nisu jasno ograničavali prelaske vozila preko staze.</li>
+<li>Sustav za nadzor kretanja na tlu i postupanje kontrolora i posade spriječili su teže posljedice.</li>
+</ol>
+<h2 id="sigurnosne-preporuke">Sigurnosne preporuke</h2>
+<ul>
+<li><strong>DEMO-SR-10/2026</strong> – operatoru aerodroma i pružatelju usluga kontrole zračnog prometa: u uvjetima smanjene vidljivosti zabraniti prelazak vozila preko staze osim u hitnim slučajevima, osigurati da su sva vozila na stazi na frekvenciji tornja te obnoviti oznake i postaviti zaštitna svjetla na svim spojnicama kojima se koriste vozila.</li>
+</ul>
+e:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[[["$","div",null,{"className":"tamno na-tamnom relative overflow-hidden bg-plava-900 text-white","children":["$","div",null,{"className":"mx-auto flex min-h-36 w-full max-w-6xl items-center gap-6 px-4 py-7","children":[["$","div",null,{"className":"relative z-10 min-w-0 flex-1","children":[["$","h1",null,{"className":"text-3xl font-bold sm:text-4xl","children":"Neodobreni ulazak vozila na uzletno-sletnu stazu tijekom slijetanja zrakoplova 9A-DMB"}],"$undefined"]}],["$","div",null,{"className":"pointer-events-none absolute inset-y-0 right-0 flex w-full items-center justify-end gap-2 opacity-25 sm:static sm:w-auto sm:opacity-80","children":[["$","svg","zrak",{"viewBox":"0 0 240 96","className":"h-28 w-auto","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":"true","focusable":"false","children":[["$","path",null,{"className":"tece","d":"M0 92Q120 70 240 86","strokeDasharray":"4 10","opacity":".55"}],false,false,["$","g",null,{"className":"crtez-vozilo anim-klizi","children":["$","g",null,{"children":[["$","path",null,{"pathLength":1,"className":"crta","d":"M20 48C20 40 34 36 60 36H170C196 36 214 42 220 48C214 54 196 58 170 58H40C28 58 20 54 20 48Z"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.25s"},"d":"M36 37 24 14H40L62 36"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.4s"},"d":"M112 53 86 80H100L144 54"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.55s"},"d":"M196 43q9 1 13 5"}],["$","path",null,{"d":"M78 46H164","strokeDasharray":"2 9"}]]}]}]]}]]}]]}]}],["$","article",null,{"className":"okvir","children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$L12",null,{"href":"/istrage","className":"text-plava-700 underline","children":"Istrage"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ",["$","$L12",null,{"href":"/istrage/neodobreni-ulazak-vozila-na-stazu-demo-sjever","className":"text-plava-700 underline","children":"DEMO-Z-2025-008"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Konačno izvješće"]}],["$","p",null,{"className":"mt-4 flex flex-wrap items-center gap-3","children":[["$","span",null,{"className":"font-semibold uppercase tracking-wide text-siva-700","children":"Konačno izvješće"}],["$","span",null,{"className":"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-sm font-semibold bg-[#e3f1e8] text-[#17502f]","children":[["$","span",null,{"aria-hidden":"true","className":"h-2 w-2 rounded-full bg-[#1f7a45]"}],"Zatvorena istraga"]}],["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}],["$","p",null,{"className":"mt-2 text-siva-700","children":["DEMO-Z-2025-008"," · događaj ","2. 12. 2025."," · objavljeno ","16. 9. 2026."]}],["$","p",null,{"className":"mt-4 max-w-[44rem] rounded-lg bg-siva-100 p-3 text-sm","children":"Izmišljeni dokument napisan za ovaj demo. Ne opisuje stvaran događaj, osobe ni organizacije."}],["$","div",null,{"className":"mt-4","children":["$","div",null,{"className":"proza","dangerouslySetInnerHTML":{"__html":"$13"}}]}],"$L14"]}]],["$L15"],"$L16"]}],"p":"$@17","v":null,"s":"$9"}}]]
+c:[["children",{"s":"izvjesce","h":96,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@d","v":"$8","s":"$9"},"c":"$Qe"}]]
+a:[["children",{"s":{"n":"slug","t":"d","k":"neodobreni-ulazak-vozila-na-stazu-demo-sjever","s":["pomorske","zeljeznicke","zrakoplovne"]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"istrage","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(hr)","h":131120,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131152,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Konačno izvješće DEMO-Z-2025-008 · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1d","5",{}]]}]}],null]}],null]}],"p":"$@1e","v":null,"s":"$9"}},"a":"$@1f","u":"$@20","b":"B0iV2KpfYqCapLzKf_7Or"}
+21:I[22003,["$f","$10","$11"],"PitajGumb"]
+22:I[97367,["$4"],"OutletBoundary"]
+14:["$","div",null,{"className":"mt-8 flex flex-wrap gap-3","children":[["$","$L21",null,{"istraga":{"slug":"neodobreni-ulazak-vozila-na-stazu-demo-sjever","naslov":"Neodobreni ulazak vozila na uzletno-sletnu stazu tijekom slijetanja zrakoplova 9A-DMB","broj":"DEMO-Z-2025-008"},"children":"Pitaj savjetnika o ovoj istrazi"}],["$","$L12",null,{"href":"/istrage/neodobreni-ulazak-vozila-na-stazu-demo-sjever","className":"gumb gumb-obrub","children":"Natrag na istragu"}]]}]
+15:["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/2nqgieprzz0cx.js","async":true}]
+16:["$","$L22",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]
+20:true
+9:300
+23:null
+9:C
+1f:0
+d:"$undefined"
+b:"$undefined"
+7:"$undefined"
+1e:"$undefined"
+17:"$undefined"

@@ -1,6 +1,7 @@
-:HL["/ogledno/ain-demo/_next/static/chunks/0snno1d1ae5cu.css","style"]
-4:[["children",{"s":"__PAGE__","h":160}]]
-3:[["children",{"s":"izjava","h":96,"c":"$Q4"}]]
-2:[["children",{"s":{"n":"slug","t":"d","k":"prisilno-slijetanje-helikoptera-9a-hdm","s":[]},"h":65632,"c":"$Q3"}]]
-1:[["children",{"s":"istrage","h":131136,"c":"$Q2"}]]
-0:{"b":"YDihWCHBBJPyKuIZrITx2","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
+:HL["/ogledno/ain-demo/_next/static/chunks/0-h9d0atogzwp.css","style"]
+5:[["children",{"s":"__PAGE__","h":160}]]
+4:[["children",{"s":"izjava","h":96,"c":"$Q5"}]]
+3:[["children",{"s":{"n":"slug","t":"d","k":"prisilno-slijetanje-helikoptera-9a-hdm","s":["pomorske","zeljeznicke","zrakoplovne"]},"h":65632,"c":"$Q4"}]]
+2:[["children",{"s":"istrage","h":131136,"c":"$Q3"}]]
+1:[["children",{"s":"(hr)","h":131120,"c":"$Q2"}]]
+0:{"b":"B0iV2KpfYqCapLzKf_7Or","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

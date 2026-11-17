@@ -1,0 +1,33 @@
+3:"$Sreact.fragment"
+4:"/ogledno/ain-demo/_next/static/chunks/3qfy96eoyh-ek.js"
+5:I[39756,["$4"],"default"]
+6:I[37457,["$4"],"default"]
+d:"/ogledno/ain-demo/_next/static/chunks/1cp30a01q9c8c.js"
+e:"/ogledno/ain-demo/_next/static/chunks/20f8oh_fhoxui.js"
+f:"/ogledno/ain-demo/_next/static/chunks/153odh04pec7d.js"
+10:I[22016,["$d","$e","$f"],""]
+11:I[73120,["$d","$e","$f"],"ObrazacPrijave"]
+12:I[97367,["$4"],"OutletBoundary"]
+13:"$Sreact.suspense"
+16:"ViewportBoundary"
+17:I[97367,["$4"],"$16"]
+18:"MetadataBoundary"
+19:I[97367,["$4"],"$18"]
+1a:I[27201,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[[["$","div",null,{"className":"tamno na-tamnom relative overflow-hidden bg-plava-900 text-white","children":["$","div",null,{"className":"mx-auto flex min-h-36 w-full max-w-6xl items-center gap-6 px-4 py-7","children":[["$","div",null,{"className":"relative z-10 min-w-0 flex-1","children":[["$","h1",null,{"className":"text-3xl font-bold sm:text-4xl","children":"Report an event – aviation"}],"$undefined"]}],["$","div",null,{"className":"pointer-events-none absolute inset-y-0 right-0 flex w-full items-center justify-end gap-2 opacity-25 sm:static sm:w-auto sm:opacity-80","children":[["$","svg","zrak",{"viewBox":"0 0 240 96","className":"h-28 w-auto","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":"true","focusable":"false","children":[["$","path",null,{"className":"tece","d":"M0 92Q120 70 240 86","strokeDasharray":"4 10","opacity":".55"}],false,false,["$","g",null,{"className":"crtez-vozilo anim-klizi","children":["$","g",null,{"children":[["$","path",null,{"pathLength":1,"className":"crta","d":"M20 48C20 40 34 36 60 36H170C196 36 214 42 220 48C214 54 196 58 170 58H40C28 58 20 54 20 48Z"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.25s"},"d":"M36 37 24 14H40L62 36"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.4s"},"d":"M112 53 86 80H100L144 54"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.55s"},"d":"M196 43q9 1 13 5"}],["$","path",null,{"d":"M78 46H164","strokeDasharray":"2 9"}]]}]}]]}]]}]]}]}],["$","div",null,{"className":"okvir","children":[["$","nav",null,{"aria-label":"Breadcrumb","className":"text-sm","children":[["$","$L10",null,{"href":"/en/prijava","className":"text-plava-700 underline","children":"Report an event"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Classic form"]}],["$","p",null,{"className":"mt-3 max-w-2xl rounded-lg border-2 border-[#a4161a] bg-[#fdf1f1] p-3 font-semibold text-[#23262b]","children":"If the event is happening right now, call 112 (at sea 195)."}],["$","p",null,{"className":"mt-3 max-w-2xl rounded-lg border border-[#e7c98f] bg-[#fff8e8] p-3 text-[#23262b]","children":"This form does not replace mandatory occurrence reporting in aviation, which is submitted through the organisation's system or the European ECCAIRS portal (Regulation (EU) No 376/2014). It only serves as an additional notification to the agency."}],["$","div",null,{"className":"mt-6","children":["$","$L11",null,{"vrsta":"zrak","jezik":"en"}]}],["$","p",null,{"className":"mt-6 text-sm","children":["Prefer some help?"," ",["$","$L10",null,{"href":"/en/savjetnik?prijava=zrak","className":"text-plava-700 underline","prefetch":false,"children":"Prepare a summary with the advisor"}]]}]]}]],[["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/153odh04pec7d.js","async":true}]],["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]]}],"p":"$@15","v":null,"s":"$9"}}]]
+a:[["children",{"s":{"n":"vrsta","t":"d","k":"zrak","s":[]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"prijava","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"en","h":131120,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131152,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L19",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$13",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Classic form – Aviation · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1a","5",{}]]}]}],null]}],null]}],"p":"$@1b","v":null,"s":"$9"}},"a":"$@1c","u":"$@1d","b":"B0iV2KpfYqCapLzKf_7Or"}
+14:null
+1d:true
+9:300
+9:C
+1c:0
+b:"$undefined"
+7:"$undefined"
+1b:"$undefined"
+15:"$undefined"

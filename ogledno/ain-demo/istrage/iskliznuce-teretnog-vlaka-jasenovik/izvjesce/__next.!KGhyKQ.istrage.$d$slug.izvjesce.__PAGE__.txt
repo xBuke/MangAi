@@ -1,0 +1,78 @@
+3:"$Sreact.fragment"
+4:"/ogledno/ain-demo/_next/static/chunks/3qfy96eoyh-ek.js"
+5:I[39756,["$4"],"default"]
+6:I[37457,["$4"],"default"]
+f:"/ogledno/ain-demo/_next/static/chunks/1cp30a01q9c8c.js"
+10:"/ogledno/ain-demo/_next/static/chunks/20f8oh_fhoxui.js"
+11:"/ogledno/ain-demo/_next/static/chunks/2nqgieprzz0cx.js"
+12:I[22016,["$f","$10","$11"],""]
+18:"ViewportBoundary"
+19:I[97367,["$4"],"$18"]
+1a:"MetadataBoundary"
+1b:I[97367,["$4"],"$1a"]
+1c:"$Sreact.suspense"
+1d:I[27201,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+13:T17cb,<h2 id="sazetak">Sažetak</h2>
+<p>Dana 18. listopada 2023. u 04:52 teretni vlak DEMO-4321, sastavljen od lokomotive i 24 vagona natovarena kamenim agregatom, ulazio je na treći kolosijek kolodvora Jasenovik. Pri prelasku preko ulaznog područja iskliznuli su 11., 12. i 13. vagon. Vlak se zaustavio nakon 140 metara djelovanjem zračne kočnice zbog prekida glavnog zračnog voda. Nitko nije ozlijeđen. Oštećena su tri vagona, oko 180 metara kolosijeka i dio kontaktne mreže.</p>
+<p>Istraga je utvrdila da je neposredni uzrok iskliznuća bilo penjanje kotača preko vanjske tračnice u luku iza ulaza u kolodvor, na mjestu gdje je vitoperenje kolosijeka prelazilo dopuštene vrijednosti. Tom stanju pridonijeli su radovi izvedeni devet dana ranije i način na koji je kolosijek nakon njih pušten u promet.</p>
+<p>Cilj ove istrage je utvrđivanje uzroka i davanje sigurnosnih preporuka radi sprječavanja sličnih događaja, a ne utvrđivanje krivnje ili odgovornosti.</p>
+<h2 id="cinjenicne-informacije">Činjenične informacije</h2>
+<h3>Tijek događaja</h3>
+<p>Vlak je krenuo iz ranžirnog kolodvora Vrbanja Luka u 03:10. Vožnja do Jasenovika protekla je bez odstupanja. Ulazni signal pokazivao je signalni znak za vožnju ograničenom brzinom u skretanje. Prema zapisu uređaja za registraciju, vlak je u ulazno područje ušao brzinom od 38 km/h, što je ispod dopuštenih 40 km/h.</p>
+<p>Strojovođa je osjetio trzaj i pad tlaka u glavnom zračnom vodu te je primijenio brzo kočenje. Nakon zaustavljanja obavijestio je prometnika vlakova i osigurao vlak od samopokretanja. Prometnik je zatvorio susjedne kolosijeke za promet.</p>
+<h3>Osoblje</h3>
+<p>Strojovođa je imao 14 godina iskustva i sve valjane dozvole. Prije smjene imao je propisani odmor. Prometnik vlakova radio je u redovitoj noćnoj smjeni. Nisu utvrđena odstupanja u postupanju osoblja vlaka i kolodvora na dan događaja.</p>
+<h3>Vozila</h3>
+<p>Lokomotiva i vagoni bili su redovito održavani. Pregledom iskliznulih vagona nisu nađene neispravnosti na osovinskim sklopovima, ovjesu ni okretnim postoljima koje bi postojale prije događaja. Teret je bio ravnomjerno raspoređen, a osovinsko opterećenje unutar dopuštenog.</p>
+<h3>Infrastruktura</h3>
+<p>Devet dana prije događaja na ulaznom području kolodvora izvedena je zamjena skretnice broj 4 zajedno s priključnim dijelom kolosijeka u luku. Radove je izveo ugovorni izvođač, a nadzor je obavljao upravitelj infrastrukture. Nakon radova kolosijek je strojno reguliran i pušten u promet uz ograničenje brzine od 40 km/h.</p>
+<p>Mjerenje geometrije nakon radova obavljeno je ručnim mjerilom na svakih pet metara. Mjerna kola nisu bila dostupna i mjerenje pod opterećenjem nije obavljeno. U zapisniku o primopredaji nije navedena vrijednost vitoperenja, nego samo širina kolosijeka i nadvišenje u pojedinim točkama.</p>
+<p>Mjerenjem nakon iskliznuća, na neoštećenom dijelu neposredno ispred točke penjanja kotača, utvrđeno je vitoperenje od 6,1 ‰ na bazi od tri metra. Zastorna prizma na vanjskoj strani luka bila je nedovoljno zbijena, a na dva praga nađene su šupljine ispod ležišta.</p>
+<h3>Vremenske prilike</h3>
+<p>U danima nakon radova palo je više od 60 mm kiše. U trenutku događaja bilo je suho, a temperatura zraka iznosila je 9 °C.</p>
+<h2 id="analiza">Analiza</h2>
+<h3>Mehanizam iskliznuća</h3>
+<p>Tragovi na glavi vanjske tračnice pokazuju da je vodeći kotač 11. vagona prešao preko tračnice na duljini od oko 2,4 metra. Takav trag odgovara penjanju kotača pri maloj brzini u luku, kada rasterećenje kotača zbog vitoperenja smanji vertikalnu silu, a bočna sila vođenja ostane velika. Vagoni natovareni rasutim teretom imaju krut ovjes i osjetljiviji su na takve nepravilnosti od praznih.</p>
+<h3>Stanje kolosijeka nakon radova</h3>
+<p>Nakon ugradnje nove skretnice i priključnog dijela, zastor nije bio stabiliziran. Dinamička stabilizacija nije bila predviđena planom radova jer je dionica kratka. Kiša i promet teških vlakova u prvim danima doveli su do neravnomjernog slijeganja vanjske tračnice. Slijeganje nije uočeno jer između primopredaje i događaja nije bio planiran kontrolni pregled.</p>
+<h3>Puštanje u promet</h3>
+<p>Postupak upravitelja infrastrukture propisuje mjerenje geometrije nakon radova, ali ne navodi izričito da se vitoperenje mora izmjeriti i upisati, niti kada se mora obaviti ponovno mjerenje nakon prvih prometnih opterećenja. Ograničenje brzine od 40 km/h smanjilo je posljedice, ali ne i vjerojatnost penjanja kotača, koje je karakteristično upravo za male brzine.</p>
+<h3>Nadzor nad izvođačem</h3>
+<p>Nadzorni djelatnik bio je istodobno zadužen za tri radilišta. Zapisnik je potpisan na temelju podataka izvođača. Istraga ne ocjenjuje pojedinačno postupanje, nego ukazuje da sustav nadzora nije osigurao neovisnu provjeru ključnog parametra.</p>
+<h2 id="zakljucci">Zaključci</h2>
+<ol>
+<li>Neposredni uzrok iskliznuća bilo je penjanje kotača 11. vagona preko vanjske tračnice na mjestu prekomjernog vitoperenja kolosijeka.</li>
+<li>Vitoperenje je nastalo neravnomjernim slijeganjem nestabiliziranog zastora nakon radova na ulaznom području.</li>
+<li>Postupak puštanja kolosijeka u promet nije zahtijevao mjerenje i zapis vitoperenja ni kontrolno mjerenje nakon početnog opterećenja.</li>
+<li>Nadzor nad radovima oslanjao se na podatke izvođača, bez neovisne provjere.</li>
+<li>Stanje vozila, tereta i postupanje osoblja vlaka nisu pridonijeli događaju.</li>
+</ol>
+<h2 id="sigurnosne-preporuke">Sigurnosne preporuke</h2>
+<ul>
+<li><strong>DEMO-SR-01/2024</strong> – upravitelju željezničke infrastrukture: nakon svake zamjene skretnice ili dijela kolosijeka propisati obvezno mjerenje i zapis vitoperenja te kontrolno mjerenje nakon prvih prometnih opterećenja.</li>
+<li><strong>DEMO-SR-02/2024</strong> – tijelu nadležnom za sigurnost željezničkog prometa: u nadzoru sustava upravljanja sigurnošću provjeriti kako upravitelj infrastrukture osigurava neovisnu provjeru geometrije kolosijeka nakon radova ugovornih izvođača.</li>
+</ul>
+e:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[[["$","div",null,{"className":"tamno na-tamnom relative overflow-hidden bg-plava-900 text-white","children":["$","div",null,{"className":"mx-auto flex min-h-36 w-full max-w-6xl items-center gap-6 px-4 py-7","children":[["$","div",null,{"className":"relative z-10 min-w-0 flex-1","children":[["$","h1",null,{"className":"text-3xl font-bold sm:text-4xl","children":"Iskliznuće teretnog vlaka DEMO-4321 na ulazu u kolodvor Jasenovik"}],"$undefined"]}],["$","div",null,{"className":"pointer-events-none absolute inset-y-0 right-0 flex w-full items-center justify-end gap-2 opacity-25 sm:static sm:w-auto sm:opacity-80","children":[["$","svg","zeljeznica",{"viewBox":"0 0 240 96","className":"h-28 w-auto","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":"true","focusable":"false","children":[false,false,[["$","path",null,{"d":"M0 74H240","opacity":".7"}],["$","path",null,{"className":"tece","d":"M0 82H240","strokeDasharray":"3 11","opacity":".55"}]],["$","g",null,{"className":"crtez-vozilo anim-klizi","children":["$","g",null,{"children":[["$","path",null,{"pathLength":1,"className":"crta","d":"M16 28H176C200 28 216 42 220 60H16Z"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.25s"},"d":"M70 28V60M124 28V60M184 36q15 2 23 17H184Z"}],["$","path",null,{"d":"M26 41H170","strokeDasharray":"13 8"}],["$","g",null,{"style":{"animationDelay":"0.5s"},"children":[["$","circle",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.5s"},"cx":"40","cy":"66","r":"5.500"}],["$","circle",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.55s"},"cx":"98","cy":"66","r":"5.500"}],["$","circle",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.6s"},"cx":"152","cy":"66","r":"5.500"}],["$","circle",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.65s"},"cx":"198","cy":"66","r":"5.500"}]]}]]}]}]]}]]}]]}]}],["$","article",null,{"className":"okvir","children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$L12",null,{"href":"/istrage","className":"text-plava-700 underline","children":"Istrage"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ",["$","$L12",null,{"href":"/istrage/iskliznuce-teretnog-vlaka-jasenovik","className":"text-plava-700 underline","children":"DEMO-Ž-2023-014"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Konačno izvješće"]}],["$","p",null,{"className":"mt-4 flex flex-wrap items-center gap-3","children":[["$","span",null,{"className":"font-semibold uppercase tracking-wide text-siva-700","children":"Konačno izvješće"}],["$","span",null,{"className":"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-sm font-semibold bg-[#e3f1e8] text-[#17502f]","children":[["$","span",null,{"aria-hidden":"true","className":"h-2 w-2 rounded-full bg-[#1f7a45]"}],"Zatvorena istraga"]}],["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}],["$","p",null,{"className":"mt-2 text-siva-700","children":["DEMO-Ž-2023-014"," · događaj ","18. 10. 2023."," · objavljeno ","12. 6. 2024."]}],["$","p",null,{"className":"mt-4 max-w-[44rem] rounded-lg bg-siva-100 p-3 text-sm","children":"Izmišljeni dokument napisan za ovaj demo. Ne opisuje stvaran događaj, osobe ni organizacije."}],["$","div",null,{"className":"mt-4","children":["$","div",null,{"className":"proza","dangerouslySetInnerHTML":{"__html":"$13"}}]}],"$L14"]}]],["$L15"],"$L16"]}],"p":"$@17","v":null,"s":"$9"}}]]
+c:[["children",{"s":"izvjesce","h":96,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@d","v":"$8","s":"$9"},"c":"$Qe"}]]
+a:[["children",{"s":{"n":"slug","t":"d","k":"iskliznuce-teretnog-vlaka-jasenovik","s":["pomorske","zeljeznicke","zrakoplovne"]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"istrage","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(hr)","h":131120,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131152,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Konačno izvješće DEMO-Ž-2023-014 · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1d","5",{}]]}]}],null]}],null]}],"p":"$@1e","v":null,"s":"$9"}},"a":"$@1f","u":"$@20","b":"B0iV2KpfYqCapLzKf_7Or"}
+21:I[22003,["$f","$10","$11"],"PitajGumb"]
+22:I[97367,["$4"],"OutletBoundary"]
+14:["$","div",null,{"className":"mt-8 flex flex-wrap gap-3","children":[["$","$L21",null,{"istraga":{"slug":"iskliznuce-teretnog-vlaka-jasenovik","naslov":"Iskliznuće teretnog vlaka DEMO-4321 na ulazu u kolodvor Jasenovik","broj":"DEMO-Ž-2023-014"},"children":"Pitaj savjetnika o ovoj istrazi"}],["$","$L12",null,{"href":"/istrage/iskliznuce-teretnog-vlaka-jasenovik","className":"gumb gumb-obrub","children":"Natrag na istragu"}]]}]
+15:["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/2nqgieprzz0cx.js","async":true}]
+16:["$","$L22",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]
+20:true
+9:300
+23:null
+9:C
+1f:0
+d:"$undefined"
+b:"$undefined"
+7:"$undefined"
+1e:"$undefined"
+17:"$undefined"

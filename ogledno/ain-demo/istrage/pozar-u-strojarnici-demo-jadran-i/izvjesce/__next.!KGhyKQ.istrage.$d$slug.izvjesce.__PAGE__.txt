@@ -1,0 +1,77 @@
+3:"$Sreact.fragment"
+4:"/ogledno/ain-demo/_next/static/chunks/3qfy96eoyh-ek.js"
+5:I[39756,["$4"],"default"]
+6:I[37457,["$4"],"default"]
+f:"/ogledno/ain-demo/_next/static/chunks/1cp30a01q9c8c.js"
+10:"/ogledno/ain-demo/_next/static/chunks/20f8oh_fhoxui.js"
+11:"/ogledno/ain-demo/_next/static/chunks/2nqgieprzz0cx.js"
+12:I[22016,["$f","$10","$11"],""]
+18:"ViewportBoundary"
+19:I[97367,["$4"],"$18"]
+1a:"MetadataBoundary"
+1b:I[97367,["$4"],"$1a"]
+1c:"$Sreact.suspense"
+1d:I[27201,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+13:T154c,<h2 id="sazetak">Sažetak</h2>
+<p>Dana 29. srpnja 2023. u 16:24 na putničkom brodu „DEMO Jadran I”, koji je sa 212 putnika i 9 članova posade plovio na redovitoj liniji prema luci Bijela Draga, oglasio se alarm dojave požara u strojarnici. Posada je zaustavila oba glavna motora, zatvorila strojarnicu i aktivirala ugrađeni sustav za gašenje. Požar je ugašen za 14 minuta. Brod je ostao bez pogona i otegljen je u luku, gdje su putnici iskrcani u 19:50. Dvoje članova posade pregledano je zbog udisanja dima. Putnici nisu ozlijeđeni.</p>
+<p>Istraga je utvrdila da je požar nastao raspršivanjem goriva iz napukle niskotlačne cijevi na vrući, nezaštićeni dio ispušnog kolektora lijevog glavnog motora.</p>
+<p>Cilj istrage je utvrđivanje uzroka i davanje sigurnosnih preporuka, a ne utvrđivanje krivnje ili odgovornosti.</p>
+<h2 id="cinjenicne-informacije">Činjenične informacije</h2>
+<h3>Brod</h3>
+<p>„DEMO Jadran I” je putnički brod duljine 41 metar, izgrađen prije 19 godina, s dva dizelska motora. Posjedovao je sve valjane svjedodžbe. Posljednji godišnji pregled obavljen je četiri mjeseca prije događaja, bez primjedbi vezanih uz strojarnicu.</p>
+<h3>Tijek događaja</h3>
+<p>Brod je isplovio u 15:40. Vrijeme je bilo mirno, more 2, vidljivost dobra. U 16:24 na mostu se oglasio alarm, a nadzorna kamera pokazala je dim iznad lijevog motora. Upravitelj stroja, koji se nalazio u kontrolnoj kabini, pokušao je prići motoru s prijenosnim aparatom, ali se povukao zbog dima i topline.</p>
+<p>Zapovjednik je naredio zaustavljanje motora, zatvaranje brzozatvarajućih ventila goriva i ventilacijskih zaklopki te uzbunjivanje posade. Nakon prebrojavanja posade aktiviran je sustav za gašenje ugljikovim dioksidom. Zapovjednik je putem brodske razglasne postaje obavijestio putnike i uputio poziv žurnosti obalnoj radijskoj postaji. Putnici su okupljeni na otvorenoj palubi i podijeljeni su im prsluci za spašavanje. Napuštanje broda nije bilo potrebno.</p>
+<p>U 16:38 temperatura u strojarnici počela je padati. Strojarnica je otvorena tek nakon dolaska tegljača, 70 minuta kasnije.</p>
+<h3>Nalazi u strojarnici</h3>
+<p>Na lijevom motoru nađena je napuknuta čelična cijev povrata goriva, promjera 10 mm, neposredno uz priključak. Jedna od dvije obujmice koje cijev drže uz blok motora nedostajala je, a na mjestu njezina vijka nađeni su stari tragovi korozije. Toplinska izolacija ispušnog kolektora bila je skinuta na duljini od oko 30 cm, u blizini mjesta puknuća.</p>
+<h3>Održavanje</h3>
+<p>Šest tjedana prije događaja na lijevom motoru zamijenjena je brtva ispušnog kolektora. Radni nalog nije sadržavao stavku ponovne ugradnje izolacije ni provjere pričvršćenja cijevi. Sustav planiranog održavanja vodi se u tabličnoj datoteci; pregled cijevi goriva naveden je kao „vizualni pregled – tjedno”, bez opisa što se pregledava.</p>
+<h3>Posada</h3>
+<p>Svi članovi posade imali su valjane svjedodžbe. Vježba gašenja požara u strojarnici održana je pet tjedana prije događaja.</p>
+<h2 id="analiza">Analiza</h2>
+<h3>Nastanak požara</h3>
+<p>Cijev bez jedne obujmice bila je izložena vibracijama motora i s vremenom je napukla od zamora materijala. Gorivo pod tlakom od oko 3 bara raspršilo se u finu maglu. Površina neizoliranog kolektora pri punom opterećenju prelazi 400 °C, što je iznad temperature samozapaljenja dizelskog goriva. Da je izolacija bila na mjestu, do zapaljenja vjerojatno ne bi došlo.</p>
+<h3>Zašto nedostatak nije uočen</h3>
+<p>Obujmica je, sudeći prema koroziji, nedostajala mjesecima. Tjedni vizualni pregled nema popis kontrolnih točaka, pa se oslanja na iskustvo osobe koja ga obavlja. Skinuta izolacija ostala je nezabilježena jer radni nalog završava ispitivanjem motora, a ne vraćanjem zaštite. Godišnji pregled obavljen je prije popravka kolektora.</p>
+<h3>Odgovor posade</h3>
+<p>Odluke na mostu donesene su brzo i pravim redoslijedom: zaustavljanje dovoda goriva, zatvaranje prostora, prebrojavanje ljudi i tek tada puštanje plina. Odluka da se strojarnica ne otvara do dolaska pomoći spriječila je ponovno razbuktavanje. Vježba održana nekoliko tjedana ranije vidljivo je pridonijela uvježbanosti.</p>
+<p>Pokušaj prilaska motoru s prijenosnim aparatom, bez zaštitne opreme, izložio je upravitelja stroja dimu. Postupak za takav slučaj nije jasno propisao tko i kada smije ući u prostor.</p>
+<h3>Obavješćivanje putnika</h3>
+<p>Putnici su obaviješteni tri minute nakon alarma, na dva jezika. Ankete putnika pokazuju da su upute bile razumljive, ali da ih se na krmenoj palubi slabo čulo.</p>
+<h2 id="zakljucci">Zaključci</h2>
+<ol>
+<li>Požar je nastao zapaljenjem goriva raspršenog iz napukle cijevi povrata goriva na neizoliranom dijelu ispušnog kolektora.</li>
+<li>Cijev je napukla od zamora jer joj je nedostajala jedna obujmica.</li>
+<li>Toplinska izolacija nije vraćena nakon ranijeg popravka, a radni nalog to nije zahtijevao.</li>
+<li>Sustav planiranog održavanja nije sadržavao jasne kontrolne točke za cijevi goriva.</li>
+<li>Postupanje posade nakon izbijanja požara ograničilo je posljedice.</li>
+</ol>
+<h2 id="sigurnosne-preporuke">Sigurnosne preporuke</h2>
+<ul>
+<li><strong>DEMO-SR-06/2024</strong> – brodaru: u sustav održavanja uvesti popis kontrolnih točaka za cijevi goriva i toplinsku izolaciju vrućih površina te obveznu provjeru vraćanja zaštite nakon svakog zahvata na motoru.</li>
+</ul>
+e:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[[["$","div",null,{"className":"tamno na-tamnom relative overflow-hidden bg-plava-900 text-white","children":["$","div",null,{"className":"mx-auto flex min-h-36 w-full max-w-6xl items-center gap-6 px-4 py-7","children":[["$","div",null,{"className":"relative z-10 min-w-0 flex-1","children":[["$","h1",null,{"className":"text-3xl font-bold sm:text-4xl","children":"Požar u strojarnici putničkog broda „DEMO Jadran I”"}],"$undefined"]}],["$","div",null,{"className":"pointer-events-none absolute inset-y-0 right-0 flex w-full items-center justify-end gap-2 opacity-25 sm:static sm:w-auto sm:opacity-80","children":[["$","svg","more",{"viewBox":"0 0 240 96","className":"h-28 w-auto","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":"true","focusable":"false","children":[false,["$","path",null,{"className":"tece","d":"M0 88q10-6 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0","strokeDasharray":"18 10","opacity":".55"}],false,["$","g",null,{"className":"crtez-vozilo anim-klizi","children":["$","g",null,{"className":"anim-ljulja","children":[["$","path",null,{"pathLength":1,"className":"crta","d":"M24 56H216L198 78H44Z"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.25s"},"d":"M70 56V42H160V56M92 42V30H140V42"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.45s"},"d":"M108 30V18H122V30M176 56V32M176 37 198 56"}],["$","path",null,{"d":"M80 49H150","strokeDasharray":"6 7"}]]}]}]]}]]}]]}]}],["$","article",null,{"className":"okvir","children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$L12",null,{"href":"/istrage","className":"text-plava-700 underline","children":"Istrage"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ",["$","$L12",null,{"href":"/istrage/pozar-u-strojarnici-demo-jadran-i","className":"text-plava-700 underline","children":"DEMO-M-2023-009"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Konačno izvješće"]}],["$","p",null,{"className":"mt-4 flex flex-wrap items-center gap-3","children":[["$","span",null,{"className":"font-semibold uppercase tracking-wide text-siva-700","children":"Konačno izvješće"}],["$","span",null,{"className":"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-sm font-semibold bg-[#e3f1e8] text-[#17502f]","children":[["$","span",null,{"aria-hidden":"true","className":"h-2 w-2 rounded-full bg-[#1f7a45]"}],"Zatvorena istraga"]}],["$","span",null,{"className":"inline-block rounded border border-siva-600 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-siva-700","children":"Demo · izmišljeno"}]]}],["$","p",null,{"className":"mt-2 text-siva-700","children":["DEMO-M-2023-009"," · događaj ","29. 7. 2023."," · objavljeno ","18. 4. 2024."]}],["$","p",null,{"className":"mt-4 max-w-[44rem] rounded-lg bg-siva-100 p-3 text-sm","children":"Izmišljeni dokument napisan za ovaj demo. Ne opisuje stvaran događaj, osobe ni organizacije."}],["$","div",null,{"className":"mt-4","children":["$","div",null,{"className":"proza","dangerouslySetInnerHTML":{"__html":"$13"}}]}],"$L14"]}]],["$L15"],"$L16"]}],"p":"$@17","v":null,"s":"$9"}}]]
+c:[["children",{"s":"izvjesce","h":96,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@d","v":"$8","s":"$9"},"c":"$Qe"}]]
+a:[["children",{"s":{"n":"slug","t":"d","k":"pozar-u-strojarnici-demo-jadran-i","s":["pomorske","zeljeznicke","zrakoplovne"]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"istrage","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(hr)","h":131120,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131152,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Konačno izvješće DEMO-M-2023-009 · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1d","5",{}]]}]}],null]}],null]}],"p":"$@1e","v":null,"s":"$9"}},"a":"$@1f","u":"$@20","b":"B0iV2KpfYqCapLzKf_7Or"}
+21:I[22003,["$f","$10","$11"],"PitajGumb"]
+22:I[97367,["$4"],"OutletBoundary"]
+14:["$","div",null,{"className":"mt-8 flex flex-wrap gap-3","children":[["$","$L21",null,{"istraga":{"slug":"pozar-u-strojarnici-demo-jadran-i","naslov":"Požar u strojarnici putničkog broda „DEMO Jadran I”","broj":"DEMO-M-2023-009"},"children":"Pitaj savjetnika o ovoj istrazi"}],["$","$L12",null,{"href":"/istrage/pozar-u-strojarnici-demo-jadran-i","className":"gumb gumb-obrub","children":"Natrag na istragu"}]]}]
+15:["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/2nqgieprzz0cx.js","async":true}]
+16:["$","$L22",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]
+20:true
+9:300
+23:null
+9:C
+1f:0
+d:"$undefined"
+b:"$undefined"
+7:"$undefined"
+1e:"$undefined"
+17:"$undefined"

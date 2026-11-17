@@ -1,0 +1,33 @@
+3:"$Sreact.fragment"
+4:"/ogledno/ain-demo/_next/static/chunks/3qfy96eoyh-ek.js"
+5:I[39756,["$4"],"default"]
+6:I[37457,["$4"],"default"]
+d:"/ogledno/ain-demo/_next/static/chunks/1cp30a01q9c8c.js"
+e:"/ogledno/ain-demo/_next/static/chunks/20f8oh_fhoxui.js"
+f:"/ogledno/ain-demo/_next/static/chunks/153odh04pec7d.js"
+10:I[22016,["$d","$e","$f"],""]
+11:I[73120,["$d","$e","$f"],"ObrazacPrijave"]
+12:I[97367,["$4"],"OutletBoundary"]
+13:"$Sreact.suspense"
+16:"ViewportBoundary"
+17:I[97367,["$4"],"$16"]
+18:"MetadataBoundary"
+19:I[97367,["$4"],"$18"]
+1a:I[27201,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[[["$","div",null,{"className":"tamno na-tamnom relative overflow-hidden bg-plava-900 text-white","children":["$","div",null,{"className":"mx-auto flex min-h-36 w-full max-w-6xl items-center gap-6 px-4 py-7","children":[["$","div",null,{"className":"relative z-10 min-w-0 flex-1","children":[["$","h1",null,{"className":"text-3xl font-bold sm:text-4xl","children":"Prijava događaja – željeznički promet"}],"$undefined"]}],["$","div",null,{"className":"pointer-events-none absolute inset-y-0 right-0 flex w-full items-center justify-end gap-2 opacity-25 sm:static sm:w-auto sm:opacity-80","children":[["$","svg","zeljeznica",{"viewBox":"0 0 240 96","className":"h-28 w-auto","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":"true","focusable":"false","children":[false,false,[["$","path",null,{"d":"M0 74H240","opacity":".7"}],["$","path",null,{"className":"tece","d":"M0 82H240","strokeDasharray":"3 11","opacity":".55"}]],["$","g",null,{"className":"crtez-vozilo anim-klizi","children":["$","g",null,{"children":[["$","path",null,{"pathLength":1,"className":"crta","d":"M16 28H176C200 28 216 42 220 60H16Z"}],["$","path",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.25s"},"d":"M70 28V60M124 28V60M184 36q15 2 23 17H184Z"}],["$","path",null,{"d":"M26 41H170","strokeDasharray":"13 8"}],["$","g",null,{"style":{"animationDelay":"0.5s"},"children":[["$","circle",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.5s"},"cx":"40","cy":"66","r":"5.500"}],["$","circle",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.55s"},"cx":"98","cy":"66","r":"5.500"}],["$","circle",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.6s"},"cx":"152","cy":"66","r":"5.500"}],["$","circle",null,{"pathLength":1,"className":"crta","style":{"animationDelay":"0.65s"},"cx":"198","cy":"66","r":"5.500"}]]}]]}]}]]}]]}]]}]}],["$","div",null,{"className":"okvir","children":[["$","nav",null,{"aria-label":"Putanja","className":"text-sm","children":[["$","$L10",null,{"href":"/prijava","className":"text-plava-700 underline","children":"Prijava događaja"}]," ",["$","span",null,{"aria-hidden":"true","children":"›"}]," ","Klasični obrazac"]}],["$","p",null,{"className":"mt-3 max-w-2xl rounded-lg border-2 border-[#a4161a] bg-[#fdf1f1] p-3 font-semibold text-[#23262b]","children":"Ako se događaj upravo odvija, nazovite 112 (na moru 195)."}],false,["$","div",null,{"className":"mt-6","children":["$","$L11",null,{"vrsta":"zeljeznica","jezik":"hr"}]}],["$","p",null,{"className":"mt-6 text-sm","children":["Radije uz pomoć?"," ",["$","$L10",null,{"href":"/savjetnik?prijava=zeljeznica","className":"text-plava-700 underline","prefetch":false,"children":"Prijavi uz savjetnika"}]]}]]}]],[["$","script","script-0",{"src":"/ogledno/ain-demo/_next/static/chunks/153odh04pec7d.js","async":true}]],["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]]}],"p":"$@15","v":null,"s":"$9"}}]]
+a:[["children",{"s":{"n":"vrsta","t":"d","k":"zeljeznica","s":[]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"prijava","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(hr)","h":131120,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131152,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L19",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$13",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Klasični obrazac – Željeznički promet · AIN (demo)"}],["$","meta","1",{"name":"description","content":"Ogledni primjer moderne stranice agencije za istraživanje nesreća sa savjetnikom. Izradio MangAI. Nije službena stranica; svi podaci su izmišljeni."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow, nocache"}],["$","meta","3",{"name":"googlebot","content":"noindex, nofollow"}],["$","link","4",{"rel":"icon","href":"/ogledno/ain-demo/icon.svg?icon.3m88--dv0vzfi.svg","sizes":"any","type":"image/svg+xml"}],["$","$L1a","5",{}]]}]}],null]}],null]}],"p":"$@1b","v":null,"s":"$9"}},"a":"$@1c","u":"$@1d","b":"B0iV2KpfYqCapLzKf_7Or"}
+14:null
+1d:true
+9:300
+9:C
+1c:0
+b:"$undefined"
+7:"$undefined"
+1b:"$undefined"
+15:"$undefined"
