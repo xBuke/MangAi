@@ -20,7 +20,7 @@
 
 const SITE = 'https://mangai.hr';
 const PHONE_HREF = 'tel:+385923557476';
-const LASTMOD = '2026-11-12';
+const LASTMOD = '2026-11-18';
 
 const arrow = '<span aria-hidden="true">→</span>';
 
@@ -53,117 +53,9 @@ function steps(items, title = 'Kako radim', intro = '') {
         </section>`;
 }
 
-/* Paketi za lokalne obrte – jedini izvor cijena na webu (kartice na /cijene/, izradi web stranica i početnoj) */
-const SETUP_PRICE = 390;
-const PACKAGES = [
-  {
-    id: 'start', name: 'Start', price: 19, year: 190,
-    tagline: 'Web stranica koja dovodi upite',
-    items: [
-      'Web stranica prilagođena mobitelu',
-      'Usluge s cijenama, radno vrijeme, galerija, kontakt i karta',
-      'Obrazac za upit i zahtjev za termin',
-      'Osnovna postavka za Google',
-      'Gumb za poziv i WhatsApp',
-      'Hosting, održavanje i sitne izmjene',
-    ],
-  },
-  {
-    id: 'plus', name: 'Plus', price: 29, year: 290,
-    tagline: 'Web i jedan modul po izboru',
-    items: [
-      'Sve iz paketa Start',
-      '<em>Jedan modul po izboru:</em> AI asistent, loyalty kartica, Google recenzije, upit s fotografijama ili digitalni cjenik',
-    ],
-  },
-  {
-    id: 'komplet', name: 'Komplet', price: 39, year: 390, featured: 'Najviše za vaš posao',
-    tagline: 'Web, AI asistent i modul po izboru',
-    items: [
-      'Sve iz paketa Start',
-      'AI asistent na stranici, do 300 razgovora mjesečno',
-      '<em>Jedan modul po izboru</em> od ostalih modula',
-      'Uređen Google Business profil',
-    ],
-  },
-];
-
-function pricingCards(headingLevel = 'h3') {
-  const h = headingLevel;
-  return `<div class="pricing">
-                    ${PACKAGES.map((pk) => `<article class="plan${pk.featured ? ' plan-featured' : ''}" aria-labelledby="plan-${pk.id}">
-                        ${pk.featured ? `<p class="plan-badge">${pk.featured}</p>` : ''}
-                        <${h} class="plan-name" id="plan-${pk.id}">${pk.name}</${h}>
-                        <p class="plan-for">${pk.tagline}</p>
-                        <p class="plan-price"><strong>${pk.price} €</strong> mjesečno</p>
-                        <p class="plan-setup">+ ${SETUP_PRICE} € jednokratno za izradu</p>
-                        <ul class="plan-list">
-                            ${pk.items.map((i) => `<li>${i}</li>`).join('\n                            ')}
-                        </ul>
-                        <p class="plan-year">ili ${pk.year} € godišnje (2 mjeseca gratis)</p>
-                        <a class="btn ${pk.featured ? 'btn-primary' : 'btn-ghost'}" href="/kontakt/?paket=${pk.id}">Odaberi ${pk.name}</a>
-                    </article>`).join('\n                    ')}
-                </div>
-                <p class="pricing-note">Cijene su konačne: obrt nije u sustavu PDV-a, pa se PDV ne obračunava. Održavanje se može otkazati uz otkazni rok od 30 dana.</p>`;
-}
-
-const MODULES = [
-  { name: 'AI asistent', href: '/usluge/ai-chatbot/', text: 'Odgovara na pitanja o uslugama, cijenama i radnom vremenu iz vaših podataka, 0–24. Kad ne zna odgovor, uzme ime i broj da vas klijent dobije na telefon.', who: 'sve djelatnosti; u Kompletu je uvijek uključen' },
-  { name: 'Loyalty kartica', text: 'Digitalna kartica s QR kodom: vi upisujete posjete, a mušterija vidi svoj level i pogodnost. Stalnim mušterijama možete odmah dodijeliti viši level.', who: 'saloni, kafići, autopraonice, teretane' },
-  { name: 'Google recenzije', text: 'Kad posao označite kao završen, klijent dobije poruku s poveznicom za recenziju, a na pultu stoji QR kod. Više recenzija znači bolju poziciju na Google Kartama.', who: 'svi lokalni obrti' },
-  { name: 'Upit s fotografijama', text: 'Klijent opiše problem i priloži fotografije, a vi pošaljete okvirnu procjenu bez izlaska na teren i bez praznih poziva.', who: 'majstori, servisi, auto-limari, stolari, klima-servisi' },
-  { name: 'Digitalni cjenik ili meni', text: 'Cjenik ili meni na mobitelu gosta, preko QR koda na stolu ili pultu. Promjenu cijena pošaljete porukom i za kratko je na meniju, bez novog tiska.', who: 'restorani, kafići, saloni' },
-];
-
-function modulesSection(id = 'moduli') {
-  return `
-        <section class="section" id="${id}" aria-labelledby="${id}-title">
-            <div class="wrap">
-                <div class="section-head">
-                    <h2 id="${id}-title">Moduli</h2>
-                    <p>U paketu Plus birate jedan modul, a u Kompletu AI asistenta i još jedan modul. Birate ono što vašem poslu stvarno treba.</p>
-                </div>
-                <ul class="services-list modules-list">
-                    ${MODULES.map((m) => `<li>
-                        <h3>${m.href ? `<a href="${m.href}">${m.name}</a>` : m.name}</h3>
-                        <p>${m.text}</p>
-                        <p class="examples"><strong>Za koga:</strong> ${m.who}.</p>
-                    </li>`).join('\n                    ')}
-                    <li>
-                        <h3>Primjeri kombinacija</h3>
-                        <p>Frizerski salon: AI asistent i loyalty kartica. Restoran: AI asistent i digitalni meni. Vodoinstalater: AI asistent i upit s fotografijama.</p>
-                        <p class="examples"><strong>Niste sigurni?</strong> <a href="/kontakt/">Javite se</a> pa zajedno odaberemo.</p>
-                    </li>
-                </ul>
-            </div>
-        </section>`;
-}
-
-function pricingSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'OfferCatalog',
-    name: 'Paketi web stranica za obrte',
-    url: `${SITE}/cijene/`,
-    itemListElement: PACKAGES.map((pk) => ({
-      '@type': 'Offer',
-      name: pk.name,
-      description: `${pk.tagline}. Uz ${SETUP_PRICE} € jednokratno za izradu.`,
-      url: `${SITE}/cijene/`,
-      priceCurrency: 'EUR',
-      price: String(pk.price),
-      priceSpecification: [
-        { '@type': 'UnitPriceSpecification', price: pk.price, priceCurrency: 'EUR', unitText: 'mjesečno', referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' } },
-        { '@type': 'PriceSpecification', price: SETUP_PRICE, priceCurrency: 'EUR', description: 'Jednokratna izrada' },
-      ],
-      seller: { '@id': `${SITE}/#obrt` },
-    })),
-  };
-}
-
 const STEPS_DEFAULT = [
-  ['Razgovor', 'Pola sata telefonom ili uživo. Opišete što vam treba, ja pitam ono što nedostaje. Besplatno.'],
-  ['Ponuda', 'Pisana ponuda s opsegom, cijenom i rokom. Bez skrivenih stavki i nadoplata.'],
+  ['Razgovor', 'Pola sata telefonom ili uživo. Opišete što vam treba, ja pitam ono što nedostaje. Bez obveze.'],
+  ['Ponuda', 'Pisana ponuda s opsegom, rokom i fiksnim iznosom. Sve je dogovoreno prije početka.'],
   ['Izrada', 'Radim u kratkim koracima i redovito vam pokazujem napredak, pa izmjene stižu na vrijeme.'],
   ['Predaja i podrška', 'Dobivate sustav, upute i pristupne podatke. Održavanje po dogovoru, mjesečno ili po potrebi.'],
 ];
@@ -190,17 +82,17 @@ const usluge = {
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], [null, 'Usluge']],
   metaTitle: 'Usluge: web stranice, AI chatbotovi i automatizacija',
-  description: 'Izrada web stranica i webshopa, AI chatbotovi, AI automatizacija, aplikacije po mjeri i održavanje za obrte, male tvrtke i udruge. Pisana ponuda s fiksnom cijenom.',
+  description: 'Web stranice i webshopovi, AI asistenti, automatizacija poslovanja, aplikacije po mjeri i održavanje za tvrtke, ustanove i javne naručitelje. Svaki projekt po mjeri, uz pisanu ponudu.',
   h1: 'Usluge',
-  lead: 'Od jednostavne web stranice do aplikacije po mjeri. Radim sam, pa razgovarate s osobom koja posao i radi, a svaka ponuda ima opseg, cijenu i rok prije početka.',
+  lead: 'Od web stranice do aplikacije po mjeri. Svaki projekt vodim i izrađujem osobno, a opseg i rok dogovaramo pisano prije početka.',
   body: `
         <section class="section" aria-label="Popis usluga">
             <div class="wrap">
                 <ul class="services-list">
                     <li>
                         <h2 class="h3"><a href="/usluge/izrada-web-stranica/">Izrada web stranica i webshopa</a></h2>
-                        <p>Brza, pregledna stranica koja radi na mobitelu i dovodi upite, a ne samo stoji na internetu. Izrada 390 €, paketi od 19 € mjesečno.</p>
-                        <p class="examples"><strong>Primjeri:</strong> stranica obrta, apartmana ili salona, WooCommerce webshop, landing za kampanju.</p>
+                        <p>Brza, pregledna stranica koja radi na mobitelu i dovodi upite, a ne samo stoji na internetu.</p>
+                        <p class="examples"><strong>Primjeri:</strong> stranica tvrtke, apartmana ili ordinacije, WooCommerce webshop, landing za kampanju.</p>
                         <p class="more"><a href="/usluge/izrada-web-stranica/">Više o izradi web stranica ${arrow}</a></p>
                     </li>
                     <li>
@@ -224,7 +116,7 @@ const usluge = {
                     <li>
                         <h2 class="h3"><a href="/usluge/odrzavanje/">Održavanje i hosting</a></h2>
                         <p>Ažuriranja, sigurnosne kopije, hosting i manje izmjene, da stranica i sustavi rade i iduće godine.</p>
-                        <p class="examples"><strong>Primjeri:</strong> mjesečni paket održavanja, preuzimanje postojeće stranice.</p>
+                        <p class="examples"><strong>Primjeri:</strong> ugovor o održavanju, preuzimanje postojeće stranice.</p>
                         <p class="more"><a href="/usluge/odrzavanje/">Više o održavanju ${arrow}</a></p>
                     </li>
                     <li id="savjetovanje">
@@ -245,12 +137,12 @@ const usluge = {
                 <p><a href="/javni-sektor/" class="btn btn-primary">Usluge za javne naručitelje</a></p>
             </div>
         </section>
-${steps(STEPS_DEFAULT, 'Kako radim', 'Isti postupak za mali obrt i za ustanovu, samo s više ili manje papira.')}`,
+${steps(STEPS_DEFAULT, 'Kako radim', 'Isti postupak za tvrtku i za ustanovu, samo s više ili manje papira.')}`,
   faq: [
-    { q: 'Ne znam koja mi usluga treba. Što da napravim?', a: 'Opišite problem svojim riječima, npr. „propuštam pozive dok radim” ili „ručno prepisujem narudžbe”. Na prvom razgovoru, koji je besplatan, predložim najjednostavnije rješenje, a ponekad je to i gotov alat koji vam ne moram ja izrađivati.' },
+    { q: 'Ne znam koja mi usluga treba. Što da napravim?', a: 'Opišite problem svojim riječima, npr. „propuštam pozive dok radim” ili „ručno prepisujem narudžbe”. Na uvodnom razgovoru predložim najjednostavnije rješenje, a ponekad je to i gotov alat koji vam ne moram ja izrađivati.' },
     { q: 'Mogu li naručiti samo dio, npr. samo chatbot za postojeću stranicu?', a: 'Da. Chatbot, automatizacija ili održavanje mogu se dodati postojećoj stranici, bez obzira tko ju je izradio.' },
     { q: 'Radite li s programima koje već koristim?', a: 'U pravilu da. Povezujem web forme, e-poštu, tablice, kalendar i CRM, Google Workspace i Microsoft 365 te druge sustave koji imaju API.' },
-    { q: 'Obračunavate li PDV?', a: 'Ne. Obrt nije u sustavu PDV-a, pa je cijena iz ponude ujedno i konačna cijena.' },
+    { q: 'Kako se ugovara posao?', a: 'Svaki projekt dobiva pisanu ponudu s opsegom, rokom i fiksnim iznosom. Pravila suradnje, od ponude do predaje izvornog koda, napisana su u uvjetima poslovanja.' },
   ],
   schema: [{
     '@context': 'https://schema.org',
@@ -276,53 +168,39 @@ const web = {
   path: '/usluge/izrada-web-stranica/',
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], ['/usluge/', 'Usluge'], [null, 'Izrada web stranica']],
-  metaTitle: 'Izrada web stranica za obrte i male tvrtke, od 390 €',
-  description: 'Izrada web stranica za obrte, salone, apartmane i male tvrtke. Brza stranica za mobitel s upitima i zahtjevima za termin: 390 € jednokratno + od 19 €/mj.',
-  h1: 'Izrada web stranica za obrte i male tvrtke',
-  lead: 'Brza, pregledna stranica koja radi na mobitelu i dovodi upite. Izrada je 390 € jednokratno, a zatim paket od 19 € mjesečno, s hostingom, održavanjem i sitnim izmjenama.',
+  metaTitle: 'Izrada web stranica i webshopova po mjeri',
+  description: 'Izrada web stranica i webshopova po mjeri za tvrtke, apartmane, ordinacije i ustanove. Brze na mobitelu, vidljive na Googleu i izrađene da dovode upite.',
+  h1: 'Izrada web stranica po mjeri',
+  lead: 'Brza, pregledna stranica koja radi na mobitelu i dovodi upite. Izrađuje se prema vašem poslu, sadržaju i vizualnom identitetu, a nakon objave ostaje održavana.',
   body: `
         <section class="section" aria-labelledby="ukljuceno-title">
             <div class="wrap page-split">
                 <div class="prose">
-                    <h2 id="ukljuceno-title">Što dobivate u osnovnoj stranici</h2>
+                    <h2 id="ukljuceno-title">Što dobivate</h2>
                     <ul>
                         <li>stranicu prilagođenu mobitelu, jer s mobitela dolazi većina posjeta,</li>
-                        <li>usluge s cijenama i trajanjem, radno vrijeme, kontakt i poveznicu na Google Karte,</li>
+                        <li>pregled usluga, radno vrijeme, kontakt i poveznicu na Google Karte,</li>
                         <li>obrazac za upit ili zahtjev za termin, koji vam stiže odmah,</li>
                         <li>galeriju fotografija vašeg prostora i rada,</li>
                         <li>osnovnu postavku za Google: naslove, opise, sitemap i prijavu u Google Search Console,</li>
                         <li>politiku privatnosti i usklađenost s GDPR-om,</li>
                         <li>vaše boje, logotip i tekstove, bez „izradio taj i taj” u podnožju.</li>
                     </ul>
-                    <p>Mjesečni paket pokriva hosting, tehničko održavanje i sitne izmjene, poput nove cijene, promjene radnog vremena ili zamjene fotografije. Ne morate ništa uređivati sami: pošaljete poruku i promjena je na stranici.</p>
+                    <p>Nakon objave stranicu mogu i održavati: hosting, tehničko održavanje i izmjene sadržaja. Ne morate ništa uređivati sami: pošaljete poruku i promjena je na stranici.</p>
                 </div>
-                <aside class="price-box" aria-label="Cijena">
-                    <p class="price-label">Web stranica za obrt</p>
-                    <p class="price"><strong>390 €</strong></p>
-                    <p class="price-sub">jednokratno + paket od <strong>19 €/mj</strong></p>
-                    <p class="price-note">Cijene su konačne, bez PDV-a. Pakete s loyalty karticom i AI asistentom pogledajte ispod.</p>
-                    <a href="#paketi" class="btn btn-primary">Pogledaj pakete</a>
+                <aside class="price-box" aria-label="Ponuda">
+                    <p class="price-label">Svaki projekt po mjeri</p>
+                    <p class="price-sub">Nakon uvodnog razgovora dobivate pisanu ponudu s opsegom, rokom i fiksnim iznosom.</p>
+                    <a href="/kontakt/" class="btn btn-primary">Zatraži ponudu</a>
                 </aside>
             </div>
         </section>
-
-        <section class="section" id="paketi" aria-labelledby="paketi-title">
-            <div class="wrap">
-                <div class="section-head">
-                    <h2 id="paketi-title">Paketi i cijene</h2>
-                    <p>Izrada je uvijek ${SETUP_PRICE} € jednokratno, a mjesečni paket birate prema tome što vam treba. Paket možete kasnije proširiti. Webshop, više jezika i asistent na WhatsAppu idu po pisanoj ponudi.</p>
-                </div>
-                ${pricingCards()}
-            </div>
-        </section>
-
-${modulesSection()}
 
         <section class="section" aria-labelledby="dobra-title">
             <div class="wrap page-split">
                 <div class="prose">
                     <h2 id="dobra-title">Što stranica mora raditi da se isplati</h2>
-                    <p><strong>Učitati se odmah.</strong> Ako se stranica na mobitelu otvara nekoliko sekundi, dio ljudi odustane prije nego vidi cijene. Ciljam ocjenu 90 ili više u Googleovom alatu Lighthouse za mobitel.</p>
+                    <p><strong>Učitati se odmah.</strong> Ako se stranica na mobitelu otvara nekoliko sekundi, dio ljudi odustane prije nego išta vidi. Ciljam ocjenu 90 ili više u Googleovom alatu Lighthouse za mobitel.</p>
                     <p><strong>Dovesti do poziva ili upita.</strong> Telefon, obrazac i „Zatražite termin” vidljivi su bez traženja. Stranica koja samo lijepo izgleda ne donosi posao.</p>
                     <p><strong>Biti pronađena.</strong> Naslovi, opisi i podaci o tvrtki postavljeni su tako da ih Google razumije, a ime, adresa i telefon isti su na stranici i na Google Business profilu.</p>
                     <p><strong>Biti čitljiva svima.</strong> Dovoljan kontrast, jasni naslovi i obrasci s oznakama. To pomaže i starijim posjetiteljima i tražilicama.</p>
@@ -330,14 +208,14 @@ ${modulesSection()}
                 </div>
                 <div class="prose">
                     <h2>Za koga radim stranice</h2>
-                    <p>Najčešće za lokalne obrte koji danas imaju samo Facebook ili Google Karte: frizerske i kozmetičke salone, veterinare, servise, apartmane, restorane i udruge. Za njih su paketi zamišljeni kao brz i povoljan početak.</p>
-                    <p>Veće stranice, webshop i stranice javnih naručitelja rade se po mjeri, s pisanom ponudom i predajom izvornog koda. Za općine, gradove i ustanove pogledajte <a href="/javni-sektor/">usluge za javni sektor</a>.</p>
+                    <p>Za tvrtke, obrte i iznajmljivače kojima stranica mora dovoditi upite: salone, ordinacije, servise, apartmane, restorane i udruge.</p>
+                    <p>Webshopovi, višejezične stranice i stranice javnih naručitelja predaju se s izvornim kodom i dokumentacijom. Za općine, gradove i ustanove pogledajte <a href="/javni-sektor/">usluge za javni sektor</a>.</p>
                 </div>
             </div>
         </section>
 ${steps([
-    ['Razgovor', 'Kratko telefonom ili uživo: što radite, tko su vam klijenti i što stranica treba postići. Besplatno.'],
-    ['Ponuda i sadržaj', 'Pisana ponuda s cijenom i rokom. Pošaljete tekstove, cijene i fotografije, a ja pomognem s onim što nedostaje.'],
+    ['Razgovor', 'Kratko telefonom ili uživo: što radite, tko su vam klijenti i što stranica treba postići.'],
+    ['Ponuda i sadržaj', 'Pisana ponuda s opsegom i rokom. Pošaljete tekstove i fotografije, a ja pomognem s onim što nedostaje.'],
     ['Prva verzija', 'Pokažem stranicu na probnoj adresi, prođemo je zajedno na mobitelu i ispravim što treba.'],
     ['Objava', 'Stranica ide na vašu domenu, prijavim je Googleu i povežem s Google Business profilom.'],
   ], 'Kako nastaje stranica')}
@@ -347,28 +225,18 @@ ${related('Povezano', [
     ['/primjeri/', 'Primjeri po djelatnostima', 'isprobajte kako izgleda asistent za salon ili apartmane'],
   ])}`,
   faq: [
-    { q: 'Koliko košta izrada web stranice?', a: 'Izrada je 390 € jednokratno, a zatim mjesečni paket: Start 19 €, Plus 29 € (s jednim modulom po izboru) ili Komplet 39 € (s AI asistentom, jednim modulom i Google Business profilom). Webshop i veće stranice idu po pisanoj ponudi s fiksnom cijenom.' },
-    { q: 'Što uključuje mjesečni paket?', a: 'Svaki paket uključuje hosting, tehničko održavanje i sitne izmjene, poput promjene cijena, radnog vremena, teksta ili fotografija. Paket se može otkazati uz otkazni rok od 30 dana.' },
-    { q: 'Mogu li platiti godišnje?', a: 'Da. Uz godišnje plaćanje dobivate dva mjeseca gratis: Start 190 €, Plus 290 € i Komplet 390 € godišnje.' },
-    { q: 'Koliko traje izrada?', a: 'Najviše ovisi o tome koliko brzo stignu tekstovi, cijene i fotografije. Rok je naveden u ponudi, a jednostavna stranica ne traži mjesece rada.' },
-    { q: 'Mogu li sam mijenjati sadržaj stranice?', a: 'Sitne izmjene uključene su u mjesečno održavanje, pa ih ne morate raditi sami. Ako želite sami uređivati sadržaj, dogovorimo stranicu s administracijom.' },
+    { q: 'Kako dolazim do ponude?', a: 'Nakon uvodnog razgovora dobivate pisanu ponudu s opsegom, rokom i fiksnim iznosom. Opseg ovisi o broju stranica, jezicima, sadržaju i povezivanju s drugim sustavima.' },
+    { q: 'Što je s održavanjem nakon objave?', a: 'Stranicu mogu nastaviti održavati: hosting, tehničko održavanje i izmjene sadržaja. Ako želite drugog izvođača, dobivate sve pristupe i izvorni kod.' },
+    { q: 'Koliko traje izrada?', a: 'Najviše ovisi o tome koliko brzo stignu tekstovi i fotografije. Rok je naveden u ponudi, a jednostavna stranica ne traži mjesece rada.' },
+    { q: 'Mogu li sam mijenjati sadržaj stranice?', a: 'Izmjene sadržaja dio su održavanja, pa ih ne morate raditi sami. Ako želite sami uređivati sadržaj, dogovorimo stranicu s administracijom.' },
     { q: 'Hoće li se stranica vidjeti na Googleu?', a: 'Svaku stranicu postavljam s naslovima, opisima i sitemapom, prijavim je u Google Search Console i povežem s Google Business profilom. Pozicija ovisi i o konkurenciji, ali tehnički dio je ispravan od prvog dana.' },
   ],
   schema: [service(
     'Izrada web stranica',
-    'Izrada web stranica i webshopova za obrte i male tvrtke: stranica za mobitel s uslugama, cijenama, radnim vremenom i obrascem za upit.',
+    'Izrada web stranica i webshopova po mjeri: brza stranica za mobitel s uslugama, kontaktom i obrascem za upit.',
     '/usluge/izrada-web-stranica/',
-    {
-      serviceType: 'Izrada web stranica',
-      offers: {
-        '@type': 'Offer',
-        price: '390',
-        priceCurrency: 'EUR',
-        description: 'Izrada web stranice za obrt, jednokratno, uz mjesečni paket od 19 € (hosting, održavanje i sitne izmjene).',
-        url: `${SITE}/cijene/`,
-      },
-    }
-  ), pricingSchema()],
+    { serviceType: 'Izrada web stranica' }
+  )],
 };
 
 /* ======================================================================
@@ -428,12 +296,12 @@ ${steps([
     ['Rad i praćenje', 'Asistent kreće s radom, a razgovore pregledavamo i dopunjujemo podatke kad se pojavi novo pitanje.'],
   ], 'Kako ga postavljam')}
 
-        <section class="section" aria-labelledby="cijena-title">
+        <section class="section" aria-labelledby="ponuda-title">
             <div class="wrap page-split">
                 <div class="prose">
-                    <h2 id="cijena-title">Od čega se sastoji cijena</h2>
-                    <p>Cijena ima jednokratni dio, za postavljanje, podatke, pravila i testiranje, te mjesečni dio: korištenje AI modela, hosting, održavanje i, ako asistent radi na WhatsAppu, Metine naknade za poruke po predlošku.</p>
-                    <p>Uz novu web stranicu asistent je u paketima <a href="/cijene/">Plus (29 €/mj) i Komplet (39 €/mj)</a>, s do 300 razgovora mjesečno. Za stranicu koju već imate, za WhatsApp i za veći broj razgovora dobivate pisanu ponudu u kojoj je svaka stavka navedena zasebno.</p>
+                    <h2 id="ponuda-title">Što ulazi u ponudu</h2>
+                    <p>Ponuda ima jednokratni dio, za postavljanje, podatke, pravila i testiranje, te mjesečni dio: korištenje AI modela, hosting, održavanje i, ako asistent radi na WhatsAppu, Metine naknade za poruke po predlošku.</p>
+                    <p>Svaka je stavka u ponudi navedena zasebno, pa unaprijed znate što je izrada, a što redoviti trošak rada sustava.</p>
                     <p>Detaljniji pregled gotovih alata i rješenja po mjeri pročitajte u članku <a href="/blog/ai-chatbot-za-web-stranicu.html">AI chatbot za web stranicu i prodaju</a>.</p>
                 </div>
                 <div class="prose">
@@ -452,7 +320,7 @@ ${related('Povezano', [
     { q: 'Može li asistent raditi na stranici koju već imam?', a: 'Da. Dodaje se na većinu postojećih stranica, uključujući WordPress, bez izrade nove stranice.' },
     { q: 'Na kojim jezicima odgovara?', a: 'Na jeziku na kojem mu klijent piše: hrvatskom, engleskom, njemačkom, talijanskom i drugima. Zato je posebno koristan za apartmane i turizam.' },
     { q: 'Gdje vidim upite i razgovore?', a: 'Sažetak svakog upita stiže vam e-poštom ili u tablicu, CRM ili kalendar, ovisno o dogovoru. Razgovore možete pregledati i naknadno.' },
-    { q: 'Zamjenjuje li asistent zaposlenika?', a: 'Ne. Preuzima ponavljajuća pitanja i upite izvan radnog vremena, a odluke, cijene i dogovori ostaju vama.' },
+    { q: 'Zamjenjuje li asistent zaposlenika?', a: 'Ne. Preuzima ponavljajuća pitanja i upite izvan radnog vremena, a odluke i dogovori ostaju vama.' },
   ],
   schema: [service(
     'AI chatbot i asistent',
@@ -469,8 +337,8 @@ const automatizacija = {
   path: '/usluge/ai-automatizacija/',
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], ['/usluge/', 'Usluge'], [null, 'AI automatizacija']],
-  metaTitle: 'AI automatizacija poslovanja za male tvrtke i obrte',
-  description: 'Upiti iz forme ravno u tablicu ili CRM, automatski podsjetnici, izvještaji i follow-up. AI automatizacija poslovnih procesa za male tvrtke i obrte u Hrvatskoj.',
+  metaTitle: 'AI automatizacija poslovanja i poslovnih procesa',
+  description: 'Upiti iz forme ravno u tablicu ili CRM, automatski podsjetnici, izvještaji i follow-up. AI automatizacija poslovnih procesa za tvrtke i ustanove u Hrvatskoj.',
   h1: 'AI automatizacija poslovanja',
   lead: 'Ponavljajuće zadatke prepuštate sustavu: prepisivanje upita, podsjetnike, izvještaje i follow-up. Krećemo od jednog procesa koji vam svaki tjedan oduzima najviše vremena.',
   body: `
@@ -514,7 +382,7 @@ const automatizacija = {
                 <div class="prose">
                     <h2 id="prvi-title">Kako odabrati prvi proces</h2>
                     <p>Zapišite tjedan dana sve što radite ručno, a ponavlja se. Za svaki posao procijenite koliko se često ponavlja, koliko vremena uzima i ima li jasna pravila. Prvi kandidat je posao koji je čest, dosadan i svaki put isti.</p>
-                    <p>Prije početka zajedno izračunamo isplati li se: sati tjedno puta vrijednost vašeg sata, u odnosu na cijenu izrade. Ako se ne isplati, reći ću vam.</p>
+                    <p>Prije početka zajedno izračunamo isplati li se: sati tjedno puta vrijednost vašeg sata, u odnosu na ulaganje u izradu. Ako se ne isplati, reći ću vam.</p>
                     <p>Dvanaest konkretnih primjera po djelatnostima pročitajte u članku <a href="/blog/automatizacija-poslovnih-procesa-primjeri.html">Automatizacija poslovnih procesa: 12 primjera</a>, a širi pregled u vodiču <a href="/blog/ai-automatizacija-poslovanja-hrvatska.html">AI automatizacija poslovanja u Hrvatskoj</a>.</p>
                 </div>
                 <div class="prose">
@@ -527,7 +395,7 @@ const automatizacija = {
         </section>
 ${steps([
     ['Pregled procesa', 'Prođemo kako posao danas izgleda, korak po korak, i gdje se gubi vrijeme.'],
-    ['Prijedlog i ponuda', 'Opis rješenja, procjena uštede, cijena i rok. Bez obveze.'],
+    ['Prijedlog i ponuda', 'Opis rješenja, procjena uštede, opseg i rok.'],
     ['Izrada i test', 'Automatizacija se gradi i testira na vašim stvarnim podacima prije nego što preuzme posao.'],
     ['Predaja', 'Upute, dokumentacija i obavijest kad nešto ne prođe. Održavanje po dogovoru.'],
   ], 'Kako izgleda suradnja')}
@@ -540,11 +408,11 @@ ${related('Povezano', [
     { q: 'Moram li mijenjati programe koje koristim?', a: 'Najčešće ne. Automatizacija povezuje ono što već imate: e-poštu, tablice, kalendar, CRM ili webshop, preko njihovih API-ja.' },
     { q: 'Što ako automatizacija zakaže?', a: 'Svaka automatizacija javlja grešku kad neki korak ne prođe, pa ništa ne nestane tiho. Dobivate i dokumentaciju, tako da sustav može održavati i netko drugi.' },
     { q: 'Je li sigurno slati podatke AI modelu?', a: 'Koristim poslovne API-je pružatelja AI modela, šaljem samo podatke potrebne za zadatak i ne koristim alate koji vaše podatke koriste za treniranje modela. Kad se obrađuju osobni podaci, sklapamo ugovor o obradi podataka.' },
-    { q: 'Koliko se može uštedjeti?', a: 'Ovisi o procesu. Zato prije početka računamo koliko sati tjedno posao uzima i koliko će koštati izrada, pa odlučujete na temelju brojki.' },
+    { q: 'Koliko se može uštedjeti?', a: 'Ovisi o procesu. Zato prije početka računamo koliko sati tjedno posao uzima i koliko je ulaganje u izradu, pa odlučujete na temelju brojki.' },
   ],
   schema: [service(
     'AI automatizacija poslovanja',
-    'Automatizacija poslovnih procesa za male tvrtke i obrte: upiti u tablicu ili CRM, podsjetnici, izvještaji, obrada dokumenata i follow-up.',
+    'Automatizacija poslovnih procesa za tvrtke i ustanove: upiti u tablicu ili CRM, podsjetnici, izvještaji, obrada dokumenata i follow-up.',
     '/usluge/ai-automatizacija/',
     { serviceType: 'Automatizacija poslovnih procesa' }
   )],
@@ -558,7 +426,7 @@ const aplikacije = {
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], ['/usluge/', 'Usluge'], [null, 'Aplikacije po mjeri']],
   metaTitle: 'Izrada aplikacija po mjeri: interni alati i portali',
-  description: 'Web aplikacije i interni alati po mjeri za male tvrtke: evidencije, nadzorne ploče, portali za klijente i loyalty kartice. Izvorni kod ostaje vama.',
+  description: 'Web aplikacije i interni alati po mjeri za tvrtke i ustanove: evidencije, nadzorne ploče, portali za klijente i loyalty kartice. Izvorni kod ostaje vama.',
   h1: 'Aplikacije po mjeri',
   lead: 'Kad gotov program traži da mijenjate način rada, a tablica više ne stiže, izrađujem web aplikaciju koja radi točno ono što vam treba, bez plaćanja funkcija koje ne koristite.',
   body: `
@@ -601,7 +469,7 @@ const aplikacije = {
                 <div class="prose">
                     <h2 id="smisla-title">Kad aplikacija po mjeri ima smisla</h2>
                     <p>Ima smisla kad posao radite na svoj način i to vam je prednost, kad isti podaci žive u tri tablice ili kad gotov program plaćate za deset korisnika, a koristite dvije funkcije.</p>
-                    <p>Nema smisla ako postoji gotov alat od nekoliko eura mjesečno koji radi ono što trebate. Tada ću vam ga preporučiti, a ne prodavati izradu.</p>
+                    <p>Nema smisla ako postoji gotov alat koji radi ono što trebate. Tada ću vam ga preporučiti, a ne prodavati izradu.</p>
                     <p>Krećemo od najmanje verzije koja rješava glavni problem. Kad je u upotrebi, dograđuje se ono što se pokaže potrebnim.</p>
                 </div>
                 <div class="prose">
@@ -618,7 +486,7 @@ ${related('Povezano', [
     ['/o-meni/', 'O meni', 'tko radi posao i kako'],
   ])}`,
   faq: [
-    { q: 'Koliko košta aplikacija po mjeri?', a: 'Ovisi o opsegu. Krećemo od najmanje verzije koja rješava glavni problem, a cijena i rok su fiksni i navedeni u pisanoj ponudi.' },
+    { q: 'Kako se određuje opseg aplikacije?', a: 'Krećemo od najmanje verzije koja rješava glavni problem. Opseg, rok i iznos fiksni su i navedeni u pisanoj ponudi.' },
     { q: 'Radi li aplikacija na mobitelu?', a: 'Da. Web aplikacija radi u pregledniku na mobitelu, tabletu i računalu, a na mobitelu se može dodati na početni zaslon kao ikona.' },
     { q: 'Tko je vlasnik koda?', a: 'Vi. Dobivate izvorni kod svega što je izrađeno za vas, dokumentaciju i pristupe, s pravom da ga mijenjate i date drugom izvođaču.' },
     { q: 'Može li se aplikacija povezati s programima koje već koristim?', a: 'Da, ako ti programi imaju API ili izvoz podataka. To provjerimo na početku, prije ponude.' },
@@ -652,33 +520,32 @@ const odrzavanje = {
                         <li>sigurnosne nadogradnje čim izađu,</li>
                         <li>redovite sigurnosne kopije, iz kojih se stranica može vratiti,</li>
                         <li>nadzor dostupnosti: ako stranica prestane raditi, saznam prije vas,</li>
-                        <li>manje izmjene sadržaja: cijene, radno vrijeme, tekstovi i fotografije,</li>
+                        <li>manje izmjene sadržaja: tekstovi, radno vrijeme i fotografije,</li>
                         <li>hosting i pomoć oko domene, e-pošte i Google Business profila.</li>
                     </ul>
                     <p>Nove funkcije i veće izmjene nisu dio održavanja. Za njih dobivate zasebnu ponudu, pa nema iznenađenja na računu.</p>
                 </div>
-                <aside class="price-box" aria-label="Cijena održavanja">
-                    <p class="price-label">Za stranice koje izradim</p>
-                    <p class="price">od <strong>19 €</strong>/mj</p>
-                    <p class="price-sub">hosting, održavanje i sitne izmjene, uključeno u <a href="/cijene/">pakete</a></p>
-                    <p class="price-note">Za postojeće stranice, webshopove i aplikacije cijena ovisi o sustavu i dobivate je nakon pregleda. Otkazni rok je 30 dana.</p>
+                <aside class="price-box" aria-label="Ugovor o održavanju">
+                    <p class="price-label">Ugovor o održavanju</p>
+                    <p class="price-sub">Opseg i uvjeti ovise o sustavu. Dobivate ih pisano, nakon pregleda stranice ili aplikacije.</p>
+                    <p class="price-note">Otkazni rok je 30 dana. Po prestanku predajem sve pristupe i zadnju sigurnosnu kopiju.</p>
                     <a href="/kontakt/" class="btn btn-primary">Zatraži pregled stranice</a>
                 </aside>
             </div>
         </section>
 ${steps([
     ['Pregled', 'Provjerim verzije, sigurnost, kopije, brzinu i tko ima pristupe. Pregled dobivate pisano.'],
-    ['Popis popravaka', 'Što je hitno, što može čekati i koliko košta. Odlučujete vi.'],
+    ['Popis popravaka', 'Što je hitno, a što može čekati, s ponudom za svaku stavku. Odlučujete vi.'],
     ['Preuzimanje', 'Pristupi se prebacuju na vaše ime gdje je moguće, a prije ijedne promjene radi se puna kopija.'],
     ['Redovito održavanje', 'Ažuriranja, kopije i nadzor svaki mjesec, a za izmjene pošaljete poruku.'],
   ], 'Preuzimanje postojeće stranice', 'Ako se prethodni izvođač više ne javlja ili stranica nije ažurirana godinama, krećemo od pregleda.')}
 ${related('Povezano', [
-    ['/usluge/izrada-web-stranica/', 'Izrada web stranica', 'kad je jeftinije napraviti novu nego krpati staru'],
+    ['/usluge/izrada-web-stranica/', 'Izrada web stranica', 'kad je bolje napraviti novu nego krpati staru'],
     ['/javni-sektor/', 'Za javne naručitelje', 'godišnji ugovor o održavanju i preuzimanje od prethodnog izvođača'],
     ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja', 'jamstvo, otkaz i predaja pristupa'],
   ])}`,
   faq: [
-    { q: 'Možete li preuzeti stranicu koju je radio netko drugi?', a: 'Da. Krećem od pregleda stanja i pristupa, a nakon toga dobivate popis potrebnih popravaka i cijenu mjesečnog održavanja.' },
+    { q: 'Možete li preuzeti stranicu koju je radio netko drugi?', a: 'Da. Krećem od pregleda stanja i pristupa, a nakon toga dobivate popis potrebnih popravaka i ponudu za redovito održavanje.' },
     { q: 'Što ako stranica bude hakirana ili prestane raditi?', a: 'Stranica se vraća iz zadnje ispravne kopije, a zatim se uklanja uzrok: zastarjeli dodatak, slaba lozinka ili ranjivost. Redovita ažuriranja i kopije postoje upravo zato da se to ne dogodi ili da se brzo popravi.' },
     { q: 'Mogu li otkazati održavanje?', a: 'Da, uz otkazni rok od 30 dana. Po prestanku predajem sve pristupe i zadnju sigurnosnu kopiju.' },
     { q: 'Uključuje li održavanje nove funkcije?', a: 'Ne. Manje izmjene sadržaja su uključene, a nove funkcije i veće promjene dobivaju zasebnu ponudu.' },
@@ -687,16 +554,7 @@ ${related('Povezano', [
     'Održavanje web stranica i hosting',
     'Mjesečno održavanje web stranica i aplikacija: ažuriranja, sigurnosne nadogradnje, kopije, nadzor dostupnosti, hosting i manje izmjene.',
     '/usluge/odrzavanje/',
-    {
-      serviceType: 'Održavanje web stranica',
-      offers: {
-        '@type': 'Offer',
-        price: '15',
-        priceCurrency: 'EUR',
-        description: 'Mjesečno održavanje i hosting za stranice koje izrađuje MangAI.',
-        url: `${SITE}/usluge/odrzavanje/`,
-      },
-    }
+    { serviceType: 'Održavanje web stranica' }
   )],
 };
 
@@ -757,7 +615,7 @@ const javni = {
             <div class="wrap">
                 <div class="section-head">
                     <h2 id="obveze-title">Što možete očekivati</h2>
-                    <p>MangAI je mali obrt, ali posao predaje kao da ga preuzima revizija.</p>
+                    <p>Posao predajem tako da ga sutra može preuzeti revizija ili drugi izvođač.</p>
                 </div>
                 <div class="gov-grid">
                     <ul class="commitments">
@@ -807,7 +665,7 @@ const javni = {
     { q: 'Javljate li se na pozive za dostavu ponuda?', a: 'Da. Poziv pošaljite na marko@mangai.hr, a na postupke objavljene u EOJN RH javljam se izravno. Ponudu šaljem u traženom roku.' },
     { q: 'Izdajete li e-račune?', a: 'Da. Svi računi izdaju se kao e-računi, u skladu s propisima o elektroničkom izdavanju računa.' },
     { q: 'Što dobivamo pri predaji?', a: 'Izvorni kod, dokumentaciju, pristupne podatke, izjavu o pristupačnosti za web stranice i obuku djelatnika za uređivanje. Domena, hosting i korisnički računi vode se na naručitelja kad god je to moguće.' },
-    { q: 'Može li mali obrt biti ponuditelj?', a: 'Može. Obrt sudjeluje u jednostavnoj i javnoj nabavi kao i tvrtka, a uvjete sposobnosti određuje naručitelj u dokumentaciji o nabavi.' },
+    { q: 'Može li obrt biti ponuditelj?', a: 'Može. Obrt sudjeluje u jednostavnoj i javnoj nabavi kao i tvrtka, a uvjete sposobnosti određuje naručitelj u dokumentaciji o nabavi.' },
   ],
   schema: [service(
     'Web stranice i e-usluge za javne naručitelje',
@@ -855,11 +713,11 @@ const primjeri = {
                 <div class="prose">
                     <h2 id="pravo-title">Od primjera do pravog asistenta</h2>
                     <p>U pravoj verziji asistent odgovara iz vašeg cjenika, usluga, radnog vremena i čestih pitanja, poštuje pravila koja zajedno zapišemo i upisuje upite tamo gdje ih već pratite: u e-poštu, tablicu, kalendar ili CRM.</p>
-                    <p>Može raditi na vašoj web stranici, na WhatsAppu ili na oba mjesta. Kako ga postavljam i od čega se sastoji cijena, pročitajte na stranici <a href="/usluge/ai-chatbot/">AI chatbot i asistent</a>.</p>
+                    <p>Može raditi na vašoj web stranici, na WhatsAppu ili na oba mjesta. Kako ga postavljam i što ulazi u ponudu, pročitajte na stranici <a href="/usluge/ai-chatbot/">AI chatbot i asistent</a>.</p>
                 </div>
                 <div class="prose">
                     <h2>Web stranice</h2>
-                    <p>Uz asistente izrađujem i web stranice za obrte i male tvrtke, od jednostavne stranice za salon ili servis do webshopa. Što je uključeno i koliko košta, pogledajte na stranici <a href="/usluge/izrada-web-stranica/">izrada web stranica</a>.</p>
+                    <p>Uz asistente izrađujem i web stranice, od prezentacijske stranice do webshopa. Što je uključeno, pogledajte na stranici <a href="/usluge/izrada-web-stranica/">izrada web stranica</a>.</p>
                 </div>
             </div>
         </section>`,
@@ -882,12 +740,12 @@ const primjeri = {
    ====================================================================== */
 const oMeni = {
   path: '/o-meni/',
-  nav: null,
+  nav: '/o-meni/',
   crumbs: [['/', 'Početna'], [null, 'O meni']],
   metaTitle: 'O meni: Marko Škorić, osnivač MangAI-ja',
-  description: 'Marko Škorić, osnivač MangAI-ja iz Ploča. Web stranice, aplikacije i AI rješenja radim sam, od prvog razgovora do predaje i održavanja.',
-  h1: 'Jedan čovjek, bez agencijskog procesa',
-  lead: 'Ja sam Marko Škorić, osnivač MangAI-ja iz Ploča. Web stranice, aplikacije i AI rješenja radim sam, od prvog razgovora do predaje i održavanja.',
+  description: 'Marko Škorić, osnivač MangAI-ja iz Ploča. Svaki projekt, od web stranice do AI sustava, vodim i izrađujem osobno, od prvog razgovora do predaje i održavanja.',
+  h1: 'Izravno s autorom, bez posrednika',
+  lead: 'Ja sam Marko Škorić, osnivač MangAI-ja iz Ploča. Svaki projekt vodim i izrađujem osobno, od prvog razgovora do predaje i održavanja.',
   body: `
         <section class="section" aria-labelledby="zasto-title">
             <div class="wrap page-split">
@@ -897,7 +755,7 @@ const oMeni = {
                     <h2>Kako koristim AI</h2>
                     <p>Programiram u TypeScriptu, Reactu, Next.js-u, Pythonu i PostgreSQL-u, a AI alate koristim da bih radio brže. Svaku liniju koda i svaki tekst pregledavam prije predaje, a vaše povjerljive podatke ne unosim u alate koji ih koriste za treniranje modela.</p>
                     <h2>Za koga radim</h2>
-                    <p>Za obrte, male tvrtke i udruge kojima treba stranica koja dovodi upite ili sustav koji preuzima ponavljajući posao, i za općine, gradove i ustanove kojima trebaju pristupačne stranice i e-usluge za građane.</p>
+                    <p>Za tvrtke i organizacije kojima treba stranica koja dovodi upite ili sustav koji preuzima ponavljajući posao, i za općine, gradove i ustanove kojima trebaju pristupačne stranice i e-usluge za građane.</p>
                     <h2>Gdje radim</h2>
                     <p>Sjedište je u Pločama, u Dubrovačko-neretvanskoj županiji. Većinu posla radim na daljinu za cijelu Hrvatsku, a na sastanke i primopredaju dolazim po dogovoru.</p>
                     <p>Pravila suradnje, od ponude do predaje izvornog koda, napisana su u <a href="/uvjeti-poslovanja.html">uvjetima poslovanja</a>.</p>
@@ -929,7 +787,7 @@ const oMeni = {
                 </div>
             </div>
         </section>
-${steps(STEPS_DEFAULT, 'Kako radim', 'Isti postupak za mali obrt i za ustanovu, samo s više ili manje papira.')}
+${steps(STEPS_DEFAULT, 'Kako radim', 'Isti postupak za tvrtku i za ustanovu, samo s više ili manje papira.')}
 
         <section class="section" aria-labelledby="alati-title">
             <div class="wrap">
@@ -977,7 +835,7 @@ const kontakt = {
   metaTitle: 'Kontakt: pošaljite upit ili nazovite',
   description: 'Pošaljite upit za web stranicu, AI chatbot ili automatizaciju. Telefon +385 92 355 7476, e-pošta marko@mangai.hr, Ploče. Odgovaram unutar jednog do dva radna dana.',
   h1: 'Kontakt',
-  lead: 'Napišite ukratko što trebate. Odgovaram unutar jednog do dva radna dana, a prvi razgovor je besplatan.',
+  lead: 'Napišite ukratko što trebate. Odgovaram unutar jednog do dva radna dana.',
   heroActions: false,
   cta: false,
   body: `
@@ -1036,17 +894,7 @@ const kontakt = {
                         </div>
                         <div class="form-group full">
                             <label for="description">Što trebate?</label>
-                            <textarea id="description" name="opis" rows="5" required placeholder="Npr. nova web stranica za salon s cijenama i upitima za termin."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="budget">Okvirni budžet <span class="optional">(nije obavezno)</span></label>
-                            <select id="budget" name="budzet">
-                                <option value="Još ne znam">Još ne znam</option>
-                                <option value="Do 1.000 €">Do 1.000 €</option>
-                                <option value="1.000–5.000 €">1.000–5.000 €</option>
-                                <option value="5.000–15.000 €">5.000–15.000 €</option>
-                                <option value="Više od 15.000 €">Više od 15.000 €</option>
-                            </select>
+                            <textarea id="description" name="opis" rows="5" required placeholder="Npr. nova web stranica s rezervacijama, AI asistent za upite ili aplikacija za internu evidenciju."></textarea>
                         </div>
                         <div class="form-group">
                             <label for="timeline">Kada želite krenuti <span class="optional">(nije obavezno)</span></label>
@@ -1071,7 +919,7 @@ const kontakt = {
         </section>`,
   faq: [
     { q: 'Koliko brzo odgovarate?', a: 'Na upite odgovaram unutar jednog do dva radna dana. Za hitne stvari najbrže je nazvati na 092 355 7476.' },
-    { q: 'Je li prvi razgovor besplatan?', a: 'Da. Prvi razgovor, telefonom ili uživo, ne naplaćujem i ne obvezuje vas ni na što.' },
+    { q: 'Što slijedi nakon upita?', a: 'Javim se s nekoliko pitanja ili prijedlogom termina za uvodni razgovor. Nakon njega dobivate pisanu ponudu s opsegom, rokom i fiksnim iznosom.' },
   ],
   schema: [{
     '@context': 'https://schema.org',
@@ -1099,72 +947,12 @@ const kontakt = {
                     submitBtn.textContent = 'Šaljem…';
                 });
             }
-            var names = { start: 'Start', plus: 'Plus', komplet: 'Komplet' };
-            var paket = names[url.searchParams.get('paket')];
-            var desc = document.getElementById('description');
-            if (paket && desc && !desc.value) {
-                desc.value = 'Zanima me paket ' + paket + '. ';
-            }
         })();
     </script>
 `,
 };
 
-/* ======================================================================
-   /cijene/
-   ====================================================================== */
-const cijene = {
-  path: '/cijene/',
-  nav: '/cijene/',
-  crumbs: [['/', 'Početna'], [null, 'Cijene']],
-  metaTitle: 'Cijene web stranica za obrte: 390 € + od 19 €/mj',
-  description: 'Transparentne cijene: izrada web stranice 390 € jednokratno, a zatim paket Start 19 €, Plus 29 € ili Komplet 39 € mjesečno, s hostingom i održavanjem. Bez PDV-a.',
-  h1: 'Cijene',
-  lead: 'Izrada web stranice je 390 € jednokratno, a zatim mjesečni paket po izboru. U svaki su uključeni hosting, održavanje i sitne izmjene, bez skrivenih stavki i bez PDV-a.',
-  heroActions: false,
-  body: `
-        <section class="section" id="paketi" aria-label="Paketi">
-            <div class="wrap">
-                ${pricingCards('h2')}
-            </div>
-        </section>
-${modulesSection()}
-
-        <section class="section" aria-labelledby="ukljuceno-cijene-title">
-            <div class="wrap page-split">
-                <div class="prose">
-                    <h2 id="ukljuceno-cijene-title">Što je uključeno u svaki paket</h2>
-                    <ul>
-                        <li>izrada stranice prema vašim bojama, logotipu, tekstovima i fotografijama,</li>
-                        <li>stranica prilagođena mobitelu, s ciljem ocjene 90+ u Googleovom Lighthouseu,</li>
-                        <li>obrazac za upit i zahtjev za termin, koji vam stiže odmah,</li>
-                        <li>prijava u Google Search Console i osnovna postavka za tražilice,</li>
-                        <li>politika privatnosti i usklađenost s GDPR-om,</li>
-                        <li>hosting, tehničko održavanje i sitne izmjene na vaš zahtjev.</li>
-                    </ul>
-                    <p>Više o tome kako nastaje stranica pročitajte na stranici <a href="/usluge/izrada-web-stranica/">izrada web stranica</a>, a kako radi asistent na stranici <a href="/usluge/ai-chatbot/">AI chatbot</a>.</p>
-                </div>
-                <div class="prose">
-                    <h2>Izvan paketa</h2>
-                    <p>Webshop, više jezika za turiste, asistent na WhatsAppu ili Messengeru, aplikacije po mjeri i stranice za javne naručitelje rade se po pisanoj ponudi s fiksnom cijenom i rokom.</p>
-                    <p>Za općine, gradove i ustanove pogledajte <a href="/javni-sektor/">usluge za javni sektor</a>.</p>
-                    <h2>Usporedba</h2>
-                    <p>Kad obrt sam slaže web, rezervacije, loyalty karticu i chatbot iz zasebnih alata, mjesečni računi lako prijeđu 100 €, a postavljanje i održavanje ostaju na njemu. U paketu sve to postavljam i održavam ja.</p>
-                </div>
-            </div>
-        </section>`,
-  faq: [
-    { q: 'Ima li skrivenih troškova?', a: 'Nema. Plaćate 390 € za izradu i mjesečni paket. Obrt nije u sustavu PDV-a, pa su to konačne cijene.' },
-    { q: 'Mogu li kasnije prijeći na veći paket?', a: 'Da. Možete krenuti sa Startom, a modul ili AI asistenta uključiti kad vidite da vam trebaju.' },
-    { q: 'Koji modul odabrati?', a: 'Onaj koji rješava vaš najčešći problem: loyalty karticu ako želite da se mušterije vraćaju, Google recenzije ako vas na Kartama nitko ne nalazi, upit s fotografijama ako gubite vrijeme na izlaske za procjenu, digitalni cjenik ako često mijenjate cijene.' },
-    { q: 'Što ako AI asistent ima više od 300 razgovora mjesečno?', a: 'To je dobar znak. Javim vam se i dogovorimo nastavak, a asistent u međuvremenu ne prestaje raditi.' },
-    { q: 'Mogu li otkazati?', a: 'Da, uz otkazni rok od 30 dana. Po prestanku dobivate sve pristupe i sadržaj stranice.' },
-    { q: 'Mogu li platiti godišnje?', a: 'Da. Uz godišnje plaćanje dobivate dva mjeseca gratis: Start 190 €, Plus 290 € i Komplet 390 € godišnje.' },
-  ],
-  schema: [pricingSchema()],
-};
-
-const pages = [cijene, usluge, web, chatbot, automatizacija, aplikacije, odrzavanje, javni, primjeri, oMeni, kontakt]
+const pages = [usluge, web, chatbot, automatizacija, aplikacije, odrzavanje, javni, primjeri, oMeni, kontakt]
   .map((p) => ({ lastmod: LASTMOD, heroActions: true, cta: true, faq: [], schema: [], scripts: '', ...p }));
 
-module.exports = { pages, PHONE_HREF, pricingCards };
+module.exports = { pages, PHONE_HREF };

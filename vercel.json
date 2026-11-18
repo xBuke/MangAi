@@ -92,6 +92,16 @@
       "permanent": true
     },
     {
+      "source": "/cijene",
+      "destination": "/usluge/",
+      "permanent": true
+    },
+    {
+      "source": "/cijene/",
+      "destination": "/usluge/",
+      "permanent": true
+    },
+    {
       "source": "/usluge",
       "destination": "/usluge/",
       "permanent": true

@@ -17,7 +17,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mangai.hr';
 const BRAND = 'MangAI';
-const { pages: PAGES_HR, pricingCards } = require('./pages-hr.js');
+const { pages: PAGES_HR } = require('./pages-hr.js');
 
 /* ---------- pomoćne funkcije ---------- */
 
@@ -115,14 +115,14 @@ const L = {
     homeAria: `${BRAND}, početna`,
     menu: 'Otvori izbornik',
     navAria: 'Glavni izbornik',
-    nav: [['/usluge/', 'Usluge'], ['/cijene/', 'Cijene'], ['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/blog/', 'Blog']],
+    nav: [['/usluge/', 'Usluge'], ['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/o-meni/', 'O meni'], ['/blog/', 'Blog']],
     cta: 'Pošalji upit',
     contact: '/kontakt/',
-    tagline: 'Web stranice, aplikacije i AI rješenja za obrte, tvrtke, udruge i javne naručitelje.',
+    tagline: 'Web stranice, aplikacije i AI sustavi po mjeri za tvrtke, ustanove i javne naručitelje.',
     bizTitle: 'Podaci o obrtu',
     country: '',
     pagesTitle: 'Stranice',
-    footerLinks: [['/cijene/', 'Cijene'], ['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/o-meni/', 'O meni'], ['/kontakt/', 'Kontakt'], ['/blog/', 'Blog'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja']],
+    footerLinks: [['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/o-meni/', 'O meni'], ['/kontakt/', 'Kontakt'], ['/blog/', 'Blog'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja']],
     servicesTitle: 'Usluge',
     footerServices: [['/usluge/izrada-web-stranica/', 'Izrada web stranica'], ['/usluge/ai-chatbot/', 'AI chatbot'], ['/usluge/ai-automatizacija/', 'AI automatizacija'], ['/usluge/aplikacije-po-mjeri/', 'Aplikacije po mjeri'], ['/usluge/odrzavanje/', 'Održavanje i hosting']],
     homeLabel: 'Početna',
@@ -139,7 +139,7 @@ const L = {
     related: 'Povezani članci',
     back: 'Svi članci',
     ctaTitle: 'Želite ovo u svom poslovanju?',
-    ctaText: 'Opišite ukratko što trebate i dobit ćete pisani prijedlog s cijenom i rokom. Prvi razgovor je besplatan.',
+    ctaText: 'Opišite ukratko što trebate. Nakon uvodnog razgovora dobivate pisani prijedlog s opsegom i rokom.',
     ctaBtn: 'Pošalji upit',
     advisorBtn: 'Pokreni savjetnika',
     titleKey: 'title_hr',
@@ -162,7 +162,7 @@ const L = {
     nav: [['/en/#services', 'Services'], ['/en/#examples', 'Examples'], ['/en/#public-sector', 'Public sector'], ['/en/blog/', 'Blog']],
     cta: 'Send an enquiry',
     contact: '/en/#contact',
-    tagline: 'Websites, apps and AI solutions for businesses, associations and public bodies.',
+    tagline: 'Websites, apps and AI systems, built to order for businesses, institutions and public bodies.',
     bizTitle: 'Business details',
     country: ', Croatia',
     pagesTitle: 'Pages',
@@ -181,7 +181,7 @@ const L = {
     related: 'Related articles',
     back: 'All articles',
     ctaTitle: 'Want this in your business?',
-    ctaText: 'Describe briefly what you need and you will get a written proposal with price and deadline. The first call is free.',
+    ctaText: 'Describe briefly what you need. After an intro call you get a written proposal with scope and timeline.',
     ctaBtn: 'Send an enquiry',
     advisorBtn: 'Start the advisor',
     titleKey: 'title_en',
@@ -621,15 +621,6 @@ function main() {
 
   for (const page of PAGES_HR) {
     write(path.join(ROOT, ...page.path.split('/').filter(Boolean), 'index.html'), pagePage(L.hr, page));
-  }
-
-  // paketi na početnoj: blok između oznaka <!-- paketi:start --> i <!-- paketi:end --> u index.html
-  const homeFile = path.join(ROOT, 'index.html');
-  const home = fs.readFileSync(homeFile, 'utf8');
-  const marked = /(<!-- paketi:start -->)[\s\S]*?(<!-- paketi:end -->)/;
-  if (marked.test(home)) {
-    fs.writeFileSync(homeFile, home.replace(marked, `$1\n                ${pricingCards('h3')}\n                $2`), 'utf8');
-    console.log('Updated: index.html (paketi)');
   }
 
   // sitemap.xml
