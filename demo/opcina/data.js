@@ -104,7 +104,8 @@ window.MANGAI_DEMO = {
        "label": "Ulica Ivana Gundulića 7",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "lokacija"
     },
     "s2": {
      "bot": [
@@ -119,7 +120,8 @@ window.MANGAI_DEMO = {
        "label": "Cijela ulica",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "opseg"
     },
     "s3": {
      "bot": [
@@ -134,7 +136,8 @@ window.MANGAI_DEMO = {
        "label": "Ne treba",
        "next": "s4"
       }
-     ]
+     ],
+     "field": "obavijest"
     },
     "s4": {
      "bot": [
@@ -145,7 +148,7 @@ window.MANGAI_DEMO = {
       "row": [
        "KP-2026-119",
        "Neispravna javna rasvjeta",
-       "Ulica Ivana Gundulića 7",
+       "{lokacija}",
        "Novo, proslijeđeno"
       ],
       "inbox": {
@@ -159,7 +162,15 @@ window.MANGAI_DEMO = {
        "open": 1,
        "q": 1
       },
-      "toast": "Nova komunalna prijava zaprimljena i usmjerena nadležnoj službi."
+      "toast": "Nova komunalna prijava zaprimljena i usmjerena nadležnoj službi.",
+      "set": {
+       "status": "Proslijeđeno komunalnom redaru"
+      },
+      "actions": [
+       "Prijava upisana pod brojem KP-2026-119",
+       "Proslijeđena komunalnom redaru",
+       "Zabilježen izbor građanina o obavijesti"
+      ]
      },
      "end": true
     }
@@ -170,7 +181,50 @@ window.MANGAI_DEMO = {
    "Prima komunalne prijave s lokacijom i opisom te ih usmjerava nadležnoj službi.",
    "Rasterećuje centralu i šalteru daje mjesečni pregled najčešćih pitanja."
   ],
-  "cta": "Želim ovo za našu općinu"
+  "cta": "Želim ovo za našu općinu",
+  "theme": {
+   "chrome": "browser",
+   "accent": "#1D4E89",
+   "soft": "#E8EFF8"
+  },
+  "when": "Nedjelja, 22:05",
+  "site": {
+   "url": "opcina-primjerovo.hr",
+   "nav": [
+    "Općina",
+    "Građani",
+    "Dokumenti"
+   ],
+   "tagline": "Službene stranice Općine Primjerovo"
+  },
+  "record": {
+   "title": "Komunalna prijava KP-2026-119",
+   "fields": [
+    {
+     "key": "vrsta",
+     "label": "Vrsta"
+    },
+    {
+     "key": "lokacija",
+     "label": "Lokacija"
+    },
+    {
+     "key": "opseg",
+     "label": "Opseg kvara"
+    },
+    {
+     "key": "obavijest",
+     "label": "Obavijest građaninu"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    }
+   ],
+   "initial": {
+    "vrsta": "Neispravna javna rasvjeta"
+   }
+  }
  },
  "en": {
   "pageTitle": "AI assistant for municipalities – demo",
@@ -276,7 +330,8 @@ window.MANGAI_DEMO = {
        "label": "Ivana Gundulića 7",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "lokacija"
     },
     "s2": {
      "bot": [
@@ -291,7 +346,8 @@ window.MANGAI_DEMO = {
        "label": "The whole street",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "opseg"
     },
     "s3": {
      "bot": [
@@ -306,7 +362,8 @@ window.MANGAI_DEMO = {
        "label": "No thanks",
        "next": "s4"
       }
-     ]
+     ],
+     "field": "obavijest"
     },
     "s4": {
      "bot": [
@@ -316,9 +373,9 @@ window.MANGAI_DEMO = {
      "event": {
       "row": [
        "KP-2026-119",
-       "Street light out",
-       "Ivana Gundulića 7",
-       "New, passed on"
+       "Faulty street lighting",
+       "{lokacija}",
+       "New, forwarded"
       ],
       "inbox": {
        "who": "Citizen",
@@ -331,7 +388,15 @@ window.MANGAI_DEMO = {
        "open": 1,
        "q": 1
       },
-      "toast": "New issue report received and routed to the responsible service."
+      "toast": "New issue report received and routed to the responsible service.",
+      "set": {
+       "status": "Forwarded to the municipal warden"
+      },
+      "actions": [
+       "Report logged as KP-2026-119",
+       "Forwarded to the municipal warden",
+       "Resident’s notification choice recorded"
+      ]
      },
      "end": true
     }
@@ -342,6 +407,49 @@ window.MANGAI_DEMO = {
    "Takes issue reports with location and description and routes them to the right service.",
    "Relieves the switchboard and gives a monthly overview of the most common questions."
   ],
-  "cta": "I want this for our municipality"
+  "cta": "I want this for our municipality",
+  "theme": {
+   "chrome": "browser",
+   "accent": "#1D4E89",
+   "soft": "#E8EFF8"
+  },
+  "when": "Sunday, 22:05",
+  "site": {
+   "url": "opcina-primjerovo.hr",
+   "nav": [
+    "Municipality",
+    "Residents",
+    "Documents"
+   ],
+   "tagline": "Official website of the Municipality of Primjerovo"
+  },
+  "record": {
+   "title": "Municipal report KP-2026-119",
+   "fields": [
+    {
+     "key": "vrsta",
+     "label": "Type"
+    },
+    {
+     "key": "lokacija",
+     "label": "Location"
+    },
+    {
+     "key": "opseg",
+     "label": "Extent"
+    },
+    {
+     "key": "obavijest",
+     "label": "Notify the resident"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    }
+   ],
+   "initial": {
+    "vrsta": "Faulty street lighting"
+   }
+  }
  }
 };

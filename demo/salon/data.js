@@ -111,7 +111,8 @@ window.MANGAI_DEMO = {
        "label": "Subota 9:00",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "termin"
     },
     "s2": {
      "bot": [
@@ -122,7 +123,8 @@ window.MANGAI_DEMO = {
        "label": "Ana",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "ime"
     },
     "s3": {
      "bot": [
@@ -131,9 +133,9 @@ window.MANGAI_DEMO = {
      ],
      "event": {
       "row": [
-       "Ana",
+       "{ime}",
        "Gel lak",
-       "Četvrtak",
+       "{termin}",
        "Potvrđeno"
       ],
       "inbox": {
@@ -146,7 +148,15 @@ window.MANGAI_DEMO = {
        "book": 1,
        "q": 1
       },
-      "toast": "Asistent je upisao novu rezervaciju u kalendar."
+      "toast": "Asistent je upisao novu rezervaciju u kalendar.",
+      "set": {
+       "status": "Potvrđeno"
+      },
+      "actions": [
+       "Termin upisan u kalendar salona",
+       "Potvrda poslana klijentici na WhatsApp",
+       "Podsjetnik zakazan za dan prije termina"
+      ]
      },
      "end": true
     }
@@ -157,7 +167,37 @@ window.MANGAI_DEMO = {
    "Prima rezervacije i promjene termina izravno u vaš kalendar.",
    "Šalje podsjetnike i nudi oslobođene termine, pa je manje praznih termina."
   ],
-  "cta": "Želim ovo za svoj salon"
+  "cta": "Želim ovo za svoj salon",
+  "theme": {
+   "chrome": "whatsapp",
+   "accent": "#B0456B",
+   "soft": "#FBEDF2"
+  },
+  "when": "Nedjelja, 21:47",
+  "record": {
+   "title": "Nova rezervacija",
+   "fields": [
+    {
+     "key": "usluga",
+     "label": "Usluga"
+    },
+    {
+     "key": "termin",
+     "label": "Termin"
+    },
+    {
+     "key": "ime",
+     "label": "Klijentica"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    }
+   ],
+   "initial": {
+    "usluga": "Gel lak, 60 min"
+   }
+  }
  },
  "en": {
   "pageTitle": "AI assistant for beauty salons – demo",
@@ -270,7 +310,8 @@ window.MANGAI_DEMO = {
        "label": "Saturday 9:00",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "termin"
     },
     "s2": {
      "bot": [
@@ -281,7 +322,8 @@ window.MANGAI_DEMO = {
        "label": "Ana",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "ime"
     },
     "s3": {
      "bot": [
@@ -290,9 +332,9 @@ window.MANGAI_DEMO = {
      ],
      "event": {
       "row": [
-       "Ana",
+       "{ime}",
        "Gel polish",
-       "Thursday",
+       "{termin}",
        "Confirmed"
       ],
       "inbox": {
@@ -305,7 +347,15 @@ window.MANGAI_DEMO = {
        "book": 1,
        "q": 1
       },
-      "toast": "The assistant added a new booking to the calendar."
+      "toast": "The assistant added a new booking to the calendar.",
+      "set": {
+       "status": "Confirmed"
+      },
+      "actions": [
+       "Appointment added to the salon calendar",
+       "Confirmation sent to the client on WhatsApp",
+       "Reminder scheduled for the day before"
+      ]
      },
      "end": true
     }
@@ -316,6 +366,36 @@ window.MANGAI_DEMO = {
    "Takes bookings and changes straight into your calendar.",
    "Sends reminders and offers freed slots, so fewer appointments go empty."
   ],
-  "cta": "I want this for my salon"
+  "cta": "I want this for my salon",
+  "theme": {
+   "chrome": "whatsapp",
+   "accent": "#B0456B",
+   "soft": "#FBEDF2"
+  },
+  "when": "Sunday, 21:47",
+  "record": {
+   "title": "New booking",
+   "fields": [
+    {
+     "key": "usluga",
+     "label": "Service"
+    },
+    {
+     "key": "termin",
+     "label": "Time"
+    },
+    {
+     "key": "ime",
+     "label": "Client"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    }
+   ],
+   "initial": {
+    "usluga": "Gel polish, 60 min"
+   }
+  }
  }
 };

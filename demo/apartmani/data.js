@@ -101,7 +101,8 @@ window.MANGAI_DEMO = {
        "label": "17.–24. August",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "datumi"
     },
     "s2": {
      "bot": [
@@ -117,7 +118,8 @@ window.MANGAI_DEMO = {
        "label": "Erst überlegen",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "odluka"
     },
     "s3": {
      "bot": [
@@ -127,7 +129,7 @@ window.MANGAI_DEMO = {
       "row": [
        "Neuer Gast (DE)",
        "Apartman A2 (4+1)",
-       "Kolovoz, 7 noći",
+       "{datumi}",
        "Čeka potvrdu"
       ],
       "inbox": {
@@ -140,7 +142,15 @@ window.MANGAI_DEMO = {
        "q": 1,
        "direct": 1
       },
-      "toast": "Novi upit za rezervaciju čeka vašu potvrdu."
+      "toast": "Novi upit za rezervaciju čeka vašu potvrdu.",
+      "set": {
+       "status": "Čeka vašu potvrdu"
+      },
+      "actions": [
+       "Upit preveden na hrvatski i poslan vama",
+       "Datumi označeni u kalendaru kao upit",
+       "Gost dobio potvrdu primitka na njemačkom"
+      ]
      },
      "end": true
     }
@@ -151,7 +161,42 @@ window.MANGAI_DEMO = {
    "Provjerava slobodne datume i cijene te šalje upit vama na potvrdu.",
    "Šalje upute za dolazak, podsjetnike za uplatu i molbu za recenziju."
   ],
-  "cta": "Želim ovo za svoj smještaj"
+  "cta": "Želim ovo za svoj smještaj",
+  "theme": {
+   "chrome": "whatsapp",
+   "accent": "#0B6E99",
+   "soft": "#E6F2F8"
+  },
+  "when": "Utorak, 23:30",
+  "record": {
+   "title": "Upit za rezervaciju",
+   "fields": [
+    {
+     "key": "jezik",
+     "label": "Jezik gosta"
+    },
+    {
+     "key": "prijevod",
+     "label": "Prijevod upita"
+    },
+    {
+     "key": "datumi",
+     "label": "Datumi"
+    },
+    {
+     "key": "odluka",
+     "label": "Odgovor gosta"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    }
+   ],
+   "initial": {
+    "jezik": "Njemački",
+    "prijevod": "„Imate li u kolovozu slobodan apartman za 4 osobe?”"
+   }
+  }
  },
  "en": {
   "pageTitle": "AI assistant for holiday rentals – demo",
@@ -254,7 +299,8 @@ window.MANGAI_DEMO = {
        "label": "17.–24. August",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "datumi"
     },
     "s2": {
      "bot": [
@@ -270,7 +316,8 @@ window.MANGAI_DEMO = {
        "label": "Erst überlegen",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "odluka"
     },
     "s3": {
      "bot": [
@@ -278,9 +325,9 @@ window.MANGAI_DEMO = {
      ],
      "event": {
       "row": [
-       "New guest (DE)",
+       "Neuer Gast (DE)",
        "Apartment A2 (4+1)",
-       "August, 7 nights",
+       "{datumi}",
        "Awaiting confirmation"
       ],
       "inbox": {
@@ -293,7 +340,15 @@ window.MANGAI_DEMO = {
        "q": 1,
        "direct": 1
       },
-      "toast": "A new booking enquiry is waiting for your confirmation."
+      "toast": "A new booking enquiry is waiting for your confirmation.",
+      "set": {
+       "status": "Awaiting your confirmation"
+      },
+      "actions": [
+       "Enquiry translated and sent to you",
+       "Dates marked in the calendar as an enquiry",
+       "Guest received an acknowledgement in German"
+      ]
      },
      "end": true
     }
@@ -304,6 +359,41 @@ window.MANGAI_DEMO = {
    "Checks available dates and prices and sends the enquiry to you to confirm.",
    "Sends arrival instructions, payment reminders and a review request."
   ],
-  "cta": "I want this for my rental"
+  "cta": "I want this for my rental",
+  "theme": {
+   "chrome": "whatsapp",
+   "accent": "#0B6E99",
+   "soft": "#E6F2F8"
+  },
+  "when": "Tuesday, 23:30",
+  "record": {
+   "title": "Booking enquiry",
+   "fields": [
+    {
+     "key": "jezik",
+     "label": "Guest language"
+    },
+    {
+     "key": "prijevod",
+     "label": "Enquiry translated"
+    },
+    {
+     "key": "datumi",
+     "label": "Dates"
+    },
+    {
+     "key": "odluka",
+     "label": "Guest reply"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    }
+   ],
+   "initial": {
+    "jezik": "German",
+    "prijevod": "“Do you have an apartment for 4 people free in August?”"
+   }
+  }
  }
 };

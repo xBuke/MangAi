@@ -332,6 +332,112 @@ DEMOS['apartmani'] = {
  }
 }
 
+
+# ---------------------------------------------------------------- NADOGRADNJA DEMA
+# Marketinška agencija više nije među primjerima.
+DEMOS.pop('agencija', None)
+
+# Izgled i "živa kartica" po djelatnosti. Kartica se puni dok posjetitelj bira odgovore:
+#   fields  – polja kartice (ključ, naziv); initial – ono što asistent zna već iz prve poruke
+#   step    – koji korak razgovora puni koje polje (vrijednost je odabrani odgovor)
+#   done    – polja koja se upišu kad je posao gotov; actions – što je asistent pritom napravio
+#   row     – novi red u tablici; {ključ} se zamjenjuje vrijednošću iz kartice
+EXTRA = {
+ 'salon': {
+  'chrome': 'whatsapp', 'accent': '#B0456B', 'soft': '#FBEDF2', 'step': {'s1': 'termin', 's2': 'ime'},
+  'hr': {'when': 'Nedjelja, 21:47', 'record': 'Nova rezervacija',
+         'fields': [('usluga', 'Usluga'), ('termin', 'Termin'), ('ime', 'Klijentica'), ('status', 'Status')],
+         'initial': {'usluga': 'Gel lak, 60 min'}, 'done': {'status': 'Potvrđeno'},
+         'row': ['{ime}', 'Gel lak', '{termin}', 'Potvrđeno'],
+         'actions': ['Termin upisan u kalendar salona', 'Potvrda poslana klijentici na WhatsApp', 'Podsjetnik zakazan za dan prije termina']},
+  'en': {'when': 'Sunday, 21:47', 'record': 'New booking',
+         'fields': [('usluga', 'Service'), ('termin', 'Time'), ('ime', 'Client'), ('status', 'Status')],
+         'initial': {'usluga': 'Gel polish, 60 min'}, 'done': {'status': 'Confirmed'},
+         'row': ['{ime}', 'Gel polish', '{termin}', 'Confirmed'],
+         'actions': ['Appointment added to the salon calendar', 'Confirmation sent to the client on WhatsApp', 'Reminder scheduled for the day before']},
+ },
+ 'nekretnine': {
+  'chrome': 'browser', 'accent': '#1F3A5F', 'soft': '#EAF0F7', 'step': {'s1': 'financiranje', 's2': 'razgled', 's3': 'obavijesti'},
+  'hr': {'when': 'Subota, 20:15', 'record': 'Kvalificirani upit', 'url': 'jadran-nekretnine.hr', 'nav': ['Prodaja', 'Najam', 'Novogradnja'], 'tagline': 'Stanovi i kuće u Splitu i okolici',
+         'fields': [('nekretnina', 'Nekretnina'), ('financiranje', 'Financiranje'), ('razgled', 'Željeni razgled'), ('obavijesti', 'Obavijesti o sličnim stanovima'), ('agent', 'Dodijeljeno')],
+         'initial': {'nekretnina': 'Stan 68 m², Žnjan'}, 'done': {'agent': 'Agentica Maja, četvrtak 17:30'},
+         'actions': ['Razgled upisan u kalendar agentice Maje', 'Potvrda s adresom poslana kupcu', 'Sažetak upita poslan agentici']},
+  'en': {'when': 'Saturday, 20:15', 'record': 'Qualified lead', 'url': 'jadran-nekretnine.hr', 'nav': ['For sale', 'To rent', 'New builds'], 'tagline': 'Flats and houses in and around Split',
+         'fields': [('nekretnina', 'Property'), ('financiranje', 'Financing'), ('razgled', 'Preferred viewing'), ('obavijesti', 'Alerts for similar flats'), ('agent', 'Assigned to')],
+         'initial': {'nekretnina': '68 m² flat, Žnjan'}, 'done': {'agent': 'Agent Maja, Thursday 17:30'},
+         'actions': ['Viewing added to agent Maja’s calendar', 'Confirmation with the address sent to the buyer', 'Enquiry summary sent to the agent']},
+ },
+ 'ordinacija': {
+  'chrome': 'browser', 'accent': '#0E7C86', 'soft': '#E6F4F5', 'step': {'s1': 'dolazak', 's2': 'dan'},
+  'hr': {'when': 'Ponedjeljak, 06:40', 'record': 'Zahtjev za termin', 'url': 'poliklinika-mare.hr', 'nav': ['Usluge', 'Liječnici', 'Naručivanje'], 'tagline': 'Laboratorij i specijalistički pregledi',
+         'fields': [('pregled', 'Vrsta pregleda'), ('dolazak', 'Način dolaska'), ('dan', 'Dan'), ('priprema', 'Upute za pripremu'), ('status', 'Status')],
+         'initial': {'pregled': 'Vađenje krvi'}, 'done': {'priprema': 'Poslane: natašte 12 sati', 'status': 'Čeka potvrdu sestre'},
+         'row': ['Novi pacijent', 'Vađenje krvi', '{dan} 7:30', 'Čeka potvrdu'],
+         'actions': ['Zahtjev upisan u listu naručivanja', 'Upute za pripremu poslane pacijentu', 'Sestra obaviještena da zahtjev čeka potvrdu']},
+  'en': {'when': 'Monday, 06:40', 'record': 'Appointment request', 'url': 'poliklinika-mare.hr', 'nav': ['Services', 'Doctors', 'Booking'], 'tagline': 'Laboratory and specialist examinations',
+         'fields': [('pregled', 'Type of visit'), ('dolazak', 'Referral'), ('dan', 'Day'), ('priprema', 'Preparation instructions'), ('status', 'Status')],
+         'initial': {'pregled': 'Blood test'}, 'done': {'priprema': 'Sent: fasting for 12 hours', 'status': 'Awaiting nurse confirmation'},
+         'row': ['New patient', 'Blood test', '{dan} 7:30', 'Awaiting confirmation'],
+         'actions': ['Request added to the booking list', 'Preparation instructions sent to the patient', 'Nurse notified that a request awaits confirmation']},
+ },
+ 'odvjetnik': {
+  'chrome': 'browser', 'accent': '#6B2737', 'soft': '#F6ECEE', 'step': {'s1': 'rok', 's2': 'dokumenti', 's3': 'termin'},
+  'hr': {'when': 'Petak, 19:20', 'record': 'Sažetak predmeta', 'url': 'ured-peric.hr', 'nav': ['Područja rada', 'O uredu', 'Kontakt'], 'tagline': 'Radno, trgovačko i obiteljsko pravo',
+         'fields': [('podrucje', 'Područje'), ('rok', 'Otkaz uručen'), ('dokumenti', 'Dokumenti'), ('termin', 'Konzultacije'), ('napomena', 'Napomena za odvjetnicu')],
+         'initial': {'podrucje': 'Radno pravo, otkaz'}, 'done': {'napomena': 'Rok može biti kratak, provjeriti'},
+         'row': ['Nova stranka', 'Radno pravo', '{termin}', 'Rok može biti kratak, provjeriti'],
+         'actions': ['Konzultacije upisane u kalendar ureda', 'Sažetak predmeta poslan odvjetnici', 'Stranka dobila popis dokumenata koje treba ponijeti']},
+  'en': {'when': 'Friday, 19:20', 'record': 'Case summary', 'url': 'ured-peric.hr', 'nav': ['Practice areas', 'About', 'Contact'], 'tagline': 'Employment, commercial and family law',
+         'fields': [('podrucje', 'Area'), ('rok', 'Dismissal served'), ('dokumenti', 'Documents'), ('termin', 'Consultation'), ('napomena', 'Note for the lawyer')],
+         'initial': {'podrucje': 'Employment law, dismissal'}, 'done': {'napomena': 'Deadline may be short, check'},
+         'row': ['New client', 'Employment law', '{termin}', 'Deadline may be short, check'],
+         'actions': ['Consultation added to the office calendar', 'Case summary sent to the lawyer', 'Client received the list of documents to bring']},
+ },
+ 'opcina': {
+  'chrome': 'browser', 'accent': '#1D4E89', 'soft': '#E8EFF8', 'step': {'s1': 'lokacija', 's2': 'opseg', 's3': 'obavijest'},
+  'hr': {'when': 'Nedjelja, 22:05', 'record': 'Komunalna prijava KP-2026-119', 'url': 'opcina-primjerovo.hr', 'nav': ['Općina', 'Građani', 'Dokumenti'], 'tagline': 'Službene stranice Općine Primjerovo',
+         'fields': [('vrsta', 'Vrsta'), ('lokacija', 'Lokacija'), ('opseg', 'Opseg kvara'), ('obavijest', 'Obavijest građaninu'), ('status', 'Status')],
+         'initial': {'vrsta': 'Neispravna javna rasvjeta'}, 'done': {'status': 'Proslijeđeno komunalnom redaru'},
+         'row': ['KP-2026-119', 'Neispravna javna rasvjeta', '{lokacija}', 'Novo, proslijeđeno'],
+         'actions': ['Prijava upisana pod brojem KP-2026-119', 'Proslijeđena komunalnom redaru', 'Zabilježen izbor građanina o obavijesti']},
+  'en': {'when': 'Sunday, 22:05', 'record': 'Municipal report KP-2026-119', 'url': 'opcina-primjerovo.hr', 'nav': ['Municipality', 'Residents', 'Documents'], 'tagline': 'Official website of the Municipality of Primjerovo',
+         'fields': [('vrsta', 'Type'), ('lokacija', 'Location'), ('opseg', 'Extent'), ('obavijest', 'Notify the resident'), ('status', 'Status')],
+         'initial': {'vrsta': 'Faulty street lighting'}, 'done': {'status': 'Forwarded to the municipal warden'},
+         'row': ['KP-2026-119', 'Faulty street lighting', '{lokacija}', 'New, forwarded'],
+         'actions': ['Report logged as KP-2026-119', 'Forwarded to the municipal warden', 'Resident’s notification choice recorded']},
+ },
+ 'apartmani': {
+  'chrome': 'whatsapp', 'accent': '#0B6E99', 'soft': '#E6F2F8', 'step': {'s1': 'datumi', 's2': 'odluka'},
+  'hr': {'when': 'Utorak, 23:30', 'record': 'Upit za rezervaciju',
+         'fields': [('jezik', 'Jezik gosta'), ('prijevod', 'Prijevod upita'), ('datumi', 'Datumi'), ('odluka', 'Odgovor gosta'), ('status', 'Status')],
+         'initial': {'jezik': 'Njemački', 'prijevod': '„Imate li u kolovozu slobodan apartman za 4 osobe?”'}, 'done': {'status': 'Čeka vašu potvrdu'},
+         'row': ['Neuer Gast (DE)', 'Apartman A2 (4+1)', '{datumi}', 'Čeka potvrdu'],
+         'actions': ['Upit preveden na hrvatski i poslan vama', 'Datumi označeni u kalendaru kao upit', 'Gost dobio potvrdu primitka na njemačkom']},
+  'en': {'when': 'Tuesday, 23:30', 'record': 'Booking enquiry',
+         'fields': [('jezik', 'Guest language'), ('prijevod', 'Enquiry translated'), ('datumi', 'Dates'), ('odluka', 'Guest reply'), ('status', 'Status')],
+         'initial': {'jezik': 'German', 'prijevod': '“Do you have an apartment for 4 people free in August?”'}, 'done': {'status': 'Awaiting your confirmation'},
+         'row': ['Neuer Gast (DE)', 'Apartment A2 (4+1)', '{datumi}', 'Awaiting confirmation'],
+         'actions': ['Enquiry translated and sent to you', 'Dates marked in the calendar as an enquiry', 'Guest received an acknowledgement in German']},
+ },
+}
+
+for vid, x in EXTRA.items():
+    for lang in ('hr', 'en'):
+        d, e = DEMOS[vid][lang], x[lang]
+        d['theme'] = {'chrome': x['chrome'], 'accent': x['accent'], 'soft': x['soft']}
+        d['when'] = e['when']
+        if 'url' in e:
+            d['site'] = {'url': e['url'], 'nav': e['nav'], 'tagline': e['tagline']}
+        d['record'] = {'title': e['record'], 'fields': [{'key': k, 'label': l} for k, l in e['fields']], 'initial': e['initial']}
+        steps = d['chat']['steps']
+        for sid, key in x['step'].items():
+            steps[sid]['field'] = key
+        last = [st for st in steps.values() if st.get('event')][-1]['event']
+        last['set'] = e['done']
+        last['actions'] = e['actions']
+        if 'row' in e:
+            last['row'] = e['row']
+
 PAGE = '''<!DOCTYPE html>
 <html lang="hr">
 <head>

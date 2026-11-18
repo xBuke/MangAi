@@ -101,7 +101,8 @@ window.MANGAI_DEMO = {
        "label": "Privatno",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "dolazak"
     },
     "s2": {
      "bot": [
@@ -120,7 +121,8 @@ window.MANGAI_DEMO = {
        "label": "Petak",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "dan"
     },
     "s3": {
      "bot": [
@@ -132,7 +134,7 @@ window.MANGAI_DEMO = {
       "row": [
        "Novi pacijent",
        "Vađenje krvi",
-       "Odabrani dan 7:30",
+       "{dan} 7:30",
        "Čeka potvrdu"
       ],
       "inbox": {
@@ -144,7 +146,16 @@ window.MANGAI_DEMO = {
       "kpi": {
        "req": 1
       },
-      "toast": "Novi zahtjev čeka potvrdu sestre."
+      "toast": "Novi zahtjev čeka potvrdu sestre.",
+      "set": {
+       "priprema": "Poslane: natašte 12 sati",
+       "status": "Čeka potvrdu sestre"
+      },
+      "actions": [
+       "Zahtjev upisan u listu naručivanja",
+       "Upute za pripremu poslane pacijentu",
+       "Sestra obaviještena da zahtjev čeka potvrdu"
+      ]
      },
      "end": true
     }
@@ -155,7 +166,50 @@ window.MANGAI_DEMO = {
    "Prima zahtjeve za termin, a osoblje ih potvrđuje jednim klikom.",
    "Ne daje dijagnoze; hitne slučajeve odmah upućuje na 112 ili telefon ordinacije."
   ],
-  "cta": "Želim ovo za svoju ordinaciju"
+  "cta": "Želim ovo za svoju ordinaciju",
+  "theme": {
+   "chrome": "browser",
+   "accent": "#0E7C86",
+   "soft": "#E6F4F5"
+  },
+  "when": "Ponedjeljak, 06:40",
+  "site": {
+   "url": "poliklinika-mare.hr",
+   "nav": [
+    "Usluge",
+    "Liječnici",
+    "Naručivanje"
+   ],
+   "tagline": "Laboratorij i specijalistički pregledi"
+  },
+  "record": {
+   "title": "Zahtjev za termin",
+   "fields": [
+    {
+     "key": "pregled",
+     "label": "Vrsta pregleda"
+    },
+    {
+     "key": "dolazak",
+     "label": "Način dolaska"
+    },
+    {
+     "key": "dan",
+     "label": "Dan"
+    },
+    {
+     "key": "priprema",
+     "label": "Upute za pripremu"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    }
+   ],
+   "initial": {
+    "pregled": "Vađenje krvi"
+   }
+  }
  },
  "en": {
   "pageTitle": "AI assistant for clinics – demo",
@@ -258,7 +312,8 @@ window.MANGAI_DEMO = {
        "label": "Privately",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "dolazak"
     },
     "s2": {
      "bot": [
@@ -277,7 +332,8 @@ window.MANGAI_DEMO = {
        "label": "Friday",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "dan"
     },
     "s3": {
      "bot": [
@@ -289,7 +345,7 @@ window.MANGAI_DEMO = {
       "row": [
        "New patient",
        "Blood test",
-       "Chosen day 7:30",
+       "{dan} 7:30",
        "Awaiting confirmation"
       ],
       "inbox": {
@@ -301,7 +357,16 @@ window.MANGAI_DEMO = {
       "kpi": {
        "req": 1
       },
-      "toast": "A new request is waiting for the nurse to confirm."
+      "toast": "A new request is waiting for the nurse to confirm.",
+      "set": {
+       "priprema": "Sent: fasting for 12 hours",
+       "status": "Awaiting nurse confirmation"
+      },
+      "actions": [
+       "Request added to the booking list",
+       "Preparation instructions sent to the patient",
+       "Nurse notified that a request awaits confirmation"
+      ]
      },
      "end": true
     }
@@ -312,6 +377,49 @@ window.MANGAI_DEMO = {
    "Takes appointment requests that staff confirm with one click.",
    "Gives no diagnoses; emergencies are referred to 112 or the clinic phone."
   ],
-  "cta": "I want this for my clinic"
+  "cta": "I want this for my clinic",
+  "theme": {
+   "chrome": "browser",
+   "accent": "#0E7C86",
+   "soft": "#E6F4F5"
+  },
+  "when": "Monday, 06:40",
+  "site": {
+   "url": "poliklinika-mare.hr",
+   "nav": [
+    "Services",
+    "Doctors",
+    "Booking"
+   ],
+   "tagline": "Laboratory and specialist examinations"
+  },
+  "record": {
+   "title": "Appointment request",
+   "fields": [
+    {
+     "key": "pregled",
+     "label": "Type of visit"
+    },
+    {
+     "key": "dolazak",
+     "label": "Referral"
+    },
+    {
+     "key": "dan",
+     "label": "Day"
+    },
+    {
+     "key": "priprema",
+     "label": "Preparation instructions"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    }
+   ],
+   "initial": {
+    "pregled": "Blood test"
+   }
+  }
  }
 };

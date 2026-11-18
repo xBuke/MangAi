@@ -14,8 +14,8 @@
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
 
-.demo-page { padding: clamp(36px, 6vw, 72px) 0 clamp(64px, 8vw, 104px); }
-.demo-intro { max-width: 760px; }
+.demo-page { padding: clamp(24px, 3.5vw, 44px) 0 clamp(64px, 8vw, 104px); }
+.demo-intro { max-width: 860px; }
 .demo-kicker {
   display: inline-block;
   font-size: 0.875rem;
@@ -27,13 +27,13 @@
   padding: 3px 12px;
   margin-bottom: 14px;
 }
-.demo-intro h1 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); line-height: 1.05; }
-.demo-lead { margin-top: 16px; font-size: 1.15rem; color: var(--ink-soft); max-width: 60ch; }
+.demo-intro h1 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); line-height: 1.05; }
+.demo-lead { margin-top: 12px; font-size: 1.05rem; color: var(--ink-soft); max-width: 68ch; }
 
 .demo-stage {
-  margin-top: clamp(32px, 5vw, 56px);
+  margin-top: clamp(22px, 3vw, 32px);
   display: grid;
-  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
   gap: clamp(24px, 4vw, 48px);
   align-items: start;
 }
@@ -304,10 +304,199 @@
 }
 .demo-others a:hover { border-color: var(--ink); }
 
-@media (max-width: 900px) {
-  .demo-stage { grid-template-columns: minmax(0, 1fr); }
-  .phone { position: static; height: 560px; max-width: 420px; }
-}
+
 @media (prefers-reduced-motion: reduce) {
   .msg-typing span { animation: none; }
+}
+
+/* =====================================================================
+   Nadogradnja: tema po djelatnosti, WhatsApp i web prozor, živa kartica
+   ===================================================================== */
+.demo { --accent: var(--reed); --accent-soft: #E3EDE7; }
+
+.live-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #1FA35B;
+  box-shadow: 0 0 0 0 rgba(31, 163, 91, .55);
+  animation: demo-pulse 1.8s infinite;
+  vertical-align: 1px;
+}
+@keyframes demo-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(31, 163, 91, .55); }
+  70% { box-shadow: 0 0 0 8px rgba(31, 163, 91, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(31, 163, 91, 0); }
+}
+.demo-kicker { border-color: var(--accent); }
+.demo-hint { margin-top: 10px; font-size: 0.95rem; font-weight: 600; color: var(--accent); }
+.hint-narrow { display: none; }
+
+.demo-browser .demo-stage { grid-template-columns: minmax(0, 470px) minmax(0, 1fr); }
+.device { position: sticky; top: calc(var(--nav-h) + 20px); }
+.device .phone { position: relative; top: auto; }
+
+.see-board {
+  display: none;
+  margin-top: 14px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ---------- WhatsApp ---------- */
+.demo-whatsapp .phone-head { background: #075E54; border-bottom: 0; color: #fff; }
+.demo-whatsapp .phone-head small { color: #CDEBE4; }
+.demo-whatsapp .phone-avatar { background: #fff; color: #075E54; }
+.demo-whatsapp .phone-msgs {
+  background-color: #ECE5DD;
+  background-image: radial-gradient(rgba(15, 43, 39, .07) 1px, transparent 1.2px);
+  background-size: 18px 18px;
+}
+.demo-whatsapp .msg-bot { border: 0; border-radius: 2px 12px 12px 12px; box-shadow: 0 1px 1px rgba(0, 0, 0, .12); }
+.demo-whatsapp .msg-user { background: #DCF8C6; color: var(--ink); border-radius: 12px 2px 12px 12px; box-shadow: 0 1px 1px rgba(0, 0, 0, .12); }
+.msg-ticks { margin-left: 8px; font-size: 0.72rem; letter-spacing: -2px; color: #34A7D8; vertical-align: -1px; }
+.demo-whatsapp .opt { border-color: #075E54; color: #075E54; }
+.demo-whatsapp .opt:hover { background: #E7F5F1; }
+
+.msg-chip {
+  align-self: center;
+  margin: 2px 0 4px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .85);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.msg-chip-fast { align-self: flex-start; margin: 0 0 4px; background: transparent; border: 0; padding: 0 2px; color: var(--accent); }
+.demo-whatsapp .msg-chip-fast { color: #075E54; }
+.msg { animation: demo-in .28s ease both; }
+@keyframes demo-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Web stranica s prozorom asistenta ---------- */
+.browser {
+  position: relative;
+  height: min(660px, calc(100vh - var(--nav-h) - 80px));
+  min-height: 520px;
+  border: 1px solid var(--ink);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -30px rgba(15, 43, 39, .5);
+}
+.browser-bar { display: flex; align-items: center; gap: 12px; padding: 9px 12px; background: var(--ink); }
+.browser-dots { display: inline-flex; gap: 5px; }
+.browser-dots i { width: 9px; height: 9px; border-radius: 50%; background: #5F7570; }
+.browser-url {
+  flex: 1;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #24433E;
+  color: #DCE6E1;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.browser-site { padding: 14px 16px; }
+.site-nav { display: flex; align-items: center; gap: 14px; font-size: 0.8rem; color: var(--ink-soft); }
+.site-nav strong { margin-right: auto; font-family: var(--font-display); font-size: 1rem; color: var(--accent); }
+.site-hero { margin-top: 14px; padding: 22px 16px 26px; border-radius: 10px; background: var(--accent); }
+.site-hero p { max-width: 22ch; font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; color: #fff; }
+.site-hero i { display: block; height: 7px; margin-top: 10px; border-radius: 4px; background: rgba(255, 255, 255, .35); width: 62%; }
+.site-hero i + i { width: 44%; }
+.site-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+.site-cards i { height: 300px; border-radius: 10px; background: var(--accent-soft); }
+
+.widget {
+  position: absolute;
+  right: 12px; bottom: 12px; left: 96px;
+  top: 150px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 18px 44px -12px rgba(15, 43, 39, .55), 0 0 0 1px rgba(15, 43, 39, .12);
+}
+.demo-browser .phone-head { background: var(--accent); border-bottom: 0; color: #fff; }
+.demo-browser .phone-head small { color: rgba(255, 255, 255, .82); }
+.demo-browser .phone-avatar { background: #fff; color: var(--accent); }
+.demo-browser .phone-msgs { background: #F6F7F5; }
+.demo-browser .msg-user { background: var(--accent); }
+.demo-browser .opt { border-color: var(--accent); color: var(--accent); }
+.demo-browser .opt:hover { background: var(--accent-soft); }
+
+/* ---------- Ploča: uživo i kartica upita ---------- */
+.board { border-top: 4px solid var(--accent); }
+.board-live { display: inline-flex; align-items: center; }
+
+.record {
+  margin-top: 18px;
+  padding: 16px 18px 18px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+}
+.record-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.record-kicker { font-size: 0.8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+.record-check {
+  display: inline-grid; place-items: center;
+  width: 18px; height: 18px; margin-right: 6px;
+  border-radius: 50%; background: var(--accent); color: #fff; font-size: 0.7rem;
+}
+.record-count { font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.record-title { display: block; margin-top: 4px; font-family: var(--font-display); font-size: 1.25rem; }
+.record-bar { height: 5px; margin-top: 10px; border-radius: 3px; background: rgba(15, 43, 39, .1); overflow: hidden; }
+.record-bar i { display: block; height: 100%; border-radius: 3px; background: var(--accent); transition: width .5s ease; }
+.record-fields { margin: 14px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.record-fields > div { padding: 9px 12px; border-radius: 10px; background: #fff; border: 1px solid transparent; }
+.record-fields dt { font-size: 0.78rem; color: var(--ink-soft); }
+.record-fields dd { margin: 2px 0 0; font-weight: 600; font-size: 0.95rem; }
+.record-fields .is-empty { background: rgba(255, 255, 255, .5); border: 1px dashed rgba(15, 43, 39, .22); }
+.record-wait { font-weight: 400; font-style: italic; color: var(--ink-soft); }
+.record-fields .is-new { border-color: var(--accent); animation: demo-pop .6s ease both; }
+@keyframes demo-pop {
+  0% { transform: scale(.96); box-shadow: 0 0 0 0 var(--accent); }
+  45% { transform: scale(1.02); }
+  100% { transform: none; box-shadow: 0 0 0 6px transparent; }
+}
+.record-did { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(15, 43, 39, .14); }
+.record-did > span { font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); }
+.record-did ol { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; min-height: 1px; }
+.record-did li { position: relative; padding-left: 26px; font-size: 0.925rem; font-weight: 500; animation: demo-in .3s ease both; }
+.record-did li::before {
+  content: '✓';
+  position: absolute; left: 0; top: 2px;
+  display: grid; place-items: center;
+  width: 17px; height: 17px; border-radius: 50%;
+  background: var(--accent); color: #fff; font-size: 0.65rem;
+}
+.board-toast { animation: demo-in .35s ease both; }
+.board-table tr.is-new td, .inbox li.is-new { animation: demo-in .4s ease both; }
+
+@media (max-width: 1100px) {
+  .record-fields { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 900px) {
+  .demo-stage, .demo-browser .demo-stage { grid-template-columns: minmax(0, 1fr); }
+  .device { position: static; }
+  .phone { height: 560px; max-width: 420px; }
+  .browser { height: 600px; max-width: 480px; }
+  .widget { left: 20px; top: 84px; }
+  .site-nav span { display: none; }
+  .hint-wide { display: none; }
+  .hint-narrow { display: inline; }
+  .see-board:not([hidden]) { display: block; max-width: 420px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-dot, .msg, .record-fields .is-new, .record-did li, .board-toast, .board-table tr.is-new td, .inbox li.is-new { animation: none; }
+  .record-bar i { transition: none; }
 }

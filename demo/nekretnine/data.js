@@ -105,7 +105,8 @@ window.MANGAI_DEMO = {
        "label": "Još ne znam",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "financiranje"
     },
     "s2": {
      "bot": [
@@ -120,7 +121,8 @@ window.MANGAI_DEMO = {
        "label": "Vikend",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "razgled"
     },
     "s3": {
      "bot": [
@@ -136,7 +138,8 @@ window.MANGAI_DEMO = {
        "label": "Ne treba",
        "next": "s4"
       }
-     ]
+     ],
+     "field": "obavijesti"
     },
     "s4": {
      "bot": [
@@ -160,7 +163,15 @@ window.MANGAI_DEMO = {
        "lead": 1,
        "view": 1
       },
-      "toast": "Novi kvalificirani upit i razgled dodijeljen agentici Maji."
+      "toast": "Novi kvalificirani upit i razgled dodijeljen agentici Maji.",
+      "set": {
+       "agent": "Agentica Maja, četvrtak 17:30"
+      },
+      "actions": [
+       "Razgled upisan u kalendar agentice Maje",
+       "Potvrda s adresom poslana kupcu",
+       "Sažetak upita poslan agentici"
+      ]
      },
      "end": true
     }
@@ -171,7 +182,50 @@ window.MANGAI_DEMO = {
    "Postavlja pitanja o budžetu, financiranju i rokovima, pa agent dobiva samo ozbiljne kupce.",
    "Zakazuje razglede u kalendar agenta i šalje podsjetnike."
   ],
-  "cta": "Želim ovo za svoju agenciju"
+  "cta": "Želim ovo za svoju agenciju",
+  "theme": {
+   "chrome": "browser",
+   "accent": "#1F3A5F",
+   "soft": "#EAF0F7"
+  },
+  "when": "Subota, 20:15",
+  "site": {
+   "url": "jadran-nekretnine.hr",
+   "nav": [
+    "Prodaja",
+    "Najam",
+    "Novogradnja"
+   ],
+   "tagline": "Stanovi i kuće u Splitu i okolici"
+  },
+  "record": {
+   "title": "Kvalificirani upit",
+   "fields": [
+    {
+     "key": "nekretnina",
+     "label": "Nekretnina"
+    },
+    {
+     "key": "financiranje",
+     "label": "Financiranje"
+    },
+    {
+     "key": "razgled",
+     "label": "Željeni razgled"
+    },
+    {
+     "key": "obavijesti",
+     "label": "Obavijesti o sličnim stanovima"
+    },
+    {
+     "key": "agent",
+     "label": "Dodijeljeno"
+    }
+   ],
+   "initial": {
+    "nekretnina": "Stan 68 m², Žnjan"
+   }
+  }
  },
  "en": {
   "pageTitle": "AI assistant for real estate agencies – demo",
@@ -278,7 +332,8 @@ window.MANGAI_DEMO = {
        "label": "Not sure yet",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "financiranje"
     },
     "s2": {
      "bot": [
@@ -293,7 +348,8 @@ window.MANGAI_DEMO = {
        "label": "At the weekend",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "razgled"
     },
     "s3": {
      "bot": [
@@ -309,7 +365,8 @@ window.MANGAI_DEMO = {
        "label": "No thanks",
        "next": "s4"
       }
-     ]
+     ],
+     "field": "obavijesti"
     },
     "s4": {
      "bot": [
@@ -333,7 +390,15 @@ window.MANGAI_DEMO = {
        "lead": 1,
        "view": 1
       },
-      "toast": "New qualified lead and viewing assigned to Maja."
+      "toast": "New qualified lead and viewing assigned to Maja.",
+      "set": {
+       "agent": "Agent Maja, Thursday 17:30"
+      },
+      "actions": [
+       "Viewing added to agent Maja’s calendar",
+       "Confirmation with the address sent to the buyer",
+       "Enquiry summary sent to the agent"
+      ]
      },
      "end": true
     }
@@ -344,6 +409,49 @@ window.MANGAI_DEMO = {
    "Asks about budget, financing and timing, so agents only get serious buyers.",
    "Books viewings into the agent’s calendar and sends reminders."
   ],
-  "cta": "I want this for my agency"
+  "cta": "I want this for my agency",
+  "theme": {
+   "chrome": "browser",
+   "accent": "#1F3A5F",
+   "soft": "#EAF0F7"
+  },
+  "when": "Saturday, 20:15",
+  "site": {
+   "url": "jadran-nekretnine.hr",
+   "nav": [
+    "For sale",
+    "To rent",
+    "New builds"
+   ],
+   "tagline": "Flats and houses in and around Split"
+  },
+  "record": {
+   "title": "Qualified lead",
+   "fields": [
+    {
+     "key": "nekretnina",
+     "label": "Property"
+    },
+    {
+     "key": "financiranje",
+     "label": "Financing"
+    },
+    {
+     "key": "razgled",
+     "label": "Preferred viewing"
+    },
+    {
+     "key": "obavijesti",
+     "label": "Alerts for similar flats"
+    },
+    {
+     "key": "agent",
+     "label": "Assigned to"
+    }
+   ],
+   "initial": {
+    "nekretnina": "68 m² flat, Žnjan"
+   }
+  }
  }
 };

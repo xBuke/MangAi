@@ -679,13 +679,12 @@ const javni = {
    /primjeri/
    ====================================================================== */
 const DEMOS = [
-  ['/demo/salon/', 'Beauty salon', 'Asistent odgovara na pitanja o uslugama i cijenama, prima rezervacije 0–24 i šalje podsjetnike, a vlasnica termine vidi odmah u kalendaru.'],
-  ['/demo/nekretnine/', 'Nekretnine', 'Asistent odgovara na upite za oglase, postavlja prava pitanja o budžetu i rokovima te zakazuje razgled, a agent dobiva kvalificiran upit sa sažetkom.'],
-  ['/demo/apartmani/', 'Apartmani i turizam', 'Asistent odgovara gostima na više jezika, provjerava slobodne datume i šalje upute za dolazak, a vi dobivate upite spremne za potvrdu.'],
+  ['/demo/salon/', 'Beauty salon', 'Nedjelja navečer, poruka na WhatsAppu. Asistent ponudi slobodne termine, upiše rezervaciju u kalendar i zakaže podsjetnik, a vlasnica to vidi ujutro.'],
+  ['/demo/apartmani/', 'Apartmani i turizam', 'Gost piše na njemačkom u 23:30. Asistent odgovara na njemačkom, provjeri datume i pošalje vam upit preveden na hrvatski, spreman za potvrdu.'],
   ['/demo/ordinacija/', 'Ordinacija i klinika', 'Asistent odgovara na česta pitanja pacijenata, prima zahtjeve za termin i šalje upute prije pregleda, a hitne slučajeve odmah upućuje na telefon ili 112.'],
-  ['/demo/odvjetnik/', 'Odvjetnički ured', 'Asistent prikuplja osnovne podatke o predmetu prije konzultacija, bilježi rokove koje je stranka navela i zakazuje termin, a odvjetnik dobiva sažetak.'],
-  ['/demo/agencija/', 'Marketinška agencija', 'Asistent pod vašim brendom kvalificira nove klijente, prikuplja brief i zakazuje uvodni sastanak, a tim dobiva sažetak s budžetom i ciljevima.'],
-  ['/demo/opcina/', 'Općina ili grad', 'Asistent odgovara građanima iz službenih dokumenata, upućuje ih na prave obrasce i prima komunalne prijave, a djelatnici dobivaju razvrstane zahtjeve.'],
+  ['/demo/odvjetnik/', 'Odvjetnički ured', 'Stranka je dobila otkaz. Asistent prikupi podatke, označi mogući kratak rok i zakaže konzultacije, a odvjetnica dobije sažetak predmeta prije razgovora.'],
+  ['/demo/nekretnine/', 'Nekretnine', 'Asistent odgovara na upite za oglase, postavlja prava pitanja o budžetu i rokovima te zakazuje razgled, a agent dobiva kvalificiran upit sa sažetkom.'],
+  ['/demo/opcina/', 'Općina ili grad', 'Građanin u nedjelju navečer prijavi kvar javne rasvjete. Prijava dobije broj, lokaciju i opis te odlazi komunalnom redaru, bez poziva na centralu.'],
 ];
 
 const primjeri = {
@@ -693,9 +692,9 @@ const primjeri = {
   nav: '/primjeri/',
   crumbs: [['/', 'Početna'], [null, 'Primjeri']],
   metaTitle: 'Primjeri AI asistenata po djelatnostima',
-  description: 'Isprobajte AI asistenta za beauty salon, nekretnine, apartmane, ordinaciju, odvjetnički ured, agenciju i općinu. Odgovarate kao klijent, a ploča vlasnika puni se sama.',
+  description: 'Isprobajte AI asistenta za beauty salon, apartmane, ordinaciju, odvjetnički ured, nekretnine i općinu. Odgovarate kao klijent, a ploča vlasnika puni se pred vama.',
   h1: 'Primjeri',
-  lead: 'Probajte kako izgleda AI asistent za pojedinu djelatnost: odgovarate kao klijent, a ploča vlasnika puni se sama.',
+  lead: 'Šest asistenata koje možete isprobati odmah. Odgovarate kao klijent na WhatsAppu ili web stranici, a na ploči vlasnika gledate kako se upit sam upisuje, polje po polje.',
   heroActions: false,
   body: `
         <section class="section" aria-label="Popis primjera">
@@ -704,7 +703,7 @@ const primjeri = {
                     ${DEMOS.map(([href, sector, what]) => `<li><a href="${href}"><span class="demo-sector">${sector}</span><span class="demo-what">${what}</span><span class="demo-open">Isprobaj demo</span></a></li>`).join('\n                    ')}
                     <li><a href="/kontakt/"><span class="demo-sector">Vaša djelatnost?</span><span class="demo-what">Opišite kako radite, pa zajedno vidimo kako bi asistent izgledao kod vas.</span><span class="demo-open">Pošalji upit</span></a></li>
                 </ul>
-                <p class="demo-note">Demo prikazuje osnovni koncept s izmišljenim podacima. Prava verzija radi se prema vašim procesima, sustavima i vizualnom identitetu.</p>
+                <p class="demo-note">Svaki demo traje oko pola minute i radi s izmišljenim podacima. Prava verzija radi se prema vašim procesima, sustavima i vizualnom identitetu.</p>
             </div>
         </section>
 
@@ -722,7 +721,7 @@ const primjeri = {
             </div>
         </section>`,
   faq: [
-    { q: 'Jesu li primjeri pravi sustavi?', a: 'Primjeri rade s izmišljenim podacima i prikazuju koncept: razgovor s klijentom i ploču vlasnika. Prava verzija povezuje se s vašim podacima, kalendarom i kanalima.' },
+    { q: 'Jesu li primjeri pravi sustavi?', a: 'Primjeri rade s izmišljenim podacima i prikazuju koncept: razgovor s klijentom, karticu upita koja se puni tijekom razgovora i ploču vlasnika. Prava verzija povezuje se s vašim podacima, kalendarom i kanalima.' },
     { q: 'Mogu li dobiti primjer za svoju djelatnost?', a: 'Da. Opišite kako radite i koja pitanja klijenti najčešće postavljaju, pa vam pokažem kako bi asistent izgledao kod vas.' },
   ],
   schema: [{

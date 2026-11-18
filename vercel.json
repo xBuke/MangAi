@@ -92,6 +92,16 @@
       "permanent": true
     },
     {
+      "source": "/demo/agencija",
+      "destination": "/primjeri/",
+      "permanent": true
+    },
+    {
+      "source": "/demo/agencija/",
+      "destination": "/primjeri/",
+      "permanent": true
+    },
+    {
       "source": "/cijene",
       "destination": "/usluge/",
       "permanent": true

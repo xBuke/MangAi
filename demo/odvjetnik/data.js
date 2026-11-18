@@ -102,7 +102,8 @@ window.MANGAI_DEMO = {
        "label": "Prije više od 8 dana",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "rok"
     },
     "s2": {
      "bot": [
@@ -117,7 +118,8 @@ window.MANGAI_DEMO = {
        "label": "Samo otkaz",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "dokumenti"
     },
     "s3": {
      "bot": [
@@ -132,7 +134,8 @@ window.MANGAI_DEMO = {
        "label": "Četvrtak 15:00",
        "next": "s4"
       }
-     ]
+     ],
+     "field": "termin"
     },
     "s4": {
      "bot": [
@@ -143,7 +146,7 @@ window.MANGAI_DEMO = {
       "row": [
        "Nova stranka",
        "Radno pravo",
-       "Odabrani termin",
+       "{termin}",
        "Rok može biti kratak, provjeriti"
       ],
       "inbox": {
@@ -157,7 +160,15 @@ window.MANGAI_DEMO = {
        "cons": 1,
        "urgent": 1
       },
-      "toast": "Nove konzultacije zakazane; označen mogući kratak rok."
+      "toast": "Nove konzultacije zakazane; označen mogući kratak rok.",
+      "set": {
+       "napomena": "Rok može biti kratak, provjeriti"
+      },
+      "actions": [
+       "Konzultacije upisane u kalendar ureda",
+       "Sažetak predmeta poslan odvjetnici",
+       "Stranka dobila popis dokumenata koje treba ponijeti"
+      ]
      },
      "end": true
     }
@@ -168,7 +179,50 @@ window.MANGAI_DEMO = {
    "Označava upite s kratkim rokovima da ih ured vidi odmah.",
    "Ne daje pravne savjete; upite izvan djelokruga ljubazno upućuje dalje."
   ],
-  "cta": "Želim ovo za svoj ured"
+  "cta": "Želim ovo za svoj ured",
+  "theme": {
+   "chrome": "browser",
+   "accent": "#6B2737",
+   "soft": "#F6ECEE"
+  },
+  "when": "Petak, 19:20",
+  "site": {
+   "url": "ured-peric.hr",
+   "nav": [
+    "Područja rada",
+    "O uredu",
+    "Kontakt"
+   ],
+   "tagline": "Radno, trgovačko i obiteljsko pravo"
+  },
+  "record": {
+   "title": "Sažetak predmeta",
+   "fields": [
+    {
+     "key": "podrucje",
+     "label": "Područje"
+    },
+    {
+     "key": "rok",
+     "label": "Otkaz uručen"
+    },
+    {
+     "key": "dokumenti",
+     "label": "Dokumenti"
+    },
+    {
+     "key": "termin",
+     "label": "Konzultacije"
+    },
+    {
+     "key": "napomena",
+     "label": "Napomena za odvjetnicu"
+    }
+   ],
+   "initial": {
+    "podrucje": "Radno pravo, otkaz"
+   }
+  }
  },
  "en": {
   "pageTitle": "AI assistant for law offices – demo",
@@ -272,7 +326,8 @@ window.MANGAI_DEMO = {
        "label": "More than 8 days ago",
        "next": "s2"
       }
-     ]
+     ],
+     "field": "rok"
     },
     "s2": {
      "bot": [
@@ -287,7 +342,8 @@ window.MANGAI_DEMO = {
        "label": "Only the dismissal",
        "next": "s3"
       }
-     ]
+     ],
+     "field": "dokumenti"
     },
     "s3": {
      "bot": [
@@ -302,7 +358,8 @@ window.MANGAI_DEMO = {
        "label": "Thursday 15:00",
        "next": "s4"
       }
-     ]
+     ],
+     "field": "termin"
     },
     "s4": {
      "bot": [
@@ -312,8 +369,8 @@ window.MANGAI_DEMO = {
      "event": {
       "row": [
        "New client",
-       "Employment",
-       "Chosen time",
+       "Employment law",
+       "{termin}",
        "Deadline may be short, check"
       ],
       "inbox": {
@@ -327,7 +384,15 @@ window.MANGAI_DEMO = {
        "cons": 1,
        "urgent": 1
       },
-      "toast": "New consultation booked; possible short deadline flagged."
+      "toast": "New consultation booked; possible short deadline flagged.",
+      "set": {
+       "napomena": "Deadline may be short, check"
+      },
+      "actions": [
+       "Consultation added to the office calendar",
+       "Case summary sent to the lawyer",
+       "Client received the list of documents to bring"
+      ]
      },
      "end": true
     }
@@ -338,6 +403,49 @@ window.MANGAI_DEMO = {
    "Flags enquiries with short deadlines so the office sees them at once.",
    "Gives no legal advice; out-of-scope questions are politely referred elsewhere."
   ],
-  "cta": "I want this for my office"
+  "cta": "I want this for my office",
+  "theme": {
+   "chrome": "browser",
+   "accent": "#6B2737",
+   "soft": "#F6ECEE"
+  },
+  "when": "Friday, 19:20",
+  "site": {
+   "url": "ured-peric.hr",
+   "nav": [
+    "Practice areas",
+    "About",
+    "Contact"
+   ],
+   "tagline": "Employment, commercial and family law"
+  },
+  "record": {
+   "title": "Case summary",
+   "fields": [
+    {
+     "key": "podrucje",
+     "label": "Area"
+    },
+    {
+     "key": "rok",
+     "label": "Dismissal served"
+    },
+    {
+     "key": "dokumenti",
+     "label": "Documents"
+    },
+    {
+     "key": "termin",
+     "label": "Consultation"
+    },
+    {
+     "key": "napomena",
+     "label": "Note for the lawyer"
+    }
+   ],
+   "initial": {
+    "podrucje": "Employment law, dismissal"
+   }
+  }
  }
 };
