@@ -1,5 +1,89 @@
 [
   {
+    "slug": "kako-prepoznati-pouzdanog-izvodjaca-ai-rjesenja",
+    "title_hr": "Kako prepoznati pouzdanog izvođača AI rješenja i što provjeriti prije ugovora",
+    "meta_title_hr": "Pouzdan izvođač AI rješenja: što provjeriti prije ugovora",
+    "meta_description_hr": "AI chatbot ili automatizacija od nepoznatog izvođača? Popis pitanja i upozorenja prije potpisa: opseg, vlasništvo, podaci, pilot, održavanje i način plaćanja.",
+    "excerpt_hr": "Kako procijeniti izvođača AI rješenja: pitanja prije ugovora, znakovi upozorenja i uvjeti koji štite vas, od opsega i vlasništva do pilota i plaćanja po fazama.",
+    "date": "2026-11-19",
+    "author": "MangAI",
+    "keywords": [
+      "pouzdan izvođač AI rješenja",
+      "kako odabrati izvođača AI chatbota",
+      "ugovor za AI rješenje",
+      "AI chatbot izvođač provjera",
+      "AI automatizacija ugovor",
+      "pitanja prije narudžbe AI"
+    ],
+    "reading_time_minutes": 7,
+    "content_html_hr": "<p>AI je novo područje, pa mnogi vlasnici tvrtki ne znaju kako procijeniti ponudu. Obećanja zvuče slično, a razlika između dobrog i lošeg izvođača vidi se tek nakon što je novac plaćen. Ovdje je popis što provjeriti prije ugovora, znakovi upozorenja i uvjeti koji vas štite.</p>\n<h2>Prije svega: što točno dobivate</h2>\n<p>Pouzdan izvođač prije ponude traži da razumije vaš posao. Ako ponuda stigne bez ijednog pitanja o vašem procesu, a sadrži velike riječi o „umjetnoj inteligenciji“, to je loš znak. Ponuda treba odgovoriti na:</p>\n<ul>\n<li>što rješenje radi, a što ne radi,</li>\n<li>koje podatke koristi i odakle ih dobiva,</li>\n<li>tko ga testira i na čemu,</li>\n<li>što se događa kad pogriješi.</li>\n</ul>\n<h2>Pitanja koja treba postaviti</h2>\n<ol>\n<li><strong>Je li opseg napisan?</strong> Popis funkcija, rokovi i što nije uključeno. „Pametni chatbot“ nije opseg.</li>\n<li><strong>Tko je vlasnik rješenja?</strong> Dobivate li pristupne podatke, dokumentaciju i po potrebi izvorni kod, ili ostajete vezani uz izvođača?</li>\n<li><strong>Odakle chatbot uzima odgovore?</strong> Samo iz vaših podataka ili „iz glave“? Što radi kad ne zna?</li>\n<li><strong>Što se događa s podacima?</strong> Koji se servisi koriste, gdje se podaci obrađuju, koriste li se za treniranje modela i sklapa li se ugovor o obradi podataka?</li>\n<li><strong>Može li se krenuti s pilotom?</strong> Jedan proces s fiksnim opsegom i rokom manji je rizik od velikog projekta unaprijed.</li>\n<li><strong>Kako se mjeri uspjeh?</strong> Dogovorite pokazatelje unaprijed, npr. ušteđene sate ili broj obrađenih upita.</li>\n<li><strong>Tko održava rješenje poslije predaje?</strong> I koliko to košta mjesečno, uključujući korištenje AI modela.</li>\n<li><strong>Kako se plaća?</strong> Plaćanje po fazama uz predaju svake faze smanjuje rizik, a puni iznos unaprijed za nejasan rezultat je upozorenje.</li>\n</ol>\n<h2>Znakovi upozorenja</h2>\n<ul>\n<li>Obećanje rezultata bez poznavanja vašeg posla („udvostručit ćemo prodaju“).</li>\n<li>Ponuda bez opsega, roka i opisa što se predaje.</li>\n<li>Nemogućnost da objasne jednostavnim jezikom kako rješenje radi.</li>\n<li>Pritisak da se odluči odmah ili da se plati cijeli iznos unaprijed.</li>\n<li>Nema reference, prethodnog rada ili mogućnosti da ga pogledate.</li>\n<li>Izbjegavanje pitanja o podacima i vlasništvu.</li>\n</ul>\n<h2>Što traži zakon</h2>\n<p>Ako rješenje obrađuje osobne podatke, vrijedi GDPR, a za neke AI sustave i europska pravila o umjetnoj inteligenciji. Čak i kad se neko pravilo na vas izravno ne odnosi, izvođač mora znati objasniti koje podatke obrađuje i zašto. Više o tome u članku <a href=\"/blog/ai-chatbot-za-web-stranicu.html\">AI chatbot za web stranicu i prodaju</a>.</p>\n<h2>Kako smanjiti rizik</h2>\n<ol>\n<li>Krenite s jednim jasno određenim procesom i fiksnim rokom.</li>\n<li>Zatražite pisanu ponudu s opsegom, rokom i cijenom.</li>\n<li>Isprobajte rješenje na stvarnim primjerima prije prihvaćanja.</li>\n<li>Dogovorite tko ima pristup računima i podacima.</li>\n<li>Prije ugovora izračunajte isplati li se, kako je opisano u članku <a href=\"/blog/cijena-ai-automatizacije-poslovanja.html\">Cijena AI automatizacije poslovanja</a>.</li>\n</ol>\n<p>Kako mi radimo, možete vidjeti na stranici <a href=\"/usluge/ai-automatizacija/\">AI automatizacija poslovanja</a>.</p>\n<h2>Pošaljite opis, ponuda stiže pismeno</h2>\n<p>Najbrži put do ponude je kratak opis. Napišite mi na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a>: što trebate, za koga i do kada. Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom.</p>",
+    "faq_hr": [
+      {
+        "q": "Kako znati da je ponuda za AI rješenje realna?",
+        "a": "Realna ponuda opisuje što rješenje radi i ne radi, koje podatke koristi, rok, cijenu i što dobivate na kraju. Ako obećava rezultate bez poznavanja vašeg posla, treba biti oprezan."
+      },
+      {
+        "q": "Treba li platiti unaprijed?",
+        "a": "Bolje je plaćanje po fazama uz predaju svake faze. Puni iznos unaprijed za nejasan rezultat je upozorenje."
+      },
+      {
+        "q": "Što ako mi AI rješenje ne bude odgovaralo?",
+        "a": "Zato se preporučuje pilot na jednom procesu s fiksnim opsegom i rokom, uz testiranje na stvarnim primjerima prije prihvaćanja."
+      },
+      {
+        "q": "Koliko brzo dobivam ponudu?",
+        "a": "Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom."
+      }
+    ],
+    "ukratko": {
+      "text": "Pouzdan izvođač prije ponude pita o vašem poslu, a ponuda jasno opisuje opseg, rok, podatke i vlasništvo. Krenite s pilotom na jednom procesu, plaćajte po fazama i izbjegavajte obećanja bez poznavanja vašeg posla.",
+      "href": "/usluge/ai-automatizacija/",
+      "label": "AI automatizacija poslovanja"
+    }
+  },
+  {
+    "slug": "kako-napraviti-web-stranicu-za-obrt",
+    "title_hr": "Kako napraviti web stranicu za obrt: WordPress, Squarespace ili izrada po mjeri",
+    "meta_title_hr": "Web stranica za obrt: WordPress, Squarespace ili po mjeri?",
+    "meta_description_hr": "Otvarate obrt i trebate web stranicu? Usporedba triju putova: graditelj poput Squarespacea, WordPress i izrada po mjeri. Što koji traži od vas i kako odabrati.",
+    "excerpt_hr": "Za obrt su realna tri puta: graditelj stranica, WordPress ili izrada po mjeri. Što svaki traži od vas, gdje su skriveni troškovi i kako odabrati bez zabune.",
+    "date": "2026-11-19",
+    "author": "MangAI",
+    "keywords": [
+      "kako napraviti web stranicu za obrt",
+      "web stranica za obrt",
+      "WordPress ili Squarespace",
+      "web stranica za novi obrt",
+      "izrada web stranice po mjeri",
+      "prva web stranica za obrt"
+    ],
+    "reading_time_minutes": 7,
+    "content_html_hr": "<p>Kad otvarate obrt, web stranica često je prvo što vam treba, a pitanja su uvijek ista: napraviti je sam na Squarespaceu ili sličnom alatu, uzeti WordPress ili platiti nekome da je izradi. Nema jednog točnog odgovora, ali ima jasnih kriterija. Ovdje su tri puta, što svaki traži od vas i kad se koji isplati.</p>\n<h2>Prije izbora alata: što stranica mora napraviti</h2>\n<p>Većini obrta stranica treba za tri stvari: da vas ljudi nađu na Googleu, da vide što radite i da vas lako kontaktiraju. Webshop, rezervacije i korisnički računi trebaju samo neki. Zapišite prije odluke:</p>\n<ul>\n<li>koje usluge nudite i za koga,</li>\n<li>što posjetitelj mora napraviti (nazvati, ispuniti upit, rezervirati),</li>\n<li>trebate li više jezika,</li>\n<li>tko će stranicu ažurirati poslije izrade.</li>\n</ul>\n<h2>Put 1: graditelj stranica (npr. Squarespace, Wix)</h2>\n<p>Slažete stranicu iz gotovih predložaka, bez programiranja. Prednost je brz početak i da sve funkcionira unutar jednog servisa. Nedostaci su mjesečna ili godišnja pretplata koja traje dok stranicu imate, ograničenja predloška i teže prilagođavanje hrvatskim potrebama, a prelazak na drugu platformu obično znači izradu iznova. Dobar izbor ako imate vremena, volite sami slagati i trebate jednostavnu stranicu.</p>\n<h2>Put 2: WordPress</h2>\n<p>Vrlo raširen sustav s mnogo predložaka i dodataka. Fleksibilniji je od graditelja i stranica je vaša, ali traži više brige: hosting, ažuriranja, sigurnosne zakrpe i usklađivanje dodataka. Loše održavan WordPress često je spor i ranjiv. Dobar izbor ako vam trebaju posebne funkcije ili imate nekoga tko će ga održavati.</p>\n<h2>Put 3: izrada po mjeri</h2>\n<p>Stranica se izrađuje prema vašim uslugama, bez nepotrebnih dodataka. Obično je brža, lakša za održavanje i može biti jednostavna statična stranica koja se učitava gotovo trenutno. Vi ne trošite vrijeme na alat, ali plaćate izradu. Dobar izbor ako vam je vrijeme skuplje od izrade, želite jasnu ponudu i rok i ne želite brinuti o tehnici.</p>\n<h2>Gdje su skriveni troškovi</h2>\n<ul>\n<li><strong>Domena i hosting:</strong> plaćaju se godišnje, bez obzira na put.</li>\n<li><strong>Pretplate i dodaci:</strong> graditelji i WordPress dodaci često se naplaćuju zasebno.</li>\n<li><strong>Vaše vrijeme:</strong> sati koje potrošite na slaganje i popravljanje također su trošak.</li>\n<li><strong>Održavanje:</strong> pitajte tko radi ažuriranja i sigurnosne zakrpe i koliko to košta.</li>\n<li><strong>Vlasništvo:</strong> provjerite možete li stranicu preseliti i koga sve dobivate pristup.</li>\n</ul>\n<p>Više o stavkama cijene pišemo u članku <a href=\"/blog/koliko-kosta-izrada-web-stranice.html\">Koliko košta izrada web stranice</a>.</p>\n<h2>Što ne smije izostati na stranici obrta</h2>\n<ul>\n<li>jasan naslov što radite i gdje (ili da radite na daljinu),</li>\n<li>popis usluga s kratkim opisom,</li>\n<li>kontakt koji se vidi bez traženja: telefon, e-pošta, obrazac,</li>\n<li>pravni podaci obrta i politika privatnosti,</li>\n<li>brzo učitavanje i izgled prilagođen mobitelu, jer većina posjeta dolazi s njega.</li>\n</ul>\n<p>Detalje o tome što staviti, a što izostaviti donosi članak <a href=\"/blog/web-stranica-za-obrt-i-malu-tvrtku.html\">Web stranica za obrt i malu tvrtku</a>.</p>\n<h2>Kako odabrati</h2>\n<ol>\n<li>Ako imate vremena i trebate nešto jednostavno, graditelj stranica je dovoljan.</li>\n<li>Ako vam trebaju posebne funkcije i imate koga za održavanje, WordPress ima smisla.</li>\n<li>Ako želite gotovu stranicu uz jasnu ponudu i rok, izrada po mjeri štedi najviše vremena.</li>\n</ol>\n<p>Ako se opredijelite za izradu po mjeri, pogledajte <a href=\"/usluge/izrada-web-stranica/\">kako radimo izradu web stranica</a>.</p>\n<h2>Pošaljite opis, ponuda stiže pismeno</h2>\n<p>Najbrži put do ponude je kratak opis. Napišite mi na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a>: što trebate, za koga i do kada. Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom.</p>",
+    "faq_hr": [
+      {
+        "q": "Je li bolje za obrt WordPress ili Squarespace?",
+        "a": "Ovisi o tome tko će stranicu održavati. Squarespace i slični graditelji jednostavniji su za početnike, a WordPress je fleksibilniji, ali traži hosting, ažuriranja i sigurnosne zakrpe."
+      },
+      {
+        "q": "Treba li obrtu web stranica ako ima društvene mreže?",
+        "a": "Preporučuje se. Stranica je vaša, može se naći na Googleu i njome upravljate sami, dok pravila i vidljivost na društvenim mrežama određuje treća strana."
+      },
+      {
+        "q": "Što mi je potrebno prije izrade stranice?",
+        "a": "Popis usluga, kontakt podaci, pravni podaci obrta i nekoliko fotografija vaših radova. Što je opis točniji, to je ponuda brža i preciznija."
+      },
+      {
+        "q": "Koliko brzo dobivam ponudu?",
+        "a": "Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom."
+      }
+    ],
+    "ukratko": {
+      "text": "Za obrt su realna tri puta: graditelj stranica za jednostavnu stranicu uz vaše vrijeme, WordPress za posebne funkcije uz održavanje, ili izrada po mjeri za gotovu stranicu uz jasnu ponudu i rok. Odluku donosi to koliko vremena imate i tko će stranicu održavati.",
+      "href": "/usluge/izrada-web-stranica/",
+      "label": "Izrada web stranica"
+    }
+  },
+  {
     "slug": "ai-asistent-za-obrt-i-malu-tvrtku",
     "title_hr": "AI asistent za obrt i malu tvrtku: što može preuzeti, a što treba ostati vama",
     "meta_title_hr": "AI asistent za obrt i malu tvrtku: što stvarno preuzima",
@@ -34,7 +118,12 @@
         "q": "Koliko brzo dobivam ponudu?",
         "a": "Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "AI asistent preuzima ponavljajući posao: odgovore na iste upite, podsjetnike, pripremu ponuda i unos podataka. Odluke, cijene i odnos s klijentom ostaju vama.",
+      "href": "/usluge/ai-chatbot/",
+      "label": "AI chatbot i asistent za tvrtke"
+    }
   },
   {
     "slug": "ai-chatbot-za-apartmane",
@@ -71,7 +160,12 @@
         "q": "Tko potvrđuje rezervaciju?",
         "a": "Potvrdu i cijenu najčešće potvrđujete vi. Chatbot prikuplja podatke o terminu i kontakt, a drukčije se može dogovoriti."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "AI chatbot na stranici apartmana odgovara gostima 0–24 na njihovom jeziku iz vaših podataka i šalje vam sažetak upita. Cijene i potvrdu rezervacije ostavite sebi.",
+      "href": "/usluge/ai-chatbot/",
+      "label": "AI chatbot za web stranicu i WhatsApp"
+    }
   },
   {
     "slug": "cijena-ai-automatizacije-poslovanja",
@@ -108,7 +202,12 @@
         "q": "Koliko brzo mogu dobiti ponudu?",
         "a": "Na upit odgovaram unutar jednog do dva radna dana. Što je opis posla točniji, to je ponuda brža, a stiže pismeno s cijenom i rokom."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Cijenu AI automatizacije određuju broj procesa, sustava koje treba povezati i kvaliteta podataka, uz mjesečne troškove alata i održavanja. Isplativost se računa iz sati koje posao danas oduzima.",
+      "href": "/usluge/ai-automatizacija/",
+      "label": "AI automatizacija poslovanja"
+    }
   },
   {
     "slug": "web-stranica-za-obrt-i-malu-tvrtku",
@@ -141,7 +240,12 @@
         "q": "Koliko brzo mogu dobiti ponudu i stranicu?",
         "a": "Ponudu šaljem brzo nakon što dobijem opis. Rok izrade ovisi o opsegu i dogovara se unaprijed, a jednostavne stranice izrađuju se brže."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Obrtu treba jasna, brza stranica s uslugama, referencama i kontaktom, a ne deset dodataka. Najbrža ponuda dolazi iz kratkog opisa što radite, za koga i što želite da posjetitelj napravi.",
+      "href": "/usluge/izrada-web-stranica/",
+      "label": "Izrada web stranica"
+    }
   },
   {
     "slug": "izrada-web-stranica-dalmacija-hrvatska",
@@ -178,7 +282,12 @@
         "q": "Koliko brzo dobivam ponudu?",
         "a": "Brzo nakon što pošaljete opis stranice. Ponuda je pisana, s opsegom, rokom i fiksnim iznosom."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Izrađivač ne mora biti iz vašeg grada. Cijeli posao, od dogovora do predaje, radi se na daljinu, a lokalna vidljivost dolazi iz sadržaja stranice i Google profila.",
+      "href": "/usluge/izrada-web-stranica/",
+      "label": "Izrada web stranica za cijelu Hrvatsku"
+    }
   },
   {
     "slug": "koliko-kosta-izrada-web-stranice",
@@ -215,7 +324,12 @@
         "q": "Tko je vlasnik stranice i domene nakon izrade?",
         "a": "Vi. Domena je na vaše ime, a dobivate pristupne podatke i izvorni kod. Time ne ovisite o jednom izrađivaču."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Cijena web stranice ovisi o opsegu: broju stranica, funkcijama, sadržaju i održavanju. Tražite ponudu koja jasno kaže što je uključeno i tko je vlasnik stranice.",
+      "href": "/usluge/izrada-web-stranica/",
+      "label": "Izrada web stranica"
+    }
   },
   {
     "slug": "vidljivost-u-ai-odgovorima-chatgpt-google",
@@ -253,7 +367,12 @@
         "q": "Kako izmjeriti vidljivost u AI odgovorima?",
         "a": "Promet iz Googleovih AI značajki vidi se u Search Consoleu, a posjeti iz ChatGPT-a u analitici kao izvor chatgpt.com. Korisno je i jednom mjesečno postaviti AI alatima pitanja koja postavljaju vaši klijenti i bilježiti spominju li vas."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "AI alati biraju jasne, činjenično točne i dobro strukturirane izvore. Pomažu jasan opis usluga, odgovori na stvarna pitanja i podaci koji se podudaraju na svim mjestima gdje se tvrtka pojavljuje.",
+      "href": "/usluge/izrada-web-stranica/",
+      "label": "Izrada web stranica"
+    }
   },
   {
     "slug": "ai-chatbot-za-web-stranicu",
@@ -290,7 +409,12 @@
         "q": "Moram li navesti da odgovara AI?",
         "a": "Da. Od 2. kolovoza 2026. Akt o umjetnoj inteligenciji traži da ljudi budu obaviješteni da razgovaraju s AI sustavom, osim kad je to očito iz konteksta."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "AI chatbot odgovara posjetiteljima iz vaših podataka i prikuplja upite, uz jasna pravila što ne smije raditi sam. Prije narudžbe provjerite izvor odgovora, zaštitu podataka i što bot radi kad ne zna.",
+      "href": "/usluge/ai-chatbot/",
+      "label": "AI chatbot za web stranicu i WhatsApp"
+    }
   },
   {
     "slug": "automatizacija-poslovnih-procesa-primjeri",
@@ -335,7 +459,12 @@
         "a": "Da. AI može iz računa u PDF-u, slici ili e-pošti izvući dobavljača, iznos, datum i stavke i upisati ih u tablicu ili program. Sve što je sustav označio kao nesigurno provjeravate vi prije knjiženja."
       }
     ],
-    "updated": "2026-11-19"
+    "updated": "2026-11-19",
+    "ukratko": {
+      "text": "Počnite od jednog procesa koji je čest, dosadan i svaki put isti: upiti, ponude, podsjetnici, obrada računa. Gdje su pravila jasna, dovoljna je obična automatizacija, a AI treba samo za slobodan tekst i dokumente.",
+      "href": "/usluge/ai-automatizacija/",
+      "label": "AI automatizacija poslovanja"
+    }
   },
   {
     "slug": "pristupacnost-web-stranica-javni-sektor",
@@ -367,7 +496,12 @@
         "q": "Koliko često treba ažurirati izjavu o pristupačnosti?",
         "a": "Zakon traži da izjava bude redovito ažurirana. U praksi je treba preispitati barem jednom godišnje i nakon svake veće izmjene stranice."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Javna tijela moraju imati pristupačnu stranicu i objavljenu izjavu o pristupačnosti. Stranicu možete sami provjeriti u nekoliko koraka, a nedostatke ispraviti prije nego ih netko prijavi.",
+      "href": "/usluge/izrada-web-stranica/",
+      "label": "Izrada web stranica"
+    }
   },
   {
     "slug": "sto-mora-imati-web-stranica-opcine",
@@ -399,7 +533,12 @@
         "q": "Tko je odgovoran za ažurnost stranice?",
         "a": "Odgovorno je tijelo javne vlasti. U praksi je najbolje imenovati osobu zaduženu za objavu i održavanje te izabrati sustav u kojem djelatnici sami lako objavljuju dokumente."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Općine i gradovi moraju na službenoj stranici objaviti zakonom određene informacije. Važno ih je složiti tako da ih građani lako nađu, a ne samo formalno objaviti.",
+      "href": "/usluge/izrada-web-stranica/",
+      "label": "Izrada web stranica"
+    }
   },
   {
     "slug": "nabava-web-stranice-jednostavna-nabava",
@@ -431,7 +570,12 @@
         "q": "Smije li u nabavi web stranice biti uključeno održavanje?",
         "a": "Da, i to se preporučuje. Održavanje je najbolje navesti kao zasebnu stavku s mjesečnom cijenom i jasnim opsegom, kako bi se ponude mogle usporediti."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Od 1. rujna 2026. prag za jednostavnu nabavu usluga iznosi 50.000 eura. Dobar opis posla s jasnim opsegom, rokovima i pravima nad stranicom štiti naručitelja.",
+      "href": "/usluge/izrada-web-stranica/",
+      "label": "Izrada web stranica"
+    }
   },
   {
     "slug": "ai-implementacija-plan-roi-hrvatska",
@@ -474,7 +618,12 @@
         "q": "Trebam li AI edukaciju za zaposlenike?",
         "a": "Da. Ljudi moraju znati zašto se nešto mijenja, kako koristiti nove alate i kada AI prebacuje na čovjeka. Kratka obuka (1–2 sata) i interni „čampion” koji pomaže ostalima često su dovoljni za početak."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Uvođenje AI-a počinje procjenom spremnosti i jednim mjerljivim procesom, a ne velikim projektom. Uspjeh se mjeri ušteđenim satima i manjim brojem grešaka.",
+      "href": "/usluge/ai-automatizacija/",
+      "label": "AI automatizacija poslovanja"
+    }
   },
   {
     "slug": "ai-automatizacija-poslovanja-hrvatska",
@@ -515,7 +664,12 @@
       }
     ],
     "meta_title_hr": "AI automatizacija poslovanja u Hrvatskoj: primjeri, cijene i kako početi",
-    "meta_description_hr": "Što je AI automatizacija poslovanja, koji se procesi najčešće automatiziraju, koliko košta u Hrvatskoj i kako krenuti s jednim procesom bez velikog rizika."
+    "meta_description_hr": "Što je AI automatizacija poslovanja, koji se procesi najčešće automatiziraju, koliko košta u Hrvatskoj i kako krenuti s jednim procesom bez velikog rizika.",
+    "ukratko": {
+      "text": "AI automatizacija znači da sustav preuzme ponavljajuće korake: upite, dokumente, podsjetnike i izvještaje. Najmanji rizik je pilot na jednom procesu s jasnim opsegom i rokom.",
+      "href": "/usluge/ai-automatizacija/",
+      "label": "AI automatizacija poslovanja"
+    }
   },
   {
     "slug": "ai-alati-male-tvrtke-hrvatska-2026",
@@ -555,6 +709,11 @@
         "q": "Je li AI siguran za poslovne podatke?",
         "a": "Važno je koristiti alate koji drže podatke u EU i poštuju GDPR. Za poslovne i osobne podatke provjerite uvjete davatelja i preferirajte rješenja s jasnom politikom privatnosti i mogućnošću ugovora o obradi podataka."
       }
-    ]
+    ],
+    "ukratko": {
+      "text": "Malim tvrtkama najviše koriste AI alati za pisanje i odgovore, obradu dokumenata, korisničku podršku i automatizaciju. Alat birajte prema poslu koji vam oduzima najviše sati, ne prema popularnosti.",
+      "href": "/usluge/ai-automatizacija/",
+      "label": "AI automatizacija poslovanja"
+    }
   }
 ]

@@ -386,6 +386,10 @@ function postPage(t, post, posts, otherLangUrl) {
   const content = fixBrand(fixInternalLinks(post[t.contentKey] || ''));
   const dateStr = formatDate(post.updated || post.date, t.lang);
   const faq = Array.isArray(post[t.faqKey]) ? post[t.faqKey] : [];
+  const uk = t.lang === 'hr' && post.ukratko && post.ukratko.text ? post.ukratko : null;
+  const ukHtml = uk
+    ? `<aside class="post-ukratko" aria-label="Ukratko"><p class="post-ukratko-title">Ukratko</p><p>${esc(fixBrand(uk.text))}</p>${uk.href ? `<p><a href="${esc(uk.href)}">${esc(uk.label || 'Saznajte više')}</a></p>` : ''}</aside>`
+    : '';
   const related = posts
     .filter((p) => p.slug !== post.slug)
     .sort(byDateDesc)
@@ -468,7 +472,7 @@ function postPage(t, post, posts, otherLangUrl) {
                     <nav id="post-toc-list" class="post-toc-list" hidden></nav>
                 </aside>
                 <article class="post-body">
-                    <div id="post-content" class="prose" data-post-content>${content}</div>${faqHtml}
+                    <div id="post-content" class="prose" data-post-content>${ukHtml}${content}</div>${faqHtml}
                     <section class="post-cta">
                         <h2>${t.ctaTitle}</h2>
                         <p>${t.ctaText}</p>

@@ -219,3 +219,9 @@
   .post-toc-list { margin-top: 12px; }
   .post-related ul { grid-template-columns: 1fr; }
 }
+
+/* ---------- Ukratko ---------- */
+.post-ukratko { margin: 0 0 32px; padding: 16px 20px; background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--mandarin); border-radius: 4px; max-width: 68ch; }
+.post-ukratko p { margin: 0; }
+.post-ukratko p + p { margin-top: 8px; }
+.post-ukratko-title { font-family: var(--font-display); font-weight: 700; margin-bottom: 6px !important; }
