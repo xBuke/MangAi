@@ -230,6 +230,7 @@ ${related('Povezano', [
     { q: 'Koliko traje izrada?', a: 'Najviše ovisi o tome koliko brzo stignu tekstovi i fotografije. Rok je naveden u ponudi, a jednostavna stranica ne traži mjesece rada.' },
     { q: 'Mogu li sam mijenjati sadržaj stranice?', a: 'Izmjene sadržaja dio su održavanja, pa ih ne morate raditi sami. Ako želite sami uređivati sadržaj, dogovorimo stranicu s administracijom.' },
     { q: 'Hoće li se stranica vidjeti na Googleu?', a: 'Svaku stranicu postavljam s naslovima, opisima i sitemapom, prijavim je u Google Search Console i povežem s Google Business profilom. Pozicija ovisi i o konkurenciji, ali tehnički dio je ispravan od prvog dana.' },
+    { q: 'Koliko brzo dobivam ponudu?', a: 'Na upit odgovaram unutar jednog do dva radna dana. Što je opis posla točniji, to je ponuda brža, a stiže pismeno s cijenom i rokom.' },
   ],
   schema: [service(
     'Izrada web stranica',
@@ -321,6 +322,7 @@ ${related('Povezano', [
     { q: 'Na kojim jezicima odgovara?', a: 'Na jeziku na kojem mu klijent piše: hrvatskom, engleskom, njemačkom, talijanskom i drugima. Zato je posebno koristan za apartmane i turizam.' },
     { q: 'Gdje vidim upite i razgovore?', a: 'Sažetak svakog upita stiže vam e-poštom ili u tablicu, CRM ili kalendar, ovisno o dogovoru. Razgovore možete pregledati i naknadno.' },
     { q: 'Zamjenjuje li asistent zaposlenika?', a: 'Ne. Preuzima ponavljajuća pitanja i upite izvan radnog vremena, a odluke i dogovori ostaju vama.' },
+    { q: 'Koliko brzo dobivam ponudu?', a: 'Na upit odgovaram unutar jednog do dva radna dana. Što je opis posla točniji, to je ponuda brža, a stiže pismeno s cijenom i rokom.' },
   ],
   schema: [service(
     'AI chatbot i asistent',
@@ -383,7 +385,7 @@ const automatizacija = {
                     <h2 id="prvi-title">Kako odabrati prvi proces</h2>
                     <p>Zapišite tjedan dana sve što radite ručno, a ponavlja se. Za svaki posao procijenite koliko se često ponavlja, koliko vremena uzima i ima li jasna pravila. Prvi kandidat je posao koji je čest, dosadan i svaki put isti.</p>
                     <p>Prije početka zajedno izračunamo isplati li se: sati tjedno puta vrijednost vašeg sata, u odnosu na ulaganje u izradu. Ako se ne isplati, reći ću vam.</p>
-                    <p>Dvanaest konkretnih primjera po djelatnostima pročitajte u članku <a href="/blog/automatizacija-poslovnih-procesa-primjeri.html">Automatizacija poslovnih procesa: 12 primjera</a>, a širi pregled u vodiču <a href="/blog/ai-automatizacija-poslovanja-hrvatska.html">AI automatizacija poslovanja u Hrvatskoj</a>.</p>
+                    <p>Petnaest konkretnih primjera pročitajte u članku <a href="/blog/automatizacija-poslovnih-procesa-primjeri.html">AI automatizacija poslovanja: 15 primjera</a>, a širi pregled u vodiču <a href="/blog/ai-automatizacija-poslovanja-hrvatska.html">AI automatizacija poslovanja u Hrvatskoj</a>.</p>
                 </div>
                 <div class="prose">
                     <h2>Alati i vaši sustavi</h2>
@@ -412,6 +414,7 @@ ${related('Povezano', [
     { q: 'Što ako automatizacija zakaže?', a: 'Svaka automatizacija javlja grešku kad neki korak ne prođe, pa ništa ne nestane tiho. Dobivate i dokumentaciju, tako da sustav može održavati i netko drugi.' },
     { q: 'Je li sigurno slati podatke AI modelu?', a: 'Koristim poslovne API-je pružatelja AI modela, šaljem samo podatke potrebne za zadatak i ne koristim alate koji vaše podatke koriste za treniranje modela. Kad se obrađuju osobni podaci, sklapamo ugovor o obradi podataka.' },
     { q: 'Koliko se može uštedjeti?', a: 'Ovisi o procesu. Zato prije početka računamo koliko sati tjedno posao uzima i koliko je ulaganje u izradu, pa odlučujete na temelju brojki.' },
+    { q: 'Koliko brzo dobivam ponudu?', a: 'Na upit odgovaram unutar jednog do dva radna dana. Što je opis posla točniji, to je ponuda brža, a stiže pismeno s cijenom i rokom.' },
   ],
   schema: [service(
     'AI automatizacija poslovanja',

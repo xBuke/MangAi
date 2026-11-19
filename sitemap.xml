@@ -73,6 +73,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mangai.hr/blog/ai-asistent-za-obrt-i-malu-tvrtku.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mangai.hr/blog/ai-chatbot-za-apartmane.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mangai.hr/blog/cijena-ai-automatizacije-poslovanja.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mangai.hr/blog/web-stranica-za-obrt-i-malu-tvrtku.html</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -104,7 +122,7 @@
   </url>
   <url>
     <loc>https://mangai.hr/blog/automatizacija-poslovnih-procesa-primjeri.html</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

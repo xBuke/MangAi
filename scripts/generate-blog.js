@@ -327,7 +327,7 @@ function indexPage(t, posts, otherLangUrl) {
     .map((p) => {
       const url = `${p.slug}.html`;
       return `                <li class="blog-card">
-                    <p class="blog-card-meta">${t.updated} ${esc(formatDate(p.date, t.lang))} <span aria-hidden="true">–</span> ${esc(p.reading_time_minutes || 5)} ${t.minRead}</p>
+                    <p class="blog-card-meta">${t.updated} ${esc(formatDate(p.updated || p.date, t.lang))} <span aria-hidden="true">–</span> ${esc(p.reading_time_minutes || 5)} ${t.minRead}</p>
                     <h2 class="blog-card-title"><a href="${url}">${esc(fixBrand(p[t.titleKey] || p.slug))}</a></h2>
                     <p class="blog-card-excerpt">${esc(fixBrand(p[t.excerptKey] || ''))}</p>
                     <a href="${url}" class="blog-card-link" aria-hidden="true" tabindex="-1">${t.readMore}</a>
@@ -384,7 +384,7 @@ function postPage(t, post, posts, otherLangUrl) {
   const metaTitle = fixBrand(post[t.metaTitleKey] || title) + ` | ${BRAND}`;
   const description = truncate(fixBrand(post[t.metaDescKey] || post[t.excerptKey] || ''));
   const content = fixBrand(fixInternalLinks(post[t.contentKey] || ''));
-  const dateStr = formatDate(post.date, t.lang);
+  const dateStr = formatDate(post.updated || post.date, t.lang);
   const faq = Array.isArray(post[t.faqKey]) ? post[t.faqKey] : [];
   const related = posts
     .filter((p) => p.slug !== post.slug)
@@ -417,7 +417,7 @@ function postPage(t, post, posts, otherLangUrl) {
       headline: title,
       description,
       datePublished: post.date,
-      dateModified: post.date,
+      dateModified: post.updated || post.date,
       inLanguage: t.lang,
       mainEntityOfPage: canonical,
       image: `${SITE}/assets/og.png`,
@@ -629,7 +629,7 @@ function main() {
     { loc: '/', lastmod: today, changefreq: 'weekly', priority: '1.0' },
     ...PAGES_HR.map((p) => ({ loc: p.path, lastmod: p.lastmod, changefreq: 'monthly', priority: p.path.split('/').filter(Boolean).length > 1 ? '0.8' : '0.9' })),
     { loc: '/blog/', lastmod: today, changefreq: 'weekly', priority: '0.8' },
-    ...hr.map((p) => ({ loc: `/blog/${p.slug}.html`, lastmod: (p.date || today).slice(0, 10), changefreq: 'monthly', priority: '0.7' })),
+    ...hr.map((p) => ({ loc: `/blog/${p.slug}.html`, lastmod: (p.updated || p.date || today).slice(0, 10), changefreq: 'monthly', priority: '0.7' })),
     { loc: '/en/', lastmod: today, changefreq: 'weekly', priority: '0.9' },
     { loc: '/en/blog/', lastmod: today, changefreq: 'weekly', priority: '0.6' },
     ...en.map((p) => ({ loc: `/en/blog/${p.slug}.html`, lastmod: (p.date || today).slice(0, 10), changefreq: 'monthly', priority: '0.5' })),

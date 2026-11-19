@@ -1,5 +1,116 @@
 [
   {
+    "slug": "ai-asistent-za-obrt-i-malu-tvrtku",
+    "title_hr": "AI asistent za obrt i malu tvrtku: što može preuzeti, a što treba ostati vama",
+    "meta_title_hr": "AI asistent za obrt i malu tvrtku: što stvarno preuzima",
+    "meta_description_hr": "Što AI asistent može preuzeti u obrtu ili maloj tvrtki: odgovore na upite, ponude, podsjetnike i obradu računa. Što ostaje vama i kako krenuti s jednim poslom.",
+    "excerpt_hr": "AI asistent nije zamjena za vas, nego za ponavljajući posao: odgovori na upite, podsjetnici, ponude i unos podataka. Pregled što ima smisla preuzeti i kako krenuti.",
+    "date": "2026-11-19",
+    "author": "MangAI",
+    "keywords": [
+      "AI asistent za obrt",
+      "AI asistent za tvrtke",
+      "AI za male tvrtke",
+      "AI usluge",
+      "poslovni AI asistent",
+      "AI za obrtnike"
+    ],
+    "reading_time_minutes": 6,
+    "content_html_hr": "<p>Vlasnik obrta ili male tvrtke najčešće sam odgovara na upite, piše ponude, šalje podsjetnike i prepisuje podatke, a usput radi svoj stvarni posao. <strong>AI asistent</strong> je način da dio tog ponavljajućeg posla preuzme sustav, a odluke ostanu kod vas.</p>\n<h2>Što AI asistent može preuzeti</h2>\n<ul>\n<li><strong>Odgovore na česta pitanja</strong> klijenata, na web stranici ili WhatsAppu, iz vaših podataka (<a href=\"/usluge/ai-chatbot/\">AI chatbot i asistent</a>).</li>\n<li><strong>Prikupljanje upita</strong>: upit se upiše u tablicu ili CRM, razvrsta i dodijeli, a vi dobijete obavijest.</li>\n<li><strong>Nacrte ponuda i odgovora</strong> koje samo pročitate, ispravite i pošaljete.</li>\n<li><strong>Podsjetnike</strong> za termine, neplaćene račune i redovite servise.</li>\n<li><strong>Unos podataka iz dokumenata</strong>: računi, narudžbe i e-pošta pretvore se u redove u tablici (<a href=\"/usluge/ai-automatizacija/\">AI automatizacija poslovanja</a>).</li>\n<li><strong>Tjedni ili mjesečni pregled</strong> brojki na jednom mjestu.</li>\n</ul>\n<h2>Što treba ostati vama</h2>\n<ul>\n<li>cijene, popusti i izuzeci,</li>\n<li>potvrda ponude i ugovora,</li>\n<li>plaćanja i sve što se ne može poništiti,</li>\n<li>odgovori na reklamacije i osjetljive razgovore.</li>\n</ul>\n<p>Sustav takve korake priprema, a vi odobravate. Tako dobivate brzinu bez rizika da asistent „obeća“ nešto u vaše ime.</p>\n<h2>Kako krenuti</h2>\n<ol>\n<li>Tjedan dana zapisujte što radite ručno i ponavlja se.</li>\n<li>Odaberite jedan posao koji je čest, dosadan i svaki put isti.</li>\n<li>Izračunajte koliko sati tjedno oduzima i je li ušteda veća od ulaganja.</li>\n<li>Počnite s jednim asistentom ili jednom automatizacijom, pa tek onda širite.</li>\n</ol>\n<p>Konkretne primjere nalazite u članku <a href=\"/blog/automatizacija-poslovnih-procesa-primjeri.html\">AI automatizacija poslovanja: 15 primjera</a>, a o cijeni u članku <a href=\"/blog/cijena-ai-automatizacije-poslovanja.html\">cijena AI automatizacije poslovanja</a>. Ako vam prvo treba web stranica, pogledajte <a href=\"/blog/web-stranica-za-obrt-i-malu-tvrtku.html\">web stranicu za obrt i malu tvrtku</a>.</p>\n<h2>Pošaljite opis, ponuda stiže pismeno</h2>\n<p>Najbrži put do ponude je kratak opis. Napišite mi na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a>: koji posao radite ručno, koliko se često ponavlja, koje programe koristite i što biste htjeli da preuzme sustav. Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom. Što je opis točniji, to je ponuda brža i preciznija.</p>",
+    "faq_hr": [
+      {
+        "q": "Što je AI asistent za tvrtku?",
+        "a": "To je softver koji preuzima ponavljajući posao, poput odgovora na česta pitanja, prikupljanja upita, nacrta ponuda i podsjetnika. Odluke i osjetljivi koraci ostaju kod vas."
+      },
+      {
+        "q": "Treba li mi AI asistent ako imam samo nekoliko klijenata tjedno?",
+        "a": "Ne nužno. Smisla ima kad vam ponavljajući posao oduzima sate tjedno. Prije ponude zajedno izračunamo isplati li se, a ako se ne isplati, reći ću vam."
+      },
+      {
+        "q": "Mogu li krenuti samo s jednim poslom?",
+        "a": "Da, i to je preporuka. Jedan jasan proces s fiksnim opsegom i rokom smanjuje rizik, a nakon mjerenja odlučujete što dalje."
+      },
+      {
+        "q": "Koliko brzo dobivam ponudu?",
+        "a": "Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom."
+      }
+    ]
+  },
+  {
+    "slug": "ai-chatbot-za-apartmane",
+    "title_hr": "AI chatbot za apartmane i iznajmljivače: što može preuzeti od gostiju i što provjeriti",
+    "meta_title_hr": "AI chatbot za apartmane: gosti dobivaju odgovor 0–24",
+    "meta_description_hr": "AI chatbot za apartmane odgovara gostima na hrvatskom, engleskom, njemačkom i talijanskom iz vaših podataka, 0–24. Što može preuzeti, što ne smije i kako do ponude.",
+    "excerpt_hr": "Gosti pitaju isto: parking, check-in, Wi-Fi, plaža, cijena. AI chatbot na stranici apartmana odgovara iz vaših podataka na jeziku gosta, a vama šalje sažetak upita.",
+    "date": "2026-11-19",
+    "author": "MangAI",
+    "keywords": [
+      "AI chatbot za apartmane",
+      "chatbot za iznajmljivače",
+      "chatbot za turizam",
+      "AI asistent za apartmane",
+      "odgovori gostima automatski",
+      "chatbot za web stranicu apartmana"
+    ],
+    "reading_time_minutes": 6,
+    "content_html_hr": "<p>Iznajmljivači znaju da se isti upiti ponavljaju cijelu sezonu, često usred večeri ili vikendom, na više jezika. Dobro postavljen <a href=\"/usluge/ai-chatbot/\">AI chatbot</a> na stranici apartmana preuzima taj dio posla: gost dobije odgovor odmah, a vama stiže sažetak ozbiljnih upita.</p>\n<h2>Što gosti najčešće pitaju</h2>\n<ul>\n<li>ima li parking i je li besplatan,</li>\n<li>kako i kada je prijava (check-in) i odjava (check-out),</li>\n<li>ima li Wi-Fi, klima uređaj, perilica, kuhinja,</li>\n<li>jesu li dopušteni kućni ljubimci,</li>\n<li>koliko je plaža ili trgovina udaljena,</li>\n<li>je li termin slobodan i kako poslati upit.</li>\n</ul>\n<p>Na sva pitanja iz prva četiri retka odgovor je isti za svakog gosta, pa ga chatbot može dati iz podataka koje ste mu vi dali.</p>\n<h2>Što chatbot radi za vas</h2>\n<ul>\n<li><strong>Odgovara 0–24</strong> iz vaših podataka: opis smještaja, kućni red, upute za dolazak, okolica.</li>\n<li><strong>Odgovara na jeziku gosta</strong>: hrvatski, engleski, njemački, talijanski i drugi, što je u turizmu posebno korisno.</li>\n<li><strong>Prima upite</strong> za termin i šalje vam sažetak e-poštom ili u tablicu, tako da ništa ne propadne usred sezone.</li>\n<li><strong>Zna svoje granice.</strong> Kad ne zna odgovor, ne izmišlja, nego predlaže da vas gost nazove ili ostavi kontakt.</li>\n</ul>\n<h2>Što chatbot ne bi smio raditi sam</h2>\n<p>Cijene, dostupnost i potvrda rezervacije ostaju pod vašom kontrolom. Chatbot može prikupiti datum, broj osoba i kontakt, a potvrdu šaljete vi, osim ako ste s njim dogovorili drukčije. Isto vrijedi za odgovore koji traže procjenu (kašnjenje, reklamacija, izuzetak): njih sustav priprema, a odlučujete vi.</p>\n<h2>Što provjeriti prije narudžbe</h2>\n<ul>\n<li>Odgovara li chatbot samo iz vaših podataka, a ne „iz glave“?</li>\n<li>Što radi kad ne zna odgovor?</li>\n<li>Možete li sami vidjeti razgovore i sažetke?</li>\n<li>Može li se dodati na stranicu koju već imate, ili treba nova?</li>\n<li>Kako se obrađuju osobni podaci gostiju?</li>\n</ul>\n<p>Općenitije o chatbotovima, što rade i koliko koštaju, pročitajte u članku <a href=\"/blog/ai-chatbot-za-web-stranicu.html\">AI chatbot za web stranicu i prodaju</a>. Ako vam treba i stranica za apartmane, pogledajte <a href=\"/usluge/izrada-web-stranica/\">izradu web stranica</a>.</p>\n<h2>Pošaljite opis, ponuda stiže pismeno</h2>\n<p>Najbrži put do ponude je kratak opis. Napišite mi na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a>: koji posao radite ručno, koliko se često ponavlja, koje programe koristite i što biste htjeli da preuzme sustav. Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom. Što je opis točniji, to je ponuda brža i preciznija.</p>",
+    "faq_hr": [
+      {
+        "q": "Može li chatbot odgovarati gostima na njemačkom i talijanskom?",
+        "a": "Da. Odgovara na jeziku na kojem mu gost piše: hrvatskom, engleskom, njemačkom, talijanskom i drugima."
+      },
+      {
+        "q": "Može li se chatbot dodati na stranicu apartmana koju već imam?",
+        "a": "Da. Dodaje se na većinu postojećih stranica, uključujući WordPress, bez izrade nove stranice."
+      },
+      {
+        "q": "Što ako chatbot ne zna odgovor?",
+        "a": "Ne izmišlja. Ponudi da vas gost nazove ili ostavi kontakt, a vama stiže sažetak upita."
+      },
+      {
+        "q": "Tko potvrđuje rezervaciju?",
+        "a": "Potvrdu i cijenu najčešće potvrđujete vi. Chatbot prikuplja podatke o terminu i kontakt, a drukčije se može dogovoriti."
+      }
+    ]
+  },
+  {
+    "slug": "cijena-ai-automatizacije-poslovanja",
+    "title_hr": "Cijena AI automatizacije poslovanja: od čega se sastoji i kako procijeniti isplati li se",
+    "meta_title_hr": "Cijena AI automatizacije poslovanja: što utječe na iznos",
+    "meta_description_hr": "Od čega se sastoji cijena AI automatizacije poslovanja, što je jednokratni a što mjesečni trošak i kako izračunati isplati li se. Pošaljite opis, ponuda stiže pismeno.",
+    "excerpt_hr": "Cijena AI automatizacije ovisi o procesu, a ne o „AI-ju“ kao takvom. Pregled stavki koje čine cijenu, mjesečnih troškova i jednostavan izračun isplati li se ulaganje.",
+    "date": "2026-11-19",
+    "author": "MangAI",
+    "keywords": [
+      "cijena AI automatizacije",
+      "cijena automatizacije poslovanja",
+      "koliko košta AI automatizacija",
+      "AI automatizacija cijena Hrvatska",
+      "isplati li se AI automatizacija",
+      "usluge automatizacije"
+    ],
+    "reading_time_minutes": 7,
+    "content_html_hr": "<p>Pitanje „koliko košta AI automatizacija?“ nema jedan odgovor, jer se ne kupuje jedan proizvod nego rješenje za konkretan posao. Zato ovdje nema cjenika, nego popis onoga što cijenu određuje, što se plaća jednokratno, što mjesečno i kako sami možete izračunati isplati li se. S tim možete usporediti bilo koju ponudu, uključujući našu.</p>\n<h2>Što najviše utječe na cijenu</h2>\n<ul>\n<li><strong>Broj i složenost procesa.</strong> Jedan jasan proces, npr. upiti s web obrasca u tablicu uz automatski odgovor, bitno je manji posao od povezivanja pet procesa koji ovise jedan o drugome.</li>\n<li><strong>Broj sustava koje treba povezati.</strong> E-pošta, tablice i kalendar povezuju se jednostavno. ERP, računovodstveni program ili stariji sustav bez API-ja traže više posla.</li>\n<li><strong>Kvaliteta ulaznih podataka.</strong> Urednu tablicu lako je obraditi. Skenirani dokumenti, rukom pisani podaci i nedosljedni nazivi traže dodatnu pripremu i provjere.</li>\n<li><strong>Koliko je AI uopće potreban.</strong> Gdje su pravila jasna, dovoljna je obična automatizacija i AI se ne plaća. AI dodaje trošak tek ondje gdje treba razumjeti slobodan tekst ili izvući podatke iz dokumenata.</li>\n<li><strong>Razina nadzora.</strong> Osjetljive korake, poput slanja ponude klijentu ili plaćanja, sustav priprema, a vi odobravate. Što je više odobravanja i iznimki, to je rješenje složenije.</li>\n</ul>\n<h2>Jednokratni i ponavljajući troškovi</h2>\n<p>Uz izradu računajte i troškove koji dolaze nakon nje:</p>\n<ul>\n<li><strong>Izrada i postavljanje:</strong> analiza procesa, izrada, testiranje na stvarnim podacima i predaja s dokumentacijom.</li>\n<li><strong>Licence alata:</strong> neki alati za povezivanje naplaćuju se mjesečno prema broju izvršenja. Neki se mogu postaviti na vlastiti poslužitelj, što mijenja strukturu troška.</li>\n<li><strong>Korištenje AI modela:</strong> naplaćuje se prema količini obrađenog teksta. Za mali obujam to je obično malen dio ukupnog troška, ali ga treba procijeniti unaprijed.</li>\n<li><strong>Održavanje:</strong> servisi povremeno mijenjaju svoja sučelja pa automatizaciju treba nadzirati i prilagođavati. Dogovorite tko to radi.</li>\n</ul>\n<h2>Kako izračunati isplati li se</h2>\n<p>Jednostavan račun dovoljan je za prvu odluku:</p>\n<ol>\n<li>Izmjerite koliko sati tjedno posao danas oduzima, jedan tjedan stvarno zapisujte.</li>\n<li>Pomnožite sate s vrijednošću vašeg sata rada (ili sata djelatnika koji to radi).</li>\n<li>Usporedite godišnju uštedu s ukupnim troškom kroz godinu dana: izrada plus mjesečni troškovi.</li>\n<li>Dodajte ono što se teže mjeri: manje propuštenih upita, manje grešaka, brži odgovor klijentima.</li>\n</ol>\n<p>Ako račun ne ide u prilog automatizaciji, bolje je to znati prije početka. Takav izračun radimo zajedno prije ponude. Više o tome pišemo u članku <a href=\"/blog/ai-implementacija-plan-roi-hrvatska.html\">AI implementacija i ROI za male tvrtke</a>.</p>\n<h2>Na što paziti u ponudama</h2>\n<ul>\n<li><strong>Je li opseg jasno opisan?</strong> Ponuda treba reći što točno automatizacija radi, a što ne.</li>\n<li><strong>Tko je vlasnik rješenja?</strong> Provjerite dobivate li pristupne podatke, dokumentaciju i po potrebi izvorni kod.</li>\n<li><strong>Što je s greškama?</strong> Dobro rješenje javlja kad neki korak ne prođe, umjesto da greška ostane skrivena.</li>\n<li><strong>Što se događa s podacima?</strong> Pitajte koriste li se poslovni API-ji koji ne koriste vaše podatke za treniranje modela i sklapa li se ugovor o obradi podataka.</li>\n<li><strong>Postoji li pilot?</strong> Jedan proces s fiksnim opsegom i rokom manji je rizik od velikog projekta unaprijed.</li>\n</ul>\n<h2>Kako krenuti s malim rizikom</h2>\n<p>Najpametniji prvi korak je jedan proces koji je čest, dosadan i svaki put isti. Primjere možete pogledati u članku <a href=\"/blog/automatizacija-poslovnih-procesa-primjeri.html\">AI automatizacija poslovanja: 15 primjera</a>, a pregled usluge je na stranici <a href=\"/usluge/ai-automatizacija/\">AI automatizacija poslovanja</a>. Nakon pilota i mjesec dana mjerenja odlučujete o sljedećem procesu na temelju stvarnih brojki.</p>\n<h2>Pošaljite opis, ponuda stiže pismeno</h2>\n<p>Najbrži put do ponude je kratak opis. Napišite mi na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a>: koji posao radite ručno, koliko se često ponavlja, koje programe koristite i što biste htjeli da preuzme sustav. Na upit odgovaram unutar jednog do dva radna dana, a ponuda stiže pismeno s cijenom i rokom. Što je opis točniji, to je ponuda brža i preciznija.</p>",
+    "faq_hr": [
+      {
+        "q": "Zašto nemate fiksni cjenik AI automatizacije?",
+        "a": "Jer cijena ovisi o procesu: broju koraka, sustava koje treba povezati i kvaliteti podataka. Zato prvo prođemo vaš proces, a zatim dobivate pismenu ponudu s cijenom i rokom."
+      },
+      {
+        "q": "Koji su mjesečni troškovi nakon izrade?",
+        "a": "Mogući su licence alata za povezivanje, naplata korištenja AI modela prema količini obrađenog teksta i održavanje. Sve se procijeni unaprijed i navede u ponudi."
+      },
+      {
+        "q": "Može li se krenuti s jednim procesom?",
+        "a": "Da, i preporučuje se. Jedan jasno određen proces s fiksnim opsegom i rokom smanjuje rizik, a nakon mjerenja odlučujete o sljedećem koraku."
+      },
+      {
+        "q": "Koliko brzo mogu dobiti ponudu?",
+        "a": "Na upit odgovaram unutar jednog do dva radna dana. Što je opis posla točniji, to je ponuda brža, a stiže pismeno s cijenom i rokom."
+      }
+    ]
+  },
+  {
     "slug": "web-stranica-za-obrt-i-malu-tvrtku",
     "title_hr": "Web stranica za obrt i malu tvrtku: što vam treba, što ne treba i kako do brze ponude",
     "meta_title_hr": "Web stranica za obrt i malu tvrtku: što treba imati",
@@ -183,10 +294,10 @@
   },
   {
     "slug": "automatizacija-poslovnih-procesa-primjeri",
-    "title_hr": "Automatizacija poslovnih procesa: 12 primjera za male tvrtke i obrte",
-    "meta_title_hr": "Automatizacija poslovnih procesa: 12 primjera i kako odabrati prvi",
-    "meta_description_hr": "Konkretni primjeri automatizacije poslovnih procesa za male tvrtke i obrte: upiti, ponude, računi, podsjetnici i izvještaji. Kako odabrati prvi proces i kada treba AI, a kada je dovoljno pravilo.",
-    "excerpt_hr": "Dvanaest primjera automatizacije koje male tvrtke i obrti mogu uvesti bez velikog projekta, jednostavan način da odaberete prvi proces i razlika između automatizacije pravilima i AI-a.",
+    "title_hr": "AI automatizacija poslovanja: 15 primjera za male tvrtke i obrte",
+    "meta_title_hr": "AI automatizacija poslovanja: 15 primjera i kako odabrati prvi",
+    "meta_description_hr": "Konkretni primjeri AI automatizacije poslovanja za male tvrtke i obrte: upiti, ponude, obrada računa, podsjetnici i izvještaji. Kako odabrati prvi proces i kad treba AI, a kad je dovoljno pravilo.",
+    "excerpt_hr": "Petnaest primjera automatizacije koje male tvrtke i obrti mogu uvesti bez velikog projekta, jednostavan način da odaberete prvi proces i razlika između automatizacije pravilima i AI-a.",
     "date": "2026-11-10",
     "author": "MangAI",
     "keywords": [
@@ -195,10 +306,13 @@
       "automatizacija procesa primjeri",
       "agencija za automatizaciju",
       "automatizacija za obrte",
-      "Make Zapier n8n"
+      "Make Zapier n8n",
+      "AI automatizacija poslovanja primjeri",
+      "AI obrada računa",
+      "AI automatizacija za male tvrtke"
     ],
-    "reading_time_minutes": 8,
-    "content_html_hr": "<p><a href=\"/usluge/ai-automatizacija/\">Automatizacija poslovnih procesa</a> znači da ponavljajuće korake u poslu, poput prepisivanja upita, slanja podsjetnika ili slaganja izvještaja, umjesto vas obavlja softver. Za malu tvrtku ili obrt to ne mora biti veliki projekt: najčešće se krene s jednim procesom koji svaki tjedan oduzima nekoliko sati. U nastavku su primjeri koji se u praksi najčešće isplate i način na koji možete odabrati prvi.</p>\n<h2>Automatizacija pravilima ili AI</h2>\n<p>Velik dio automatizacije ne treba umjetnu inteligenciju. Ako je pravilo jasno, npr. „kad stigne obrazac, upiši ga u tablicu i pošalji potvrdu“, dovoljan je alat koji izvršava korake redom. Takva automatizacija je jeftina, predvidljiva i lako se održava.</p>\n<p>AI ima smisla kad ulaz nije uredan: slobodno napisani upiti, e-pošta koju treba razvrstati, dokumenti iz kojih treba izvući podatke ili odgovori koje treba sastaviti. Najbolji rezultat obično daje kombinacija: AI razumije i razvrsta, a pravila odrađuju ostatak. Više o tome kada AI ima smisla pišemo u članku <a href=\"/blog/ai-automatizacija-poslovanja-hrvatska.html\" rel=\"noopener\">AI automatizacija poslovanja u Hrvatskoj</a>.</p>\n<h2>Kako odabrati prvi proces</h2>\n<p>Zapišite tjedan dana sve što radite ručno i ponavlja se. Za svaki posao procijenite tri stvari:</p>\n<ul>\n<li><strong>Koliko često se ponavlja</strong> (dnevno, tjedno, mjesečno)?</li>\n<li><strong>Koliko vremena traje</strong> svaki put?</li>\n<li><strong>Koliko košta greška</strong>, npr. propušten upit, kriv iznos ili zaboravljen rok?</li>\n</ul>\n<p>Prvi kandidat je posao koji se često ponavlja, traje dulje i u kojem se greške skupo plaćaju, a pravila su mu jasna. Izbjegavajte za početak procese koje svatko radi drugačije, jer ih prvo treba dogovoriti, a tek onda automatizirati.</p>\n<h2>12 primjera automatizacije</h2>\n<h3>Upiti i prodaja</h3>\n<ol>\n<li><strong>Upiti s web obrasca u tablicu ili CRM.</strong> Svaki upit automatski se upiše s datumom i izvorom, a vi dobijete obavijest. Nijedan upit se ne izgubi u sandučiću.</li>\n<li><strong>Automatski odgovor s korisnim informacijama.</strong> Klijent odmah dobije potvrdu, okvirni rok odgovora i odgovore na najčešća pitanja.</li>\n<li><strong>Razvrstavanje upita.</strong> AI pročita upit i označi vrstu usluge, hitnost i grad, pa upit stigne pravoj osobi.</li>\n<li><strong>Podsjetnik za ponude bez odgovora.</strong> Ako klijent nije odgovorio na ponudu za sedam dana, stigne vam podsjetnik ili klijentu ljubazna poruka.</li>\n</ol>\n<h3>Administracija i financije</h3>\n<ol start=\"5\">\n<li><strong>Ponuda iz predloška.</strong> Iz podataka o upitu automatski se složi nacrt ponude koji samo provjerite i pošaljete.</li>\n<li><strong>Podsjetnici za neplaćene račune.</strong> Prema datumu dospijeća šalje se podsjetnik, a vi dobijete popis otvorenih stavki.</li>\n<li><strong>Prikupljanje ulaznih računa.</strong> Računi koji stižu e-poštom spremaju se u jednu mapu i tablicu za knjigovođu. Od 1. siječnja 2026. i obveznici izvan sustava PDV-a moraju moći <a href=\"https://porezna-uprava.gov.hr/hr/izdavanje-i-primanje-eracuna-i-fiskalizacija-eracuna-azurirano-30-01-2026/8047\" rel=\"noopener\">zaprimati eRačune</a>, a izdavati ih od 1. siječnja 2027., pa je to dobar trenutak da se ovaj tok uredi.</li>\n<li><strong>Mjesečni izvještaj.</strong> Broj upita, ponuda, rezervacija ili prodaje skupi se u jedan pregled koji stigne prvog u mjesecu.</li>\n</ol>\n<h3>Komunikacija s klijentima</h3>\n<ol start=\"9\">\n<li><strong>Podsjetnici za termine.</strong> Dan prije termina klijent dobije poruku s mogućnošću potvrde ili promjene, a oslobođeni termin se ponudi drugima.</li>\n<li><strong>Poruka nakon završenog posla.</strong> Zahvala, upute za korištenje i molba za recenziju na Google profilu.</li>\n</ol>\n<h3>Interni poslovi</h3>\n<ol start=\"11\">\n<li><strong>Uvođenje novog klijenta ili djelatnika.</strong> Jednim unosom otvaraju se mapa, zadaci i pristupi koje treba dodijeliti.</li>\n<li><strong>Sažeci sastanaka i e-pošte.</strong> AI složi kratak sažetak s dogovorenim zadacima i rokovima.</li>\n</ol>\n<h2>Kojim alatima</h2>\n<p>Za povezivanje gotovih servisa najčešće se koriste alati poput Make, Zapier i n8n te Power Automate u okruženju Microsoft 365. n8n se može instalirati na vlastiti poslužitelj u EU, što je korisno kad su podaci osjetljivi. Kad gotovi alati ne pokrivaju vaš slučaj ili bi pretplate postale skupe, isplati se mala aplikacija po mjeri.</p>\n<p>Važnije od alata je da je automatizacija dokumentirana i da znate tko je održava. Svaki tok treba imati obavijest kad nešto ne uspije, inače se greška otkrije tek kad klijent nazove.</p>\n<h2>Kako izgleda suradnja</h2>\n<ol>\n<li><strong>Kratak razgovor</strong> o tome kako sada radite i gdje gubite vrijeme.</li>\n<li><strong>Popis procesa</strong> s procjenom uštede i složenosti.</li>\n<li><strong>Jedan pilot proces</strong> s fiksnom cijenom i rokom, najčešće gotov za nekoliko tjedana.</li>\n<li><strong>Mjerenje</strong> nakon mjesec dana, pa odluka o sljedećem procesu.</li>\n</ol>\n<p>Tako rizik ostaje malen, a nakon prvog procesa vidite stvarnu uštedu umjesto obećanja. <a href=\"/kontakt/\">Pošaljite upit</a> i navedite posao koji vam najviše smeta, a mi ćemo predložiti kako ga automatizirati.</p>\n<h2>Izvori</h2>\n<ul>\n<li><a href=\"https://porezna-uprava.gov.hr/hr/izdavanje-i-primanje-eracuna-i-fiskalizacija-eracuna-azurirano-30-01-2026/8047\" rel=\"noopener\">Izdavanje i primanje eRačuna i fiskalizacija eRačuna, Porezna uprava</a></li>\n</ul>",
+    "reading_time_minutes": 9,
+    "content_html_hr": "<p><a href=\"/usluge/ai-automatizacija/\">Automatizacija poslovnih procesa</a> znači da ponavljajuće korake u poslu, poput prepisivanja upita, slanja podsjetnika ili slaganja izvještaja, umjesto vas obavlja softver. Za malu tvrtku ili obrt to ne mora biti veliki projekt: najčešće se krene s jednim procesom koji svaki tjedan oduzima nekoliko sati. U nastavku su primjeri koji se u praksi najčešće isplate i način na koji možete odabrati prvi.</p>\n<h2>Automatizacija pravilima ili AI</h2>\n<p>Velik dio automatizacije ne treba umjetnu inteligenciju. Ako je pravilo jasno, npr. „kad stigne obrazac, upiši ga u tablicu i pošalji potvrdu“, dovoljan je alat koji izvršava korake redom. Takva automatizacija je jeftina, predvidljiva i lako se održava.</p>\n<p>AI ima smisla kad ulaz nije uredan: slobodno napisani upiti, e-pošta koju treba razvrstati, dokumenti iz kojih treba izvući podatke ili odgovori koje treba sastaviti. Najbolji rezultat obično daje kombinacija: AI razumije i razvrsta, a pravila odrađuju ostatak. Više o tome kada AI ima smisla pišemo u članku <a href=\"/blog/ai-automatizacija-poslovanja-hrvatska.html\" rel=\"noopener\">AI automatizacija poslovanja u Hrvatskoj</a>.</p>\n<h2>Kako odabrati prvi proces</h2>\n<p>Zapišite tjedan dana sve što radite ručno i ponavlja se. Za svaki posao procijenite tri stvari:</p>\n<ul>\n<li><strong>Koliko često se ponavlja</strong> (dnevno, tjedno, mjesečno)?</li>\n<li><strong>Koliko vremena traje</strong> svaki put?</li>\n<li><strong>Koliko košta greška</strong>, npr. propušten upit, kriv iznos ili zaboravljen rok?</li>\n</ul>\n<p>Prvi kandidat je posao koji se često ponavlja, traje dulje i u kojem se greške skupo plaćaju, a pravila su mu jasna. Izbjegavajte za početak procese koje svatko radi drugačije, jer ih prvo treba dogovoriti, a tek onda automatizirati.</p>\n<h2>15 primjera automatizacije</h2>\n<h3>Upiti i prodaja</h3>\n<ol>\n<li><strong>Upiti s web obrasca u tablicu ili CRM.</strong> Svaki upit automatski se upiše s datumom i izvorom, a vi dobijete obavijest. Nijedan upit se ne izgubi u sandučiću.</li>\n<li><strong>Automatski odgovor s korisnim informacijama.</strong> Klijent odmah dobije potvrdu, okvirni rok odgovora i odgovore na najčešća pitanja.</li>\n<li><strong>Razvrstavanje upita.</strong> AI pročita upit i označi vrstu usluge, hitnost i grad, pa upit stigne pravoj osobi.</li>\n<li><strong>Podsjetnik za ponude bez odgovora.</strong> Ako klijent nije odgovorio na ponudu za sedam dana, stigne vam podsjetnik ili klijentu ljubazna poruka.</li>\n</ol>\n<h3>Administracija i financije</h3>\n<ol start=\"5\">\n<li><strong>Ponuda iz predloška.</strong> Iz podataka o upitu automatski se složi nacrt ponude koji samo provjerite i pošaljete.</li>\n<li><strong>Podsjetnici za neplaćene račune.</strong> Prema datumu dospijeća šalje se podsjetnik, a vi dobijete popis otvorenih stavki.</li>\n<li><strong>Prikupljanje ulaznih računa.</strong> Računi koji stižu e-poštom spremaju se u jednu mapu i tablicu za knjigovođu. Od 1. siječnja 2026. i obveznici izvan sustava PDV-a moraju moći <a href=\"https://porezna-uprava.gov.hr/hr/izdavanje-i-primanje-eracuna-i-fiskalizacija-eracuna-azurirano-30-01-2026/8047\" rel=\"noopener\">zaprimati eRačune</a>, a izdavati ih od 1. siječnja 2027., pa je to dobar trenutak da se ovaj tok uredi.</li>\n<li><strong>Mjesečni izvještaj.</strong> Broj upita, ponuda, rezervacija ili prodaje skupi se u jedan pregled koji stigne prvog u mjesecu.</li>\n</ol>\n<h3>Komunikacija s klijentima</h3>\n<ol start=\"9\">\n<li><strong>Podsjetnici za termine.</strong> Dan prije termina klijent dobije poruku s mogućnošću potvrde ili promjene, a oslobođeni termin se ponudi drugima.</li>\n<li><strong>Poruka nakon završenog posla.</strong> Zahvala, upute za korištenje i molba za recenziju na Google profilu.</li>\n</ol>\n<h3>Interni poslovi</h3>\n<ol start=\"11\">\n<li><strong>Uvođenje novog klijenta ili djelatnika.</strong> Jednim unosom otvaraju se mapa, zadaci i pristupi koje treba dodijeliti.</li>\n<li><strong>Sažeci sastanaka i e-pošte.</strong> AI složi kratak sažetak s dogovorenim zadacima i rokovima.</li>\n</ol>\n<h3>Dokumenti i podaci</h3>\n<ol start=\"13\">\n<li><strong>AI obrada računa i narudžbi.</strong> AI iz PDF-a, slike ili e-pošte izvuče dobavljača, iznos, datum i stavke i upiše ih u tablicu. Vi samo provjerite ono što sustav označi kao nesigurno.</li>\n<li><strong>Prijedlozi odgovora na česta pitanja u e-pošti.</strong> AI pripremi odgovor iz vaših podataka, a vi ga pročitate, ispravite i pošaljete. Osjetljivi odgovori ostaju kod vas.</li>\n<li><strong>Obavijest o rokovima.</strong> Istek ugovora, certifikata, servisa ili jamstva upisuje se u tablicu, a prije isteka stiže podsjetnik s popisom što treba obnoviti.</li>\n</ol>\n<h2>Kojim alatima</h2>\n<p>Za povezivanje gotovih servisa najčešće se koriste alati poput Make, Zapier i n8n te Power Automate u okruženju Microsoft 365. n8n se može instalirati na vlastiti poslužitelj u EU, što je korisno kad su podaci osjetljivi. Kad gotovi alati ne pokrivaju vaš slučaj ili bi pretplate postale skupe, isplati se mala aplikacija po mjeri.</p>\n<p>Važnije od alata je da je automatizacija dokumentirana i da znate tko je održava. Svaki tok treba imati obavijest kad nešto ne uspije, inače se greška otkrije tek kad klijent nazove.</p>\n<h2>Kako izgleda suradnja</h2>\n<ol>\n<li><strong>Kratak razgovor</strong> o tome kako sada radite i gdje gubite vrijeme.</li>\n<li><strong>Popis procesa</strong> s procjenom uštede i složenosti.</li>\n<li><strong>Jedan pilot proces</strong> s fiksnom cijenom i rokom, najčešće gotov za nekoliko tjedana.</li>\n<li><strong>Mjerenje</strong> nakon mjesec dana, pa odluka o sljedećem procesu.</li>\n</ol>\n<p>Tako rizik ostaje malen, a nakon prvog procesa vidite stvarnu uštedu umjesto obećanja. <a href=\"/kontakt/\">Pošaljite upit</a> i navedite posao koji vam najviše smeta, a mi ćemo predložiti kako ga automatizirati.</p>\n<h2>Izvori</h2>\n<ul>\n<li><a href=\"https://porezna-uprava.gov.hr/hr/izdavanje-i-primanje-eracuna-i-fiskalizacija-eracuna-azurirano-30-01-2026/8047\" rel=\"noopener\">Izdavanje i primanje eRačuna i fiskalizacija eRačuna, Porezna uprava</a></li>\n</ul>",
     "faq_hr": [
       {
         "q": "Što je automatizacija poslovnih procesa?",
@@ -215,8 +329,13 @@
       {
         "q": "Koliko traje uvođenje automatizacije?",
         "a": "Jedan jasno definiran proces obično je u radu za nekoliko tjedana. Složeniji procesi i povezivanje više sustava rade se u fazama."
+      },
+      {
+        "q": "Može li AI automatski obrađivati račune?",
+        "a": "Da. AI može iz računa u PDF-u, slici ili e-pošti izvući dobavljača, iznos, datum i stavke i upisati ih u tablicu ili program. Sve što je sustav označio kao nesigurno provjeravate vi prije knjiženja."
       }
-    ]
+    ],
+    "updated": "2026-11-19"
   },
   {
     "slug": "pristupacnost-web-stranica-javni-sektor",
