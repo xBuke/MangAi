@@ -633,7 +633,7 @@ function main() {
     { loc: '/en/', lastmod: today, changefreq: 'weekly', priority: '0.9' },
     { loc: '/en/blog/', lastmod: today, changefreq: 'weekly', priority: '0.6' },
     ...en.map((p) => ({ loc: `/en/blog/${p.slug}.html`, lastmod: (p.date || today).slice(0, 10), changefreq: 'monthly', priority: '0.5' })),
-    ...['uvjeti-poslovanja.html', 'en/terms-of-business.html', 'privacy_hr.html', 'terms_hr.html', 'privacy.html', 'terms.html'].map((f) => ({ loc: `/${f}`, lastmod: today, changefreq: 'yearly', priority: '0.2' })),
+    // pravne stranice namjerno nisu u sitemapu (ne žele se indeksirati)
   ];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
