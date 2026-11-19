@@ -1,0 +1,29 @@
+# MangAI
+
+> MangAI je hrvatski obrt za računalno programiranje i savjetovanje (vl. Marko Škorić, Ploče). Izrađuje web stranice, aplikacije po mjeri, AI chatbotove i automatizaciju poslovanja za male tvrtke, obrte, ustanove i javne naručitelje u Hrvatskoj. Svaki projekt vodi i izrađuje ista osoba. Rad je na daljinu, a ponuda stiže brzo nakon što klijent pošalje kratak opis što mu treba.
+
+Kontakt: marko@mangai.hr, +385 92 355 7476. Adresa: Vukovarska 5, 20340 Ploče, Hrvatska. MBO: 99415437.
+
+## Usluge
+- [Izrada web stranica i webshopa](https://mangai.hr/usluge/izrada-web-stranica/)
+- [AI chatbot i asistent](https://mangai.hr/usluge/ai-chatbot/)
+- [Automatizacija poslovnih procesa](https://mangai.hr/usluge/ai-automatizacija/)
+- [Izrada aplikacija po mjeri](https://mangai.hr/usluge/aplikacije-po-mjeri/)
+- [Održavanje web stranica i hosting](https://mangai.hr/usluge/odrzavanje/)
+- [Pristupačne web stranice za javni sektor (WCAG 2.1 AA)](https://mangai.hr/javni-sektor/)
+
+## Vodiči (blog)
+- [Koliko košta izrada web stranice 2026.](https://mangai.hr/blog/koliko-kosta-izrada-web-stranice.html)
+- [Web stranica za obrt i malu tvrtku](https://mangai.hr/blog/web-stranica-za-obrt-i-malu-tvrtku.html)
+- [Izrada web stranica u Dalmaciji i cijeloj Hrvatskoj](https://mangai.hr/blog/izrada-web-stranica-dalmacija-hrvatska.html)
+- [Kako se pojaviti u odgovorima ChatGPT-a i Googleovog AI sažetka](https://mangai.hr/blog/vidljivost-u-ai-odgovorima-chatgpt-google.html)
+- [AI chatbot za web stranicu i prodaju](https://mangai.hr/blog/ai-chatbot-za-web-stranicu.html)
+- [Automatizacija poslovnih procesa: 12 primjera](https://mangai.hr/blog/automatizacija-poslovnih-procesa-primjeri.html)
+- [AI alati za male tvrtke u Hrvatskoj (2026)](https://mangai.hr/blog/ai-alati-male-tvrtke-hrvatska-2026.html)
+- [Pristupačnost web stranica u javnom sektoru](https://mangai.hr/blog/pristupacnost-web-stranica-javni-sektor.html)
+- [Što mora imati web stranica općine ili grada](https://mangai.hr/blog/sto-mora-imati-web-stranica-opcine.html)
+- [Kako naručiti web stranicu kroz jednostavnu nabavu](https://mangai.hr/blog/nabava-web-stranice-jednostavna-nabava.html)
+
+## Ostalo
+- [Kontakt](https://mangai.hr/kontakt/)
+- [English version](https://mangai.hr/en/)
