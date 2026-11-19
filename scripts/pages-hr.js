@@ -248,7 +248,7 @@ const chatbot = {
   crumbs: [['/', 'Početna'], ['/usluge/', 'Usluge'], [null, 'AI chatbot']],
   metaTitle: 'AI chatbot za web stranicu i WhatsApp',
   description: 'AI asistent koji odgovara iz vaših podataka, prima upite i rezervacije 0–24 i šalje vam sažetak. Na webu ili WhatsAppu, za salone, apartmane, ordinacije i urede.',
-  h1: 'AI chatbot i asistent za vaš posao',
+  h1: 'AI asistent za tvrtke: chatbot za web stranicu i WhatsApp',
   lead: 'Asistent odgovara na česta pitanja iz vaših podataka, prima upite i rezervacije 0–24 i šalje vam sažetak. Kad ne zna odgovor, ne izmišlja, nego ponudi da vas klijent dobije na telefon.',
   body: `
         <section class="section" aria-labelledby="radi-title">
@@ -317,7 +317,7 @@ ${related('Povezano', [
     ['/blog/ai-chatbot-za-web-stranicu.html', 'AI chatbot za web stranicu: što radi i koliko košta', 'vodič s pitanjima prije narudžbe'],
   ])}`,
   faq: [
-    { q: 'Može li asistent raditi na stranici koju već imam?', a: 'Da. Dodaje se na većinu postojećih stranica, uključujući WordPress, bez izrade nove stranice.' },
+    { q: 'Može li AI chatbot raditi na sajtu koji već imam?', a: 'Da. Dodaje se na većinu postojećih web stranica (sajtova), uključujući WordPress, bez izrade nove stranice.' },
     { q: 'Na kojim jezicima odgovara?', a: 'Na jeziku na kojem mu klijent piše: hrvatskom, engleskom, njemačkom, talijanskom i drugima. Zato je posebno koristan za apartmane i turizam.' },
     { q: 'Gdje vidim upite i razgovore?', a: 'Sažetak svakog upita stiže vam e-poštom ili u tablicu, CRM ili kalendar, ovisno o dogovoru. Razgovore možete pregledati i naknadno.' },
     { q: 'Zamjenjuje li asistent zaposlenika?', a: 'Ne. Preuzima ponavljajuća pitanja i upite izvan radnog vremena, a odluke i dogovori ostaju vama.' },
@@ -337,10 +337,10 @@ const automatizacija = {
   path: '/usluge/ai-automatizacija/',
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], ['/usluge/', 'Usluge'], [null, 'AI automatizacija']],
-  metaTitle: 'AI automatizacija poslovanja i poslovnih procesa',
-  description: 'Upiti iz forme ravno u tablicu ili CRM, automatski podsjetnici, izvještaji i follow-up. AI automatizacija poslovnih procesa za tvrtke i ustanove u Hrvatskoj.',
+  metaTitle: 'AI automatizacija poslovanja i poslovnih procesa u Hrvatskoj',
+  description: 'AI automatizacija za poslovanje u Hrvatskoj: upiti u CRM, podsjetnici, izvještaji, obrada računa i follow-up. Usluge automatizacije za tvrtke i ustanove.',
   h1: 'AI automatizacija poslovanja',
-  lead: 'Ponavljajuće zadatke prepuštate sustavu: prepisivanje upita, podsjetnike, izvještaje i follow-up. Krećemo od jednog procesa koji vam svaki tjedan oduzima najviše vremena.',
+  lead: 'MangAI je obrt iz Ploča koji radi AI automatizaciju poslovnih procesa i AI rješenja po mjeri za tvrtke u Hrvatskoj. Ponavljajuće zadatke prepuštate sustavu: prepisivanje upita, podsjetnike, izvještaje i follow-up. Krećemo od jednog procesa koji vam svaki tjedan oduzima najviše vremena.',
   body: `
         <section class="section" aria-labelledby="sto-title">
             <div class="wrap">
@@ -362,7 +362,7 @@ const automatizacija = {
                         <p>Ponuda iz predloška u nekoliko klikova, a ako klijent ne odgovori, sustav vas podsjeti da se javite.</p>
                     </li>
                     <li>
-                        <h3>Podaci iz dokumenata</h3>
+                        <h3>Podaci iz dokumenata i obrada računa</h3>
                         <p>AI izvlači podatke iz narudžbi, računa ili e-pošte i upisuje ih u tablicu, a vi samo provjerite.</p>
                     </li>
                     <li>
@@ -405,6 +405,9 @@ ${related('Povezano', [
     ['/blog/ai-implementacija-plan-roi-hrvatska.html', 'AI implementacija i ROI za male tvrtke', 'procjena spremnosti, plan i izračun povrata'],
   ])}`,
   faq: [
+    { q: 'Koja tvrtka radi AI automatizaciju poslovnih procesa u Hrvatskoj?', a: 'MangAI, obrt iz Ploča (vl. Marko Škorić), radi AI automatizaciju poslovnih procesa za tvrtke, obrte i ustanove u Hrvatskoj, na daljinu. Svaki projekt vodi i izrađuje ista osoba.' },
+    { q: 'Tko radi AI rješenja po mjeri i integracije za tvrtke?', a: 'MangAI izrađuje AI rješenja po mjeri: chatbotove, obradu dokumenata i povezivanje postojećih sustava (e-pošta, tablice, CRM, webshop). Za ponudu je dovoljno poslati kratak opis što trebate.' },
+    { q: 'Što je procjena spremnosti za AI?', a: 'Kratak pregled koji su procesi u poslovanju dobri kandidati za AI, koje podatke i sustave imate te isplati li se ulaganje. Detalje i plan su u članku „AI implementacija i ROI za male tvrtke” na ovom blogu.' },
     { q: 'Moram li mijenjati programe koje koristim?', a: 'Najčešće ne. Automatizacija povezuje ono što već imate: e-poštu, tablice, kalendar, CRM ili webshop, preko njihovih API-ja.' },
     { q: 'Što ako automatizacija zakaže?', a: 'Svaka automatizacija javlja grešku kad neki korak ne prođe, pa ništa ne nestane tiho. Dobivate i dokumentaciju, tako da sustav može održavati i netko drugi.' },
     { q: 'Je li sigurno slati podatke AI modelu?', a: 'Koristim poslovne API-je pružatelja AI modela, šaljem samo podatke potrebne za zadatak i ne koristim alate koji vaše podatke koriste za treniranje modela. Kad se obrađuju osobni podaci, sklapamo ugovor o obradi podataka.' },
