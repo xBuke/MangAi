@@ -340,7 +340,7 @@ const automatizacija = {
   metaTitle: 'AI automatizacija poslovanja i poslovnih procesa u Hrvatskoj',
   description: 'AI automatizacija za poslovanje u Hrvatskoj: upiti u CRM, podsjetnici, izvještaji, obrada računa i follow-up. Usluge automatizacije za tvrtke i ustanove.',
   h1: 'AI automatizacija poslovanja',
-  lead: 'MangAI je obrt iz Ploča koji radi AI automatizaciju poslovnih procesa i AI rješenja po mjeri za tvrtke u Hrvatskoj. Ponavljajuće zadatke prepuštate sustavu: prepisivanje upita, podsjetnike, izvještaje i follow-up. Krećemo od jednog procesa koji vam svaki tjedan oduzima najviše vremena.',
+  lead: 'MangAI je hrvatski obrt koji radi AI automatizaciju poslovnih procesa i AI rješenja po mjeri za tvrtke u Hrvatskoj. Ponavljajuće zadatke prepuštate sustavu: prepisivanje upita, podsjetnike, izvještaje i follow-up. Krećemo od jednog procesa koji vam svaki tjedan oduzima najviše vremena.',
   body: `
         <section class="section" aria-labelledby="sto-title">
             <div class="wrap">
@@ -405,7 +405,7 @@ ${related('Povezano', [
     ['/blog/ai-implementacija-plan-roi-hrvatska.html', 'AI implementacija i ROI za male tvrtke', 'procjena spremnosti, plan i izračun povrata'],
   ])}`,
   faq: [
-    { q: 'Koja tvrtka radi AI automatizaciju poslovnih procesa u Hrvatskoj?', a: 'MangAI, obrt iz Ploča (vl. Marko Škorić), radi AI automatizaciju poslovnih procesa za tvrtke, obrte i ustanove u Hrvatskoj, na daljinu. Svaki projekt vodi i izrađuje ista osoba.' },
+    { q: 'Koja tvrtka radi AI automatizaciju poslovnih procesa u Hrvatskoj?', a: 'MangAI, hrvatski obrt (vl. Marko Škorić), radi AI automatizaciju poslovnih procesa za tvrtke, obrte i ustanove u Hrvatskoj, na daljinu. Svaki projekt vodi i izrađuje ista osoba.' },
     { q: 'Tko radi AI rješenja po mjeri i integracije za tvrtke?', a: 'MangAI izrađuje AI rješenja po mjeri: chatbotove, obradu dokumenata i povezivanje postojećih sustava (e-pošta, tablice, CRM, webshop). Za ponudu je dovoljno poslati kratak opis što trebate.' },
     { q: 'Što je procjena spremnosti za AI?', a: 'Kratak pregled koji su procesi u poslovanju dobri kandidati za AI, koje podatke i sustave imate te isplati li se ulaganje. Detalje i plan su u članku „AI implementacija i ROI za male tvrtke” na ovom blogu.' },
     { q: 'Moram li mijenjati programe koje koristim?', a: 'Najčešće ne. Automatizacija povezuje ono što već imate: e-poštu, tablice, kalendar, CRM ili webshop, preko njihovih API-ja.' },
@@ -745,9 +745,9 @@ const oMeni = {
   nav: '/o-meni/',
   crumbs: [['/', 'Početna'], [null, 'O meni']],
   metaTitle: 'O meni: Marko Škorić, osnivač MangAI-ja',
-  description: 'Marko Škorić, osnivač MangAI-ja iz Ploča. Svaki projekt, od web stranice do AI sustava, vodim i izrađujem osobno, od prvog razgovora do predaje i održavanja.',
+  description: 'Marko Škorić, osnivač MangAI-ja. Svaki projekt, od web stranice do AI sustava, vodim i izrađujem osobno, od prvog razgovora do predaje i održavanja.',
   h1: 'Izravno s autorom, bez posrednika',
-  lead: 'Ja sam Marko Škorić, osnivač MangAI-ja iz Ploča. Svaki projekt vodim i izrađujem osobno, od prvog razgovora do predaje i održavanja.',
+  lead: 'Ja sam Marko Škorić, osnivač MangAI-ja. Svaki projekt vodim i izrađujem osobno, od prvog razgovora do predaje i održavanja.',
   body: `
         <section class="section" aria-labelledby="zasto-title">
             <div class="wrap page-split">
@@ -835,7 +835,7 @@ const kontakt = {
   nav: null,
   crumbs: [['/', 'Početna'], [null, 'Kontakt']],
   metaTitle: 'Kontakt: pošaljite upit ili nazovite',
-  description: 'Pošaljite upit za web stranicu, AI chatbot ili automatizaciju. Telefon +385 92 355 7476, e-pošta marko@mangai.hr, Ploče. Odgovaram unutar jednog do dva radna dana.',
+  description: 'Pošaljite upit za web stranicu, AI chatbot ili automatizaciju. Telefon +385 92 355 7476, e-pošta marko@mangai.hr. Odgovaram unutar jednog do dva radna dana.',
   h1: 'Kontakt',
   lead: 'Napišite ukratko što trebate. Odgovaram unutar jednog do dva radna dana.',
   heroActions: false,

@@ -64,9 +64,9 @@ regija_hr = {
  'excerpt_hr': 'Ne trebate izrađivača iz svog grada da biste dobili dobru stranicu. Kako izgleda suradnja na daljinu, što dobivate i kako lokalno biti vidljiv u Dalmaciji i cijeloj Hrvatskoj.',
  'date': '2026-11-19',
  'author': 'MangAI',
- 'keywords': ['izrada web stranica Dalmacija', 'izrada web stranica Split', 'izrada web stranica Dubrovnik', 'izrada web stranica Zagreb', 'izrada web stranica Ploče', 'web stranica na daljinu', 'povoljna izrada web stranica'],
+ 'keywords': ['izrada web stranica Dalmacija', 'izrada web stranica Split', 'izrada web stranica Dubrovnik', 'izrada web stranica Zagreb', 'web stranica na daljinu', 'povoljna izrada web stranica'],
  'reading_time_minutes': 5,
- 'content_html_hr': f'''<p>MangAI je obrt iz Ploča u Dubrovačko-neretvanskoj županiji, a stranice izrađujem za tvrtke, obrte i ustanove u Dalmaciji i cijeloj Hrvatskoj. Većina posla odvija se na daljinu, pa za dobru stranicu u Splitu, Dubrovniku, Zagrebu ili na otoku ne trebate izrađivača iz susjedstva. Dovoljni su telefon, e-pošta i jasan opis što trebate.</p>
+ 'content_html_hr': f'''<p>MangAI je hrvatski obrt, a stranice izrađujem za tvrtke, obrte i ustanove u Dalmaciji i cijeloj Hrvatskoj. Većina posla odvija se na daljinu, pa za dobru stranicu u Splitu, Dubrovniku, Zagrebu ili na otoku ne trebate izrađivača iz susjedstva. Dovoljni su telefon, e-pošta i jasan opis što trebate.</p>
 <h2>Kako izgleda suradnja na daljinu</h2>
 <ol>
 <li><strong>Opis.</strong> Pošaljete kratki opis: čime se bavite i kakvu stranicu zamišljate.</li>
@@ -74,7 +74,7 @@ regija_hr = {
 <li><strong>Izrada.</strong> Radim u kratkim koracima i pokazujem napredak, pa izmjene stižu na vrijeme.</li>
 <li><strong>Predaja.</strong> Dobivate stranicu, upute i pristupne podatke. Održavanje je po dogovoru.</li>
 </ol>
-<p>Na sastanak ili primopredaju dolazim po dogovoru, osobito u široj okolici Ploča, Metkovića, Opuzena, Makarske i Dubrovnika.</p>
+<p>Na sastanak ili primopredaju dolazim po dogovoru, osobito u Dalmaciji, a po potrebi i u ostatku Hrvatske.</p>
 <h2>Za koga izrađujem stranice</h2>
 <ul>
 <li>obrte i male tvrtke (frizeri, ugostitelji, obrtnici, apartmani, ordinacije),</li>
@@ -95,7 +95,7 @@ regija_hr = {
 <p>Radim sam, bez posrednika, voditelja projekta i podizvođača. Zato nema troškova koji bi se prelili na vas, a odluke se donose odmah. Pogledajte <a href="/primjeri/">primjere</a> i <a href="/usluge/izrada-web-stranica/">uslugu izrade web stranica</a>.</p>
 {CTA}''',
  'faq_hr': [
-  {'q': 'Izrađujete li web stranice izvan Ploča?', 'a': 'Da. Radim na daljinu za cijelu Hrvatsku, uključujući Split, Dubrovnik i Zagreb. Na sastanke i primopredaju dolazim po dogovoru.'},
+  {'q': 'Izrađujete li web stranice za tvrtke iz drugih gradova?', 'a': 'Da. Radim na daljinu za cijelu Hrvatsku, uključujući Split, Dubrovnik i Zagreb. Na sastanke i primopredaju dolazim po dogovoru.'},
   {'q': 'Moram li se osobno sastati da bih naručio stranicu?', 'a': 'Ne. Dovoljan je opis e-poštom ili kratki razgovor telefonom. Sastanak je moguć ako ga želite.'},
   {'q': 'Kako da me klijenti iz mog grada nađu na Googleu?', 'a': 'Stranica treba navesti grad i usluge, imati kontakt podatke na vidljivom mjestu i biti povezana s Google Business Profilom. To je dio osnovne SEO pripreme.'},
   {'q': 'Koliko brzo dobivam ponudu?', 'a': 'Brzo nakon što pošaljete opis stranice. Ponuda je pisana, s opsegom, rokom i fiksnim iznosom.'},

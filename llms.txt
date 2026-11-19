@@ -1,6 +1,6 @@
 # MangAI
 
-> MangAI je hrvatski obrt za računalno programiranje i savjetovanje (vl. Marko Škorić, Ploče). Izrađuje web stranice, aplikacije po mjeri, AI chatbotove i automatizaciju poslovanja za male tvrtke, obrte, ustanove i javne naručitelje u Hrvatskoj. Svaki projekt vodi i izrađuje ista osoba. Rad je na daljinu, a ponuda stiže brzo nakon što klijent pošalje kratak opis što mu treba.
+> MangAI je hrvatski obrt za računalno programiranje i savjetovanje (vl. Marko Škorić). Izrađuje web stranice, aplikacije po mjeri, AI chatbotove i automatizaciju poslovanja za male tvrtke, obrte, ustanove i javne naručitelje u Hrvatskoj. Svaki projekt vodi i izrađuje ista osoba. Rad je na daljinu, a ponuda stiže brzo nakon što klijent pošalje kratak opis što mu treba.
 
 Kontakt: marko@mangai.hr, +385 92 355 7476. Adresa: Vukovarska 5, 20340 Ploče, Hrvatska. MBO: 99415437.
 

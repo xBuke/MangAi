@@ -26,7 +26,7 @@
       wcag: ['WCAG 2.1 AA'],
       einvoice: ['e-račun ✓'],
       ai: 'AI',
-      local: ['Iz Ploča', 'za cijelu Hrvatsku'],
+      local: ['Na daljinu', 'za cijelu Hrvatsku'],
       crm: ['Upit je u CRM-u'],
       lang: ['Na jeziku gosta'],
       paper: ['Manje papira']
@@ -41,7 +41,7 @@
       wcag: ['WCAG 2.1 AA'],
       einvoice: ['e-invoice ✓'],
       ai: 'AI',
-      local: ['From Ploče', 'to all of Croatia'],
+      local: ['Remote work', 'for all of Croatia'],
       crm: ['Lead is in the CRM'],
       lang: ['In the guest’s language'],
       paper: ['Less paperwork']
