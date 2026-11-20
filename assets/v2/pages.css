@@ -357,4 +357,4 @@
 }
 
 /* Poruka nakon slanja upita */
-.sub .contact-success h3 { font-family: var(--f-pixel); font-weight: 400; font-size: 2.9rem; line-height: .9; text-transform: uppercase; }
+.sub .contact-success h3, .sub .section .contact-success .h3 { font-family: var(--f-pixel); font-weight: 400; font-size: 2.9rem; line-height: .9; text-transform: uppercase; }
