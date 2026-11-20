@@ -725,6 +725,18 @@
     return s;
   }
 
+  /* ---------- Nakon slanja forme: pokaži poruku o uspjehu ---------- */
+  var sent = document.querySelector('#contact-success:not([hidden])');
+  if (sent) {
+    sent.setAttribute('tabindex', '-1');
+    setTimeout(function () {
+      var y = sent.getBoundingClientRect().top + window.scrollY - (window.innerHeight / 2) + sent.offsetHeight / 2;
+      if (window.mangaiLenis) window.mangaiLenis.scrollTo(Math.max(0, y), { immediate: reduce });
+      else window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
+      try { sent.focus({ preventScroll: true }); } catch (e) {}
+    }, 450);
+  }
+
   /* ---------- Glatki scroll (Lenis), samo za miš ---------- */
   if (!reduce && finePointer && window.Lenis) {
     var lenis = new window.Lenis({

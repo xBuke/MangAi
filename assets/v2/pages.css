@@ -355,3 +355,6 @@
 @media (max-width: 520px) {
   .page-hero h1 { font-size: clamp(2.5rem, 11.5vw, 3.2rem); max-width: none; }
 }
+
+/* Poruka nakon slanja upita */
+.sub .contact-success h3 { font-family: var(--f-pixel); font-weight: 400; font-size: 2.9rem; line-height: .9; text-transform: uppercase; }
