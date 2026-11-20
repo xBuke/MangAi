@@ -350,3 +350,8 @@
 .legal ol { list-style: decimal; }
 .legal a { text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .legal .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+/* Mobitel: dugi naslovi podstranica manji */
+@media (max-width: 520px) {
+  .page-hero h1 { font-size: clamp(2.5rem, 11.5vw, 3.2rem); max-width: none; }
+}
