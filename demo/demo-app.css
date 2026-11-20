@@ -1,4 +1,16 @@
-/* MangAI demo primjeri – nadogradnja na home.css */
+/* MangAI demo primjeri – učitava se iza /assets/v2/v2.css i /assets/v2/pages.css */
+
+/* Varijable starog izgleda, preslikane na novi */
+.demo {
+  --paper: #FFFFFF;
+  --stone: #F4F6F5;
+  --reed: #2F6B4F;
+  --ink-soft: #55635F;
+  --band-text: #C2CCC9;
+  --font-display: var(--f-body);
+  --font-body: var(--f-body);
+  --mandarin: #F08A2C;
+}
 
 .demo-head-actions { display: flex; align-items: center; gap: 20px; }
 .demo-head-link { color: var(--ink); text-decoration: none; font-weight: 500; }
@@ -312,7 +324,7 @@
 /* =====================================================================
    Nadogradnja: tema po djelatnosti, WhatsApp i web prozor, živa kartica
    ===================================================================== */
-.demo { --accent: var(--reed); --accent-soft: #E3EDE7; }
+.demo { --demo-accent: var(--reed); --demo-soft: #E3EDE7; }
 
 .live-dot {
   display: inline-block;
@@ -329,8 +341,8 @@
   70% { box-shadow: 0 0 0 8px rgba(31, 163, 91, 0); }
   100% { box-shadow: 0 0 0 0 rgba(31, 163, 91, 0); }
 }
-.demo-kicker { border-color: var(--accent); }
-.demo-hint { margin-top: 10px; font-size: 0.95rem; font-weight: 600; color: var(--accent); }
+.demo-kicker { border-color: var(--demo-accent); }
+.demo-hint { margin-top: 10px; font-size: 0.95rem; font-weight: 600; color: var(--demo-accent); }
 .hint-narrow { display: none; }
 
 .demo-browser .demo-stage { grid-template-columns: minmax(0, 470px) minmax(0, 1fr); }
@@ -342,7 +354,7 @@
   margin-top: 14px;
   padding: 11px 14px;
   border-radius: 12px;
-  background: var(--accent);
+  background: var(--demo-accent);
   color: #fff;
   font-weight: 600;
   text-align: center;
@@ -375,7 +387,7 @@
   font-size: 0.78rem;
   font-weight: 600;
 }
-.msg-chip-fast { align-self: flex-start; margin: 0 0 4px; background: transparent; border: 0; padding: 0 2px; color: var(--accent); }
+.msg-chip-fast { align-self: flex-start; margin: 0 0 4px; background: transparent; border: 0; padding: 0 2px; color: var(--demo-accent); }
 .demo-whatsapp .msg-chip-fast { color: #075E54; }
 .msg { animation: demo-in .28s ease both; }
 @keyframes demo-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -407,13 +419,13 @@
 }
 .browser-site { padding: 14px 16px; }
 .site-nav { display: flex; align-items: center; gap: 14px; font-size: 0.8rem; color: var(--ink-soft); }
-.site-nav strong { margin-right: auto; font-family: var(--font-display); font-size: 1rem; color: var(--accent); }
-.site-hero { margin-top: 14px; padding: 22px 16px 26px; border-radius: 10px; background: var(--accent); }
+.site-nav strong { margin-right: auto; font-family: var(--font-display); font-size: 1rem; color: var(--demo-accent); }
+.site-hero { margin-top: 14px; padding: 22px 16px 26px; border-radius: 10px; background: var(--demo-accent); }
 .site-hero p { max-width: 22ch; font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; color: #fff; }
 .site-hero i { display: block; height: 7px; margin-top: 10px; border-radius: 4px; background: rgba(255, 255, 255, .35); width: 62%; }
 .site-hero i + i { width: 44%; }
 .site-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
-.site-cards i { height: 300px; border-radius: 10px; background: var(--accent-soft); }
+.site-cards i { height: 300px; border-radius: 10px; background: var(--demo-soft); }
 
 .widget {
   position: absolute;
@@ -426,45 +438,45 @@
   overflow: hidden;
   box-shadow: 0 18px 44px -12px rgba(15, 43, 39, .55), 0 0 0 1px rgba(15, 43, 39, .12);
 }
-.demo-browser .phone-head { background: var(--accent); border-bottom: 0; color: #fff; }
+.demo-browser .phone-head { background: var(--demo-accent); border-bottom: 0; color: #fff; }
 .demo-browser .phone-head small { color: rgba(255, 255, 255, .82); }
-.demo-browser .phone-avatar { background: #fff; color: var(--accent); }
+.demo-browser .phone-avatar { background: #fff; color: var(--demo-accent); }
 .demo-browser .phone-msgs { background: #F6F7F5; }
-.demo-browser .msg-user { background: var(--accent); }
-.demo-browser .opt { border-color: var(--accent); color: var(--accent); }
-.demo-browser .opt:hover { background: var(--accent-soft); }
+.demo-browser .msg-user { background: var(--demo-accent); }
+.demo-browser .opt { border-color: var(--demo-accent); color: var(--demo-accent); }
+.demo-browser .opt:hover { background: var(--demo-soft); }
 
 /* ---------- Ploča: uživo i kartica upita ---------- */
-.board { border-top: 4px solid var(--accent); }
+.board { border-top: 4px solid var(--demo-accent); }
 .board-live { display: inline-flex; align-items: center; }
 
 .record {
   margin-top: 18px;
   padding: 16px 18px 18px;
   border-radius: 14px;
-  background: var(--accent-soft);
-  border: 1px solid var(--accent);
+  background: var(--demo-soft);
+  border: 1px solid var(--demo-accent);
 }
 .record-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.record-kicker { font-size: 0.8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+.record-kicker { font-size: 0.8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--demo-accent); }
 .record-check {
   display: inline-grid; place-items: center;
   width: 18px; height: 18px; margin-right: 6px;
-  border-radius: 50%; background: var(--accent); color: #fff; font-size: 0.7rem;
+  border-radius: 50%; background: var(--demo-accent); color: #fff; font-size: 0.7rem;
 }
 .record-count { font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .record-title { display: block; margin-top: 4px; font-family: var(--font-display); font-size: 1.25rem; }
 .record-bar { height: 5px; margin-top: 10px; border-radius: 3px; background: rgba(15, 43, 39, .1); overflow: hidden; }
-.record-bar i { display: block; height: 100%; border-radius: 3px; background: var(--accent); transition: width .5s ease; }
+.record-bar i { display: block; height: 100%; border-radius: 3px; background: var(--demo-accent); transition: width .5s ease; }
 .record-fields { margin: 14px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .record-fields > div { padding: 9px 12px; border-radius: 10px; background: #fff; border: 1px solid transparent; }
 .record-fields dt { font-size: 0.78rem; color: var(--ink-soft); }
 .record-fields dd { margin: 2px 0 0; font-weight: 600; font-size: 0.95rem; }
 .record-fields .is-empty { background: rgba(255, 255, 255, .5); border: 1px dashed rgba(15, 43, 39, .22); }
 .record-wait { font-weight: 400; font-style: italic; color: var(--ink-soft); }
-.record-fields .is-new { border-color: var(--accent); animation: demo-pop .6s ease both; }
+.record-fields .is-new { border-color: var(--demo-accent); animation: demo-pop .6s ease both; }
 @keyframes demo-pop {
-  0% { transform: scale(.96); box-shadow: 0 0 0 0 var(--accent); }
+  0% { transform: scale(.96); box-shadow: 0 0 0 0 var(--demo-accent); }
   45% { transform: scale(1.02); }
   100% { transform: none; box-shadow: 0 0 0 6px transparent; }
 }
@@ -477,7 +489,7 @@
   position: absolute; left: 0; top: 2px;
   display: grid; place-items: center;
   width: 17px; height: 17px; border-radius: 50%;
-  background: var(--accent); color: #fff; font-size: 0.65rem;
+  background: var(--demo-accent); color: #fff; font-size: 0.65rem;
 }
 .board-toast { animation: demo-in .35s ease both; }
 .board-table tr.is-new td, .inbox li.is-new { animation: demo-in .4s ease both; }
@@ -500,3 +512,73 @@
   .live-dot, .msg, .record-fields .is-new, .record-did li, .board-toast, .board-table tr.is-new td, .inbox li.is-new { animation: none; }
   .record-bar i { transition: none; }
 }
+
+
+/* =====================================================================
+   Novi izgled (v2): tamni uvod, mreža, kartice bez zaobljenja
+   ===================================================================== */
+.page-hero .demo-kicker {
+  display: inline-flex; align-items: center; margin: 14px 0 0; padding: 7px 12px;
+  border: 1px solid var(--line-d); border-radius: 0; background: var(--dark);
+  color: #fff; font-size: 12.5px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+}
+.page-hero h1 { max-width: 16ch; font-size: clamp(2.8rem, 7vw, 7.6rem); }
+.page-hero .demo-hint { margin: 0; padding: 14px 24px 4px 0; font-size: .95rem; font-weight: 500; color: #FFC93C; }
+.demo-section { padding-top: clamp(40px, 5vw, 72px) !important; }
+.demo-stage { margin-top: 0; }
+.demo-col-title { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); }
+
+/* Ploča vlasnika */
+.board { border: 1px solid var(--ink); border-top: 4px solid var(--demo-accent); border-radius: 0; background: #fff; box-shadow: 10px 10px 0 var(--demo-soft); }
+.board-head strong { font-family: var(--f-pixel); font-weight: 400; font-size: clamp(1.9rem, 2.6vw, 2.5rem); line-height: .9; text-transform: uppercase; }
+.board-head span { font-size: 13px; letter-spacing: .02em; }
+.board-title { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin: 28px 0 10px; }
+.kpis { gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.kpi { border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; }
+.kpi dt { font-size: .8rem; }
+.kpi dd { font-family: var(--f-pixel); font-weight: 400; font-size: 2.4rem; line-height: .9; }
+.kpi.is-new { background: var(--demo-soft); }
+.table-wrap, .autos, .inbox li, .record, .record-fields > div, .board-toast { border-radius: 0; }
+.board-table th { font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; }
+.badge-new { border-radius: 2px; background: var(--demo-accent); color: #fff; }
+.demo .tag { display: inline-block; margin-top: 8px; padding: 2px 8px; border-radius: 2px; background: var(--demo-soft); color: var(--demo-accent); font-size: .78rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.record { border: 1px solid var(--demo-accent); }
+.record-title { font-family: var(--f-pixel); font-size: 1.8rem; line-height: .9; text-transform: uppercase; font-weight: 400; }
+.record-bar, .record-bar i { border-radius: 0; }
+.switch { border-radius: 2px; }
+.switch::after { border-radius: 1px; }
+.board-toast { background: #FFF4D1; border-color: var(--ink); }
+
+/* Uređaji: mobitel ostaje zaobljen, web prozor oštrih rubova */
+.phone { border-color: var(--dark); box-shadow: 12px 12px 0 var(--demo-soft); }
+.browser { border-radius: 4px; box-shadow: 12px 12px 0 var(--demo-soft); }
+.browser-bar { background: var(--dark); }
+.browser-url { border-radius: 2px; background: #22302E; }
+.opt { border-radius: 4px; }
+.see-board { border-radius: 4px; }
+
+.demo-note { margin-top: 26px; color: var(--gray); }
+
+/* Što asistent radi */
+.demo-features { position: relative; overflow: hidden; border-radius: 0; background: var(--dark); color: #C2CCC9; isolation: isolate; }
+.demo-features::after {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: min(46%, 420px); z-index: -1;
+  background-image: linear-gradient(to right, rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(to left, #000, transparent); mask-image: linear-gradient(to left, #000, transparent);
+}
+.sub .demo-features h2 { color: #fff; font-family: var(--f-pixel); font-weight: 400; text-transform: uppercase; font-size: clamp(2.3rem, 4.4vw, 4rem); line-height: .85; }
+.demo-features ul { list-style: none; padding-left: 0; }
+.demo-features li { position: relative; padding-left: 22px; }
+.demo-features li::before { content: ''; position: absolute; left: 2px; top: .55em; width: 8px; height: 8px; background: var(--yellow, #FFC93C); }
+
+/* Ostali primjeri */
+.sub .demo-others h2 { font-family: var(--f-pixel); font-weight: 400; text-transform: uppercase; font-size: clamp(2rem, 3.4vw, 3rem); line-height: .88; }
+.demo-others ul { gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.demo-others li { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.demo-others a { display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 100%; padding: 18px; border: 0; border-radius: 0; background: #fff; font-family: var(--f-pixel); font-weight: 400; font-size: 1.5rem; line-height: .95; text-transform: uppercase; transition: background .25s ease; }
+.demo-others a::after { content: '→'; font-family: var(--f-body); font-size: 1rem; }
+.demo-others a:hover { background: #FFC93C; }
+@media (max-width: 900px) { .demo-others ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sub .demo-page { padding: 0; }
+.sub .section h2.demo-col-title { font-family: var(--f-body); text-transform: uppercase; font-size: 12px; font-weight: 600; letter-spacing: .06em; line-height: 1.3; color: var(--gray); margin-bottom: 12px; }

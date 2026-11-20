@@ -79,8 +79,8 @@
   var root = document.getElementById('demo-root');
   var vertical = root.getAttribute('data-vertical');
   root.className = 'demo demo-' + chrome;
-  if (theme.accent) root.style.setProperty('--accent', theme.accent);
-  if (theme.soft) root.style.setProperty('--accent-soft', theme.soft);
+  if (theme.accent) root.style.setProperty('--demo-accent', theme.accent);
+  if (theme.soft) root.style.setProperty('--demo-soft', theme.soft);
 
   var initial = esc(data.assistantInitial || data.business.charAt(0));
   var chatHead =
@@ -109,22 +109,56 @@
     device = '<div class="phone">' + chatHead + chatBody + '</div>';
   }
 
-  root.innerHTML =
-    '<header class="site-header"><div class="wrap">' +
-      '<a href="' + UI.home + '" class="logo" aria-label="MangAI">Mang<span>AI</span></a>' +
-      '<div class="demo-head-actions">' +
-        '<a class="demo-lang" href="' + UI.langHref + '">' + UI.langSwitch + '</a>' +
-        '<a class="demo-head-link" href="' + UI.allDemos + '">' + UI.allDemosLabel + '</a>' +
-        '<a class="btn btn-primary nav-cta" href="' + UI.contact + '">' + UI.contactLabel + '</a>' +
+  var LOGO = '<svg aria-hidden="true" focusable="false" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect width="16" height="16" rx="3" fill="#0D1514"/><rect x="10" y="1" width="2" height="1" fill="#8FD16A"/><rect x="8" y="2" width="3" height="1" fill="#8FD16A"/><rect x="11" y="2" width="1" height="1" fill="#5FA544"/><rect x="8" y="3" width="2" height="1" fill="#8FD16A"/><rect x="10" y="3" width="1" height="1" fill="#5FA544"/><rect x="6" y="4" width="3" height="1" fill="#FFC93C"/><rect x="9" y="4" width="1" height="1" fill="#0D1514"/><rect x="4" y="5" width="8" height="1" fill="#FFC93C"/><rect x="3" y="6" width="1" height="1" fill="#FFC93C"/><rect x="4" y="6" width="2" height="1" fill="#FFF1C2"/><rect x="6" y="6" width="7" height="1" fill="#FFC93C"/><rect x="3" y="7" width="1" height="1" fill="#FFC93C"/><rect x="4" y="7" width="1" height="1" fill="#FFF1C2"/><rect x="5" y="7" width="8" height="1" fill="#FFC93C"/><rect x="13" y="7" width="1" height="1" fill="#F08A2C"/><rect x="2" y="8" width="11" height="1" fill="#FFC93C"/><rect x="13" y="8" width="1" height="1" fill="#F08A2C"/><rect x="2" y="9" width="10" height="1" fill="#FFC93C"/><rect x="12" y="9" width="2" height="1" fill="#F08A2C"/><rect x="2" y="10" width="1" height="1" fill="#F08A2C"/><rect x="3" y="10" width="8" height="1" fill="#FFC93C"/><rect x="11" y="10" width="3" height="1" fill="#F08A2C"/><rect x="3" y="11" width="1" height="1" fill="#F08A2C"/><rect x="4" y="11" width="6" height="1" fill="#FFC93C"/><rect x="10" y="11" width="3" height="1" fill="#F08A2C"/><rect x="13" y="11" width="1" height="1" fill="#D96E12"/><rect x="3" y="12" width="3" height="1" fill="#F08A2C"/><rect x="6" y="12" width="2" height="1" fill="#FFC93C"/><rect x="8" y="12" width="4" height="1" fill="#F08A2C"/><rect x="12" y="12" width="1" height="1" fill="#D96E12"/><rect x="4" y="13" width="1" height="1" fill="#D96E12"/><rect x="5" y="13" width="6" height="1" fill="#F08A2C"/><rect x="11" y="13" width="1" height="1" fill="#D96E12"/><rect x="6" y="14" width="4" height="1" fill="#D96E12"/></svg>';
+  var ARR = '<span class="arr" aria-hidden="true"><i></i><i></i></span>';
+  var NAV = lang === 'en' ? [['/en/#services','Services'],['/en/#examples','Examples'],['/en/#public-sector','Public sector'],['/en/#how','About'],['/en/blog/','Blog']] : [['/usluge/','Usluge'],['/primjeri/','Primjeri'],['/javni-sektor/','Javni sektor'],['/o-meni/','O meni'],['/blog/','Blog']];
+  var langSw = lang === 'en'
+    ? '<a href="?" hreflang="hr" lang="hr">HR</a> / <span aria-current="page">EN</span>'
+    : '<span aria-current="page">HR</span> / <a href="?lang=en" hreflang="en" lang="en">EN</a>';
+  var navCur = lang === 'en' ? '/en/#examples' : '/primjeri/';
+  var headerHtml =
+    '<header class="nav"><div class="nav-row">' +
+      '<a href="' + UI.home + '" class="logo" aria-label="MangAI">' + LOGO + '<span class="logo-word" aria-hidden="true">Mang<b>AI</b></span></a>' +
+      '<nav class="nav-pill" aria-label="' + (lang === 'en' ? 'Main menu' : 'Glavni izbornik') + '">' +
+        NAV.map(function (n) { return '<a href="' + n[0] + '"' + (n[0] === navCur ? ' aria-current="page"' : '') + '>' + n[1] + '</a>'; }).join('') +
+      '</nav>' +
+      '<div class="nav-right"><span class="lang">' + langSw + '</span>' +
+        '<a href="' + UI.contact + '" class="btn">' + UI.contactLabel + ' ' + ARR + '</a>' +
+        '<button type="button" class="nav-toggle" aria-label="' + (lang === 'en' ? 'Open menu' : 'Otvori izbornik') + '" aria-expanded="false" aria-controls="nav-menu"><span></span></button>' +
       '</div>' +
     '</div></header>' +
-    '<main id="main" class="demo-page"><div class="wrap">' +
-      '<div class="demo-intro">' +
+    '<div class="m-menu" id="nav-menu">' +
+      NAV.concat([[UI.contact, lang === 'en' ? 'Contact' : 'Kontakt']]).map(function (n) { return '<a class="m-link" href="' + n[0] + '">' + n[1] + '</a>'; }).join('') +
+      '<div class="m-foot"><a href="' + UI.contact + '" class="btn">' + UI.contactLabel + ' ' + ARR + '</a><span class="lang">' + langSw + '</span></div>' +
+    '</div><div id="nav-menu-backdrop" aria-hidden="true"></div>';
+
+  var footCols = lang === 'en'
+    ? [['Explore', [['/en/#services','Services'],['/en/#examples','Examples'],['/en/#public-sector','Public sector'],['/en/blog/','Blog']]],
+       ['Legal', [['/en/terms-of-business.html','Terms of business'],['/privacy.html','Privacy policy'],['/terms.html','Terms of use']]],
+       ['Contact', [['tel:+385923557476','+385 92 355 7476'],['mailto:marko@mangai.hr','marko@mangai.hr']]]]
+    : [['Usluge', [['/usluge/izrada-web-stranica/','Izrada web stranica'],['/usluge/ai-chatbot/','AI chatbot'],['/usluge/ai-automatizacija/','AI automatizacija'],['/usluge/aplikacije-po-mjeri/','Aplikacije po mjeri'],['/usluge/odrzavanje/','Održavanje i hosting']]],
+       ['Stranice', [['/primjeri/','Primjeri'],['/javni-sektor/','Javni sektor'],['/o-meni/','O meni'],['/kontakt/','Kontakt'],['/blog/','Blog']]],
+       ['Kontakt', [['tel:+385923557476','+385 92 355 7476'],['mailto:marko@mangai.hr','marko@mangai.hr'],['/uvjeti-poslovanja.html','Uvjeti poslovanja'],['/privacy_hr.html','Pravila privatnosti']]]];
+  var footerHtml =
+    '<footer class="site-foot"><div class="foot-blocks" data-foot-blocks aria-hidden="true"></div><div class="footer">' +
+      '<div class="foot-main"><div class="mascot" data-mascot><a class="bubble" href="' + UI.contact + '">' + (lang === 'en' ? 'Let’s<br>talk!' : 'Javite<br>se!') + '</a></div>' +
+        '<div class="foot-cols">' + footCols.map(function (c) {
+          return '<div><h2>' + c[0] + '</h2><ul>' + c[1].map(function (l) { return '<li><a href="' + l[0] + '">' + l[1] + '</a></li>'; }).join('') + '</ul></div>';
+        }).join('') + '</div></div>' +
+      '<div class="foot-bottom"><p class="foot-word" aria-hidden="true">MangAI</p><p class="foot-legal">MangAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić · Vukovarska 5, 20340 Ploče · MBO: 99415437<br>&copy; ' + new Date().getFullYear() + ' MangAI</p></div>' +
+    '</div></footer>';
+
+  root.innerHTML =
+    headerHtml +
+    '<main id="main" class="demo-page">' +
+      '<section class="page-hero"><div class="wrap">' +
+        '<nav class="crumbs" aria-label="' + (lang === 'en' ? 'Breadcrumb' : 'Putanja') + '"><a href="' + UI.home + '">' + (lang === 'en' ? 'Home' : 'Početna') + '</a><span class="crumb-sep" aria-hidden="true">/</span><a href="' + UI.allDemos + '">' + UI.allDemosLabel + '</a><span class="crumb-sep" aria-hidden="true">/</span><span aria-current="page">' + esc(data.business) + '</span></nav>' +
         '<p class="demo-kicker"><span class="live-dot" aria-hidden="true"></span>Demo · ' + esc(data.business) + '</p>' +
         '<h1>' + esc(data.title) + '</h1>' +
-        '<p class="demo-lead">' + esc(data.lead) + '</p>' +
+        '<p class="page-lead">' + esc(data.lead) + '</p>' +
         '<p class="demo-hint"><span class="hint-wide">' + UI.hint + '</span><span class="hint-narrow">' + UI.hintMobile + '</span></p>' +
-      '</div>' +
+      '</div></section>' +
+      '<section class="section demo-section"><div class="wrap">' +
       '<div class="demo-stage">' +
         '<section class="demo-client" aria-labelledby="demo-client-title">' +
           '<h2 id="demo-client-title" class="demo-col-title">' + UI.clientSees + '</h2>' +
@@ -159,7 +193,8 @@
           return '<li><a href="/demo/' + d.id + '/' + (lang === 'en' ? '?lang=en' : '') + '">' + esc(d[lang]) + '</a></li>';
         }).join('') + '</ul>' +
       '</nav>' +
-    '</div></main>';
+    '</div></section></main>' +
+    footerHtml;
 
   /* ---------- Nadzorna ploča ---------- */
 
