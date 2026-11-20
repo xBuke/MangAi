@@ -79,11 +79,21 @@ function readPosts(file) {
 const byDateDesc = (a, b) => (b.date || '').localeCompare(a.date || '');
 
 /** Favicon i ikone – isti blok ide i u ručno pisane stranice (index.html, pravne stranice) */
-const ICON_LINKS = `    <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=2">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-    <link rel="manifest" href="/site.webmanifest?v=2">`;
+const ICON_LINKS = `    <link rel="icon" href="/favicon.ico?v=3" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=3">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+    <link rel="manifest" href="/site.webmanifest?v=3">`;
+
+/** Novi izgled (v2): fontovi i stilovi za sve generirane stranice */
+const V2_HEAD_LINKS = `    <link rel="preload" href="/assets/v2/fonts/jersey-10-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/v2/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/chat-widget.css">
+    <link rel="stylesheet" href="/assets/v2/v2.css">
+    <link rel="stylesheet" href="/assets/v2/pages.css">`;
+
+/** Pikselni mango (logo) */
+const LOGO_SVG = '<svg aria-hidden="true" focusable="false" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect width="16" height="16" rx="3" fill="#0D1514"/><rect x="10" y="1" width="2" height="1" fill="#8FD16A"/><rect x="8" y="2" width="3" height="1" fill="#8FD16A"/><rect x="11" y="2" width="1" height="1" fill="#5FA544"/><rect x="8" y="3" width="2" height="1" fill="#8FD16A"/><rect x="10" y="3" width="1" height="1" fill="#5FA544"/><rect x="6" y="4" width="3" height="1" fill="#FFC93C"/><rect x="9" y="4" width="1" height="1" fill="#0D1514"/><rect x="4" y="5" width="8" height="1" fill="#FFC93C"/><rect x="3" y="6" width="1" height="1" fill="#FFC93C"/><rect x="4" y="6" width="2" height="1" fill="#FFF1C2"/><rect x="6" y="6" width="7" height="1" fill="#FFC93C"/><rect x="3" y="7" width="1" height="1" fill="#FFC93C"/><rect x="4" y="7" width="1" height="1" fill="#FFF1C2"/><rect x="5" y="7" width="8" height="1" fill="#FFC93C"/><rect x="13" y="7" width="1" height="1" fill="#F08A2C"/><rect x="2" y="8" width="11" height="1" fill="#FFC93C"/><rect x="13" y="8" width="1" height="1" fill="#F08A2C"/><rect x="2" y="9" width="10" height="1" fill="#FFC93C"/><rect x="12" y="9" width="2" height="1" fill="#F08A2C"/><rect x="2" y="10" width="1" height="1" fill="#F08A2C"/><rect x="3" y="10" width="8" height="1" fill="#FFC93C"/><rect x="11" y="10" width="3" height="1" fill="#F08A2C"/><rect x="3" y="11" width="1" height="1" fill="#F08A2C"/><rect x="4" y="11" width="6" height="1" fill="#FFC93C"/><rect x="10" y="11" width="3" height="1" fill="#F08A2C"/><rect x="13" y="11" width="1" height="1" fill="#D96E12"/><rect x="3" y="12" width="3" height="1" fill="#F08A2C"/><rect x="6" y="12" width="2" height="1" fill="#FFC93C"/><rect x="8" y="12" width="4" height="1" fill="#F08A2C"/><rect x="12" y="12" width="1" height="1" fill="#D96E12"/><rect x="4" y="13" width="1" height="1" fill="#D96E12"/><rect x="5" y="13" width="6" height="1" fill="#F08A2C"/><rect x="11" y="13" width="1" height="1" fill="#D96E12"/><rect x="6" y="14" width="4" height="1" fill="#D96E12"/></svg>';
 
 function jsonLd(obj) {
   return `    <script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n    </script>\n`;
@@ -123,6 +133,11 @@ const L = {
     country: '',
     pagesTitle: 'Stranice',
     footerLinks: [['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/o-meni/', 'O meni'], ['/kontakt/', 'Kontakt'], ['/blog/', 'Blog'], ['/uvjeti-poslovanja.html', 'Uvjeti poslovanja'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja']],
+    footerPages: [['/primjeri/', 'Primjeri'], ['/javni-sektor/', 'Javni sektor'], ['/o-meni/', 'O meni'], ['/kontakt/', 'Kontakt'], ['/blog/', 'Blog']],
+    footerLegal: [['/uvjeti-poslovanja.html', 'Uvjeti poslovanja'], ['/privacy_hr.html', 'Pravila privatnosti'], ['/terms_hr.html', 'Uvjeti korištenja']],
+    legalTitle: 'Pravno',
+    contactLabel: 'Kontakt',
+    bubble: 'Javite<br>se!',
     servicesTitle: 'Usluge',
     footerServices: [['/usluge/izrada-web-stranica/', 'Izrada web stranica'], ['/usluge/ai-chatbot/', 'AI chatbot'], ['/usluge/ai-automatizacija/', 'AI automatizacija'], ['/usluge/aplikacije-po-mjeri/', 'Aplikacije po mjeri'], ['/usluge/odrzavanje/', 'Održavanje i hosting']],
     homeLabel: 'Početna',
@@ -159,7 +174,7 @@ const L = {
     homeAria: `${BRAND}, home`,
     menu: 'Open menu',
     navAria: 'Main menu',
-    nav: [['/en/#services', 'Services'], ['/en/#examples', 'Examples'], ['/en/#public-sector', 'Public sector'], ['/en/blog/', 'Blog']],
+    nav: [['/en/#services', 'Services'], ['/en/#examples', 'Examples'], ['/en/#public-sector', 'Public sector'], ['/en/#how', 'About'], ['/en/blog/', 'Blog']],
     cta: 'Send an enquiry',
     contact: '/en/#contact',
     tagline: 'Websites, apps and AI systems, built to order for businesses, institutions and public bodies.',
@@ -167,6 +182,12 @@ const L = {
     country: ', Croatia',
     pagesTitle: 'Pages',
     footerLinks: [['/en/blog/', 'Blog'], ['/privacy.html', 'Privacy policy'], ['/terms.html', 'Terms of use'], ['/en/terms-of-business.html', 'Terms of business']],
+    footerPages: [['/en/#services', 'Services'], ['/en/#examples', 'Examples'], ['/en/#public-sector', 'Public sector'], ['/en/blog/', 'Blog']],
+    footerLegal: [['/en/terms-of-business.html', 'Terms of business'], ['/privacy.html', 'Privacy policy'], ['/terms.html', 'Terms of use']],
+    legalTitle: 'Legal',
+    contactLabel: 'Contact',
+    servicesTitle: null,
+    bubble: 'Let’s<br>talk!',
     homeLabel: 'Home',
     otherLangLabel: 'Hrvatski',
     indexTitle: `Blog | ${BRAND} – AI, web and automation for businesses in Croatia`,
@@ -211,7 +232,7 @@ function head(t, { title, description, canonical, hrUrl, enUrl, type = 'website'
     <meta name="robots" content="${robots}">
     ${canonical ? `<link rel="canonical" href="${canonical}">` : ''}
 ${alternates}
-    <meta name="theme-color" content="#ECEFEA">
+    <meta name="theme-color" content="#0D1514">
     <meta property="og:type" content="${type}">
     <meta property="og:site_name" content="${BRAND}">
     <meta property="og:locale" content="${t.ogLocale}">
@@ -226,93 +247,102 @@ ${alternates}
     <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:image" content="${SITE}/assets/og.png">
 ${ICON_LINKS}
-    <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/fonts/fonts.css">
-    <link rel="stylesheet" href="/chat-widget.css">
-    <link rel="stylesheet" href="/home.css">
-${[].concat(css).map((href) => `    <link rel="stylesheet" href="${href}">`).join('\n')}
+${V2_HEAD_LINKS}
 ${extra}</head>`;
 }
 
 function header(t, otherLangUrl, current = t.blog) {
   const navLinks = t.nav
     .map(([href, label]) => `<a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`)
-    .join('\n                    ');
+    .join('\n                ');
+  const mLinks = t.nav.concat([[t.contact, t.contactLabel]])
+    .map(([href, label]) => `<a class="m-link" href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`)
+    .join('\n        ');
   const switcher = t.lang === 'hr'
-    ? `<span aria-current="page">HR</span><span aria-hidden="true">/</span><a href="${otherLangUrl}" hreflang="en" lang="en">EN</a>`
-    : `<a href="${otherLangUrl}" hreflang="hr" lang="hr">HR</a><span aria-hidden="true">/</span><span aria-current="page">EN</span>`;
+    ? `<span aria-current="page">HR</span> / <a href="${otherLangUrl}" hreflang="en" lang="en">EN</a>`
+    : `<a href="${otherLangUrl}" hreflang="hr" lang="hr">HR</a> / <span aria-current="page">EN</span>`;
+  const arr = '<span class="arr" aria-hidden="true"><i></i><i></i></span>';
   return `
-<body>
+<body class="v2 sub">
     <a class="skip-link" href="#main">${t.skip}</a>
-    <header class="site-header">
-        <div class="wrap">
-            <a href="${t.home}" class="logo" aria-label="${t.homeAria}">Mang<span>AI</span></a>
-            <button type="button" class="nav-toggle" aria-label="${t.menu}" aria-expanded="false" aria-controls="nav-menu">
-                <span class="nav-toggle-icon"></span>
-            </button>
-            <div class="nav-menu-panel" id="nav-menu">
-                <nav class="nav" aria-label="${t.navAria}">
-                    ${navLinks}
-                    <span class="lang-switcher">${switcher}</span>
-                </nav>
-                <a href="${t.contact}" class="btn btn-primary nav-cta">${t.cta}</a>
+    <header class="nav">
+        <div class="nav-row">
+            <a href="${t.home}" class="logo" aria-label="${t.homeAria}">${LOGO_SVG}<span class="logo-word" aria-hidden="true">Mang<b>AI</b></span></a>
+            <nav class="nav-pill" aria-label="${t.navAria}">
+                ${navLinks}
+            </nav>
+            <div class="nav-right">
+                <span class="lang">${switcher}</span>
+                <a href="${t.contact}" class="btn">${t.cta} ${arr}</a>
+                <button type="button" class="nav-toggle" aria-label="${t.menu}" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
             </div>
         </div>
     </header>
-    <div class="nav-menu-backdrop" id="nav-menu-backdrop" aria-hidden="true"></div>
+    <div class="m-menu" id="nav-menu">
+        ${mLinks}
+        <div class="m-foot">
+            <a href="${t.contact}" class="btn">${t.cta} ${arr}</a>
+            <span class="lang">${switcher}</span>
+        </div>
+    </div>
+    <div id="nav-menu-backdrop" aria-hidden="true"></div>
 `;
 }
 
 function footer(t, otherLangUrl, scripts = '') {
-  const links = t.footerLinks
-    .map(([href, label]) => `<li><a href="${href}">${label}</a></li>`)
-    .join('\n                        ');
   const otherLang = t.lang === 'hr' ? 'en' : 'hr';
+  const li = (arr) => arr.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join('\n                            ');
   const servicesCol = t.footerServices
     ? `
-                <div>
-                    <h2><a href="/usluge/">${t.servicesTitle}</a></h2>
-                    <ul>
-                        ${t.footerServices.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join('\n                        ')}
-                    </ul>
-                </div>`
+                    <div>
+                        <h2>${t.servicesTitle}</h2>
+                        <ul>
+                            ${li(t.footerServices)}
+                        </ul>
+                    </div>`
     : '';
   return `
-    <footer class="site-footer">
-        <div class="wrap">
-            <div class="footer-grid${t.footerServices ? ' footer-grid-4' : ''}">
-                <div>
-                    <a href="${t.home}" class="logo">Mang<span>AI</span></a>
-                    <p class="footer-tag">${t.tagline}</p>
+    <footer class="site-foot">
+        <div class="foot-blocks" data-foot-blocks aria-hidden="true"></div>
+        <div class="footer">
+            <div class="foot-main">
+                <div class="mascot" data-mascot>
+                    <a class="bubble" href="${t.contact}">${t.bubble}</a>
                 </div>
-                <div>
-                    <h2>${t.bizTitle}</h2>
-                    <address>
-                        MangAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić<br>
-                        Vukovarska 5, 20340 Ploče${t.country}<br>
-                        MBO: 99415437<br>
-                        <a href="tel:+385923557476">+385 92 355 7476</a><br>
-                        <a href="mailto:marko@mangai.hr">marko@mangai.hr</a>
-                    </address>
-                </div>
-${servicesCol}
-                <div>
-                    <h2>${t.pagesTitle}</h2>
-                    <ul>
-                        ${links}
-                        <li><a href="${otherLangUrl}" hreflang="${otherLang}" lang="${otherLang}">${t.otherLangLabel}</a></li>
-                    </ul>
+                <div class="foot-cols">${servicesCol}
+                    <div>
+                        <h2>${t.pagesTitle}</h2>
+                        <ul>
+                            ${li(t.footerPages)}
+                            <li><a href="${otherLangUrl}" hreflang="${otherLang}" lang="${otherLang}">${t.otherLangLabel}</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>${t.legalTitle}</h2>
+                        <ul>
+                            ${li(t.footerLegal)}
+                        </ul>
+                        <h2 style="margin-top:24px">${t.contactLabel}</h2>
+                        <ul>
+                            <li><a href="tel:+385923557476">+385 92 355 7476</a></li>
+                            <li><a href="mailto:marko@mangai.hr">marko@mangai.hr</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <p class="footer-bottom">&copy; <span id="year">${new Date().getFullYear()}</span> ${BRAND}</p>
+            <div class="foot-bottom">
+                <p class="foot-word" aria-hidden="true">MangAI</p>
+                <p class="foot-legal">MangAI, obrt za računalno programiranje i savjetovanje, vl. Marko Škorić · Vukovarska 5, 20340 Ploče${t.country} · MBO: 99415437<br>&copy; <span id="year">${new Date().getFullYear()}</span> ${BRAND}</p>
+            </div>
         </div>
     </footer>
 
     <div id="mangai-chat-root"></div>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script>document.documentElement.classList.add('js');document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script src="/nav.js"></script>
-${scripts}    <script src="/chat-widget.js" defer></script>
+${scripts}    <script src="/assets/js/lenis.min.js" defer></script>
+    <script src="/assets/v2/v2.js" defer></script>
+    <script src="/chat-widget.js" defer></script>
 </body>
 </html>
 `;
@@ -595,6 +625,8 @@ function legacyPage(t) {
 
 /* ---------- main ---------- */
 
+module.exports = { L, header, footer, V2_HEAD_LINKS, LOGO_SVG };
+
 function write(file, html) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html, 'utf8');
@@ -653,4 +685,4 @@ ${urls.map((u) => `  <url>
   console.log('Gotovo. Nakon izmjene posts.json pokreni ponovno.');
 }
 
-main();
+if (require.main === module) main();

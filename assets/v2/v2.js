@@ -75,13 +75,15 @@
       onView(h, play, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
     }
   }
+  $$('.page-hero h1, .blog-index .section-head h1, .legal h1').forEach(function (h) { if (!h.hasAttribute('data-split')) h.setAttribute('data-split', 'load'); });
   $$('[data-split]').forEach(splitHeading);
 
   /* ---------- Hero: mreža kockica koje se pale pod mišem ---------- */
   var gridEl = $('[data-grid]');
-  if (gridEl) initGrid(gridEl);
+  if (gridEl) initGrid(gridEl, '.hero-row');
+  $$('.page-hero').forEach(function (el) { initGrid(el, '.wrap > *'); });
 
-  function initGrid(el) {
+  function initGrid(el, holeSel) {
     var canvas = document.createElement('canvas');
     canvas.setAttribute('aria-hidden', 'true');
     el.insertBefore(canvas, el.firstChild);
@@ -98,7 +100,7 @@
       cols = W < 768 ? 8 : 20;
       size = W / cols;
       rows = Math.ceil(H / size);
-      holes = $$('.hero-row', el).map(function (row) {
+      holes = $$(holeSel, el).map(function (row) {
         var rr = row.getBoundingClientRect();
         return { x: rr.left - r.left, y: rr.top - r.top, w: rr.width, h: rr.height };
       });

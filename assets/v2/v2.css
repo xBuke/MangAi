@@ -650,8 +650,7 @@ a:hover .arr i + i, a:focus-visible .arr i + i, button:hover .arr i + i { transf
 .split.is-play .l > span { transition: transform .65s var(--ease); transition-delay: var(--d, 0s); }
 
 /* ---------- Savjetnik (chat) u novom stilu ---------- */
-#mangai-chat-root { --c-ink: #0F1D1B; --c-mandarin: #FFC93C; --c-mandarin-deep: #E8A91E; font-family: var(--f-body); }
-#mangai-chat-root .mangai-chat-launcher { border-radius: 6px !important; text-transform: uppercase; font-size: 13px !important; letter-spacing: .03em; font-weight: 500; }
+/* (stil savjetnika je u /chat-widget.css) */
 
 /* ---------- Smanjeno kretanje ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -663,3 +662,6 @@ a:hover .arr i + i, a:focus-visible .arr i + i, button:hover .arr i + i { transf
 
 /* Engleski naslov je duži */
 html[lang="en"] .hero h1 { font-size: clamp(2.6rem, 8.6vw, 9rem); }
+
+/* Savjetnik se ne prikazuje preko otvorenog mobilnog izbornika */
+.menu-open #mangai-chat-root { display: none; }
