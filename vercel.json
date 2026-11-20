@@ -170,6 +170,14 @@
     {
       "source": "/ogledno/tvrdjava-kulture/:path*",
       "destination": "https://tvrdjava-demo.vercel.app/ogledno/tvrdjava-kulture/:path*"
+    },
+    {
+      "source": "/ogledno/vrlika",
+      "destination": "https://vrlika-demo.vercel.app/ogledno/vrlika"
+    },
+    {
+      "source": "/ogledno/vrlika/:path*",
+      "destination": "https://vrlika-demo.vercel.app/ogledno/vrlika/:path*"
     }
   ],
   "headers": [
