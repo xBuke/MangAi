@@ -32,6 +32,7 @@ html.a11y-contrast body { background: #fff; }
 html.a11y-links a { text-decoration: underline !important; text-underline-offset: .18em; }
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
