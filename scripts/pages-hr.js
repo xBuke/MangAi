@@ -20,7 +20,7 @@
 
 const SITE = 'https://mangai.hr';
 const PHONE_HREF = 'tel:+385923557476';
-const LASTMOD = '2026-11-18';
+const LASTMOD = '2026-11-20';
 
 const arrow = '<span aria-hidden="true">→</span>';
 
@@ -81,7 +81,7 @@ const usluge = {
   path: '/usluge/',
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], [null, 'Usluge']],
-  metaTitle: 'Usluge: web stranice, AI chatbotovi i automatizacija',
+  metaTitle: 'Usluge: web stranice, aplikacije, AI i održavanje',
   description: 'Web stranice i webshopovi, AI asistenti, automatizacija poslovanja, aplikacije po mjeri i održavanje za tvrtke, ustanove i javne naručitelje. Svaki projekt po mjeri, uz pisanu ponudu.',
   h1: 'Usluge',
   lead: 'Od web stranice do aplikacije po mjeri. Svaki projekt vodim i izrađujem osobno, a opseg i rok dogovaramo pisano prije početka.',
@@ -247,8 +247,8 @@ const chatbot = {
   path: '/usluge/ai-chatbot/',
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], ['/usluge/', 'Usluge'], [null, 'AI chatbot']],
-  metaTitle: 'AI chatbot za web stranicu i WhatsApp',
-  description: 'AI asistent koji odgovara iz vaših podataka, prima upite i rezervacije 0–24 i šalje vam sažetak. Na webu ili WhatsAppu, za salone, apartmane, ordinacije i urede.',
+  metaTitle: 'AI chatbot za web i WhatsApp, uz web stranice i aplikacije',
+  description: 'MangAI izrađuje web stranice, aplikacije po mjeri i AI asistente. Asistent odgovara iz vaših podataka, prima upite i rezervacije 0–24, na webu ili WhatsAppu.',
   h1: 'AI asistent za tvrtke: chatbot za web stranicu i WhatsApp',
   lead: 'Asistent odgovara na česta pitanja iz vaših podataka, prima upite i rezervacije 0–24 i šalje vam sažetak. Kad ne zna odgovor, ne izmišlja, nego ponudi da vas klijent dobije na telefon.',
   body: `
