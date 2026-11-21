@@ -247,8 +247,8 @@ const chatbot = {
   path: '/usluge/ai-chatbot/',
   nav: '/usluge/',
   crumbs: [['/', 'Početna'], ['/usluge/', 'Usluge'], [null, 'AI chatbot']],
-  metaTitle: 'AI chatbot za web i WhatsApp, uz web stranice i aplikacije',
-  description: 'MangAI izrađuje web stranice, aplikacije po mjeri i AI asistente. Asistent odgovara iz vaših podataka, prima upite i rezervacije 0–24, na webu ili WhatsAppu.',
+  metaTitle: 'AI chatbot za web stranicu i WhatsApp',
+  description: 'AI asistent za web stranicu i WhatsApp: odgovara iz vaših podataka, prima upite i rezervacije 0–24 i predaje ih vama. Za tvrtke, obrte i ustanove u cijeloj Hrvatskoj.',
   h1: 'AI asistent za tvrtke: chatbot za web stranicu i WhatsApp',
   lead: 'Asistent odgovara na česta pitanja iz vaših podataka, prima upite i rezervacije 0–24 i šalje vam sažetak. Kad ne zna odgovor, ne izmišlja, nego ponudi da vas klijent dobije na telefon.',
   body: `
