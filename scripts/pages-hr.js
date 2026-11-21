@@ -713,6 +713,23 @@ const primjeri = {
             </div>
         </section>
 
+        <section class="section" aria-labelledby="spiso-title">
+            <div class="wrap app-feature">
+                <div class="prose">
+                    <p class="app-kicker">Aplikacija · odvjetnički uredi</p>
+                    <h2 id="spiso-title">Spiso: rokovi, spisi i naplata na jednom mjestu</h2>
+                    <p>Spiso je moja aplikacija za odvjetničke urede od 1 do 10 ljudi: računa rokove po ZPP-u, prati predmete na e-Predmetu, prima dokumente od klijenata i priprema troškovnik i račun s barkodom.</p>
+                    <div class="app-actions">
+                        <a class="btn btn-primary" href="https://spiso.mangai.hr/" target="_blank" rel="noopener">Pogledaj Spiso</a>
+                    </div>
+                </div>
+                <a class="app-shot" href="https://spiso.mangai.hr/" target="_blank" rel="noopener" aria-label="Spiso, aplikacija za odvjetničke urede">
+                    <span class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span>spiso.mangai.hr</span></span>
+                    <img src="/assets/v2/img/demo-spiso.webp" alt="Nadzorna ploča Spiso s rokovima, ročištima i neplaćenim računima" width="880" height="376" loading="lazy" decoding="async">
+                </a>
+            </div>
+        </section>
+
         <section class="section" aria-labelledby="pravo-title">
             <div class="wrap page-split">
                 <div class="prose">
