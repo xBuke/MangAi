@@ -470,6 +470,25 @@ const aplikacije = {
             </div>
         </section>
 
+        <section class="section" aria-labelledby="spiso-title">
+            <div class="wrap app-feature">
+                <div class="prose">
+                    <p class="app-kicker">Aplikacija · odvjetnički uredi</p>
+                    <h2 id="spiso-title">Spiso: rokovi, spisi i naplata na jednom mjestu</h2>
+                    <p>Primjer kako izgleda gotova aplikacija. Spiso je moj vlastiti proizvod za odvjetničke urede od 1 do 10 ljudi: računa rokove po ZPP-u s blagdanima i kolovoškom stankom, prati predmete na e-Predmetu, prima dokumente od klijenata preko sigurnog linka i priprema troškovnik po Tarifi HOK-a te račun s barkodom za plaćanje.</p>
+                    <p>Na stranici aplikacije možete izračunati rok sa svojim datumom, a u demo uredu s izmišljenim podacima proći kroz predmete, kalendar i račune kao vlasnik, odvjetnik ili administracija.</p>
+                    <div class="app-actions">
+                        <a class="btn btn-primary" href="https://spiso.mangai.hr/" target="_blank" rel="noopener">Pogledaj Spiso</a>
+                        <a class="btn btn-ghost" href="https://spiso.mangai.hr/prijava" target="_blank" rel="noopener">Uđi u demo ured</a>
+                    </div>
+                </div>
+                <a class="app-shot" href="https://spiso.mangai.hr/" target="_blank" rel="noopener" aria-label="Spiso, nadzorna ploča odvjetničkog ureda">
+                    <span class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span>spiso.mangai.hr</span></span>
+                    <img src="/assets/v2/img/demo-spiso.webp" alt="Nadzorna ploča Spiso s rokovima, ročištima i neplaćenim računima" width="880" height="376" loading="lazy" decoding="async">
+                </a>
+            </div>
+        </section>
+
         <section class="section" aria-labelledby="smisla-title">
             <div class="wrap page-split">
                 <div class="prose">
@@ -697,10 +716,10 @@ const primjeri = {
   path: '/primjeri/',
   nav: '/primjeri/',
   crumbs: [['/', 'Početna'], [null, 'Primjeri']],
-  metaTitle: 'Primjeri AI asistenata po djelatnostima',
-  description: 'Isprobajte AI asistenta za beauty salon, apartmane, ordinaciju, odvjetnički ured, nekretnine i općinu. Odgovarate kao klijent, a ploča vlasnika puni se pred vama.',
+  metaTitle: 'Primjeri: AI asistenti po djelatnostima i aplikacija Spiso',
+  description: 'Isprobajte AI asistenta za salon, apartmane, ordinaciju, odvjetnički ured, nekretnine i općinu te Spiso, aplikaciju za odvjetničke urede s rokovima, e-Predmetom i računima.',
   h1: 'Primjeri',
-  lead: 'Šest asistenata koje možete isprobati odmah. Odgovarate kao klijent na WhatsAppu ili web stranici, a na ploči vlasnika gledate kako se upit sam upisuje, polje po polje.',
+  lead: 'Šest asistenata i jedna cijela aplikacija koje možete isprobati odmah. Kod asistenata odgovarate kao klijent na WhatsAppu ili web stranici, a na ploči vlasnika gledate kako se upit sam upisuje, polje po polje.',
   heroActions: false,
   body: `
         <section class="section" aria-label="Popis primjera">
@@ -710,6 +729,25 @@ const primjeri = {
                     <li><a href="/kontakt/"><span class="demo-sector">Vaša djelatnost?</span><span class="demo-what">Opišite kako radite, pa zajedno vidimo kako bi asistent izgledao kod vas.</span><span class="demo-open">Pošalji upit</span></a></li>
                 </ul>
                 <p class="demo-note">Svaki demo traje oko pola minute i radi s izmišljenim podacima. Prava verzija radi se prema vašim procesima, sustavima i vizualnom identitetu.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="spiso-title">
+            <div class="wrap app-feature">
+                <div class="prose">
+                    <p class="app-kicker">Aplikacija · odvjetnički uredi</p>
+                    <h2 id="spiso-title">Spiso: rokovi, spisi i naplata na jednom mjestu</h2>
+                    <p>Osim asistenata izrađujem i cijele aplikacije. Spiso je moj vlastiti proizvod za odvjetničke urede od 1 do 10 ljudi: računa rokove po ZPP-u s blagdanima i kolovoškom stankom, prati predmete na e-Predmetu, prima dokumente od klijenata preko sigurnog linka i priprema troškovnik po Tarifi HOK-a te račun s barkodom za plaćanje.</p>
+                    <p>Na stranici aplikacije možete izračunati rok sa svojim datumom, a u demo uredu s izmišljenim podacima proći kroz predmete, kalendar i račune kao vlasnik, odvjetnik ili administracija.</p>
+                    <div class="app-actions">
+                        <a class="btn btn-primary" href="https://spiso.mangai.hr/" target="_blank" rel="noopener">Pogledaj Spiso</a>
+                        <a class="btn btn-ghost" href="https://spiso.mangai.hr/prijava" target="_blank" rel="noopener">Uđi u demo ured</a>
+                    </div>
+                </div>
+                <a class="app-shot" href="https://spiso.mangai.hr/" target="_blank" rel="noopener" aria-label="Spiso, nadzorna ploča odvjetničkog ureda">
+                    <span class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span>spiso.mangai.hr</span></span>
+                    <img src="/assets/v2/img/demo-spiso.webp" alt="Nadzorna ploča Spiso s rokovima, ročištima i neplaćenim računima" width="880" height="376" loading="lazy" decoding="async">
+                </a>
             </div>
         </section>
 
@@ -728,6 +766,7 @@ const primjeri = {
         </section>`,
   faq: [
     { q: 'Jesu li primjeri pravi sustavi?', a: 'Primjeri rade s izmišljenim podacima i prikazuju koncept: razgovor s klijentom, karticu upita koja se puni tijekom razgovora i ploču vlasnika. Prava verzija povezuje se s vašim podacima, kalendarom i kanalima.' },
+    { q: 'Što je Spiso?', a: 'Spiso je aplikacija za odvjetničke urede koju sam razvio kao vlastiti proizvod: rokovi po ZPP-u, praćenje predmeta na e-Predmetu, dokumenti od klijenata, troškovnik po Tarifi HOK-a i računi. Pogledati ga možete na spiso.mangai.hr.' },
     { q: 'Mogu li dobiti primjer za svoju djelatnost?', a: 'Da. Opišite kako radite i koja pitanja klijenti najčešće postavljaju, pa vam pokažem kako bi asistent izgledao kod vas.' },
   ],
   schema: [{
