@@ -1,11 +1,10 @@
-/* Vina Govorko — sadržaj stranice i ponuda vina (demo cijene) */
+/* Vina Govorko — sadržaj stranice i ponuda vina (bez cijena — sve ide na upit) */
 import { COMMON_I18N, mergeI18n } from '@shared/i18n-common.js';
 
 export const PRODUCTS = [
  {
   "id": "dispet",
   "name": "Dišpet",
-  "price": 12,
   "vol": "0,75 l",
   "type": "white",
   "kind": {
@@ -40,7 +39,6 @@ export const PRODUCTS = [
  {
   "id": "delozija",
   "name": "Đelozija",
-  "price": 12,
   "vol": "0,75 l",
   "type": "rose",
   "kind": {
@@ -75,7 +73,6 @@ export const PRODUCTS = [
  {
   "id": "brankic",
   "name": "Brankić",
-  "price": 15,
   "vol": "0,75 l",
   "type": "red",
   "kind": {
@@ -109,7 +106,6 @@ export const PRODUCTS = [
  {
   "id": "posip",
   "name": "Pošip",
-  "price": 16,
   "vol": "0,75 l",
   "type": "white",
   "kind": {
@@ -144,7 +140,6 @@ export const PRODUCTS = [
  {
   "id": "trnak",
   "name": "Trnak",
-  "price": 19,
   "vol": "0,75 l",
   "type": "red",
   "kind": {
@@ -178,7 +173,6 @@ export const PRODUCTS = [
  {
   "id": "bokun",
   "name": "Bokun",
-  "price": 22,
   "vol": "0,75 l",
   "type": "white",
   "kind": {
@@ -212,7 +206,6 @@ export const PRODUCTS = [
  {
   "id": "pjenusac",
   "name": "Pjenušac",
-  "price": 24,
   "vol": "0,75 l",
   "type": "sparkling",
   "kind": {
@@ -247,9 +240,6 @@ export const PRODUCTS = [
 
 export const SITE = {
   id: 'govorko',
-  orderPrefix: 'GOV',
-  shipping: 5.9,
-  freeShippingFrom: 60,
   labelFont: "'Gloock', Georgia, serif",
   labelSub: 'GOVORKO · DUSINA',
   titles: { hr: 'Vina Govorko — obiteljska vinarija iz Metkovića', en: 'Vina Govorko — family winery from Metković' },
@@ -260,6 +250,8 @@ export const SITE = {
   "nav.vineyard": "Vinograd",
   "nav.wines": "Vina",
   "nav.visit": "Posjet",
+  "nav.inq": "Upit",
+  "visit.inq": "Pošalji upit za degustaciju",
   "hero.pos": "im. m., dalm.",
   "hero.d1": "inat, prkos.",
   "hero.d2": "bijelo vino iz Dusine. Prvo vino s etiketom u selu gdje su svi govorili da se dobro vino ne može napraviti.",
@@ -287,7 +279,7 @@ export const SITE = {
   "vy.v5": "Metković, Kneza Branimira 18",
   "vy.note": "Kad smo između redova posijali ječam i grašak za zelenu gnojidbu, pola sela nas je pitalo jesmo li normalni. Jesmo. Samo radimo za bocu, a ne za pijacu.",
   "wines.title": "Rječnik naših vina",
-  "wines.lead": "Svako naše vino nosi riječ iz kraja. Evo što znače — i kako ih naručiti.",
+  "wines.lead": "Svako naše vino nosi riječ iz kraja. Evo što znače. Dodaj ona koja te zanimaju u upit.",
   "w.from": "od sorti",
   "visit.title": "Navrati na čašu",
   "visit.lead": "Degustacije radimo u podrumu u Metkoviću, uz najavu. Javi se par dana ranije i dogovorit ćemo termin.",
@@ -374,6 +366,8 @@ export const SITE = {
   "nav.vineyard": "Vineyard",
   "nav.wines": "Wines",
   "nav.visit": "Visit",
+  "nav.inq": "Enquiry",
+  "visit.inq": "Enquire about a tasting",
   "hero.pos": "noun, Dalmatian dialect",
   "hero.d1": "spite, stubbornness.",
   "hero.d2": "a white wine from Dusina. The first labelled wine from a village where everyone said good wine could not be made.",
@@ -401,7 +395,7 @@ export const SITE = {
   "vy.v5": "Metković, Kneza Branimira 18",
   "vy.note": "When we sowed barley and peas between the rows as green manure, half the village asked if we had lost our minds. We hadn't. We just grow for the bottle, not for the market.",
   "wines.title": "A dictionary of our wines",
-  "wines.lead": "Each of our wines carries a word from home. Here is what they mean — and how to order them.",
+  "wines.lead": "Each of our wines carries a word from home. Here is what they mean. Add the ones you like to your enquiry.",
   "w.from": "from",
   "visit.title": "Drop by for a glass",
   "visit.lead": "We host tastings in our cellar in Metković, by appointment. Get in touch a few days ahead and we will set a time.",

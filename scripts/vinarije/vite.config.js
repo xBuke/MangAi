@@ -18,7 +18,7 @@ export default defineConfig({
     emptyOutDir: true,
     assetsDir: 'assets',
     rollupOptions: {
-      input: { index: resolve(root, 'index.html'), checkout: resolve(root, 'checkout.html') }
+      input: { index: resolve(root, 'index.html') }
     }
   }
 });

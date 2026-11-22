@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring, AnimatePresence, useMotionValueEvent } fr
 import { useShop, RemoteImg } from '@shared/shop.jsx';
 import { useSmoothScroll, Reveal, CountUp, VelocityMarquee, WineGlass, scrollToId, Magnetic } from '@shared/fx.jsx';
 import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar } from '@shared/ui.jsx';
+import Inquiry, { openInquiry } from '@shared/Inquiry.jsx';
 import { GSAP, gsap, SplitText, useGSAP, ScrollTrigger } from './gsap-setup.js';
 import Hero from './Hero.jsx';
 import Process from './Process.jsx';
@@ -12,7 +13,7 @@ import MapLive from './MapLive.jsx';
 
 const LOGO = 'https://res.cloudinary.com/dcfelth94/images/f_auto,q_auto,c_limit,w_3840/v1749516188/224019853_104292008576408_2247716177356569512_n/224019853_104292008576408_2247716177356569512_n.jpg?_i=AA';
 const CartIcon = (
-  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.4 11.3a1.8 1.8 0 0 1-1.8 1.7H8.2a1.8 1.8 0 0 1-1.8-1.7z M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" /></svg>
+  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 4h14v16H5z M8.5 9h7 M8.5 12.5h7 M8.5 16h4" /></svg>
 );
 
 function Header() {
@@ -29,6 +30,7 @@ function Header() {
         <a href="#vina">{t('nav.wines')}</a>
         <a href="#nagrade">{t('nav.awards')}</a>
         <a href="#karta">{t('nav.map')}</a>
+        <a href="#upit">{t('nav.inq')}</a>
       </nav>
       <div className="top-tools"><LangSwitch /><CartButton icon={CartIcon} /></div>
     </header>
@@ -120,7 +122,7 @@ function Awards() {
 }
 
 function Visit() {
-  const { t } = useShop();
+  const { t, setInqType } = useShop();
   return (
     <section className="visit" id="dusina" aria-labelledby="visit-title">
       <div className="visit-coords" aria-hidden="true">
@@ -136,7 +138,10 @@ function Visit() {
           <Reveal delay={0.1}><dt>{t('visit.mail')}</dt><dd><a href="mailto:vinarijadiko@gmail.com">vinarijadiko@gmail.com</a></dd></Reveal>
           <Reveal delay={0.15}><dt>{t('visit.social')}</dt><dd><a href="https://www.instagram.com/vinarijadiko/" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.facebook.com/p/Vinarija-%C4%90iko-100071089855512/" target="_blank" rel="noopener">Facebook</a></dd></Reveal>
         </dl>
-        <Magnetic><a className="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&destination=43.1774755,17.4048056" target="_blank" rel="noopener">{t('visit.map')}</a></Magnetic>
+        <div className="visit-btns">
+          <Magnetic><button type="button" className="btn btn-dark" onClick={() => openInquiry(setInqType, 'visit')}>{t('visit.inq')}</button></Magnetic>
+          <Magnetic><a className="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=43.1774755,17.4048056" target="_blank" rel="noopener">{t('visit.map')}</a></Magnetic>
+        </div>
       </div>
     </section>
   );
@@ -165,6 +170,7 @@ export default function App() {
         <Awards />
         <Gallery />
         <MapLive />
+        <Inquiry winery="Vinarija Điko" email="vinarijadiko@gmail.com" whatsapp="385919279021" />
         <Visit />
       </main>
       <footer className="foot">

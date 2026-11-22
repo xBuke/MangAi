@@ -13,7 +13,7 @@ function isDark(hex) {
 }
 
 export default function WinePicker() {
-  const { t, L, money, site } = useShop();
+  const { t, L, site } = useShop();
   const list = site.products;
   const [i, setI] = useState(0);
   const [dir, setDir] = useState(1);
@@ -79,7 +79,7 @@ export default function WinePicker() {
               <p className="wine-meta">{L(p.kind)} · {L(p.grapes)}</p>
               <p className="wine-note">{L(p.note)}</p>
               <div className="wine-buy">
-                <span className="price">{money(p.price)}</span><span className="vol">{p.vol}</span>
+                <span className="vol">{p.vol}</span>
               </div>
               <AddButton p={p} sourceRef={bottleRef} />
             </motion.div>

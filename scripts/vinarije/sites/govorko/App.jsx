@@ -4,6 +4,7 @@ import { useShop, RemoteImg } from '@shared/shop.jsx';
 import Bottle from '@shared/Bottle.jsx';
 import { useSmoothScroll, SplitText, ScrollWords, Reveal, CountUp, Magnetic, Tilt, Scramble, scrollToId } from '@shared/fx.jsx';
 import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar, AddButton } from '@shared/ui.jsx';
+import Inquiry, { openInquiry } from '@shared/Inquiry.jsx';
 import Year from './Year.jsx';
 import MapIllustrated from './MapIllustrated.jsx';
 
@@ -23,7 +24,7 @@ const IMG = {
 };
 
 const CartIcon = (
-  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8z M9 7V6a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /></svg>
+  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 4h14v16H5z M8.5 9h7 M8.5 12.5h7 M8.5 16h4" /></svg>
 );
 
 function Header() {
@@ -47,6 +48,7 @@ function Header() {
         <a href="#vina">{t('nav.wines')}</a>
         <a href="#karta">{t('map.kicker')}</a>
         <a href="#posjet">{t('nav.visit')}</a>
+        <a href="#upit">{t('nav.inq')}</a>
       </nav>
       <div className="top-tools">
         <LangSwitch />
@@ -214,7 +216,7 @@ function Strip() {
 }
 
 function Entry({ p }) {
-  const { t, L, money, site } = useShop();
+  const { t, L, site } = useShop();
   const bottleRef = useRef(null);
   return (
     <motion.article layout className="entry" id={'vino-' + p.id}
@@ -230,7 +232,7 @@ function Entry({ p }) {
         <p className="entry-def"><span className="sense">1.</span> {L(p.meaning)}</p>
         <p className="entry-def"><span className="sense">2.</span> {L(p.kind).toLowerCase()} {t('w.from')} {L(p.grapes)}. {L(p.note)}</p>
         <div className="entry-buy">
-          <span className="price">{money(p.price)}<small> / {p.vol}</small></span>
+          <span className="price-vol">{p.vol}</span>
           <AddButton p={p} sourceRef={bottleRef} />
         </div>
       </div>
@@ -272,7 +274,7 @@ function Wines() {
 }
 
 function Visit() {
-  const { t } = useShop();
+  const { t, setInqType } = useShop();
   return (
     <section className="visit" id="posjet" aria-labelledby="visit-title">
       <div>
@@ -281,6 +283,7 @@ function Visit() {
         <div className="visit-btns">
           <Magnetic><a className="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Kneza+Branimira+18+Metkovi%C4%87" target="_blank" rel="noopener">{t('visit.map')}</a></Magnetic>
           <Magnetic><a className="btn btn-line" href="https://www.google.com/maps/dir/?api=1&origin=43.1775,17.4048&destination=Kneza+Branimira+18+Metkovi%C4%87" target="_blank" rel="noopener">{t('visit.route')}</a></Magnetic>
+          <Magnetic><button type="button" className="btn btn-main" onClick={() => openInquiry(setInqType, 'visit')}>{t('visit.inq')}</button></Magnetic>
         </div>
       </div>
       <dl className="contact">
@@ -312,6 +315,7 @@ export default function App() {
         <Strip />
         <Wines />
         <MapIllustrated />
+        <Inquiry winery="Vina Govorko" email="vinagovorko@hotmail.com" whatsapp="385989157997" />
         <Visit />
       </main>
       <footer className="foot">

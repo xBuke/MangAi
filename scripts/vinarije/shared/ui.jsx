@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useShop } from './shop.jsx';
 import Bottle from './Bottle.jsx';
-import { lockScroll } from './fx.jsx';
+import { lockScroll, scrollToId } from './fx.jsx';
 
 export function LangSwitch() {
   const { lang, setLang, t } = useShop();
@@ -59,7 +59,7 @@ export function FlyLayer() {
 }
 
 export function CartDrawer({ closeIcon }) {
-  const { drawerOpen, closeCart, lines, subtotal, shipping, money, t, L, setQty, site } = useShop();
+  const { drawerOpen, closeCart, lines, count, t, L, setQty, site, bottles, setInqType } = useShop();
   const closeRef = useRef(null);
   const lastFocus = useRef(null);
   useEffect(() => {
@@ -72,12 +72,16 @@ export function CartDrawer({ closeIcon }) {
       return () => document.removeEventListener('keydown', onKey);
     } else {
       lockScroll(false);
-      if (lastFocus.current) lastFocus.current.focus();
+      if (lastFocus.current && document.body.contains(lastFocus.current)) lastFocus.current.focus({ preventScroll: true });
     }
   }, [drawerOpen, closeCart]);
 
-  const left = site.freeShippingFrom - subtotal;
-  const pct = Math.min(1, subtotal / site.freeShippingFrom);
+  const goInquiry = () => {
+    setInqType('order');
+    closeCart();
+    setTimeout(() => scrollToId('upit'), 320);
+  };
+
   return (
     <AnimatePresence>
       {drawerOpen && (
@@ -100,13 +104,9 @@ export function CartDrawer({ closeIcon }) {
                     <div className="cart-thumb"><Bottle p={l.p} font={site.labelFont} sub={site.labelSub} /></div>
                     <div className="cart-info">
                       <strong>{l.p.name}</strong><span>{L(l.p.kind)} · {l.p.vol}</span>
-                      <div className="qty" role="group" aria-label={t('cart.qty')}>
-                        <button type="button" onClick={() => setQty(l.p.id, l.q - 1)} aria-label="−">−</button>
-                        <output>{l.q}</output>
-                        <button type="button" onClick={() => setQty(l.p.id, l.q + 1)} aria-label="+">+</button>
-                      </div>
+                      <QtyStepper id={l.p.id} q={l.q} />
                     </div>
-                    <div className="cart-price">{money(l.q * l.p.price)}
+                    <div className="cart-price">{bottles(l.q)}
                       <button type="button" className="cart-remove" onClick={() => setQty(l.p.id, 0)}>{t('cart.remove')}</button>
                     </div>
                   </motion.div>
@@ -114,19 +114,29 @@ export function CartDrawer({ closeIcon }) {
               </AnimatePresence>
             </div>
             <div className="drawer-foot">
-              <div className="ship-meter" aria-hidden="true"><motion.span animate={{ scaleX: pct }} transition={{ type: 'spring', stiffness: 120, damping: 20 }} /></div>
-              <p className="cart-note">{subtotal > 0 && left > 0 ? t('cart.freeLeft').replace('{x}', money(left)) : (subtotal > 0 ? t('cart.freeOk') : '')}</p>
-              <div className="sum-row"><span>{t('cart.subtotal')}</span><span>{money(subtotal)}</span></div>
-              <div className="sum-row"><span>{t('cart.shipping')}</span><span>{subtotal === 0 ? '—' : (shipping === 0 ? t('cart.free') : money(shipping))}</span></div>
-              <div className="sum-row sum-total"><span>{t('cart.total')}</span><span>{money(subtotal + shipping)}</span></div>
-              <a className="btn btn-main btn-block" href="checkout.html" aria-disabled={!lines.length}
-                onClick={(e) => { if (!lines.length) e.preventDefault(); }}>{t('cart.checkout')}</a>
+              <div className="sum-row sum-total"><span>{t('cart.total')}</span><span>{bottles(count)}</span></div>
+              <p className="cart-note">{t('cart.note')}</p>
+              <button type="button" className="btn btn-main btn-block" disabled={!lines.length} aria-disabled={!lines.length} onClick={goInquiry}>{t('cart.send')}</button>
               <p className="cart-age">{t('cart.age')}</p>
             </div>
           </motion.aside>
         </div>
       )}
     </AnimatePresence>
+  );
+}
+
+/* − broj + (može se i upisati) */
+export function QtyStepper({ id, q }) {
+  const { setQty, t, product } = useShop();
+  const name = product(id) ? product(id).name : '';
+  return (
+    <div className="qty" role="group" aria-label={t('cart.qty') + ' — ' + name}>
+      <button type="button" onClick={() => setQty(id, q - 1)} aria-label="−">−</button>
+      <input type="number" inputMode="numeric" min="0" max="240" value={q} aria-label={t('cart.qty')}
+        onChange={(e) => { const v = parseInt(e.target.value, 10); if (!Number.isNaN(v)) setQty(id, v); }} />
+      <button type="button" onClick={() => setQty(id, q + 1)} aria-label="+">+</button>
+    </div>
   );
 }
 

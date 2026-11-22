@@ -1,11 +1,10 @@
-/* Vinarija Điko (OPG Kalajžić) — sadržaj stranice i ponuda vina (demo cijene) */
+/* Vinarija Điko (OPG Kalajžić) — sadržaj stranice i ponuda vina (bez cijena — sve ide na upit) */
 import { COMMON_I18N, mergeI18n } from '@shared/i18n-common.js';
 
 export const PRODUCTS = [
  {
   "id": "marastina",
   "name": "Maraština",
-  "price": 13,
   "vol": "0,75 l",
   "type": "white",
   "kind": {
@@ -33,7 +32,6 @@ export const PRODUCTS = [
  {
   "id": "dika",
   "name": "Dika",
-  "price": 16,
   "vol": "0,75 l",
   "type": "white",
   "tag": {
@@ -65,7 +63,6 @@ export const PRODUCTS = [
  {
   "id": "zlatarica",
   "name": "Zlatarica",
-  "price": 13,
   "vol": "0,75 l",
   "type": "white",
   "kind": {
@@ -93,7 +90,6 @@ export const PRODUCTS = [
  {
   "id": "rose",
   "name": "Rosé",
-  "price": 12,
   "vol": "0,75 l",
   "type": "rose",
   "kind": {
@@ -121,7 +117,6 @@ export const PRODUCTS = [
  {
   "id": "merlot",
   "name": "Merlot",
-  "price": 15,
   "vol": "0,75 l",
   "type": "red",
   "kind": {
@@ -148,7 +143,6 @@ export const PRODUCTS = [
  {
   "id": "trnjak",
   "name": "Trnjak",
-  "price": 18,
   "vol": "0,75 l",
   "type": "red",
   "kind": {
@@ -176,9 +170,6 @@ export const PRODUCTS = [
 
 export const SITE = {
   id: 'diko',
-  orderPrefix: 'DIK',
-  shipping: 5.9,
-  freeShippingFrom: 60,
   labelFont: "'Archivo', 'Arial Black', sans-serif",
   labelSub: 'ĐIKO · DUSINA',
   titles: { hr: 'Vinarija Điko — Dusina, Vrgorac', en: 'Điko Winery — Dusina, Vrgorac' },
@@ -189,8 +180,10 @@ export const SITE = {
   "nav.wines": "Vina",
   "nav.awards": "Nagrade",
   "nav.visit": "Dusina",
+  "nav.inq": "Upit",
+  "visit.inq": "Pošalji upit za degustaciju",
   "hero.line": "Obiteljska vinarija iz Dusine, u srcu vrgoračkog vinogorja.",
-  "hero.cta": "Naruči vina",
+  "hero.cta": "Pogledaj vina",
   "name.title": "Ime koje nosimo s ponosom",
   "name.p1": "Điko je obiteljski nadimak Kalajžića. Vinariju smo nazvali po njemu iz poštovanja prema onima koji su u Dusini sadili lozu prije nas.",
   "name.p2": "Godinama smo uzgajali grožđe za vino i za stol. 2021. smo prvi put izašli s vlastitim etiketama — i od tada ne stajemo.",
@@ -203,12 +196,12 @@ export const SITE = {
   "name.k4": "Sorte",
   "name.v4": "maraština, zlatarica, trnjak, merlot",
   "wines.title": "Vina",
-  "wines.lead": "Šest vina iz Dusine. Narudžbe šaljemo po cijeloj Hrvatskoj.",
+  "wines.lead": "Šest vina iz Dusine. Dodaj ona koja te zanimaju u upit, a mi ti javimo cijenu i dostavu.",
   "awards.title": "Naša vina nagrađivana su na",
   "awards.note": "Svaka medalja je potvrda da Dusina ima što reći.",
   "gal.title": "Iz vinograda i podruma",
   "visit.title": "Dođi u Dusinu",
-  "visit.lead": "Degustacije i obilaske dogovaramo izravno. Nazovi ili pošalji poruku, pa ćemo naći termin koji ti odgovara.",
+  "visit.lead": "Degustacije i obilaske dogovaramo izravno. Pošalji upit, nazovi ili napiši poruku, pa ćemo naći termin koji ti odgovara.",
   "visit.addr": "Adresa",
   "visit.phone": "Mobitel",
   "visit.mail": "E-mail",
@@ -283,8 +276,10 @@ export const SITE = {
   "nav.wines": "Wines",
   "nav.awards": "Awards",
   "nav.visit": "Dusina",
+  "nav.inq": "Enquiry",
+  "visit.inq": "Enquire about a tasting",
   "hero.line": "A family winery from Dusina, in the heart of the Vrgorac wine region.",
-  "hero.cta": "Order wines",
+  "hero.cta": "See the wines",
   "name.title": "A name we carry with pride",
   "name.p1": "Điko is the Kalajžić family nickname. We named the winery after it out of respect for those who planted vines in Dusina before us.",
   "name.p2": "For years we grew grapes for wine and for the table. In 2021 we released our own labels for the first time — and we have not stopped since.",
@@ -297,7 +292,7 @@ export const SITE = {
   "name.k4": "Grapes",
   "name.v4": "Maraština, Zlatarica, Trnjak, Merlot",
   "wines.title": "Wines",
-  "wines.lead": "Six wines from Dusina. We ship across Croatia.",
+  "wines.lead": "Six wines from Dusina. Add the ones you like to your enquiry and we will reply with prices and shipping.",
   "awards.title": "Our wines have won awards at",
   "awards.note": "Every medal is proof that Dusina has something to say.",
   "gal.title": "From the vineyard and the cellar",

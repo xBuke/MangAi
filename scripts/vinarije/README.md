@@ -13,7 +13,7 @@ npm run dev:govorko    # lokalni razvoj (ili dev:diko)
 ## Struktura
 - `shared/` — košarica i jezik (`shop.jsx`), boca (`Bottle.jsx`), čaša koja se puni, split text,
   riječi koje se pale na scroll, brojači, magnetski gumbi, 3D nagib, beskonačna traka (`fx.jsx`),
-  ladica košarice, let boce u košaricu (`ui.jsx`), simulirani Stripe checkout (`Checkout.jsx`).
+  ladica liste za upit, let boce do ikone liste (`ui.jsx`), obrazac upita (`Inquiry.jsx`).
 - `sites/govorko/` — Motion + Lenis. Hero "rječnik" s riječima koje se izmjenjuju, "Godina u Dusini"
   (zakvačena sekcija: grozd sazrijeva, čaša se puni), rječnik vina s filterima, ilustrirana SVG karta
   Dusina → Metković.
@@ -23,7 +23,9 @@ npm run dev:govorko    # lokalni razvoj (ili dev:diko)
 
 ## Napomene
 - Sve animacije imaju fallback za `prefers-reduced-motion` (Điko berba se tada slaže okomito).
-- Checkout je simuliran: 4242 4242 4242 4242 prolazi, 4000 0000 0000 0002 je odbijena, 18+ obavezno.
+- Nema webshopa ni cijena. Posjetitelj slaže listu vina i šalje upit (narudžba, degustacija, restorani/trgovine,
+  pokloni/događaji). Poruka se složi sama i otvara se e-mail (mailto:) ili WhatsApp (wa.me) vinarije.
+  Adrese i brojevi su u `sites/*/App.jsx` (`<Inquiry email=… whatsapp=… />`).
 - Slike su još uvijek hotlinkane sa stranica vinarija; kad stignu nova loga i fotografije, zamijeniti u
   `sites/*/App.jsx`, `Hero.jsx`, `Gallery.jsx` (Điko) i boje u `style.css`.
-- Tekstovi i cijene su u `sites/*/data.js` (HR + EN).
+- Tekstovi su u `sites/*/data.js` i `shared/i18n-common.js` (HR + EN).

@@ -303,3 +303,73 @@ p { margin: 0 0 1em; }
   .proc-panel { width: auto; border-right: 0; border-top: 1px solid var(--line); min-height: 60vh; }
   .proc-bar { display: none; }
 }
+
+/* ---------- upit (umjesto webshopa) ---------- */
+.btn-line { border: 1.5px solid var(--ink); color: var(--ink); background: transparent; }
+.btn-line:hover { background: var(--ink); color: var(--stone); }
+.btn:disabled { opacity: .4; pointer-events: none; }
+.btn-wa { background: #1f7a4d; color: #fff; }
+.btn-wa:hover { background: #17603c; }
+.visit-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.wine-buy .vol { font-size: 15px; }
+.qty input { width: 42px; border: 0; background: none; font-family: var(--wide); font-size: 14px; text-align: center; color: inherit; font-variant-numeric: tabular-nums; -moz-appearance: textfield; }
+.qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.inq { background: var(--stone-2); padding: clamp(72px, 10vw, 130px) var(--gut); margin-top: clamp(72px, 10vw, 130px); }
+.inq-head, .inq-form, .inq-ok { max-width: var(--max); margin-left: auto; margin-right: auto; }
+.inq-head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 5vw, 80px); align-items: end; margin-bottom: 36px; }
+.inq-head .kicker { grid-column: 1 / -1; margin: 0; }
+.inq-head h2 { font-size: clamp(2.6rem, 6vw, 5rem); font-stretch: 125%; font-weight: 900; letter-spacing: -.05em; line-height: .9; }
+.inq-lead { margin: 0; max-width: 46ch; }
+.inq-form { display: grid; gap: 18px; }
+.inq-types { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+.inq-types legend { font-family: var(--wide); font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 12px; padding: 0; }
+.inq-type { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 18px 16px 20px; cursor: pointer; border-right: 1px solid var(--line); transition: color .25s; }
+.inq-type:last-of-type { border-right: 0; }
+.inq-type input { position: absolute; opacity: 0; pointer-events: none; }
+.inq-type:has(input:focus-visible) { outline: 2px solid var(--gold-deep); outline-offset: -2px; }
+.inq-type > svg, .inq-type > span:last-child { position: relative; z-index: 1; }
+.inq-type > span:last-child { font-family: var(--wide); font-weight: 800; font-stretch: 115%; font-size: 1.1rem; letter-spacing: -.02em; line-height: 1.15; }
+.inq-type.on { color: var(--stone); }
+.inq-type.on svg { color: var(--gold); }
+.inq-types .inq-pill { position: absolute; inset: 0; background: var(--ink); z-index: 0; }
+.inq-desc { margin: 6px 0 12px; max-width: 60ch; }
+.inq-specific { display: grid; gap: 14px; }
+.inq-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.inq-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+.fld { display: grid; gap: 6px; }
+.fld > span, .inq-label { font-family: var(--wide); font-size: 13px; font-weight: 700; color: var(--ink-soft); margin: 0; }
+.fld input, .fld select, .fld textarea { font-family: var(--text); font-size: 16px; color: var(--ink); background: var(--stone); border: 1px solid var(--line); border-bottom: 2px solid var(--ink); border-radius: 4px 4px 0 0; padding: 12px 14px; min-height: 50px; width: 100%; transition: border-color .2s, background .2s; }
+.fld textarea { resize: vertical; min-height: 110px; }
+.fld input:focus, .fld select:focus, .fld textarea:focus { outline: none; border-bottom-color: var(--gold-deep); background: #e8e7e0; }
+.fld.invalid input, .inq-wines.invalid { border-color: #a3261e; border-bottom-color: #a3261e; }
+.inq-wines { display: grid; gap: 10px; padding: 18px; background: var(--stone); border: 1px solid var(--line); border-radius: 4px; }
+.inq-wine { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 8px; overflow: hidden; }
+.iw-name { font-family: var(--wide); font-weight: 800; font-stretch: 115%; font-size: 1.2rem; letter-spacing: -.02em; }
+.inq-wine .qty { margin: 0; }
+.inq-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 14px; color: var(--ink-soft); }
+.inq-chips > span { width: 100%; margin-bottom: 2px; }
+.chip { border: 1px dashed var(--ink-soft); background: none; border-radius: 4px; padding: 6px 12px; font-family: var(--wide); font-weight: 700; font-size: 13.5px; color: var(--ink); cursor: pointer; transition: all .2s; }
+.chip:hover { border-style: solid; background: var(--gold); border-color: var(--gold); }
+.inq-check { display: flex; gap: 10px; align-items: center; font-size: 15px; cursor: pointer; }
+.inq-check input { width: 20px; height: 20px; accent-color: var(--ink); }
+.inq-check.invalid { color: #a3261e; }
+.inq-err { color: #a3261e; min-height: 1.4em; margin: 0; font-family: var(--wide); font-weight: 600; font-size: 14px; }
+.inq-send { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.inq-via { font-family: var(--wide); font-size: 13px; font-weight: 700; color: var(--ink-soft); margin-right: 4px; }
+.inq-btn { gap: 10px; }
+.inq-preview { font-size: 14px; color: var(--ink-soft); font-family: var(--wide); }
+.inq-preview summary { cursor: pointer; width: max-content; }
+.inq-preview pre { white-space: pre-wrap; font: 14px/1.55 var(--text); background: var(--stone); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px; color: var(--ink); max-width: 60ch; }
+.inq-to { font-size: 13px; }
+.inq-ok { padding: 36px; background: var(--stone); border-top: 2px solid var(--ink); }
+.inq-tick { width: 56px; height: 56px; border-radius: 4px; background: var(--ink); color: var(--gold); display: grid; place-items: center; margin-bottom: 18px; }
+.inq-ok h3 { font-size: 2.2rem; font-weight: 900; font-stretch: 118%; letter-spacing: -.035em; margin-bottom: 10px; }
+.inq-ok a { color: var(--merlot); }
+.inq-ok-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+@media (max-width: 980px) {
+  .inq-head { grid-template-columns: 1fr; }
+  .inq-types { grid-template-columns: 1fr 1fr; }
+  .inq-type:nth-of-type(2) { border-right: 0; }
+  .inq-type:nth-of-type(-n+2) { border-bottom: 1px solid var(--line); }
+  .inq-row, .inq-row-3 { grid-template-columns: 1fr; }
+}
