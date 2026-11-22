@@ -1,13 +1,27 @@
-import { Fragment, useRef } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { animate, useInView } from 'motion/react';
 import { motion } from 'motion/react';
 import { useShop } from '@shared/shop.jsx';
-import { Reveal, CountUp, Magnetic } from '@shared/fx.jsx';
+import { Reveal, Magnetic } from '@shared/fx.jsx';
 import { gsap, useGSAP } from '@shared/gsap.js';
 import { Photo } from '../components/Img.jsx';
 import { ParallaxPhoto, SectionHead, EASE } from '../components/Bits.jsx';
 import Dictionary from '../components/Dictionary.jsx';
 import { href } from '../routes.js';
 import { VARIETIES, CONTACT } from '../data.js';
+
+/* brojač: u HTML-u (i bez JS-a) stoji prava brojka, a kad uđe u ekran odbroji od nule */
+function Count({ to }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' });
+  const [v, setV] = useState(to);
+  useEffect(() => {
+    if (!inView || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const c = animate(0, to, { duration: 1.6, ease: [0.2, 0.7, 0.2, 1], onUpdate: (n) => setV(Math.round(n)) });
+    return () => c.stop();
+  }, [inView, to]);
+  return <span ref={ref}>{v}</span>;
+}
 
 function Hero({ lang, T }) {
   const ref = useRef(null);
@@ -52,10 +66,10 @@ export default function Home({ route }) {
 
       <section className="facts" aria-label={T('Ukratko', 'In short')}>
         <div className="wrap facts-in">
-          <div><p className="fact-n"><CountUp to={50} />+</p><p>{T('godina stari trsovi plavke i zlatarice', 'year-old vines of Plavka and Zlatarica')}</p></div>
+          <div><p className="fact-n"><Count to={50} />+</p><p>{T('godina stari trsovi plavke i zlatarice', 'year-old vines of Plavka and Zlatarica')}</p></div>
           <div><p className="fact-n">2014.</p><p>{T('naša vina na tržištu', 'our wines on the market')}</p></div>
-          <div><p className="fact-n"><CountUp to={7} /></p><p>{T('sorti, većinom autohtonih dalmatinskih', 'grape varieties, mostly native Dalmatian')}</p></div>
-          <div><p className="fact-n"><CountUp to={7} /></p><p>{T('vina, od pjenušca do barriquea', 'wines, from sparkling to barrique')}</p></div>
+          <div><p className="fact-n"><Count to={7} /></p><p>{T('sorti, većinom autohtonih dalmatinskih', 'grape varieties, mostly native Dalmatian')}</p></div>
+          <div><p className="fact-n"><Count to={7} /></p><p>{T('vina, od pjenušca do barriquea', 'wines, from sparkling to barrique')}</p></div>
         </div>
       </section>
 
