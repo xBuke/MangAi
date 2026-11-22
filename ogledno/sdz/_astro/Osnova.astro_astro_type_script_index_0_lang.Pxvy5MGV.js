@@ -1,0 +1,1 @@
+import{n as e,r as t}from"./osnova.Oz1tilhQ.js";e(),t();
