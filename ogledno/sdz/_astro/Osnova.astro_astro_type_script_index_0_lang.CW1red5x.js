@@ -1,0 +1,1 @@
+import{n as e,r as t}from"./osnova.BnwG4LuT.js";e(),t();
