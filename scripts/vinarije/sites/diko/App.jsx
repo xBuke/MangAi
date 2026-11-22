@@ -1,0 +1,180 @@
+import { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useSpring, AnimatePresence, useMotionValueEvent } from 'motion/react';
+import { useShop, RemoteImg } from '@shared/shop.jsx';
+import { useSmoothScroll, Reveal, CountUp, VelocityMarquee, WineGlass, scrollToId, Magnetic } from '@shared/fx.jsx';
+import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar } from '@shared/ui.jsx';
+import { GSAP, gsap, SplitText, useGSAP, ScrollTrigger } from './gsap-setup.js';
+import Hero from './Hero.jsx';
+import Process from './Process.jsx';
+import WinePicker from './WinePicker.jsx';
+import Gallery from './Gallery.jsx';
+import MapLive from './MapLive.jsx';
+
+const LOGO = 'https://res.cloudinary.com/dcfelth94/images/f_auto,q_auto,c_limit,w_3840/v1749516188/224019853_104292008576408_2247716177356569512_n/224019853_104292008576408_2247716177356569512_n.jpg?_i=AA';
+const CartIcon = (
+  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.4 11.3a1.8 1.8 0 0 1-1.8 1.7H8.2a1.8 1.8 0 0 1-1.8-1.7z M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" /></svg>
+);
+
+function Header() {
+  const { t } = useShop();
+  return (
+    <header className="top">
+      <a className="brand" href="#top" aria-label="Vinarija Điko">
+        <RemoteImg wrap="span" className="brand-logo" src={LOGO} alt="" width="36" height="36" />
+        <span className="brand-word">Điko</span>
+      </a>
+      <nav className="nav" aria-label="Glavna navigacija">
+        <a href="#ime">{t('nav.name')}</a>
+        <a href="#berba">{t('nav.process')}</a>
+        <a href="#vina">{t('nav.wines')}</a>
+        <a href="#nagrade">{t('nav.awards')}</a>
+        <a href="#karta">{t('nav.map')}</a>
+      </nav>
+      <div className="top-tools"><LangSwitch /><CartButton icon={CartIcon} /></div>
+    </header>
+  );
+}
+
+/* čaša u kutu koja se puni kako skrolaš cijelu stranicu */
+function CornerGlass() {
+  const { t } = useShop();
+  const { scrollYProgress } = useScroll();
+  const level = useSpring(scrollYProgress, { stiffness: 90, damping: 22 });
+  const [pct, setPct] = useState(0);
+  useMotionValueEvent(scrollYProgress, 'change', (v) => setPct(Math.round(v * 100)));
+  const show = pct > 4;
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.button type="button" className="corner-glass" onClick={() => scrollToId('vina')}
+          aria-label={`${t('glass.aria')} ${pct}% · ${t('glass.go')}`}
+          initial={{ opacity: 0, y: 30, scale: 0.8 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 30 }}
+          whileHover={{ rotate: -8, scale: 1.06 }} whileTap={{ scale: 0.94 }}>
+          <WineGlass level={level} wine="#5b1a2a" glass="rgba(35,39,29,.75)" />
+          <span className="cg-pct">{pct}%</span>
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
+}
+
+function Name() {
+  const { t, lang } = useShop();
+  const ref = useRef(null);
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const split = SplitText.create('.name-title', { type: 'chars,words', mask: 'chars' });
+      gsap.from(split.chars, {
+        yPercent: 110, stagger: 0.025, duration: 0.9, ease: 'power4.out',
+        scrollTrigger: { trigger: '.name-title', start: 'top 82%' }
+      });
+      gsap.from('.name-lead', { opacity: 0.15, y: 20, scrollTrigger: { trigger: '.name-lead', start: 'top 85%', end: 'top 55%', scrub: true } });
+      return () => split.revert();
+    });
+  }, { scope: ref, dependencies: [lang], revertOnUpdate: true });
+  const facts = [
+    { to: 3, k: 'num.k1', pre: '~' },
+    { to: 2021, from: 2000, k: 'num.k2', plain: true },
+    { to: 6, k: 'num.k3' },
+    { to: 4, k: 'num.k4' }
+  ];
+  return (
+    <section className="name" id="ime" ref={ref} aria-labelledby="name-title">
+      <h2 id="name-title" className="name-title" key={lang}>{t('name.title')}</h2>
+      <div className="name-text">
+        <p className="name-lead">{t('name.p1')}</p>
+        <Reveal><p>{t('name.p2')}</p></Reveal>
+        <Reveal><p className="name-sorts">{t('name.k2')}: {t('name.v2')} · {t('name.v4')}</p></Reveal>
+      </div>
+      <div className="name-facts">
+        {facts.map((f, n) => (
+          <Reveal key={f.k} className="nf" delay={n * 0.08}>
+            <p className="nf-v">{f.pre || ''}<CountUp to={f.to} from={f.from || 0} duration={1.6} format={(v) => String(Math.round(v))} /></p>
+            <p className="nf-k">{t(f.k)}</p>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Awards() {
+  const { t } = useShop();
+  const names = ['Decanter', 'Sabatina', 'Vinistra'];
+  return (
+    <section className="awards" id="nagrade" aria-labelledby="awards-title">
+      <h2 id="awards-title">{t('awards.title')}</h2>
+      <ul className="sr-list">{names.map((n) => <li key={n}>{n}</li>)}</ul>
+      <div aria-hidden="true">
+        <VelocityMarquee baseVelocity={-2.2} className="aw-row">
+          {[...names, ...names].map((n, i) => <span key={i} className={'aw' + (i % 2 ? ' aw-out' : '')}>{n}<i>✦</i></span>)}
+        </VelocityMarquee>
+        <VelocityMarquee baseVelocity={1.6} className="aw-row aw-row-2">
+          {[...names, ...names].map((n, i) => <span key={i} className={'aw' + (i % 2 ? '' : ' aw-out')}>{n}<i>✦</i></span>)}
+        </VelocityMarquee>
+      </div>
+      <Reveal><p className="aw-note">{t('awards.note')}</p></Reveal>
+    </section>
+  );
+}
+
+function Visit() {
+  const { t } = useShop();
+  return (
+    <section className="visit" id="dusina" aria-labelledby="visit-title">
+      <div className="visit-coords" aria-hidden="true">
+        <CountUp to={43} duration={1.2} format={(v) => String(Math.round(v))} />°10′39″ N<br />
+        <CountUp to={17} duration={1.2} format={(v) => String(Math.round(v))} />°24′17″ E
+      </div>
+      <div className="visit-body">
+        <h2 id="visit-title">{t('visit.title')}</h2>
+        <p>{t('visit.lead')}</p>
+        <dl className="contact">
+          <Reveal><dt>{t('visit.addr')}</dt><dd>Dusina 52, 21276 Vrgorac</dd></Reveal>
+          <Reveal delay={0.05}><dt>{t('visit.phone')}</dt><dd><a href="tel:+385919279021">+385 91 927 9021</a></dd></Reveal>
+          <Reveal delay={0.1}><dt>{t('visit.mail')}</dt><dd><a href="mailto:vinarijadiko@gmail.com">vinarijadiko@gmail.com</a></dd></Reveal>
+          <Reveal delay={0.15}><dt>{t('visit.social')}</dt><dd><a href="https://www.instagram.com/vinarijadiko/" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.facebook.com/p/Vinarija-%C4%90iko-100071089855512/" target="_blank" rel="noopener">Facebook</a></dd></Reveal>
+        </dl>
+        <Magnetic><a className="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&destination=43.1774755,17.4048056" target="_blank" rel="noopener">{t('visit.map')}</a></Magnetic>
+      </div>
+    </section>
+  );
+}
+
+export default function App() {
+  useSmoothScroll(-70, GSAP);
+  const { t } = useShop();
+  useEffect(() => {
+    /* slike i fontovi mijenjaju visine → osvježi ScrollTrigger */
+    const r = () => ScrollTrigger.refresh();
+    window.addEventListener('load', r);
+    document.fonts && document.fonts.ready.then(r);
+    if (location.hash) setTimeout(() => scrollToId(location.hash.slice(1)), 500);
+    return () => window.removeEventListener('load', r);
+  }, []);
+  return (
+    <>
+      <DemoBar />
+      <Header />
+      <main id="top">
+        <Hero />
+        <Name />
+        <Process />
+        <WinePicker />
+        <Awards />
+        <Gallery />
+        <MapLive />
+        <Visit />
+      </main>
+      <footer className="foot">
+        <p className="foot-mark" aria-hidden="true"><span className="mark-bar" />Diko</p>
+        <p>{t('foot.opg')}</p>
+        <p className="foot-age">{t('cart.age')}</p>
+      </footer>
+      <CornerGlass />
+      <CartDrawer />
+      <FlyLayer />
+    </>
+  );
+}

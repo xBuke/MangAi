@@ -1,5 +1,5 @@
 /* Zajednički prijevodi za košaricu i checkout (HR / EN) */
-window.COMMON_I18N = {
+export const COMMON_I18N = {
   hr: {
     'demo.bar': 'Demo stranica — izradio MangAI. Plaćanje je simulirano, ništa se ne naplaćuje.',
     'demo.link': 'mangai.hr',
@@ -125,11 +125,9 @@ window.COMMON_I18N = {
     'co.total': 'Total due'
   }
 };
-window.mergeI18n = function (a, b) {
-  var out = { hr: {}, en: {} };
-  ['hr', 'en'].forEach(function (l) {
-    Object.keys(a[l] || {}).forEach(function (k) { out[l][k] = a[l][k]; });
-    Object.keys(b[l] || {}).forEach(function (k) { out[l][k] = b[l][k]; });
-  });
+
+export function mergeI18n(a, b) {
+  const out = { hr: {}, en: {} };
+  for (const l of ["hr", "en"]) Object.assign(out[l], a[l] || {}, b[l] || {});
   return out;
-};
+}

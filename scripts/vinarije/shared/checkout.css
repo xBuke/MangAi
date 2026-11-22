@@ -89,3 +89,6 @@ body.paid .co-left .co-sum, body.paid .co-left #co-summary { opacity: .55; }
   .co-foot { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* React: korijenski element ne smije razbiti grid */
+body.co #root { display: contents; }
