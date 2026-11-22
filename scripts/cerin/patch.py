@@ -10,7 +10,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 BASE = sys.argv[1] if len(sys.argv) > 1 else 'b4dc333'
-VER = 'fx3'
+VER = 'fx4'
 
 CREDIT = {'hr': 'Izrada stranice:', 'en': 'Website by', 'de': 'Website von', 'it': 'Sito realizzato da'}
 
