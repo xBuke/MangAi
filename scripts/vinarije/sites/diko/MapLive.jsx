@@ -43,6 +43,17 @@ export default function MapLive() {
   const mlRef = useRef(null);
   const [sel, setSel] = useState('vinarija');
   const [state, setState] = useState('idle'); // idle | loading | ready | error
+  const tRef = useRef(t);
+  tRef.current = t;
+  /* promjena jezika → imena na pinovima */
+  useEffect(() => {
+    document.querySelectorAll('.mk').forEach((n) => {
+      const id = n.getAttribute('data-id');
+      const lbl = n.querySelector('.mk-lbl');
+      if (lbl) lbl.textContent = t(`pl.${id}.n`);
+      n.setAttribute('aria-label', t(`pl.${id}.n`));
+    });
+  }, [t, state]);
 
   /* karta se učitava tek kad sekcija dođe blizu ekrana */
   useEffect(() => {
@@ -53,18 +64,30 @@ export default function MapLive() {
       io.disconnect();
       setState('loading');
       try {
-        const [{ default: ml }] = await Promise.all([import('maplibre-gl'), import('maplibre-gl/dist/maplibre-gl.css')]);
+        const [mod, , worker] = await Promise.all([
+          import('maplibre-gl'),
+          import('maplibre-gl/dist/maplibre-gl.css'),
+          import('maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url')
+        ]);
+        const ml = mod.default && mod.default.Map ? mod.default : mod; /* MapLibre v5+ nema default export */
+        /* worker se zasebno bundla; inače ga MapLibre traži pored svog chunka i ne nađe */
+        ml.setWorkerUrl(new URL(worker.default, window.location.href).href);
         mlRef.current = ml;
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         map = new ml.Map({
           container: el, style: 'https://tiles.openfreemap.org/styles/positron',
           center: HOME.ll, zoom: 10.2, pitch: reduce ? 0 : 40, bearing: reduce ? 0 : -12,
-          cooperativeGestures: true, attributionControl: { compact: true }
+          cooperativeGestures: true, attributionControl: { compact: true },
+          locale: {
+            'CooperativeGesturesHandler.WindowsHelpText': tRef.current('map.g.win'),
+            'CooperativeGesturesHandler.MacHelpText': tRef.current('map.g.mac'),
+            'CooperativeGesturesHandler.MobileHelpText': tRef.current('map.g.mob')
+          }
         });
         mapRef.current = map;
         map.addControl(new ml.NavigationControl({ visualizePitch: true }), 'top-right');
         const fail = setTimeout(() => setState((s) => (s === 'ready' ? s : 'error')), 9000);
-        map.on('error', (ev) => { if (!map.isStyleLoaded()) { clearTimeout(fail); setState('error'); } });
+        map.on('error', (ev) => { console.warn('[karta]', ev && ev.error ? ev.error.message : ev); if (!map.isStyleLoaded()) { clearTimeout(fail); setState('error'); } });
         map.on('load', () => {
           clearTimeout(fail);
           tint(map);
@@ -75,13 +98,16 @@ export default function MapLive() {
             node.type = 'button';
             node.className = 'mk' + (pl.id === 'vinarija' ? ' mk-home' : '');
             node.setAttribute('data-id', pl.id);
-            node.innerHTML = pl.id === 'vinarija' ? '<span class="mk-d">Đ</span>' : '<span class="mk-dot"></span>';
+            node.innerHTML = (pl.id === 'vinarija' ? '<span class="mk-d"></span>' : '<span class="mk-dot"></span>') + '<span class="mk-lbl"></span>';
+            node.querySelector('.mk-lbl').textContent = tRef.current(`pl.${pl.id}.n`);
+            node.setAttribute('aria-label', tRef.current(`pl.${pl.id}.n`));
             node.addEventListener('click', (ev) => { ev.stopPropagation(); setSel(pl.id); });
             new ml.Marker({ element: node, anchor: pl.id === 'vinarija' ? 'bottom' : 'center' }).setLngLat(pl.ll).addTo(map);
           });
           setState('ready');
         });
-      } catch {
+      } catch (err) {
+        console.error('[karta]', err);
         setState('error');
       }
     }, { rootMargin: '400px' });

@@ -13,7 +13,7 @@ const PLACES = [
   { id: 'vrgorac', ll: [43.2058, 17.3725], dx: 14, dy: -10 },
   { id: 'ploce', ll: [43.0547, 17.4339], dx: 14, dy: 22 },
   { id: 'opuzen', ll: [43.0150, 17.5650], dx: 14, dy: 22 },
-  { id: 'bacina', ll: [43.0700, 17.4050], dx: -14, dy: -14, anchor: 'end' }
+  { id: 'bacina', ll: [43.0700, 17.4050], dx: 0, dy: -20, anchor: 'middle' }
 ];
 const ROUTE = 'M249.5 203 C 330 236, 430 262, 520 330 S 640 470, 700 520 S 790 585, 829.9 605.2';
 const RIVER = 'M357 700 C 400 700, 470 716, 520 728 S 600 742, 631 732 S 700 680, 738 651 S 800 618, 829.9 605.2 S 880 570, 905 554 S 960 515, 1000 492';
@@ -106,10 +106,12 @@ export default function MapIllustrated() {
                 <g key={pl.id} className={'map-pin' + (on ? ' on' : '') + (pl.main ? ' main' : '')} transform={`translate(${x} ${y})`}
                   role="button" tabIndex={0} aria-pressed={on} aria-label={t(`pl.${pl.id}.n`)}
                   onClick={() => setSel(pl.id)} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSel(pl.id); } }}>
-                  {pl.main && <circle className="pin-pulse" r="10" />}
-                  <circle r="22" fill="transparent" />
-                  <circle className="pin-dot" r={pl.main ? 9 : 6} />
-                  <text x={pl.dx} y={pl.dy} textAnchor={pl.anchor || 'start'} className="pin-lbl">{t(`pl.${pl.id}.n`)}</text>
+                  <g className="pin-in">
+                    {pl.main && <circle className="pin-pulse" r="10" />}
+                    <circle r="26" fill="transparent" />
+                    <circle className="pin-dot" r={pl.main ? 9 : 7} />
+                    <text x={pl.dx} y={pl.dy} textAnchor={pl.anchor || 'start'} className="pin-lbl">{t(`pl.${pl.id}.n`)}</text>
+                  </g>
                 </g>
               );
             })}

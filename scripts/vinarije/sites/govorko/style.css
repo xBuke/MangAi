@@ -299,6 +299,15 @@ p { margin: 0 0 1em; }
   .hero-cta { margin-top: 14px; }
   .corner-glass { width: 52px; height: 78px; right: 12px; bottom: 12px; }
 }
+@media (max-width: 600px) {
+  /* ilustrirana karta: veći pinovi i natpisi na malom ekranu */
+  .pin-in { transform: scale(1.7); }
+  .map-lbl-soft { font-size: 30px; }
+  .map-sea { font-size: 40px; }
+  .map-river { font-size: 28px; }
+  .map-dist { font-size: 26px; }
+  .map-note { position: static; padding: 6px 10px 8px; text-align: right; }
+}
 @media (max-width: 520px) {
   body { font-size: 16px; }
   .top { gap: 12px; padding-top: 10px; padding-bottom: 10px; }

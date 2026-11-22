@@ -12,6 +12,7 @@ export default defineConfig({
   base: './',
   publicDir: resolve(root, 'public'),
   plugins: [react()],
+  worker: { format: 'es' }, /* MapLibre worker je ES modul */
   resolve: { alias: { '@shared': resolve(__dirname, 'shared') } },
   build: {
     outDir: resolve(__dirname, '../../ogledno', site),
