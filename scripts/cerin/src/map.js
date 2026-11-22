@@ -4,7 +4,7 @@
 import { Map as MLMap, Marker, NavigationControl, LngLatBounds, setWorkerUrl } from 'maplibre-gl';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
-const HOME = { id: 'cerin', ll: [16.830277, 42.893611] };
+const HOME = { id: 'cerin', ll: [16.791747, 42.906849] };
 const PLACES = [
   HOME,
   { id: 'blato', ll: [16.7922, 42.9357] },
@@ -12,7 +12,7 @@ const PLACES = [
   { id: 'vela', ll: [16.7203, 42.9627] },
   { id: 'korcula', ll: [17.1356, 42.9604] }
 ];
-const GMAPS = 'https://www.google.com/maps/dir/?api=1&destination=42.893611,16.830277';
+const GMAPS = 'https://www.google.com/maps/dir/?api=1&destination=42.906849,16.791747';
 
 function km([lon1, lat1], [lon2, lat2]) {
   const R = 6371, r = Math.PI / 180;
@@ -100,7 +100,7 @@ export function initMap(section, T, lang) {
     map = new MLMap({
       container: box,
       style: 'https://tiles.openfreemap.org/styles/positron',
-      center: [16.86, 42.92], zoom: 10.4, pitch: reduce ? 0 : 40, bearing: reduce ? 0 : -12,
+      center: [16.84, 42.93], zoom: 10.4, pitch: reduce ? 0 : 40, bearing: reduce ? 0 : -12,
       cooperativeGestures: true, attributionControl: { compact: true },
       locale: {
         'CooperativeGesturesHandler.WindowsHelpText': T.win,

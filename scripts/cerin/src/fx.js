@@ -312,7 +312,7 @@ if (visit && X.map) {
     import('./map.js').then((m) => m.initMap(visit, X.map, C.lang || 'hr')).catch((err) => {
       console.warn('[karta]', err);
       const box = $('.mapx__box', visit);
-      box.innerHTML = `<div class="mapx__fallback"><p>${X.map.fallback}</p><a class="btn btn--gold" href="https://www.google.com/maps/dir/?api=1&destination=42.893611,16.830277" target="_blank" rel="noopener">${X.map.open}</a></div>`;
+      box.innerHTML = `<div class="mapx__fallback"><p>${X.map.fallback}</p><a class="btn btn--gold" href="https://www.google.com/maps/dir/?api=1&destination=42.906849,16.791747" target="_blank" rel="noopener">${X.map.open}</a></div>`;
     });
   }, { rootMargin: '500px' });
   io.observe(visit);
