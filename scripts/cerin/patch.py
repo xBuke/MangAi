@@ -12,6 +12,8 @@ REPO = Path(__file__).resolve().parents[2]
 BASE = sys.argv[1] if len(sys.argv) > 1 else 'b4dc333'
 VER = 'fx3'
 
+CREDIT = {'hr': 'Izrada stranice:', 'en': 'Website by', 'de': 'Website von', 'it': 'Sito realizzato da'}
+
 PAGES = {'hr': 'index.html', 'en': 'en/index.html', 'de': 'de/index.html', 'it': 'it/index.html'}
 
 MOB = {'display': '+385 91 1500 282', 'tel': '+385911500282', 'wa': '385911500282'}
@@ -302,6 +304,11 @@ def patch(lang, html):
                         '<svg class="hero__line" viewBox="0 0 320 24" aria-hidden="true"><path d="M2 12 C 22 2, 42 2, 62 12 S 102 22, 122 12 S 162 2, 182 12 S 222 22, 242 12 S 282 2, 302 12 L 318 12"/></svg>')
     html = re.sub(r'(<ul class="hero__facts wrap">.*?</ul>)',
                   r'\1\n    <div class="waves" aria-hidden="true"><i class="w1"></i><i class="w2"></i><i class="w3"></i></div>', html, count=1, flags=re.S)
+
+    # potpis izrade u podnožju
+    html = re.sub(r'(<p class="foot__copy">.*?</p>)', r'\1\n    <p class="foot__credit">' + CREDIT[lang] + ' <a href="https://mangai.hr/" target="_blank" rel="noopener">mangai.hr</a></p>', html, count=1)
+    # koordinate sa stare stranice su bile u moru → OpenStreetMap (Restoran Čerin, Prižba)
+    html = html.replace('42.893611', '42.906849').replace('16.830277', '16.791747')
 
     # CERIN konfiguracija: bez rezervacija, s tekstovima za efekte
     m = re.search(r'<script>window\.CERIN=(\{.*?\})</script>', html)

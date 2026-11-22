@@ -66,7 +66,7 @@ export function initMap(section, T, lang) {
     detail.classList.add('is-in');
   }
 
-  function select(id) {
+  function select(id, instant = false) {
     sel = id;
     list.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.id === id)));
     box.querySelectorAll('.mk').forEach((n) => n.classList.toggle('on', n.dataset.id === id));
@@ -76,7 +76,8 @@ export function initMap(section, T, lang) {
     const src = map.getSource('route');
     if (id === 'cerin') {
       src && src.setData({ type: 'FeatureCollection', features: [] });
-      map.flyTo({ center: HOME.ll, zoom: 13.2, pitch: reduce ? 0 : 52, bearing: -14, duration: reduce ? 0 : 2200, essential: true });
+      const cam = { center: HOME.ll, zoom: 13.2, pitch: reduce ? 0 : 52, bearing: -14 };
+      instant ? map.jumpTo(cam) : map.flyTo({ ...cam, duration: reduce ? 0 : 2200, essential: true });
     } else {
       src && src.setData({ type: 'Feature', geometry: { type: 'LineString', coordinates: [HOME.ll, pl.ll] } });
       const b = new LngLatBounds(HOME.ll, HOME.ll).extend(pl.ll);
@@ -100,7 +101,8 @@ export function initMap(section, T, lang) {
     map = new MLMap({
       container: box,
       style: 'https://tiles.openfreemap.org/styles/positron',
-      center: [16.84, 42.93], zoom: 10.4, pitch: reduce ? 0 : 40, bearing: reduce ? 0 : -12,
+      center: HOME.ll, zoom: 13.2, pitch: reduce ? 0 : 52, bearing: reduce ? 0 : -14,
+      fadeDuration: 0, maxPitch: 60,
       cooperativeGestures: true, attributionControl: { compact: true },
       locale: {
         'CooperativeGesturesHandler.WindowsHelpText': T.win,
@@ -133,6 +135,6 @@ export function initMap(section, T, lang) {
     ready = true;
     loader && loader.remove();
     box.classList.add('is-ready');
-    select(sel);
+    select(sel, true);
   });
 }

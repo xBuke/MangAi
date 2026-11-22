@@ -78,7 +78,9 @@ h2 .w > span { display: inline-block; }
 .st.is-done .st__hint { opacity: 0; }
 .st__stage { position: relative; width: min(100%, 72vh, 600px); aspect-ratio: 1; justify-self: center; }
 .st__svg, .st__svg svg { width: 100%; height: 100%; display: block; }
-.st__svg svg { filter: drop-shadow(0 30px 60px rgba(0, 0, 0, .45)); }
+.st__svg { position: relative; }
+.st__svg::before { content: ''; position: absolute; inset: 4%; border-radius: 50%; box-shadow: 0 30px 70px rgba(0, 0, 0, .5); pointer-events: none; }
+.st__svg svg { position: relative; }
 .st__no { position: absolute; left: -6px; top: 0; margin: 0; font: 400 .9rem/1 var(--sans); letter-spacing: .14em; opacity: .55; }
 .st__no b { font: 400 2.4rem/1 var(--display); color: var(--gold); letter-spacing: 0; margin-right: 2px; }
 .st__stamp { position: absolute; right: -4%; bottom: 6%; margin: 0; padding: .45em 1em; border: 2px solid var(--gold); color: var(--gold); border-radius: 999px; font: 400 clamp(1.1rem, 2.4vw, 1.7rem)/1 var(--display); background: rgba(8, 19, 31, .7); transform: rotate(-8deg) scale(.6); opacity: 0; transition: opacity .35s, transform .5s cubic-bezier(.3, 1.6, .5, 1); pointer-events: none; }
@@ -107,6 +109,10 @@ h2 .w > span { display: inline-block; }
 @keyframes tw { to { opacity: .3; } }
 .scene .s-bulb { animation: tw 1.8s ease-in-out infinite alternate; }
 .st:not(.is-live) .scene * { animation-play-state: paused !important; }
+/* ukrasi rade samo u koraku u kojem se vide (manje iscrtavanja SVG-a) */
+.st:not(.is-sea) .scene :is(.s-f, .s-b, .s-surf, .s-bob) { animation-play-state: paused; }
+.st:not(.is-fire) .scene :is(.s-flame, .s-embers circle, .s-smoke path) { animation-play-state: paused; }
+.st:not(.is-table) .scene .s-bulb { animation-play-state: paused; }
 @media (max-width: 860px) {
   .st { height: 420vh; }
   .st__pin { grid-template-columns: 1fr; grid-template-rows: auto auto; align-content: center; gap: 14px; padding-top: 80px; padding-bottom: 20px; }
@@ -207,3 +213,21 @@ h2 .w > span { display: inline-block; }
   .waves i, .pp__wave, .pp__fish, .contact::before, .mk-home::after, .mapx__load { animation: none; }
 }
 .fx-reduce .st__rail li .st__p { opacity: 1; max-height: none; margin-top: .4em; }
+
+/* ─── Potpis izrade */
+.foot__credit { margin: 2px 0 0; font-size: .78rem; opacity: .75; }
+.foot__credit a { color: var(--gold); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+.foot__credit a:hover, .foot__credit a:focus-visible { color: var(--gold-2); }
+
+/* ─── Mobitel: lakše iscrtavanje (bez zamućenja pozadine i velikih animiranih slojeva) */
+@media (hover: none), (max-width: 760px) {
+  .top.is-solid { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(13, 29, 48, .97); }
+  .btn--ghost { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(8, 19, 31, .4); }
+  .ph figcaption { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(13, 29, 48, .9); }
+  .contact::before { animation: none; }
+  .scene .s-star { animation: none; }
+  .waves .w2 { display: none; }
+  .st__svg::before { box-shadow: 0 18px 40px rgba(0, 0, 0, .45); }
+}
+@media (max-width: 700px) { .foot { padding-bottom: calc(88px + env(safe-area-inset-bottom)); } }
+@media (max-width: 380px) { .hero .kicker, .kicker { letter-spacing: .18em; } .hero .kicker::before { width: 18px; } }

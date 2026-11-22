@@ -211,13 +211,16 @@ $$('.mq__row').forEach((row) => {
     cur = i;
     items.forEach((li, k) => { li.classList.toggle('is-on', k === i); li.classList.toggle('is-past', k < i); });
     if (no) no.textContent = String(i + 1).padStart(2, '0');
+    /* ukrasne animacije scene rade samo u koraku u kojem se vide */
+    sec.classList.toggle('is-sea', i <= 1); sec.classList.toggle('is-fire', i === 2); sec.classList.toggle('is-table', i === 3);
   };
 
   if (reduce) { tl.progress(1); sec.classList.add('is-done'); setStep(N - 1); return; }
+  setStep(0);
 
   ScrollTrigger.create({
     trigger: sec, start: 'top top', end: 'bottom bottom',
-    scrub: small() ? 0.4 : 0.8,
+    scrub: small() ? 0.25 : 0.8,
     animation: tl,
     onToggle: (s) => document.body.classList.toggle('st-live', s.isActive),
     onUpdate: (s) => {
