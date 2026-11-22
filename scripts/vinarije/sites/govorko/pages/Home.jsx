@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { motion } from 'motion/react';
 import { useShop } from '@shared/shop.jsx';
 import { Reveal, CountUp, Magnetic } from '@shared/fx.jsx';
@@ -27,7 +27,7 @@ function Hero({ lang, T }) {
         </motion.p>
         <h1 className="hero-title">
           {T('Stare sorte Vrgorca, natrag na vinskoj karti.', 'The old grapes of Vrgorac, back on the wine list.').split(' ').map((w, i) => (
-            <span key={i} className="hw"><span className="hw-in" style={{ '--d': (0.3 + i * 0.07).toFixed(2) + 's' }}>{w}</span>{' '}</span>
+            <Fragment key={i}><span className="hw"><span className="hw-in" style={{ '--d': (0.3 + i * 0.07).toFixed(2) + 's' }}>{w}</span></span>{' '}</Fragment>
           ))}
         </h1>
         <motion.div className="enter hero-cta" style={{ '--d': '1.0s' }}>
