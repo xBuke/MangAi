@@ -145,6 +145,12 @@ export function DemoBar() {
   return <div className="demo-bar"><span>{t('demo.bar')}</span> <a href="https://mangai.hr/">{t('demo.link')}</a></div>;
 }
 
+/* potpis izrade u podnožju */
+export function FootCredit() {
+  const { t } = useShop();
+  return <p className="foot-credit">{t('foot.credit')} <a href="https://mangai.hr/" target="_blank" rel="noopener">mangai.hr</a></p>;
+}
+
 /* gumb "Dodaj u košaricu" s potvrdom */
 export function AddButton({ p, className = 'btn-add', sourceRef }) {
   const { add, t } = useShop();

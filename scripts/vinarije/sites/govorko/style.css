@@ -242,6 +242,9 @@ p { margin: 0 0 1em; }
 .foot { border-top: 1px solid var(--line); padding: 48px var(--gut) 56px; text-align: center; font-size: 14px; color: var(--ink-soft); }
 .foot-slogan { font-family: var(--serif); font-size: clamp(2.4rem, 7vw, 5.4rem); color: var(--ink); margin-bottom: 14px; line-height: 1; }
 .foot-age { font-size: 12px; }
+.foot-credit { margin-top: 22px; font-size: 12px; opacity: .85; }
+.foot-credit a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.foot-credit a:hover, .foot-credit a:focus-visible { color: var(--mandarina, var(--ink)); }
 
 /* ladica košarice */
 .drawer { position: fixed; inset: 0; z-index: 60; }

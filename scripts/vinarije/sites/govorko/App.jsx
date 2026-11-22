@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent, 
 import { useShop, RemoteImg } from '@shared/shop.jsx';
 import Bottle from '@shared/Bottle.jsx';
 import { useSmoothScroll, SplitText, ScrollWords, Reveal, CountUp, Magnetic, Tilt, Scramble, scrollToId } from '@shared/fx.jsx';
-import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar, AddButton, CornerGlass } from '@shared/ui.jsx';
+import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar, AddButton, CornerGlass, FootCredit } from '@shared/ui.jsx';
 import HSteps from '@shared/HSteps.jsx';
 import { GSAP, gsap, useGSAP, ScrollTrigger } from '@shared/gsap.js';
 import Inquiry, { openInquiry } from '@shared/Inquiry.jsx';
@@ -351,6 +351,7 @@ export default function App() {
         <p className="foot-slogan"><SplitText text={t('foot.slogan')} stagger={0.03} /></p>
         <p>{t('foot.opg')}</p>
         <p className="foot-age">{t('cart.age')}</p>
+        <FootCredit />
       </footer>
       <CornerGlass wine="#5a1f3a" glass="rgba(28,43,39,.75)" />
       <CartDrawer />

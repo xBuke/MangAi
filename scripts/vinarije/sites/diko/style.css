@@ -243,6 +243,8 @@ p { margin: 0 0 1em; }
 .foot { background: var(--ink); color: var(--stone-3); padding: 48px var(--gut) 44px; font-family: var(--wide); font-size: 13.5px; overflow: hidden; }
 .foot-mark { position: relative; display: inline-block; margin: 0 0 18px; font-weight: 900; font-stretch: 125%; font-size: clamp(3rem, 9vw, 6rem); line-height: .8; letter-spacing: -.055em; color: var(--stone); }
 .foot-age { font-size: 12px; opacity: .8; }
+.foot-credit { margin-top: 22px; font-size: 12px; opacity: .85; }
+.foot-credit a { color: var(--gold); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 
 /* ladica */

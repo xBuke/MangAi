@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useShop, RemoteImg } from '@shared/shop.jsx';
 import { useSmoothScroll, Reveal, CountUp, VelocityMarquee, scrollToId, Magnetic } from '@shared/fx.jsx';
-import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar } from '@shared/ui.jsx';
+import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar, FootCredit } from '@shared/ui.jsx';
 import Inquiry, { openInquiry } from '@shared/Inquiry.jsx';
 import { GSAP, gsap, SplitText, useGSAP, ScrollTrigger } from '@shared/gsap.js';
 import Hero from './Hero.jsx';
@@ -154,6 +154,7 @@ export default function App() {
         <p className="foot-mark" aria-hidden="true"><span className="mark-bar" />Diko</p>
         <p>{t('foot.opg')}</p>
         <p className="foot-age">{t('cart.age')}</p>
+        <FootCredit />
       </footer>
       <CartDrawer />
       <FlyLayer />
