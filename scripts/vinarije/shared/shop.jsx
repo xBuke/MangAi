@@ -16,27 +16,38 @@ function persist(key, val) {
 const ShopCtx = createContext(null);
 export const useShop = () => useContext(ShopCtx);
 
-export function ShopProvider({ site, children }) {
+/* initialLang: jezik određen URL-om (višestranična, unaprijed generirana stranica).
+ * hydrate: stranica je pregenerirana na serveru — lista se čita tek nakon hidracije. */
+export function ShopProvider({ site, children, initialLang, hydrate = false }) {
   const CART_KEY = 'upit_' + site.id;
   const LANG_KEY = 'lang_' + site.id;
 
   const [lang, setLangState] = useState(() => {
+    if (initialLang) return initialLang;
     const saved = load(LANG_KEY);
     return saved === 'hr' || saved === 'en' ? saved : 'hr';
   });
-  const [cart, setCart] = useState(() => load(CART_KEY) || {});
+  const [cart, setCart] = useState(() => (hydrate ? {} : load(CART_KEY) || {}));
+  const cartReady = useRef(!hydrate);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [flights, setFlights] = useState([]);
   const [bumpKey, setBumpKey] = useState(0);
   const [inqType, setInqType] = useState('order');
   const cartTarget = useRef(null);
 
-  useEffect(() => { persist(CART_KEY, cart); }, [cart, CART_KEY]);
+  useEffect(() => { if (cartReady.current) persist(CART_KEY, cart); }, [cart, CART_KEY]);
   useEffect(() => {
+    if (cartReady.current) return;
+    cartReady.current = true;
+    const saved = load(CART_KEY);
+    if (saved && Object.keys(saved).length) setCart(saved);
+  }, [CART_KEY]);
+  useEffect(() => {
+    if (initialLang) return;
     persist(LANG_KEY, lang);
     document.documentElement.lang = lang;
     if (site.titles) document.title = site.titles[lang] || site.titles.hr;
-  }, [lang, LANG_KEY, site]);
+  }, [lang, LANG_KEY, site, initialLang]);
 
   const t = useCallback((key) => {
     const d = site.i18n[lang] || {};
