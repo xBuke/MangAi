@@ -12,7 +12,7 @@ html.lenis, html.lenis body { height: auto; }
 .hero__chars .ch > span { display: inline-block; will-change: transform; }
 .hero__line { display: block; width: clamp(150px, 26vw, 300px); height: auto; margin: .1em 0 .25em; overflow: visible; }
 .hero__line path { fill: none; stroke: var(--gold); stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 420; stroke-dashoffset: 0; }
-.fx .hero__media img, .fx .hero__video { inset: -26px; width: calc(100% + 52px); height: calc(100% + 52px); translate: var(--hxy, 0 0); }
+.fx .hero__media img, .fx .hero__video { inset: -26px; width: calc(100% + 52px); height: calc(100% + 52px); max-width: none; max-height: none; translate: var(--hxy, 0 0); }
 .hero__media { will-change: transform; }
 .hero__facts { position: relative; z-index: 2; padding-bottom: calc(26px + clamp(46px, 7vw, 86px)) !important; }
 .waves { position: absolute; left: 0; right: 0; bottom: -1px; height: clamp(60px, 9vw, 120px); z-index: 1; pointer-events: none; overflow: hidden; }
