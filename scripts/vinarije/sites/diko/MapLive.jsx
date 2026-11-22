@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useShop } from '@shared/shop.jsx';
 import { SplitText } from '@shared/fx.jsx';
-import 'maplibre-gl/dist/maplibre-gl.css';
 
 const HOME = { id: 'vinarija', ll: [17.4048056, 43.1774755] };
 const PLACES = [
@@ -54,7 +53,7 @@ export default function MapLive() {
       io.disconnect();
       setState('loading');
       try {
-        const ml = (await import('maplibre-gl')).default;
+        const [{ default: ml }] = await Promise.all([import('maplibre-gl'), import('maplibre-gl/dist/maplibre-gl.css')]);
         mlRef.current = ml;
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         map = new ml.Map({

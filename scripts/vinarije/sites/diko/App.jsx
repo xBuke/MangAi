@@ -1,17 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useSpring, AnimatePresence, useMotionValueEvent } from 'motion/react';
+import { useEffect, useRef } from 'react';
 import { useShop, RemoteImg } from '@shared/shop.jsx';
-import { useSmoothScroll, Reveal, CountUp, VelocityMarquee, WineGlass, scrollToId, Magnetic } from '@shared/fx.jsx';
+import { useSmoothScroll, Reveal, CountUp, VelocityMarquee, scrollToId, Magnetic } from '@shared/fx.jsx';
 import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar } from '@shared/ui.jsx';
 import Inquiry, { openInquiry } from '@shared/Inquiry.jsx';
-import { GSAP, gsap, SplitText, useGSAP, ScrollTrigger } from './gsap-setup.js';
+import { GSAP, gsap, SplitText, useGSAP, ScrollTrigger } from '@shared/gsap.js';
 import Hero from './Hero.jsx';
-import Process from './Process.jsx';
+import GlassYear from '@shared/GlassYear.jsx';
 import WinePicker from './WinePicker.jsx';
 import Gallery from './Gallery.jsx';
 import MapLive from './MapLive.jsx';
 
-const LOGO = 'https://res.cloudinary.com/dcfelth94/images/f_auto,q_auto,c_limit,w_3840/v1749516188/224019853_104292008576408_2247716177356569512_n/224019853_104292008576408_2247716177356569512_n.jpg?_i=AA';
+const LOGO = 'https://res.cloudinary.com/dcfelth94/images/f_auto,q_auto,c_limit,w_96/v1749516188/224019853_104292008576408_2247716177356569512_n/224019853_104292008576408_2247716177356569512_n.jpg?_i=AA';
 const CartIcon = (
   <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 4h14v16H5z M8.5 9h7 M8.5 12.5h7 M8.5 16h4" /></svg>
 );
@@ -34,29 +33,6 @@ function Header() {
       </nav>
       <div className="top-tools"><LangSwitch /><CartButton icon={CartIcon} /></div>
     </header>
-  );
-}
-
-/* čaša u kutu koja se puni kako skrolaš cijelu stranicu */
-function CornerGlass() {
-  const { t } = useShop();
-  const { scrollYProgress } = useScroll();
-  const level = useSpring(scrollYProgress, { stiffness: 90, damping: 22 });
-  const [pct, setPct] = useState(0);
-  useMotionValueEvent(scrollYProgress, 'change', (v) => setPct(Math.round(v * 100)));
-  const show = pct > 4;
-  return (
-    <AnimatePresence>
-      {show && (
-        <motion.button type="button" className="corner-glass" onClick={() => scrollToId('vina')}
-          aria-label={`${t('glass.aria')} ${pct}% · ${t('glass.go')}`}
-          initial={{ opacity: 0, y: 30, scale: 0.8 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 30 }}
-          whileHover={{ rotate: -8, scale: 1.06 }} whileTap={{ scale: 0.94 }}>
-          <WineGlass level={level} wine="#5b1a2a" glass="rgba(35,39,29,.75)" />
-          <span className="cg-pct">{pct}%</span>
-        </motion.button>
-      )}
-    </AnimatePresence>
   );
 }
 
@@ -165,7 +141,8 @@ export default function App() {
       <main id="top">
         <Hero />
         <Name />
-        <Process />
+        <GlassYear id="berba" kickerKey="proc.kicker" titleKey="proc.title" prefix="proc.p" steps={6}
+          wine="#5b1a2a" glass="rgba(35,39,29,.6)" berries={['#9aa35e', '#b9b46a', '#7d3a46', '#5b1a2a']} />
         <WinePicker />
         <Awards />
         <Gallery />
@@ -178,7 +155,6 @@ export default function App() {
         <p>{t('foot.opg')}</p>
         <p className="foot-age">{t('cart.age')}</p>
       </footer>
-      <CornerGlass />
       <CartDrawer />
       <FlyLayer />
     </>

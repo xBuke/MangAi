@@ -1,25 +1,27 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent, useSpring, LayoutGroup } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent, useSpring, useInView, LayoutGroup } from 'motion/react';
 import { useShop, RemoteImg } from '@shared/shop.jsx';
 import Bottle from '@shared/Bottle.jsx';
 import { useSmoothScroll, SplitText, ScrollWords, Reveal, CountUp, Magnetic, Tilt, Scramble, scrollToId } from '@shared/fx.jsx';
-import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar, AddButton } from '@shared/ui.jsx';
+import { LangSwitch, CartButton, CartDrawer, FlyLayer, DemoBar, AddButton, CornerGlass } from '@shared/ui.jsx';
+import HSteps from '@shared/HSteps.jsx';
+import { GSAP, gsap, useGSAP, ScrollTrigger } from '@shared/gsap.js';
 import Inquiry, { openInquiry } from '@shared/Inquiry.jsx';
-import Year from './Year.jsx';
 import MapIllustrated from './MapIllustrated.jsx';
 
 const IMG = {
   logo: 'https://vinarnice.hr/media/680572/logo-50x50.png?width=160',
-  hero: 'https://vinarnice.hr/media/701050/vinograd.jpg',
+  hero: 'https://vinarnice.hr/media/701050/vinograd.jpg?width=1800',
+  heroS: 'https://vinarnice.hr/media/701050/vinograd.jpg?width=900',
   story: 'https://www.vinskeprice.com/wp-content/uploads/2020/12/IMG_5092.jpg',
-  grapes: 'https://vinarnice.hr/media/701047/grozde-crno.jpg',
+  grapes: 'https://vinarnice.hr/media/701047/grozde-crno.jpg?width=1000',
   strip: [
-    ['https://vinarnice.hr/media/701046/boce.jpg', 'Boce Vina Govorko'],
+    ['https://vinarnice.hr/media/701046/boce.jpg?width=700', 'Boce Vina Govorko'],
     ['https://juliofrangenfoto.com/wp-content/uploads/2021/04/Vina-Govorko-7.jpg', 'Vina Govorko'],
-    ['https://vinarnice.hr/media/701048/grozde.jpg', 'Grožđe'],
-    ['https://vinarnice.hr/media/680578/vina-govorko_slika-1.jpeg', 'Vina Govorko'],
+    ['https://vinarnice.hr/media/701048/grozde.jpg?width=700', 'Grožđe'],
+    ['https://vinarnice.hr/media/680578/vina-govorko_slika-1.jpeg?width=700', 'Vina Govorko'],
     ['https://juliofrangenfoto.com/wp-content/uploads/2021/04/Dispet-3-647x1024-1.jpg', 'Dišpet'],
-    ['https://vinarnice.hr/media/701045/boce-kutija.jpg', 'Boce u kutiji']
+    ['https://vinarnice.hr/media/701045/boce-kutija.jpg?width=700', 'Boce u kutiji']
   ]
 };
 
@@ -59,9 +61,12 @@ function Header() {
   );
 }
 
-/* hero: rječnička natuknica koja se sama "premeće" kroz riječi iz kraja */
+/* hero: rječnička natuknica koja se sama "premeće" kroz riječi iz kraja.
+ * Na scroll (GSAP pin + scrub) fotografija iz luka naraste preko cijelog ekrana, a tekst prijeđe u svijetlo. */
 function Hero() {
   const { t, L, site } = useShop();
+  const ref = useRef(null);
+  const inView = useInView(ref, { amount: 0.3 });
   const words = useMemo(() => {
     const byId = Object.fromEntries(site.products.map((p) => [p.id, p]));
     return [
@@ -74,53 +79,70 @@ function Hero() {
   }, [t, L, site]);
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
+  const running = !paused && inView;
   useEffect(() => {
-    if (paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!running || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const id = setTimeout(() => setI((n) => (n + 1) % words.length), 5200);
     return () => clearTimeout(id);
-  }, [i, paused, words.length]);
+  }, [i, running, words.length]);
   const cur = words[i];
 
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.2]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    const light = { '--hero-ink': '#eceee6', '--hero-soft': 'rgba(236,238,230,.78)', '--hero-line': 'rgba(236,238,230,.35)', '--hero-btn': '#eceee6', '--hero-btn-ink': '#1c2b27', '--hero-acc': '#f3b27a' };
+    mm.add({ desk: '(min-width: 961px) and (prefers-reduced-motion: no-preference)', mob: '(max-width: 960px) and (prefers-reduced-motion: no-preference)' }, (ctx) => {
+      const from = ctx.conditions.desk
+        ? 'inset(5% 6% 17% 59% round 220px 220px 4px 4px)'
+        : 'inset(40% 6% 12% 6% round 140px 140px 4px 4px)';
+      gsap.fromTo('.hero-media', { clipPath: ctx.conditions.desk ? 'inset(100% 6% 17% 59% round 220px 220px 4px 4px)' : 'inset(100% 6% 12% 6% round 140px 140px 4px 4px)' }, { clipPath: from, duration: 1.3, ease: 'power3.inOut', delay: 0.15 });
+      const tl = gsap.timeline({ scrollTrigger: { trigger: ref.current, start: 'top top', end: '+=120%', scrub: 0.6, pin: true, anticipatePin: 1 } });
+      tl.fromTo('.hero-media', { clipPath: from }, { clipPath: 'inset(0% 0% 0% 0% round 0px 0px 0px 0px)', ease: 'power1.inOut', duration: 1, immediateRender: false }, 0)
+        .fromTo('.hero-media img', { scale: 1.2 }, { scale: 1.02, ease: 'none', duration: 1 }, 0)
+        .to('.hero-shade', { opacity: 1, duration: 0.5 }, 0.3)
+        .to(ref.current, { ...light, duration: 0.35 }, 0.22)
+        .to('.hero-fade', { opacity: 0, y: -16, duration: 0.3, stagger: 0.04 }, 0.15)
+        .to('.hero-cap', { opacity: 0, duration: 0.2 }, 0);
+    });
+    mm.add('(prefers-reduced-motion: reduce)', () => {
+      gsap.set('.hero-media', { clipPath: 'none' });
+      gsap.set('.hero-shade', { opacity: 1 });
+      gsap.set(ref.current, light);
+    });
+  }, { scope: ref });
 
   return (
     <section className="hero" ref={ref} aria-labelledby="hero-word" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)}>
-      <motion.div className="hero-entry" style={{ y: textY }}>
+      <div className="hero-media">
+        <RemoteImg wrap="div" className="fill" src={IMG.hero} srcSet={`${IMG.heroS} 900w, ${IMG.hero} 1800w`} sizes="100vw" alt="Vinograd Govorko u Dusini" fetchpriority="high" />
+        <span className="hero-shade" />
+      </div>
+      <p className="hero-cap" aria-hidden="true">Dusina, vinogorje Vrgorac</p>
+      <div className="hero-entry">
         <h1 className="hw" id="hero-word"><Scramble text={cur.w} /></h1>
         <AnimatePresence mode="wait">
           <motion.div key={cur.id} initial="h" animate="s" exit="x" variants={{ s: { transition: { staggerChildren: 0.08 } } }}>
             <motion.p className="hw-pos" variants={{ h: { opacity: 0, y: 10 }, s: { opacity: 1, y: 0 }, x: { opacity: 0 } }}>{cur.pos}</motion.p>
             <ol className="hw-senses">
               <motion.li variants={{ h: { opacity: 0, y: 12 }, s: { opacity: 1, y: 0 }, x: { opacity: 0 } }}>{cur.s1}</motion.li>
-              <motion.li variants={{ h: { opacity: 0, y: 12 }, s: { opacity: 1, y: 0 }, x: { opacity: 0 } }}>{cur.s2}</motion.li>
+              <motion.li className="hero-fade hw-s2" variants={{ h: { opacity: 0, y: 12 }, s: { opacity: 1, y: 0 }, x: { opacity: 0 } }}>{cur.s2}</motion.li>
             </ol>
-            {cur.ex && <motion.p className="hw-ex" variants={{ h: { opacity: 0 }, s: { opacity: 1 }, x: { opacity: 0 } }}>{cur.ex}</motion.p>}
+            {cur.ex && <motion.p className="hw-ex hero-fade" variants={{ h: { opacity: 0 }, s: { opacity: 1 }, x: { opacity: 0 } }}>{cur.ex}</motion.p>}
           </motion.div>
         </AnimatePresence>
         <div className="hw-switch" role="group" aria-label={t('hero.word')}>
           {words.map((w, n) => (
             <button key={w.id} type="button" aria-pressed={n === i} aria-label={w.w} onClick={() => setI(n)}>
-              <span className="hw-bar">{n === i && !paused && <motion.span key={'b' + i} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 5.2, ease: 'linear' }} />}{n === i && paused && <span style={{ transform: 'scaleX(1)' }} />}</span>
+              <span className="hw-bar">{n === i && running && <motion.span key={'b' + i} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 5.2, ease: 'linear' }} />}{n === i && !running && <span style={{ transform: 'scaleX(1)' }} />}</span>
               <span className="hw-lbl">{w.w}</span>
             </button>
           ))}
         </div>
         <p className="hero-lead">{t('hero.lead')}</p>
         <div className="hero-cta">
-          <Magnetic><a className="btn btn-main" href="#vina">{t('hero.cta')}</a></Magnetic>
-          <Magnetic><a className="btn btn-line" href="#prica">{t('hero.cta2')}</a></Magnetic>
+          <Magnetic><a className="btn btn-hero" href="#vina">{t('hero.cta')}</a></Magnetic>
+          <Magnetic><a className="btn btn-hero-line" href="#prica">{t('hero.cta2')}</a></Magnetic>
         </div>
-      </motion.div>
-      <motion.figure className="hero-photo" initial={{ clipPath: 'inset(100% 0 0 0 round 220px 220px 4px 4px)' }} animate={{ clipPath: 'inset(0% 0 0 0 round 220px 220px 4px 4px)' }} transition={{ duration: 1.3, ease: [0.7, 0, 0.2, 1], delay: 0.15 }}>
-        <motion.div className="hero-photo-in" style={{ y: imgY, scale: imgScale }}>
-          <RemoteImg wrap="div" className="fill" src={IMG.hero} alt="Vinograd Govorko u Dusini" fetchpriority="high" />
-        </motion.div>
-        <figcaption>Dusina, vinogorje Vrgorac</figcaption>
-      </motion.figure>
+      </div>
     </section>
   );
 }
@@ -297,10 +319,15 @@ function Visit() {
 }
 
 export default function App() {
-  useSmoothScroll(-20);
+  useSmoothScroll(-20, GSAP);
   const { t } = useShop();
-  useEffect(() => { /* otvaranje na #vina iz checkouta */
-    if (location.hash) setTimeout(() => scrollToId(location.hash.slice(1)), 300);
+  useEffect(() => {
+    /* slike i fontovi mijenjaju visine → osvježi ScrollTrigger */
+    const r = () => ScrollTrigger.refresh();
+    window.addEventListener('load', r);
+    document.fonts && document.fonts.ready.then(r);
+    if (location.hash) setTimeout(() => scrollToId(location.hash.slice(1)), 500);
+    return () => window.removeEventListener('load', r);
   }, []);
   return (
     <>
@@ -310,7 +337,9 @@ export default function App() {
         <Hero />
         <Story />
         <Numbers />
-        <Year />
+        <HSteps id="godina" kickerKey="year.kicker" titleKey="year.title" prefix="year.s" label="GOVORKO"
+          arts={['prune', 'bud', 'flower', 'veraison', 'crate', 'barrel', 'bottle']}
+          palette={[['#e1e5d9', '#1c2b27', '#d9691a'], ['#d3dbc2', '#1c2b27', '#5d6b3a'], ['#ebe6cf', '#1c2b27', '#8a6d1f'], ['#43182d', '#f3eaee', '#f3b27a'], ['#d9691a', '#1c2b27', '#43182d'], ['#2b211c', '#efe6dc', '#f3b27a'], ['#1c2b27', '#eceee6', '#f3b27a']]} />
         <Vineyard />
         <Strip />
         <Wines />
@@ -323,6 +352,7 @@ export default function App() {
         <p>{t('foot.opg')}</p>
         <p className="foot-age">{t('cart.age')}</p>
       </footer>
+      <CornerGlass wine="#5a1f3a" glass="rgba(28,43,39,.75)" />
       <CartDrawer />
       <FlyLayer />
     </>

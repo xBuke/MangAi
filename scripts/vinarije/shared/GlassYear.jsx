@@ -1,23 +1,24 @@
-/* "Godina u Dusini" — zakvačena sekcija: dok skrolaš, grozd sazrijeva, bere se i čaša se puni. */
+/* Zakvačena sekcija s koracima berbe: dok skrolaš, grozd sazrijeva, bere se i čaša se puni.
+ * Props: id, kickerKey, titleKey, prefix ('year.s' | 'proc.p'), steps, wine, glass, berries [4 boje sazrijevanja]. */
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence, useSpring } from 'motion/react';
-import { useShop } from '@shared/shop.jsx';
-import { WineGlass, scrollToId } from '@shared/fx.jsx';
+import { useShop } from './shop.jsx';
+import { WineGlass, scrollToId } from './fx.jsx';
 
-const STEPS = 7;
 const BERRIES = [
   [0, 0], [-22, 4], [22, 4], [-40, 12], [40, 12],
   [-11, 28], [11, 28], [-31, 36], [31, 36], [0, 52],
   [-20, 58], [20, 58], [-9, 80], [9, 80], [0, 102]
 ];
 
-function Berry({ x, y, i, progress }) {
+function Berry({ x, y, i, progress, colors }) {
   const r = useTransform(progress, [0.1, 0.5], [3 + (i % 3), 12 + (i % 2) * 1.5]);
-  const fill = useTransform(progress, [0.25, 0.45, 0.55, 0.62], ['#8ea25a', '#a8b45f', '#7a3c5e', '#43182d']);
+  const fill = useTransform(progress, [0.25, 0.45, 0.55, 0.62], colors);
   return <motion.circle cx={x} cy={y} r={r} style={{ fill }} />;
 }
 
-export default function Year() {
+const DEF_BERRIES = ['#8ea25a', '#a8b45f', '#7a3c5e', '#43182d'];
+export default function GlassYear({ id = 'godina', kickerKey = 'year.kicker', titleKey = 'year.title', prefix = 'year.s', steps: STEPS = 7, wine = '#5a1f3a', glass = 'rgba(28,43,39,.6)', berries = DEF_BERRIES, ctaTarget = 'vina' }) {
   const { t } = useShop();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
@@ -37,25 +38,25 @@ export default function Year() {
   const done = step === STEPS - 1;
 
   return (
-    <section className="year" id="godina" ref={ref} aria-labelledby="year-title" style={{ height: `${STEPS * 85}vh` }}>
+    <section className="year" id={id} ref={ref} aria-labelledby={id + '-title'} style={{ height: `${STEPS * 85}vh` }}>
       <div className="year-pin">
         <div className="year-text">
-          <p className="kicker">{t('year.kicker')}</p>
-          <h2 id="year-title">{t('year.title')}</h2>
+          <p className="kicker">{t(kickerKey)}</p>
+          <h2 id={id + '-title'}>{t(titleKey)}</h2>
           <ol className="year-rail">
             <motion.span className="year-rail-fill" style={{ scaleY: rail }} aria-hidden="true" />
             {Array.from({ length: STEPS }, (_, i) => (
               <li key={i} className={i === step ? 'on' : i < step ? 'past' : ''} aria-current={i === step ? 'step' : undefined}>
-                <span className="yr-m">{t(`year.s${i + 1}.m`)}</span>
-                <span className="yr-t">{t(`year.s${i + 1}.t`)}</span>
+                <span className="yr-m">{t(`${prefix}${i + 1}.m`)}</span>
+                <span className="yr-t">{t(`${prefix}${i + 1}.t`)}</span>
               </li>
             ))}
           </ol>
           <div className="year-copy" aria-live="polite">
             <AnimatePresence mode="wait">
               <motion.p key={step} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.35 }}>
-                <span className="yc-head">{t(`year.s${step + 1}.m`)} · <b>{t(`year.s${step + 1}.t`)}</b></span>
-                {t(`year.s${step + 1}.p`)}
+                <span className="yc-head">{t(`${prefix}${step + 1}.m`)} · <b>{t(`${prefix}${step + 1}.t`)}</b></span>
+                {t(`${prefix}${step + 1}.p`)}
               </motion.p>
             </AnimatePresence>
           </div>
@@ -71,14 +72,14 @@ export default function Year() {
             </motion.g>
             <motion.g style={{ y: clusterY, scale: clusterScale, opacity: clusterOpacity }}>
               <path d="M0 -62 C -2 -40, 2 -24, 0 -8" stroke="#6b5a3e" strokeWidth="4" fill="none" strokeLinecap="round" />
-              {BERRIES.map(([x, y], i) => <Berry key={i} x={x} y={y} i={i} progress={p} />)}
+              {BERRIES.map(([x, y], i) => <Berry key={i} x={x} y={y} i={i} progress={p} colors={berries} />)}
               <motion.g style={{ opacity: flowers }}>
                 {BERRIES.filter((_, i) => i % 2 === 0).map(([x, y], i) => <circle key={i} cx={x + 4} cy={y - 4} r="3" fill="#f2efc4" />)}
               </motion.g>
             </motion.g>
           </svg>
           <motion.span className="pour" style={{ scaleY: stream, opacity: stream }} />
-          <WineGlass level={level} wine="#5a1f3a" glass="rgba(28,43,39,.6)" className="year-glass" />
+          <WineGlass level={level} wine={wine} glass={glass} className="year-glass" />
           <AnimatePresence>
             {done && (
               <motion.div className="cheers" initial={{ opacity: 0, scale: 0.8, rotate: -6 }} animate={{ opacity: 1, scale: 1, rotate: -4 }} exit={{ opacity: 0 }}>
@@ -90,7 +91,7 @@ export default function Year() {
 
         <AnimatePresence>
           {done ? (
-            <motion.button key="cta" type="button" className="btn btn-main year-cta" onClick={() => scrollToId('vina')}
+            <motion.button key="cta" type="button" className="btn btn-main year-cta" onClick={() => scrollToId(ctaTarget)}
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{t('year.cta')}</motion.button>
           ) : (
             <motion.p key="hint" className="year-hint" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>

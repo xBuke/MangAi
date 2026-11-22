@@ -69,7 +69,12 @@ export const COMMON_I18N = {
     'msg.hello': 'Pozdrav,',
     'msg.intro': 'šaljem upit preko web stranice.',
     'msg.type': 'Vrsta upita',
-    'msg.bye': 'Hvala!'
+    'msg.bye': 'Hvala!',
+    'year.hint': 'Skrolaj i natoči',
+    'year.cheers': 'Živjeli!',
+    'year.cta': 'Odaberi vino',
+    'glass.aria': 'Natočeno',
+    'glass.go': 'Idi na vina'
   },
   en: {
     'demo.bar': 'Demo site — built by MangAI.',
@@ -140,7 +145,12 @@ export const COMMON_I18N = {
     'msg.hello': 'Hello,',
     'msg.intro': 'I am sending an enquiry through your website.',
     'msg.type': 'Type of enquiry',
-    'msg.bye': 'Thank you!'
+    'msg.bye': 'Thank you!',
+    'year.hint': 'Scroll to pour',
+    'year.cheers': 'Cheers!',
+    'year.cta': 'Pick a wine',
+    'glass.aria': 'Poured',
+    'glass.go': 'Go to wines'
   }
 };
 

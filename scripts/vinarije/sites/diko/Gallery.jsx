@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useShop, RemoteImg } from '@shared/shop.jsx';
 import { lockScroll, SplitText } from '@shared/fx.jsx';
 
-const C = (v, id) => `https://res.cloudinary.com/dcfelth94/images/f_auto,q_auto,c_limit,w_3840/${v}/${id}/${id}.jpg?_i=AA`;
+const C = (v, id) => `https://res.cloudinary.com/dcfelth94/images/f_auto,q_auto,c_limit,w_1400/${v}/${id}/${id}.jpg?_i=AA`;
 const PHOTOS = [
   { src: C('v1749516200', '469491618_854813886857546_6303522316356232984_n'), alt: 'Vinograd u Dusini', cls: 'g1' },
   { src: C('v1749516186', '480043890_664173299295659_2215895580654467899_n'), alt: 'Vinarija Điko', cls: 'g2' },
@@ -42,7 +42,7 @@ export default function Gallery() {
             whileHover="hover" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.8, delay: n * 0.06, ease: [0.2, 0.7, 0.2, 1] }}>
             <motion.div className="gal-zoom" variants={{ hover: { scale: 1.06 } }} transition={{ duration: 0.8, ease: [0.2, 0.7, 0.2, 1] }}>
-              <RemoteImg wrap="div" className="fill" src={ph.src} alt="" loading="lazy" />
+              <RemoteImg wrap="div" className="fill" src={ph.src.replace('w_1400', 'w_800')} alt="" loading="lazy" decoding="async" />
             </motion.div>
             <span className="gal-plus" aria-hidden="true">+</span>
           </motion.button>
@@ -53,8 +53,8 @@ export default function Gallery() {
         {open !== null && (
           <motion.div className="lightbox" role="dialog" aria-modal="true" aria-label={PHOTOS[open].alt}
             initial={{ backgroundColor: 'rgba(20,22,16,0)' }} animate={{ backgroundColor: 'rgba(20,22,16,.92)' }} exit={{ backgroundColor: 'rgba(20,22,16,0)' }}
-            onClick={() => setOpen(null)}>
-            <motion.div className="lb-frame" layoutId={'ph-' + open} onClick={(e) => e.stopPropagation()} transition={{ type: 'spring', stiffness: 260, damping: 30 }}>
+            transition={{ duration: 0.25 }} onClick={() => setOpen(null)}>
+            <motion.div className="lb-frame" layoutId={'ph-' + open} onClick={(e) => e.stopPropagation()} transition={{ type: 'spring', stiffness: 340, damping: 34 }}>
               <RemoteImg wrap="div" className="fill contain" src={PHOTOS[open].src} alt={PHOTOS[open].alt} />
             </motion.div>
             <motion.div className="lb-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={(e) => e.stopPropagation()}>

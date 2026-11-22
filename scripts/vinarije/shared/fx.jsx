@@ -14,6 +14,7 @@ let lenisRef = null;
 export function useSmoothScroll(offset = -76, gsapLib = null) {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return; /* mobitel: nativni scroll je najglađi */
     const lenis = new Lenis({ lerp: 0.09, anchors: { offset }, wheelMultiplier: 0.95 });
     lenisRef = lenis;
     if (gsapLib) {
@@ -72,21 +73,22 @@ export function SplitText({ text, as = 'span', className, delay = 0, stagger = 0
   );
 }
 
-/* ---------- paragraf čije se riječi "pale" dok skrolaš ---------- */
-function Word({ children, progress, range }) {
-  const opacity = useTransform(progress, range, [0.16, 1]);
-  return <motion.span style={{ opacity }}>{children} </motion.span>;
-}
+/* ---------- paragraf čije se riječi "pale" dok skrolaš ----------
+ * Jedna CSS varijabla (--p) po paragrafu; svaka riječ računa svoju prozirnost u CSS-u. */
 export function ScrollWords({ text, className, as = 'p' }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.88', 'end 0.55'] });
   const words = String(text).split(' ');
+  useEffect(() => {
+    const el = ref.current;
+    const set = (v) => el && el.style.setProperty('--p', (v * words.length).toFixed(2));
+    set(scrollYProgress.get());
+    return scrollYProgress.on('change', set);
+  }, [scrollYProgress, words.length]);
   const Tag = as;
   return (
-    <Tag ref={ref} className={className}>
-      {words.map((w, i) => (
-        <Word key={i} progress={scrollYProgress} range={[i / words.length, (i + 1) / words.length]}>{w}</Word>
-      ))}
+    <Tag ref={ref} className={(className || '') + ' scroll-words'} style={{ '--p': 0 }}>
+      {words.map((w, i) => <span key={i} style={{ '--i': i }}>{w} </span>)}
     </Tag>
   );
 }
@@ -164,6 +166,8 @@ export function Tilt({ children, max = 14, className, scale = 1.04 }) {
 
 /* ---------- beskonačna traka; brzina scrolla je ubrzava ---------- */
 export function VelocityMarquee({ children, baseVelocity = -3, className }) {
+  const wrap = useRef(null);
+  const inView = useInView(wrap, { margin: '100px' });
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const vel = useVelocity(scrollY);
@@ -173,7 +177,7 @@ export function VelocityMarquee({ children, baseVelocity = -3, className }) {
   const reduce = useReducedMotion();
   const x = useTransform(baseX, (v) => `${((((v + 50) % 50) + 50) % 50) - 50}%`);
   useAnimationFrame((_, delta) => {
-    if (reduce) return;
+    if (reduce || !inView) return;
     let move = dir.current * baseVelocity * (delta / 1000);
     const f = factor.get();
     if (f < 0) dir.current = -1; else if (f > 0) dir.current = 1;
@@ -181,8 +185,8 @@ export function VelocityMarquee({ children, baseVelocity = -3, className }) {
     baseX.set(baseX.get() + move);
   });
   return (
-    <div className={className} style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}>
-      <motion.div style={{ x, display: 'inline-flex', flexWrap: 'nowrap' }}>
+    <div ref={wrap} className={className} style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}>
+      <motion.div style={{ x, display: 'inline-flex', flexWrap: 'nowrap', willChange: 'transform' }}>
         <span style={{ display: 'inline-flex' }}>{children}</span>
         <span style={{ display: 'inline-flex' }} aria-hidden="true">{children}</span>
       </motion.div>
@@ -219,13 +223,15 @@ export function Scramble({ text, className, duration = 700 }) {
 }
 
 /* ---------- čaša vina; level je MotionValue 0..1 ---------- */
-export function WineGlass({ level, wine = '#5a1f3a', glass = 'rgba(28,43,39,.55)', className, showBubbles = false, label }) {
+export function WineGlass({ level, wine = '#5a1f3a', glass = 'rgba(28,43,39,.55)', className, showBubbles = false, label, still = false }) {
   const uid = useId().replace(/:/g, '');
+  const svgRef = useRef(null);
+  const inView = useInView(svgRef);
   const BOTTOM = 204, TOP = 62;
   const y = useTransform(level, (v) => BOTTOM - Math.max(0, Math.min(1, v)) * (BOTTOM - TOP));
   const bowl = 'M44 18 C 34 110, 52 196, 100 206 C 148 196, 166 110, 156 18 Z';
   return (
-    <svg className={className} viewBox="0 0 200 360" role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : true}>
+    <svg ref={svgRef} className={(className || '') + (still ? ' glass-still' : (inView ? '' : ' glass-paused'))} viewBox="0 0 200 360" role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : true}>
       <defs>
         <clipPath id={'b' + uid}><path d={bowl} /></clipPath>
         <linearGradient id={'w' + uid} x1="0" x2="0" y1="0" y2="1">

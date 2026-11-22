@@ -11,15 +11,22 @@ npm run dev:govorko    # lokalni razvoj (ili dev:diko)
 ```
 
 ## Struktura
-- `shared/` — košarica i jezik (`shop.jsx`), boca (`Bottle.jsx`), čaša koja se puni, split text,
-  riječi koje se pale na scroll, brojači, magnetski gumbi, 3D nagib, beskonačna traka (`fx.jsx`),
-  ladica liste za upit, let boce do ikone liste (`ui.jsx`), obrazac upita (`Inquiry.jsx`).
-- `sites/govorko/` — Motion + Lenis. Hero "rječnik" s riječima koje se izmjenjuju, "Godina u Dusini"
-  (zakvačena sekcija: grozd sazrijeva, čaša se puni), rječnik vina s filterima, ilustrirana SVG karta
-  Dusina → Metković.
-- `sites/diko/` — GSAP ScrollTrigger + Lenis na GSAP tickeru. Hero fotografija koja naraste preko ekrana,
-  vodoravna berba s promjenom palete, izbornik vina (pozadina prati boju vina), beskonačna traka nagrada,
-  galerija s prijelazom u fullscreen, prava karta (MapLibre GL + OpenFreeMap), čaša u kutu = napredak scrolla.
+- `shared/` — lista za upit i jezik (`shop.jsx`), boca (`Bottle.jsx`), animacijski elementi (`fx.jsx`),
+  ladica liste, let boce, mala čaša u kutu (`ui.jsx`), obrazac upita (`Inquiry.jsx`),
+  sekcija s čašom koja se puni (`GlassYear.jsx`), vodoravni koraci s promjenom palete (`HSteps.jsx`),
+  GSAP postavke (`gsap.js`).
+- `sites/govorko/` — hero "rječnik" kojem fotografija iz luka naraste preko ekrana (GSAP pin),
+  vodoravna "Godina u Dusini" (7 koraka), rječnik vina s filterima, ilustrirana karta Dusina → Metković,
+  mala čaša u kutu kao napredak scrolla.
+- `sites/diko/` — hero s fotografijom i znakom Điko (bez pina), berba sa čašom koja se puni (6 koraka),
+  izbornik vina (pozadina prati boju vina), traka nagrada, galerija s fullscreen prijelazom,
+  prava karta (MapLibre GL + OpenFreeMap).
+
+## Mobitel / performanse
+- Lenis (smooth scroll) radi samo na mišu; na dodirnim uređajima ostaje nativni scroll.
+- Na mobitelu nema `backdrop-filter`; animacije valova i traka staju kad nisu na ekranu.
+- Efekti vezani uz scroll pišu izravno u DOM/CSS varijable umjesto React re-rendera.
+- Test: `python3 perf.py <site> 4` (Playwright, CPU 4× usporen) — vidi `/home/claude/tests` u sesiji.
 
 ## Napomene
 - Sve animacije imaju fallback za `prefers-reduced-motion` (Điko berba se tada slaže okomito).

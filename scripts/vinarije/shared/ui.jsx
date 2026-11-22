@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useScroll, useSpring, useMotionValueEvent } from 'motion/react';
 import { useShop } from './shop.jsx';
 import Bottle from './Bottle.jsx';
-import { lockScroll, scrollToId } from './fx.jsx';
+import { lockScroll, scrollToId, WineGlass } from './fx.jsx';
 
 export function LangSwitch() {
   const { lang, setLang, t } = useShop();
@@ -167,4 +167,34 @@ function useStateTimeout(ms = 1300) {
   const tm = useRef();
   useEffect(() => () => clearTimeout(tm.current), []);
   return [v, () => { setV(true); clearTimeout(tm.current); tm.current = setTimeout(() => setV(false), ms); }];
+}
+
+/* mala čaša u kutu koja se puni kako skrolaš cijelu stranicu; klik vodi na vina.
+ * Postotak se upisuje izravno u DOM (bez React re-rendera na svaki scroll). */
+export function CornerGlass({ wine = '#5b1a2a', glass = 'rgba(35,39,29,.75)', target = 'vina' }) {
+  const { t } = useShop();
+  const { scrollYProgress } = useScroll();
+  const level = useSpring(scrollYProgress, { stiffness: 90, damping: 22 });
+  const [show, setShow] = useState(false);
+  const pctRef = useRef(null);
+  const btnRef = useRef(null);
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    const pct = Math.round(v * 100);
+    setShow(pct > 4);
+    if (pctRef.current) pctRef.current.textContent = pct + '%';
+    if (btnRef.current) btnRef.current.setAttribute('aria-label', `${t('glass.aria')} ${pct}% · ${t('glass.go')}`);
+  });
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.button ref={btnRef} type="button" className="corner-glass" onClick={() => scrollToId(target)}
+          aria-label={t('glass.go')}
+          initial={{ opacity: 0, y: 30, scale: 0.8 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 30 }}
+          whileHover={{ rotate: -8, scale: 1.06 }} whileTap={{ scale: 0.94 }}>
+          <WineGlass level={level} wine={wine} glass={glass} still />
+          <span className="cg-pct" ref={pctRef}>{Math.round(scrollYProgress.get() * 100)}%</span>
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
 }

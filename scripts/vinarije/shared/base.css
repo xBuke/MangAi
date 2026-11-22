@@ -24,7 +24,13 @@ html.lenis, html.lenis body { height: auto; }
 
 .btn-add span { display: inline-block; }
 
+.glass-paused .glass-wave, .glass-paused .glass-bubble { animation-play-state: paused; }
+.glass-still .glass-wave, .glass-still .glass-bubble { animation: none; }
+.scroll-words span { opacity: clamp(.16, calc(var(--p) - var(--i)), 1); transition: opacity .15s linear; }
+@media (pointer: coarse) { html { scroll-behavior: smooth; } }
+
 @media (prefers-reduced-motion: reduce) {
+  .scroll-words span { opacity: 1; }
   .glass-wave, .glass-bubble { animation: none; }
   html { scroll-behavior: auto !important; }
 }

@@ -24,20 +24,21 @@ export default function MapIllustrated() {
   const ref = useRef(null);
   const routeRef = useRef(null);
   const [sel, setSel] = useState('dusina');
-  const [crate, setCrate] = useState(P(43.1775, 17.4048));
+  const crateRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.8', 'center 0.45'] });
   const draw = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  useMotionValueEvent(draw, 'change', (v) => {
-    const el = routeRef.current; if (!el) return;
-    const len = el.getTotalLength();
-    const pt = el.getPointAtLength(Math.max(0, Math.min(1, v)) * len);
-    setCrate([pt.x, pt.y]);
-  });
-  useEffect(() => { /* početna pozicija ako je sekcija već prijeđena */
-    const el = routeRef.current; if (!el) return;
-    const v = draw.get(); const pt = el.getPointAtLength(v * el.getTotalLength()); setCrate([pt.x, pt.y]);
-  }, [draw]);
+  /* kašeta se pomiče izravno u DOM-u (bez React re-rendera cijele karte na svaki scroll) */
+  const lenRef = useRef(0);
+  const place = (v) => {
+    const el = routeRef.current, c = crateRef.current;
+    if (!el || !c) return;
+    if (!lenRef.current) lenRef.current = el.getTotalLength();
+    const pt = el.getPointAtLength(Math.max(0, Math.min(1, v)) * lenRef.current);
+    c.setAttribute('transform', `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
+  };
+  useMotionValueEvent(draw, 'change', place);
+  useEffect(() => { place(draw.get()); }, [draw]);
 
   const active = PLACES.find((p) => p.id === sel);
   return (
@@ -92,7 +93,7 @@ export default function MapIllustrated() {
             <path d={ROUTE} fill="none" stroke="#1c2b27" strokeOpacity=".15" strokeWidth="3" strokeDasharray="2 9" strokeLinecap="round" />
             <motion.path ref={routeRef} d={ROUTE} fill="none" stroke="#d9691a" strokeWidth="3.5" strokeLinecap="round" style={{ pathLength: draw }} />
             <text x="612" y="372" className="map-dist" transform="rotate(46 612 372)">{t('map.dist')}</text>
-            <g transform={`translate(${crate[0]} ${crate[1]})`} className="map-crate">
+            <g ref={crateRef} transform="translate(249.5 203)" className="map-crate">
               <rect x="-11" y="-9" width="22" height="14" rx="2" fill="#d9691a" />
               <circle cx="-5" cy="-11" r="4" fill="#43182d" /><circle cx="2" cy="-12" r="4" fill="#571f3a" /><circle cx="7" cy="-9" r="3.5" fill="#43182d" />
             </g>
