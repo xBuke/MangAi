@@ -27,23 +27,25 @@ export default function Wine({ route }) {
   const w = WINES[i];
   const prev = WINES[(i - 1 + WINES.length) % WINES.length];
   const next = WINES[(i + 1) % WINES.length];
-  const related = WINES.filter((x) => x.id !== w.id && (x.type === w.type || (w.type !== 'red' && x.type !== 'red'))).slice(0, 3);
+  const others = WINES.filter((x) => x.id !== w.id);
+  const near = (x) => (x.type === w.type ? 0 : (w.type === 'red') === (x.type === 'red') ? 1 : 2);
+  const related = [...others].sort((a, b) => near(a) - near(b)).slice(0, 3);
   const notes = [['w.color', w.color], ['w.nose', w.nose], ['w.palate', w.palate]].filter(([, v]) => v);
 
   return (
     <>
       <section className="wine-hero">
         <div className="wine-stage">
-          <motion.div className="wine-bottle" initial={{ opacity: 0, y: 80, rotate: -6 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ duration: 1.3, ease: EASE }}>
+          <motion.div className="enter-bottle wine-bottle" style={{ '--d': '0s' }}>
             <BottleImg id={w.id} big eager alt={(lang === 'en' ? 'Bottle of ' : 'Boca vina ') + w.name + ', Vina Govorko'} />
           </motion.div>
         </div>
         <div className="wine-info">
           <Crumbs route={route} items={[[t('nav.wines'), href('wines', lang)], [w.name]]} />
-          <motion.p className="kicker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>{L(w.kind)}{w.year ? ` · ${t('w.year')} ${w.year}.` : ''}</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.1 }}>{w.name}</motion.h1>
+          <motion.p className="enter-fade kicker" style={{ '--d': '0.2s' }}>{L(w.kind)}{w.year ? ` · ${t('w.year')} ${w.year}.` : ''}</motion.p>
+          <motion.h1 className="enter" style={{ '--d': '0.1s' }}>{w.name}</motion.h1>
 
-          <motion.div className="entry" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}>
+          <motion.div className="enter entry" style={{ '--d': '0.3s' }}>
             <p className="entry-head"><strong>{w.name.toLowerCase()}</strong> <em>{L(w.pos)}</em></p>
             <p className="entry-meaning">{L(w.meaning)}</p>
             <p className="entry-story">{L(w.story)}</p>

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'motion/react';
 import { useShop } from '@shared/shop.jsx';
-import { Reveal, CountUp, SplitText, Magnetic } from '@shared/fx.jsx';
+import { Reveal, CountUp, Magnetic } from '@shared/fx.jsx';
 import { gsap, useGSAP } from '@shared/gsap.js';
 import { Photo } from '../components/Img.jsx';
 import { ParallaxPhoto, SectionHead, EASE } from '../components/Bits.jsx';
@@ -22,17 +22,20 @@ function Hero({ lang, T }) {
       <div className="hero-media"><Photo name="vinograd-jesen" eager className="hero-img" alt={T('Vinograd Govorko u jesen, pod brdima vrgoračkog kraja', 'The Govorko vineyard in autumn, below the hills of Vrgorac')} /></div>
       <div className="hero-shade" />
       <div className="hero-in wrap">
-        <motion.p className="kicker" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}>
-          {T('Obiteljska boutique vinarija · Vinogorje Vrgorac', 'Family boutique winery · Vrgorac wine region')}
+        <motion.p className="enter kicker" style={{ '--d': '0.2s' }}>
+          <span>{T('Obiteljska boutique vinarija', 'Family boutique winery')}</span><span className="kicker-dot" aria-hidden="true"> · </span><span>{T('Vinogorje Vrgorac', 'Vrgorac wine region')}</span>
         </motion.p>
-        <SplitText as="h1" by="word" stagger={0.07} delay={0.3} className="hero-title"
-          text={T('Stare sorte Vrgorca, natrag na vinskoj karti.', 'The old grapes of Vrgorac, back on the wine list.')} />
-        <motion.div className="hero-cta" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE, delay: 1 }}>
+        <h1 className="hero-title">
+          {T('Stare sorte Vrgorca, natrag na vinskoj karti.', 'The old grapes of Vrgorac, back on the wine list.').split(' ').map((w, i) => (
+            <span key={i} className="hw"><span className="hw-in" style={{ '--d': (0.3 + i * 0.07).toFixed(2) + 's' }}>{w}</span>{' '}</span>
+          ))}
+        </h1>
+        <motion.div className="enter hero-cta" style={{ '--d': '1.0s' }}>
           <Magnetic><a className="btn btn-bone" href={href('wines', lang)}>{T('Upoznaj vina', 'Meet the wines')}</a></Magnetic>
           <a className="btn btn-line" href={href('visit', lang) + '?upit=visit#upit'}>{T('Dogovori degustaciju', 'Book a tasting')}</a>
         </motion.div>
       </div>
-      <motion.div className="hero-scroll" aria-hidden="true" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }}>
+      <motion.div className="enter-fade hero-scroll" aria-hidden="true" style={{ '--d': '1.6s' }}>
         <span /> {T('Skrolaj', 'Scroll')}
       </motion.div>
     </section>
@@ -115,7 +118,7 @@ export default function Home({ route }) {
               </motion.li>
             ))}
           </ul>
-          <p className="band-legend"><span className="lg-old" /> {T('stari trsovi, preko 50 godina', 'old vines, over 50 years')} <span className="lg-new" /> {T('novi nasadi', 'new plantings')}</p>
+          <p className="band-legend"><span className="lg-item"><span className="lg-old" /> {T('stari trsovi, preko 50 godina', 'old vines, over 50 years')}</span><span className="lg-item"><span className="lg-new" /> {T('novi nasadi', 'new plantings')}</span></p>
         </div>
       </section>
 

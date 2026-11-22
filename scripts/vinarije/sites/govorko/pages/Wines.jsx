@@ -21,16 +21,17 @@ export default function Wines({ route }) {
       <section className="wines-head wrap">
         <div className="wh-text">
           <Crumbs route={route} items={[[t('nav.wines')]]} />
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE }}>{T('Naša vina', 'Our wines')}</motion.h1>
-          <motion.p className="lead" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.15 }}>
+          <motion.h1 className="enter" style={{ '--d': '0s' }}>{T('Naša vina', 'Our wines')}</motion.h1>
+          <motion.p className="enter lead" style={{ '--d': '0.15s' }}>
             {T('Sedam vina iz Vinogorja Vrgorac. Bijela od zlatarice, maraštine, trbljana i pošipa, rosé i pjenušac od plavke te crna od plavke, merlota i trnka.', 'Seven wines from the Vrgorac wine region. Whites from Zlatarica, Maraština, Trbljan and Pošip, a rosé and a sparkling wine from Plavka, and reds from Plavka, Merlot and Trnak.')}
           </motion.p>
         </div>
-        <motion.div className="wh-img" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: EASE, delay: 0.1 }}>
+        <motion.div className="enter wh-img" style={{ '--d': '0.1s' }}>
           <Photo name="boce-nebo" eager sizes="(max-width: 900px) 100vw, 35vw" alt={T('Boce Govorko s čašom i čepovima na nebu', 'Govorko bottles with a glass and corks against the sky')} />
         </motion.div>
       </section>
 
+      <div className="grid-zone">
       <div className="filter-bar">
         <div className="wrap filter-in">
           <LayoutGroup id="filter">
@@ -72,6 +73,7 @@ export default function Wines({ route }) {
           </AnimatePresence>
         </motion.ul>
       </section>
+      </div>
 
       <section className="trade">
         <div className="wrap trade-in">

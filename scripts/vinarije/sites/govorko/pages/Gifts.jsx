@@ -19,17 +19,17 @@ export default function Gifts({ route }) {
       <section className="gifts-hero">
         <div className="gh-text">
           <Crumbs route={route} items={[[t('nav.gifts')]]} />
-          <motion.p className="kicker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>{T('Pokloni i poslovni darovi', 'Gifts and corporate gifts')}</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE }}>{T('Vino koje se pamti i po kutiji.', 'A wine remembered for its box, too.')}</motion.h1>
-          <motion.p className="lead" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.15 }}>
+          <motion.p className="enter-fade kicker" style={{ '--d': '0.2s' }}>{T('Pokloni i poslovni darovi', 'Gifts and corporate gifts')}</motion.p>
+          <motion.h1 className="enter" style={{ '--d': '0s' }}>{T('Vino koje se pamti i po kutiji.', 'A wine remembered for its box, too.')}</motion.h1>
+          <motion.p className="enter lead" style={{ '--d': '0.15s' }}>
             {T('Drvo s utisnutim imenom, kofer sa šest boca ili cijela kolekcija u jednoj kutiji. Za rođendane, svadbe, zahvale i poslovne partnere.', 'Wood with our name pressed in, a six-bottle case or the whole collection in one box. For birthdays, weddings, thank-yous and business partners.')}
           </motion.p>
-          <motion.div className="hero-cta" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.3 }}>
+          <motion.div className="enter hero-cta" style={{ '--d': '0.3s' }}>
             <a className="btn btn-bone" href="#pakiranja">{T('Pakiranja', 'Gift boxes')}</a>
             <a className="btn btn-line" href="#tvrtke">{T('Za tvrtke', 'For companies')}</a>
           </motion.div>
         </div>
-        <motion.div className="gh-img" initial={{ clipPath: 'inset(0 0 0 100%)' }} animate={{ clipPath: 'inset(0 0 0 0%)' }} transition={{ duration: 1.3, ease: EASE, delay: 0.1 }}>
+        <motion.div className="enter-clip gh-img" style={{ '--d': '0.1s' }}>
           <Photo name="kofer-6-boca" eager sizes="(max-width: 900px) 100vw, 45vw" alt={T('Otvoreni kofer sa šest boca i grbom Vina Govorko', 'An open case with six bottles and the Vina Govorko crest')} />
         </motion.div>
       </section>

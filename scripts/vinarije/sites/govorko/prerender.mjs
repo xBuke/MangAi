@@ -44,6 +44,16 @@ function jsonLd(r, title, desc, w) {
   return null;
 }
 
+/* fotografija na vrhu svake stranice: učitava se odmah (preload), da hero nije prazan */
+const HERO = { home: 'vinograd-jesen', vineyard: 'trsovi-ljeto', family: 'plavka-stari-trs', visit: 'rezidba-zima', wines: 'boce-nebo', gifts: 'kofer-6-boca' };
+function preload(r) {
+  if (r.key === 'wine') return `<link rel="preload" as="image" href="${S.BASE}img/boca-${r.wine}-1100.webp" fetchpriority="high">`;
+  const n = HERO[r.key], m = S.IMG[n];
+  const set = m.w.map((w) => `${S.BASE}img/${n}-${w}.webp ${w}w`).join(', ');
+  const sizes = r.key === 'wines' ? '(max-width: 900px) 100vw, 35vw' : r.key === 'gifts' ? '(max-width: 900px) 100vw, 45vw' : '100vw';
+  return `<link rel="preload" as="image" imagesrcset="${set}" imagesizes="${sizes}" fetchpriority="high">`;
+}
+
 const urls = [];
 for (const r of S.ROUTES) {
   const [title, desc, w] = meta(r);
@@ -53,6 +63,7 @@ for (const r of S.ROUTES) {
   const head = [
     `<title>${esc(title)}</title>`,
     `<meta name="description" content="${esc(desc)}">`,
+    preload(r),
     `<link rel="canonical" href="${abs(self)}">`,
     `<link rel="alternate" hreflang="hr" href="${abs(hr)}">`,
     `<link rel="alternate" hreflang="en" href="${abs(en)}">`,

@@ -57,9 +57,9 @@ export function PageHero({ route, photo, alt, kicker, title, lead, crumbs, pos =
       <div className="ph-shade" />
       <div className="ph-in wrap">
         <Crumbs route={route} items={crumbs} />
-        {kicker && <motion.p className="kicker" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }}>{kicker}</motion.p>}
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.1 }}>{title}</motion.h1>
-        {lead && <motion.p className="ph-lead" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: EASE, delay: 0.25 }}>{lead}</motion.p>}
+        {kicker && <motion.p className="enter kicker" style={{ '--d': '0s' }}>{kicker}</motion.p>}
+        <motion.h1 className="enter" style={{ '--d': '0.1s' }}>{title}</motion.h1>
+        {lead && <motion.p className="enter ph-lead" style={{ '--d': '0.25s' }}>{lead}</motion.p>}
       </div>
     </section>
   );
