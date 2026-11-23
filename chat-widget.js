@@ -345,6 +345,7 @@
   function autoGrow() {
     inputEl.style.height = 'auto';
     inputEl.style.height = Math.min(inputEl.scrollHeight, 120) + 'px';
+    inputEl.style.overflowY = inputEl.scrollHeight > 120 ? 'auto' : 'hidden';
   }
 
   function focusInput() {

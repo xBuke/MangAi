@@ -380,6 +380,7 @@ body.mangai-chat-open #mangai-chat-root .mangai-chat-launcher { display: none; }
   border: 1px solid var(--c-line);
   border-radius: 0;
   resize: none;
+  overflow-y: hidden;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 #mangai-chat-root .mangai-chat-input textarea:focus {
