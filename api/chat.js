@@ -317,6 +317,24 @@ async function logUpit(row) {
   }
 }
 
+/* Vercel zamrzne funkciju čim pošalje odgovor; waitUntil drži je živom dok se zapis ne spremi. */
+function waitUntil(promise) {
+  const ctx = globalThis[Symbol.for('@vercel/request-context')];
+  const store = ctx && typeof ctx.get === 'function' ? ctx.get() : null;
+  if (store && typeof store.waitUntil === 'function') {
+    store.waitUntil(promise);
+    return null;
+  }
+  return promise;
+}
+
+/* Pošalji odgovor, a zapis neka završi u pozadini (ili prije slanja ako pozadina nije dostupna). */
+async function sendThenLog(res, status, body, row) {
+  const pending = waitUntil(logUpit(row));
+  if (pending) await pending;
+  send(res, status, body);
+}
+
 /* ---------- handler ---------- */
 
 module.exports = async function handler(req, res) {
@@ -347,16 +365,14 @@ module.exports = async function handler(req, res) {
 
   // posjetitelj je poslao obrazac za kontakt iz savjetnika
   if (body.event === 'kontakt_poslan') {
-    send(res, 204, {});
-    await logUpit({ vrsta: 'kontakt_poslan', sesija, jezik: lang, stranica: page });
-    return;
+    return sendThenLog(res, 204, {}, { vrsta: 'kontakt_poslan', sesija, jezik: lang, stranica: page });
   }
 
   const messages = cleanMessages(body.messages);
   if (!messages) return send(res, 400, { error: 'bad_request' });
   const started = Date.now();
   const lastQuestion = messages[messages.length - 1].content;
-  const failLog = (greska) => logUpit({ sesija, jezik: lang, stranica: page, pitanje: lastQuestion, greska, trajanje_ms: Date.now() - started });
+  const fail = (status, error, greska) => sendThenLog(res, status, { error }, { sesija, jezik: lang, stranica: page, pitanje: lastQuestion, greska, trajanje_ms: Date.now() - started });
 
   // upit za pretragu: zadnja pitanja korisnika (kontekst nastavka razgovora)
   const userTurns = messages.filter((m) => m.role === 'user').map((m) => m.content);
@@ -386,15 +402,11 @@ module.exports = async function handler(req, res) {
     if (r.status === 401) cachedAccess = null; // token istekao ili opozvan: sljedeći zahtjev radi novu razmjenu
     if (!r.ok) {
       console.error('Anthropic API', r.status, data && data.error && data.error.message);
-      send(res, 502, { error: 'upstream' });
-      await failLog('api_' + r.status);
-      return;
+      return fail(502, 'upstream', 'api_' + r.status);
     }
   } catch (e) {
     console.error('Anthropic API poziv nije uspio:', e && e.message);
-    send(res, 502, { error: 'upstream' });
-    await failLog('poziv: ' + String(e && e.message).slice(0, 150));
-    return;
+    return fail(502, 'upstream', 'poziv: ' + String(e && e.message).slice(0, 150));
   } finally {
     clearTimeout(timer);
   }
@@ -413,9 +425,7 @@ module.exports = async function handler(req, res) {
   const tema = topicMatch && TOPICS.indexOf(topicMatch[1].toLowerCase()) !== -1 ? topicMatch[1].toLowerCase() : 'ostalo';
   reply = reply.replace(new RegExp(TOPIC_RE.source, 'gi'), '').trim();
   if (!reply) {
-    send(res, 502, { error: 'empty' });
-    await failLog('prazan_odgovor');
-    return;
+    return fail(502, 'empty', 'prazan_odgovor');
   }
 
   const seen = new Set();
@@ -426,8 +436,7 @@ module.exports = async function handler(req, res) {
     sources.push({ url: c.url, title: c.title });
   });
 
-  send(res, 200, { reply, contact, sources });
-  await logUpit({
+  return sendThenLog(res, 200, { reply, contact, sources }, {
     sesija, jezik: lang, stranica: page, pitanje: lastQuestion, odgovor: reply, tema, kontakt: contact,
     izvori: sources.map((x) => x.url), trajanje_ms: Date.now() - started
   });
