@@ -682,6 +682,11 @@ ${urls.map((u) => `  <url>
 </urlset>
 `;
   write(path.join(ROOT, 'sitemap.xml'), sitemap);
+
+  // indeks sadržaja za savjetnika (chatbot) – da odgovara i iz novih članaka
+  require('./build-chat-index.js').build('hr');
+  require('./build-chat-index.js').build('en');
+
   console.log('Gotovo. Nakon izmjene posts.json pokreni ponovno.');
 }
 

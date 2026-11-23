@@ -235,5 +235,10 @@
       "source": "/ogledno/zracna-luka-pula/:path*",
       "destination": "https://zracna-luka-pula-demo.vercel.app/:path*"
     }
-  ]
+  ],
+  "functions": {
+    "api/chat.js": {
+      "maxDuration": 30
+    }
+  }
 }

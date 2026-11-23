@@ -320,6 +320,95 @@ body.mangai-chat-open #mangai-chat-root .mangai-chat-launcher { display: none; }
 }
 #mangai-chat-root .mangai-chat-submit:hover { background: var(--c-ink); color: #fff; }
 
+/* Oblikovani odgovori (AI) */
+#mangai-chat-root .mangai-chat-msg-bubble.mangai-chat-md { white-space: normal; }
+#mangai-chat-root .mangai-chat-md p { margin: 0; }
+#mangai-chat-root .mangai-chat-md p + p,
+#mangai-chat-root .mangai-chat-md ul + p,
+#mangai-chat-root .mangai-chat-md p + ul { margin-top: 8px; }
+#mangai-chat-root .mangai-chat-md ul { margin: 0; padding-left: 18px; }
+#mangai-chat-root .mangai-chat-md li + li { margin-top: 3px; }
+#mangai-chat-root .mangai-chat-md li::marker { color: var(--c-accent-deep); }
+#mangai-chat-root .mangai-chat-md strong { font-weight: 600; }
+#mangai-chat-root .mangai-chat-md a {
+  color: var(--c-ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--c-accent-deep);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  word-break: break-word;
+}
+#mangai-chat-root .mangai-chat-md a:hover { background: var(--c-accent); text-decoration-color: var(--c-ink); }
+
+/* Tipkanje */
+#mangai-chat-root .mangai-chat-typing .mangai-chat-msg-bubble {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  padding: 14px 16px;
+}
+#mangai-chat-root .mangai-chat-typing i {
+  width: 7px;
+  height: 7px;
+  background: var(--c-ink);
+  animation: mangai-chat-dot 1.1s steps(2, end) infinite;
+}
+#mangai-chat-root .mangai-chat-typing i:nth-child(2) { animation-delay: .18s; }
+#mangai-chat-root .mangai-chat-typing i:nth-child(3) { animation-delay: .36s; }
+@keyframes mangai-chat-dot { 50% { opacity: .15; } }
+
+/* Polje za pitanje */
+#mangai-chat-root .mangai-chat-input {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 10px 12px 10px 16px;
+  border-top: 1px solid var(--c-line);
+  background: #fff;
+}
+#mangai-chat-root .mangai-chat-input[hidden] { display: none; }
+#mangai-chat-root .mangai-chat-input textarea {
+  flex: 1;
+  min-width: 0;
+  max-height: 120px;
+  padding: 10px 12px;
+  font: 400 15px/1.4 'Geist', system-ui, sans-serif;
+  color: var(--c-ink);
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: 0;
+  resize: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+#mangai-chat-root .mangai-chat-input textarea:focus {
+  outline: none;
+  border-color: var(--c-ink);
+  box-shadow: 3px 3px 0 var(--c-accent);
+}
+#mangai-chat-root .mangai-chat-input textarea::placeholder { color: var(--c-gray); }
+#mangai-chat-root .mangai-chat-send {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--c-accent);
+  color: var(--c-ink);
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, opacity .2s ease;
+}
+#mangai-chat-root .mangai-chat-send:hover { background: var(--c-ink); color: #fff; }
+#mangai-chat-root .mangai-chat-send:disabled { opacity: .45; cursor: default; background: var(--c-accent); color: var(--c-ink); }
+#mangai-chat-root .mangai-chat-sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
 #mangai-chat-root .mangai-chat-footer {
   margin: 0;
   padding: 10px 16px;
@@ -329,6 +418,20 @@ body.mangai-chat-open #mangai-chat-root .mangai-chat-launcher { display: none; }
   color: var(--c-ink-soft);
 }
 #mangai-chat-root .mangai-chat-footer a { color: var(--c-ink); font-weight: 600; }
+#mangai-chat-root .mangai-chat-footer-sep { margin: 0 6px; color: var(--c-gray); }
+#mangai-chat-root .mangai-chat-offer {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 13px/1.5 'Geist', system-ui, sans-serif;
+  color: var(--c-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--c-accent-deep);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+#mangai-chat-root .mangai-chat-offer:hover { background: var(--c-accent); }
 
 /* Mobitel: cijeli zaslon */
 @media (max-width: 560px) {
