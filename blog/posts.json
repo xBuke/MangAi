@@ -1,127 +1,130 @@
 [
   {
-    "slug": "google-profil-i-web-stranica-za-lokalne-obrte",
-    "title_hr": "Google profil tvrtke i web stranica: kako da vas lokalni kupci pronađu na kartama i u pretrazi",
-    "meta_title_hr": "Google profil tvrtke i web stranica za lokalne obrte",
-    "meta_description_hr": "Kako urediti Google profil tvrtke i povezati ga s web stranicom da vas lokalni kupci pronađu na Google kartama. Koraci, česte pogreške i što pripremiti.",
-    "excerpt_hr": "Kad netko traži frizera, restoran ili majstora u blizini, prvo vidi kartu. Što staviti u Google profil tvrtke, zašto su podaci važni i kako ga povezati s vlastitom stranicom.",
+    "slug": "ai-asistent-za-opcinu-grad-i-turisticku-zajednicu",
+    "title_hr": "AI asistent za općinu, grad i turističku zajednicu: što može, što ne smije i kako ga naručiti",
+    "meta_title_hr": "AI asistent za općinu, grad i turističku zajednicu",
+    "meta_description_hr": "Što AI asistent može raditi za općinu, grad ili turističku zajednicu: odgovori građanima na temelju službenih dokumenata, prijave problema i više jezika. Što provjeriti prije nabave.",
+    "excerpt_hr": "AI asistent može rasteretiti ured odgovorima na česta pitanja građana i turista, ali samo ako odgovara iz službenih dokumenata. Što može, granice i kako ga opisati u nabavi.",
     "date": "2026-11-23",
     "author": "MangAI",
     "keywords": [
-      "google profil tvrtke",
-      "google moj posao",
-      "google karte tvrtka",
-      "lokalni SEO",
-      "kako se pojaviti na google kartama",
-      "web stranica za lokalne obrte"
+      "AI asistent za općinu",
+      "chatbot za grad",
+      "AI za javni sektor",
+      "asistent turističke zajednice",
+      "e-usluge za građane",
+      "AI chatbot javna nabava",
+      "nabava AI asistenta"
     ],
-    "reading_time_minutes": 6,
+    "reading_time_minutes": 7,
     "ukratko": {
-      "text": "Google profil tvrtke besplatan je način da se pojavite na kartama i u lokalnoj pretrazi. Uredite točne podatke, fotografije i radno vrijeme, povežite ga sa stranicom i odgovarajte na recenzije.",
-      "href": "/usluge/izrada-web-stranica/",
-      "label": "Izrada web stranica"
+      "text": "AI asistent za javno tijelo treba odgovarati samo iz službenih dokumenata, jasno se označiti kao AI, prosljeđivati složene slučajeve djelatnicima i imati pristupačno sučelje. Opišite to u nabavi.",
+      "href": "/usluge/ai-chatbot/",
+      "label": "AI chatbot"
     },
-    "content_html_hr": "<p>Kad netko u pretraživaču ili na karti potraži „frizer“, „restoran“ ili „električar“ u svom mjestu, Google često prvo prikaže kartu s nekoliko tvrtki. Taj prikaz ne dolazi s vaše web stranice, nego iz Google profila tvrtke (ranije poznatog kao Google Moj posao). Ako ga nemate ili je zapušten, propuštate upite koji već imaju namjeru kupnje.</p>\n<h2>Što je Google profil tvrtke</h2>\n<p>To je besplatan profil koji prikazuje podatke o vašoj tvrtki u pretrazi i na kartama: naziv, adresu, radno vrijeme, telefon, fotografije, recenzije i poveznicu na stranicu. Za uređivanje trebate potvrditi da ste vlasnik ili ovlaštena osoba, a način potvrde ovisi o tvrtki i može se razlikovati.</p>\n<h2>Što uredite u profilu</h2>\n<ul>\n<li><strong>Točni osnovni podaci:</strong> naziv, adresa, telefon i radno vrijeme. Isti podaci trebaju biti na stranici i na društvenim mrežama.</li>\n<li><strong>Kategorija djelatnosti:</strong> odaberite onu koja najtočnije opisuje što radite, uz dodatne kategorije ako ih imate.</li>\n<li><strong>Opis:</strong> nekoliko jasnih rečenica o tome što radite i za koga, bez pretjerivanja.</li>\n<li><strong>Usluge ili proizvodi:</strong> popis onoga što nudite.</li>\n<li><strong>Fotografije:</strong> izvana, iznutra i radova. Redovito ih dopunjavajte.</li>\n<li><strong>Poveznica na stranicu:</strong> uputite na stranicu koja odgovara upitu (početna ili stranica usluge).</li>\n<li><strong>Recenzije:</strong> odgovarajte na njih, i na pohvale i na kritike, ljubazno i činjenično.</li>\n</ul>\n<p>Google navodi da potpuni i točni podaci pomažu da vas lakše pronađu, ali nitko ne može jamčiti određeno mjesto na karti. Zato pišite stvarne podatke i ažurirajte ih kad se nešto promijeni (praznici, selidba, novo radno vrijeme).</p>\n<h2>Zašto je profil dobar samo uz dobru stranicu</h2>\n<p>Profil privuče pogled, a stranica odlučuje. Tko klikne na poveznicu, želi vidjeti usluge, cjenik ili okvir cijena, fotografije radova i način da vas kontaktira. Ako stranice nema ili se loše prikazuje na mobitelu, dio posjetitelja odustaje. Zato profil i stranica rade zajedno: profil donosi posjetitelje, a stranica ih pretvara u upite.</p>\n<h2>Česte pogreške</h2>\n<ul>\n<li>različiti podaci u profilu, na stranici i na društvenim mrežama (telefon, radno vrijeme, adresa),</li>\n<li>zastarjelo radno vrijeme, osobito oko praznika,</li>\n<li>pogrešna ili preširoka kategorija,</li>\n<li>premalo ili stare fotografije,</li>\n<li>neodgovorene recenzije,</li>\n<li>poveznica na stranicu koja se sporo učitava ili je neprilagođena mobitelu.</li>\n</ul>\n<h2>Što pripremiti prije početka</h2>\n<ol>\n<li>točan naziv, adresu, telefon i radno vrijeme,</li>\n<li>nekoliko dobrih fotografija prostora i radova,</li>\n<li>kratki opis i popis usluga,</li>\n<li>adresu stranice na koju profil upućuje.</li>\n</ol>\n<p>Za konkretne djelatnosti pogledajte članke <a href=\"/blog/web-stranica-za-frizera-i-kozmeticki-salon.html\">web stranica za frizera i kozmetički salon</a> i <a href=\"/blog/web-stranica-za-apartmane-i-iznajmljivace.html\">web stranica za apartmane i iznajmljivače</a>. Što još treba stranica obrta, objašnjava <a href=\"/blog/web-stranica-za-obrt-i-malu-tvrtku.html\">web stranica za obrt i malu tvrtku</a>, a kako se pojaviti i u AI odgovorima pročitajte u članku <a href=\"/blog/vidljivost-u-ai-odgovorima-chatgpt-google.html\">vidljivost u odgovorima ChatGPT-a i Googlea</a>.</p>\n<p>Primjere stranica pogledajte na <a href=\"/primjeri/\">primjerima</a>, a ponudu stranice na <a href=\"/usluge/izrada-web-stranica/\">izradi web stranica</a>.</p>\n<h2>Pošaljite opis, ponuda stiže brzo</h2>\n<p>Najbrži put do ponude je kratki opis. Pošaljite mi na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a> kakvu stranicu želite: čime se bavite, koje cjeline trebate i imate li već logotip, tekstove i fotografije. Ponuda stiže brzo, s opsegom, rokom i fiksnim iznosom, bez obveze. MangAI je povoljan i brz, a cijelu izradu možemo odraditi na daljinu.</p>",
+    "content_html_hr": "<p>Građani i turisti u općinu ili turističku zajednicu stalno pitaju slično: radno vrijeme, koji obrazac, kome prijaviti kvar, kamo na izlet. AI asistent može preuzeti dio tih pitanja, ali samo ako je dobro postavljen. Za javno tijelo to znači odgovore iz službenih izvora, a ne „opće znanje“ modela.</p>\n<h2>Što asistent može raditi</h2>\n<ul>\n<li><strong>Odgovarati na česta pitanja</strong> na temelju vaših službenih dokumenata i stranica: radno vrijeme, kontakti, obrasci, rokovi, upute.</li>\n<li><strong>Voditi kroz obrazac</strong> polje po polje, s provjerom unosa, umjesto da građanin sam pogađa što treba upisati.</li>\n<li><strong>Primati prijave</strong> komunalnih problema s opisom, lokacijom i fotografijom, koje stižu odgovornoj osobi. Primjer toka pogledajte u demu „Općina ili grad“ na stranici <a href=\"/primjeri/\">primjeri</a>.</li>\n<li><strong>Odgovarati na više jezika</strong>, što je osobito korisno turističkim zajednicama.</li>\n<li><strong>Proslijediti složeni slučaj</strong> djelatniku s već prikupljenim podacima.</li>\n</ul>\n<h2>Što asistent ne smije</h2>\n<ul>\n<li><strong>Izmišljati.</strong> Ako odgovora nema u službenim izvorima, asistent to treba reći i uputiti na ured.</li>\n<li><strong>Davati pravno obvezujuće odgovore.</strong> Upute o postupku su informacija, a ne odluka.</li>\n<li><strong>Zamijeniti službenika</strong> u odlučivanju. Odluke i dalje donosi nadležna osoba.</li>\n<li><strong>Prikrivati da je AI.</strong> Korisnik mora jasno vidjeti da razgovara s AI asistentom.</li>\n</ul>\n<h2>Što provjeriti prije nabave</h2>\n<ol>\n<li><strong>Izvori znanja:</strong> iz kojih dokumenata asistent odgovara, tko ih održava i kako se ažuriraju.</li>\n<li><strong>Zaštita podataka:</strong> gdje se podaci obrađuju, ima li ugovor o obradi podataka i što se sprema. Poželjan je hosting u EU. Više u članku o <a href=\"/blog/kako-prepoznati-pouzdanog-izvodjaca-ai-rjesenja.html\">prepoznavanju pouzdanog izvođača AI rješenja</a>.</li>\n<li><strong>Pristupačnost:</strong> sučelje usklađeno s WCAG 2.1 AA, upravljivo tipkovnicom.</li>\n<li><strong>Nadzor:</strong> uvid u pitanja bez odgovora, da možete dopuniti izvore.</li>\n<li><strong>Vlasništvo i održavanje:</strong> izvorni kod, pristupi i održavanje kao zasebna stavka, da se izvođač može zamijeniti.</li>\n</ol>\n<h2>Kako to opisati u pozivu za ponudu</h2>\n<p>Navedite izvore znanja, jezike, kanale (web stranica, po potrebi i drugi), što asistent smije i ne smije, tko ažurira sadržaj, razdoblje održavanja i način predaje. Ako vrijednost nabave ostaje ispod praga od 50.000 eura bez PDV-a, riječ je o jednostavnoj nabavi koja se provodi prema pravilniku naručitelja. Kako napisati opis posla, pogledajte u članku <a href=\"/blog/nabava-web-stranice-jednostavna-nabava.html\">kako naručiti web stranicu kroz jednostavnu nabavu</a>, a što službena stranica mora imati u članku <a href=\"/blog/sto-mora-imati-web-stranica-opcine.html\">što mora imati web stranica općine ili grada</a>.</p>\n<p>Opću ponudu pogledajte na stranici <a href=\"/usluge/ai-chatbot/\">AI chatbot</a>, a usluge za javne naručitelje na stranici <a href=\"/javni-sektor/\">javni sektor</a>.</p>\n<h2>Pošaljite opis ili poziv, ponuda stiže brzo</h2>\n<p>Pošaljite mi opis kakvu stranicu ili uslugu želite na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a>. Ako ste javni naručitelj, na isti naslov možete poslati poziv za dostavu ponude. Ponuda stiže brzo, s opsegom, rokom i jasnim iznosom, bez obveze. MangAI je povoljan i brz, a posao predajem tako da ga sutra može preuzeti i netko drugi: s izvornim kodom, dokumentacijom i pristupima. Više o javnoj nabavi na stranici <a href=\"/javni-sektor/\">javni sektor</a>.</p>",
     "faq_hr": [
       {
-        "q": "Je li Google profil tvrtke besplatan?",
-        "a": "Da, profil je besplatan. Za uređivanje morate potvrditi da ste vlasnik ili ovlaštena osoba."
+        "q": "Može li AI asistent zamijeniti službenika?",
+        "a": "Ne. Asistent odgovara na česta pitanja, vodi kroz obrasce i prima prijave, ali odluke i složene slučajeve preuzima nadležna osoba."
       },
       {
-        "q": "Treba li mi web stranica ako imam Google profil?",
-        "a": "Profil je dobar za prikaz na karti, ali posjetitelji žele vidjeti usluge, fotografije i način kontakta. Stranica ih pretvara u upite i daje vam mjesto koje u potpunosti kontrolirate."
+        "q": "Kako spriječiti da asistent izmišlja odgovore?",
+        "a": "Asistent treba odgovarati samo iz službenih dokumenata i stranica koje mu zadate, a kad odgovora nema, to reći i uputiti korisnika na ured."
       },
       {
-        "q": "Mogu li jamčiti da ću biti prvi na karti?",
-        "a": "Ne. Točni, potpuni i ažurni podaci pomažu da vas lakše pronađu, ali nitko ne može jamčiti određeno mjesto."
+        "q": "Treba li korisnik znati da razgovara s AI?",
+        "a": "Da. Asistent mora biti jasno označen kao AI, tako da korisnik zna s čim razgovara."
       },
       {
-        "q": "Koliko brzo mogu dobiti ponudu za stranicu?",
-        "a": "Ponuda stiže brzo nakon što pošaljete kratki opis tvrtke i što želite na stranici. Pošaljite ga na marko@mangai.hr ili kroz obrazac za kontakt."
+        "q": "Kako naručiti AI asistenta za općinu ili turističku zajednicu?",
+        "a": "U pozivu za dostavu ponude opišite izvore znanja, jezike, što asistent smije i ne smije, tko ažurira sadržaj i razdoblje održavanja. Poziv pošaljite na marko@mangai.hr ili kroz obrazac za kontakt."
       }
     ]
   },
   {
-    "slug": "web-stranica-za-apartmane-i-iznajmljivace",
-    "title_hr": "Web stranica za apartmane i iznajmljivače: više izravnih upita i manje ovisnosti o platformama",
-    "meta_title_hr": "Web stranica za apartmane: izravni upiti gostiju",
-    "meta_description_hr": "Što treba imati web stranica apartmana ili sobe za iznajmljivanje: fotografije, opis, lokacija, cjenik, kalendar, više jezika i obrazac za upit. Povoljno i brzo.",
-    "excerpt_hr": "Platforme za rezervacije donose goste, ali vlastita stranica donosi izravne upite i povratne goste. Što mora imati, na kojim jezicima i kako je povezati s oglasima.",
+    "slug": "kako-obrt-i-mala-tvrtka-mogu-sudjelovati-u-javnoj-nabavi",
+    "title_hr": "Kako obrt i mala tvrtka mogu sudjelovati u javnoj nabavi: od plana nabave do ponude",
+    "meta_title_hr": "Kako sudjelovati u javnoj nabavi: obrt i mala tvrtka",
+    "meta_description_hr": "Prvi koraci za obrte i male tvrtke u javnoj nabavi: praćenje EOJN-a, plan nabave, pravilnik naručitelja, uvjeti sposobnosti i priprema ponude. Pregled bez žargona.",
+    "excerpt_hr": "Javna nabava nije samo za velike tvrtke. Kako pratiti objave, pročitati pozive, procijeniti uvjete sposobnosti i pripremiti ponudu kao obrt ili mala tvrtka.",
     "date": "2026-11-23",
     "author": "MangAI",
     "keywords": [
-      "web stranica za apartmane",
-      "web stranica za iznajmljivače",
-      "izrada web stranice za apartmane",
-      "stranica za smještaj",
-      "izravne rezervacije apartmana",
-      "web stranica za sobe"
+      "javna nabava za obrte",
+      "kako sudjelovati u javnoj nabavi",
+      "EOJN",
+      "javni natječaji za male tvrtke",
+      "poziv za dostavu ponude",
+      "jednostavna nabava ponuditelj",
+      "uvjeti sposobnosti"
     ],
-    "reading_time_minutes": 6,
+    "reading_time_minutes": 7,
     "ukratko": {
-      "text": "Vlastita stranica ne zamjenjuje platforme, nego uz njih donosi izravne upite i povratne goste. Treba joj jasan opis smještaja, dobre fotografije, lokacija, jezici gostiju i jednostavan upit.",
-      "href": "/usluge/izrada-web-stranica/",
-      "label": "Izrada web stranica"
+      "text": "Obrt i mala tvrtka mogu biti ponuditelji u jednostavnoj i javnoj nabavi. Pratite EOJN i planove nabave, pročitajte pravilnik i uvjete sposobnosti prije ponude te ponudite jasan opseg, rok i cijenu bez PDV-a.",
+      "href": "/javni-sektor/",
+      "label": "Javni sektor"
     },
-    "content_html_hr": "<p>Većina iznajmljivača gosta dobiva preko platformi za rezervacije. To je praktično, ali platforme obično naplaćuju proviziju, a gost ostaje „gost platforme“, ne vaš. Vlastita web stranica ne mora zamijeniti oglase, nego ih dopuniti: gost koji pronađe vaš smještaj, vidi sve na jednom mjestu i pošalje izravan upit.</p>\n<h2>Što stranica apartmana mora imati</h2>\n<ul>\n<li><strong>Jasan opis smještaja:</strong> vrsta (apartman, soba, kuća), broj osoba, površina, oprema, pravila boravka.</li>\n<li><strong>Dobre fotografije:</strong> svjetle, aktualne i u pravom redoslijedu (vanjski izgled, dnevni boravak, spavaće sobe, kupaonica, pogled). Gosti odluku donose gledajući slike.</li>\n<li><strong>Lokacija:</strong> karta, udaljenost do plaže, centra, trgovine i prijevoza, bez pretjerivanja.</li>\n<li><strong>Cjenik i uvjeti:</strong> sezone, minimalni boravak, depozit i otkazni uvjeti. Ako ih ne želite objaviti, napišite kako da gost traži ponudu.</li>\n<li><strong>Kalendar ili raspoloživost:</strong> jednostavna napomena o slobodnim terminima ili poveznica na kalendar, uz obrazac za upit.</li>\n<li><strong>Jezici gostiju:</strong> uz hrvatski, najčešće engleski i njemački, ovisno o gostima koje primate.</li>\n<li><strong>Kontakt:</strong> telefon, e-pošta, poruka i obrazac za upit, na vidljivom mjestu.</li>\n</ul>\n<h2>Platforme i vlastita stranica: kako rade zajedno</h2>\n<p>Ne morate birati. Oglasi na platformama donose vidljivost, a stranica donosi izravan kontakt i mjesto na koje možete poslati goste koji se vraćaju. Dosljedno koristite iste fotografije, nazive i podatke na svim mjestima, a na stranici navedite kako gost može izravno upitati za termin. Provjerite i uvjete pojedine platforme prije nego što goste upućujete izvan nje.</p>\n<h2>Pravila oglašavanja smještaja</h2>\n<p>Za oglašavanje smještaja u Hrvatskoj postoje obveze, primjerice oznaka kategorije i podaci o objektu. Točne zahtjeve provjerite kod nadležne turističke zajednice ili ureda, jer se propisi mijenjaju. Stranicu se može pripremiti tako da sadrži podatke koje trebate objaviti.</p>\n<h2>Odgovori gostima izvan radnog vremena</h2>\n<p>Gosti upite šalju u bilo koje doba, često navečer i na više jezika. Ako vam to oduzima vrijeme, razmislite o chatbotu koji odgovara na česta pitanja (dolazak, parking, kućni ljubimci, plaža), a složenije upite prosljeđuje vama. Detalje i što provjeriti prije nego ga uvedete pročitajte u članku <a href=\"/blog/ai-chatbot-za-apartmane.html\">AI chatbot za apartmane i iznajmljivače</a>, a opću ponudu pogledajte na stranici <a href=\"/usluge/ai-chatbot/\">AI chatbot</a>.</p>\n<h2>Kako da vas gosti pronađu</h2>\n<p>Pripremite SEO osnove (naslovi, opisi, karta stranice) i uredite <a href=\"/blog/google-profil-i-web-stranica-za-lokalne-obrte.html\">Google profil tvrtke</a>, koji gosti vide na kartama. Opći savjeti dostupni su u članku <a href=\"/blog/web-stranica-za-obrt-i-malu-tvrtku.html\">web stranica za obrt i malu tvrtku</a>, a o troškovima pišemo u članku <a href=\"/blog/koliko-kosta-izrada-web-stranice.html\">koliko košta izrada web stranice</a>.</p>\n<p>Pogledajte <a href=\"/primjeri/\">primjere izrađenih stranica</a> i <a href=\"/usluge/izrada-web-stranica/\">uslugu izrade web stranica</a>.</p>\n<h2>Pošaljite opis, ponuda stiže brzo</h2>\n<p>Najbrži put do ponude je kratki opis. Pošaljite mi na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a> kakvu stranicu želite: čime se bavite, koje cjeline trebate i imate li već logotip, tekstove i fotografije. Ponuda stiže brzo, s opsegom, rokom i fiksnim iznosom, bez obveze. MangAI je povoljan i brz, a cijelu izradu možemo odraditi na daljinu.</p>",
+    "content_html_hr": "<p>Javna nabava često izgleda kao teren velikih tvrtki, ali to nije točno. Obrt ili mala tvrtka mogu biti ponuditelji kao i svaka druga tvrtka, a uvjete sposobnosti određuje naručitelj u dokumentaciji o nabavi. Za manje vrijednosti, osobito nakon izmjena zakona, postupak je jednostavniji nego što se čini. Ovo je pregled prvih koraka.</p>\n<h2>1. Znajte tko nabavlja i što</h2>\n<p>Većina javnih nabava objavljuje se na <strong>Elektroničkom oglasniku javne nabave (EOJN RH)</strong>. Uz objavljene postupke, naručitelji tamo objavljuju i <strong>planove nabave</strong>: popise onoga što namjeravaju kupiti u godini, s predmetom, okvirnom procijenjenom vrijednošću i planiranim razdobljem. Plan je koristan jer pokazuje što će se tražiti prije nego što postupak počne.</p>\n<h2>2. Razlikujte jednostavnu i javnu nabavu</h2>\n<p>Od 1. rujna 2026. zakon se ne primjenjuje na nabavu robe i usluga procijenjene vrijednosti manje od 50.000 eura bez PDV-a (prije 26.540 eura) ni na radove manje od 100.000 eura (prije 66.360 eura), prema Zakonu o izmjenama i dopunama Zakona o javnoj nabavi (NN 48/2026). Takva se nabava naziva jednostavnom i provodi se prema općem aktu (pravilniku) naručitelja. Veće nabave idu kroz postupke propisane zakonom. Pravilnik je ključan dokument: određuje koliko se ponuda traži, kako se pozivaju ponuditelji i koji su rokovi. Mnogi naručitelji objavljuju ga na svojim mrežnim stranicama.</p>\n<h2>3. Pročitajte uvjete prije nego što krenete pisati ponudu</h2>\n<p>Svaki poziv ima kriterije sposobnosti. Neki su blagi, na primjer upis u odgovarajući registar i potvrda da račun nije bio blokiran u određenom razdoblju. Drugi traže reference iz zadnjih godina, minimalni godišnji promet ili stručni kadar. Zato nije svaka nabava za svakog ponuditelja, i to je normalno. Pročitajte kriterije prvi, a tek onda trošite vrijeme na ponudu.</p>\n<h2>4. Pripremite ponudu koja se može usporediti</h2>\n<ul>\n<li><strong>Jasan opseg:</strong> što točno isporučujete i što nije uključeno.</li>\n<li><strong>Rok:</strong> kad počinjete, kad je gotovo i što ovisi o naručitelju.</li>\n<li><strong>Cijena bez PDV-a:</strong> ponude se uspoređuju bez PDV-a, pa je tako i napišite. Obrti izvan sustava PDV-a PDV ne obračunavaju.</li>\n<li><strong>Održavanje kao zasebna stavka</strong>, ako je predmet web stranica ili sustav.</li>\n<li><strong>Tražena dokumentacija:</strong> dokazi o sposobnosti, izjave i obrasci, točno onako kako piše u pozivu.</li>\n</ul>\n<h2>5. Predaja kroz EOJN i poštivanje roka</h2>\n<p>Ponude se često predaju elektronički kroz modul u EOJN-u, a rok je strog: ponuda poslana nakon roka ne ulazi u razmatranje. Neki naručitelji u jednostavnoj nabavi pozive šalju i izravno e-poštom odabranim ponuditeljima, pa je korisno da vas naručitelji poznaju i da imate jasno opisane usluge na stranici.</p>\n<h2>6. Račun i primopredaja</h2>\n<p>Računi javnim naručiteljima izdaju se kao e-računi. Pri predaji posla dobri naručitelji traže izvorni kod, dokumentaciju i pristupe, pa ih pripremite od početka. Što bi opis posla trebao sadržavati, objašnjava članak <a href=\"/blog/nabava-web-stranice-jednostavna-nabava.html\">kako naručiti web stranicu kroz jednostavnu nabavu</a>, koji je koristan i ponuditeljima, jer pokazuje što naručitelj treba.</p>\n<h2>Kako se ja javljam na pozive</h2>\n<p>Javljam se na pozive za dostavu ponuda i na postupke objavljene na EOJN-u za web stranice, održavanje, e-usluge i AI asistente za javna tijela. Pregled što radim i po kojim CPV područjima nalazi se na stranici <a href=\"/javni-sektor/\">javni sektor</a>. Primjere pogledajte na <a href=\"/primjeri/\">primjerima</a>.</p>\n<h2>Pošaljite opis ili poziv, ponuda stiže brzo</h2>\n<p>Pošaljite mi opis kakvu stranicu ili uslugu želite na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a>. Ako ste javni naručitelj, na isti naslov možete poslati poziv za dostavu ponude. Ponuda stiže brzo, s opsegom, rokom i jasnim iznosom, bez obveze. MangAI je povoljan i brz, a posao predajem tako da ga sutra može preuzeti i netko drugi: s izvornim kodom, dokumentacijom i pristupima. Više o javnoj nabavi na stranici <a href=\"/javni-sektor/\">javni sektor</a>.</p>",
     "faq_hr": [
       {
-        "q": "Treba li mi web stranica ako imam oglase na platformama?",
-        "a": "Ne moraju se isključivati: platforme donose vidljivost, a vlastita stranica donosi izravne upite i mjesto na koje upućujete goste koji se vraćaju. Tako ste manje ovisni o jednom kanalu."
+        "q": "Može li obrt sudjelovati u javnoj nabavi?",
+        "a": "Može. Obrt sudjeluje u jednostavnoj i javnoj nabavi kao i tvrtka, a uvjete sposobnosti određuje naručitelj u dokumentaciji o nabavi."
       },
       {
-        "q": "Na kojim jezicima treba biti stranica apartmana?",
-        "a": "Uz hrvatski, najčešće engleski i njemački, ali ovisi o tome koje goste primate. Pogledajte iz kojih zemalja dolaze vaši gosti i prilagodite jezike tome."
+        "q": "Gdje pronaći javne nabave i planove nabave?",
+        "a": "Na Elektroničkom oglasniku javne nabave (EOJN RH), gdje se objavljuju postupci i planovi nabave naručitelja. Jednostavnu nabavu mnogi naručitelji objavljuju i na vlastitim mrežnim stranicama."
       },
       {
-        "q": "Što napisati u opisu apartmana?",
-        "a": "Vrstu smještaja, broj osoba, opremu, lokaciju s udaljenostima, pravila boravka i kako do rezervacije. Pišite konkretno i bez pretjerivanja, jer gosti uspoređuju opis i fotografije."
+        "q": "Moram li imati reference da bih se javio?",
+        "a": "Ovisi o pozivu. Neki naručitelji traže reference ili minimalni promet, a drugi samo osnovne uvjete poput upisa u registar. Kriterije uvijek pročitajte prije pripreme ponude."
       },
       {
-        "q": "Koliko brzo mogu dobiti ponudu za stranicu apartmana?",
-        "a": "Ponuda stiže brzo nakon što pošaljete opis smještaja i što želite na stranici. Pošaljite ga na marko@mangai.hr ili kroz obrazac za kontakt."
+        "q": "Je li cijena u ponudi s PDV-om ili bez?",
+        "a": "Ponude se uspoređuju bez PDV-a, pa se cijena u pravilu navodi bez PDV-a. Obrti izvan sustava PDV-a PDV ne obračunavaju."
       }
     ]
   },
   {
-    "slug": "web-stranica-za-frizera-i-kozmeticki-salon",
-    "title_hr": "Web stranica za frizera i kozmetički salon: što mora imati da vam donese nove klijente",
-    "meta_title_hr": "Web stranica za frizera i kozmetički salon: što treba imati",
-    "meta_description_hr": "Što mora imati web stranica frizera, kozmetičkog salona ili brijačnice: usluge, cjenik, galerija, kontakt i upit za termin. Povoljno i brzo, ponuda na upit.",
-    "excerpt_hr": "Frizeri i saloni uglavnom ne trebaju veliku stranicu, nego jasnu: usluge, cjenik, radno vrijeme, fotografije radova i jednostavan način da klijent traži termin.",
+    "slug": "isti-projekti-kao-javna-tijela-bez-velikog-proracuna",
+    "title_hr": "Isti projekti kao javna tijela, samo bez velikog proračuna: što općine naručuju, a možete imati i vi",
+    "meta_title_hr": "Projekti kao u javnoj nabavi, po mjeri male tvrtke",
+    "meta_description_hr": "Web stranice, e-usluge, interaktivne karte i AI asistenti koje naručuju općine, županije i ustanove dostupni su i manjim tvrtkama. Što se naručuje i kako krenuti povoljno i brzo.",
+    "excerpt_hr": "Rješenja koja javna tijela naručuju kroz javnu nabavu nisu rezervirana za velike proračune. Pregled što se najčešće naručuje i kako isto dobiti u opsegu koji odgovara vašoj tvrtki.",
     "date": "2026-11-23",
     "author": "MangAI",
     "keywords": [
-      "web stranica za frizera",
-      "web stranica za kozmetički salon",
-      "web stranica za brijačnicu",
-      "izrada web stranice za salon",
-      "stranica za frizerski salon",
-      "povoljna izrada web stranica"
+      "javna nabava web stranica",
+      "što javna tijela naručuju",
+      "e-usluge za građane",
+      "web GIS karta",
+      "AI asistent za općinu",
+      "povoljna izrada web stranica",
+      "jednostavna nabava"
     ],
-    "reading_time_minutes": 5,
+    "reading_time_minutes": 6,
     "ukratko": {
-      "text": "Stranica salona treba odgovoriti na četiri pitanja: što radite, koliko košta, kako izgleda vaš rad i kako do termina. Dovoljna je mala, brza stranica prilagođena mobitelu, s jasnim kontaktom i galerijom.",
-      "href": "/usluge/izrada-web-stranica/",
-      "label": "Izrada web stranica"
+      "text": "Web stranice, e-usluge, interaktivne karte i AI asistenti koje javna tijela naručuju kroz nabavu isti su tehnički temelj kao i za privatne tvrtke. Razlika je u opsegu, pa se ista rješenja mogu dobiti povoljno i brzo.",
+      "href": "/javni-sektor/",
+      "label": "Javni sektor"
     },
-    "content_html_hr": "<p>Većina klijenata frizera i kozmetičarki danas prvo pogleda mobitel: traže salon u blizini, listaju fotografije i traže način da dogovore termin. Ako te informacije ne nađu brzo, nazvat će sljedeći salon. Dobra vijest je da za to ne trebate veliku stranicu, nego jasnu.</p>\n<h2>Što stranica salona mora imati</h2>\n<ul>\n<li><strong>Jasan naslov:</strong> što radite i gdje (npr. frizerski salon u vašem gradu), da i posjetitelj i Google odmah razumiju čime se bavite.</li>\n<li><strong>Popis usluga:</strong> šišanje, bojanje, njega lica, manikura i druge usluge, svaka s kratkim opisom.</li>\n<li><strong>Cjenik:</strong> klijenti vole znati okvir cijene prije dolaska. Ako se cijene često mijenjaju, dovoljan je cjenik s napomenom o datumu zadnje izmjene.</li>\n<li><strong>Galerija radova:</strong> vlastite fotografije uvjerljivije su od stock slika. Nekoliko dobrih fotografija vrijedi više od stotinu prosječnih.</li>\n<li><strong>Radno vrijeme, adresa i karta:</strong> na vidljivom mjestu, ne samo u podnožju.</li>\n<li><strong>Kontakt i termin:</strong> gumb za poziv, poveznica za poruku i obrazac za upit za termin. Rezervacijski sustav nije uvjet za početak, a može se dodati kasnije.</li>\n<li><strong>Prikaz na mobitelu:</strong> većina posjetitelja dolazi s mobitela, pa stranica mora biti brza i čitljiva na malom zaslonu.</li>\n</ul>\n<h2>Je li dovoljna društvena mreža?</h2>\n<p>Instagram i Facebook dobri su za pokazivanje radova, ali ih ne kontrolirate: algoritam i pravila mijenjaju se bez vašeg utjecaja, a sadržaj se teško pretražuje. Vlastita stranica je mjesto koje je uvijek vaše, na kojem se jasno vide usluge, cjenik i kontakt, i na koje možete usmjeriti profile s društvenih mreža. Najbolje rade zajedno: mreže za inspiraciju, stranica za odluku i dogovor termina.</p>\n<h2>Online termini: kad su potrebni</h2>\n<p>Ako imate malo termina tjedno, obrazac za upit i poziv obično su dovoljni. Ako vam telefon stalno prekida rad ili primate puno upita izvan radnog vremena, razmislite o online rezervaciji ili o <a href=\"/usluge/ai-chatbot/\">AI chatbotu</a> koji odgovara na česta pitanja. Kako to izgleda u praksi za male tvrtke, pročitajte u članku <a href=\"/blog/ai-asistent-za-obrt-i-malu-tvrtku.html\">AI asistent za obrt i malu tvrtku</a>. Krenite s osnovom i dodajte rezervacije kad vidite da vam trebaju.</p>\n<h2>Kako da vas lokalni klijenti nađu</h2>\n<p>Uz stranicu pripremite i osnovnu SEO postavku: naslove, opise i kartu stranice, da vas Google može prikazati kad netko traži salon u vašem mjestu. Isto vrijedi za <a href=\"/blog/google-profil-i-web-stranica-za-lokalne-obrte.html\">Google profil tvrtke</a>, koji se prikazuje na kartama. Opći pregled što vam treba za stranicu obrta imate u članku <a href=\"/blog/web-stranica-za-obrt-i-malu-tvrtku.html\">web stranica za obrt i malu tvrtku</a>, a cijenu objašnjava <a href=\"/blog/koliko-kosta-izrada-web-stranice.html\">koliko košta izrada web stranice</a>.</p>\n<p>Primjere izrađenih stranica pogledajte na stranici <a href=\"/primjeri/\">primjeri</a>, a opseg usluge na stranici <a href=\"/usluge/izrada-web-stranica/\">izrada web stranica</a>.</p>\n<h2>Pošaljite opis, ponuda stiže brzo</h2>\n<p>Najbrži put do ponude je kratki opis. Pošaljite mi na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a> kakvu stranicu želite: čime se bavite, koje cjeline trebate i imate li već logotip, tekstove i fotografije. Ponuda stiže brzo, s opsegom, rokom i fiksnim iznosom, bez obveze. MangAI je povoljan i brz, a cijelu izradu možemo odraditi na daljinu.</p>",
+    "content_html_hr": "<p>U planovima nabave općina, gradova, županija, zavoda i fakulteta, objavljenima na Elektroničkom oglasniku javne nabave (EOJN), redovito se pojavljuju iste stavke: izrada web stranice, održavanje, e-usluge za građane, interaktivne karte i, sve češće, AI asistenti. Procijenjene vrijednosti takvih nabava kreću se od nekoliko tisuća do desetaka tisuća eura. Dobra vijest za sve ostale: tehnologija iza tih projekata nije rezervirana za javni sektor. Isto možete imati u opsegu koji odgovara vašoj tvrtki, obrtu ili udruzi.</p>\n<h2>Što javna tijela najčešće naručuju</h2>\n<ul>\n<li><strong>Web stranice dostupne svima.</strong> Službene stranice s obveznim informacijama, usklađene sa Zakonom o pristupačnosti mrežnih stranica (WCAG 2.1 AA). Više u članku o <a href=\"/blog/pristupacnost-web-stranica-javni-sektor.html\">pristupačnosti web stranica u javnom sektoru</a>.</li>\n<li><strong>Održavanje i hosting.</strong> Redovita ažuriranja, sigurnosne kopije i nadzor dostupnosti, najčešće kao godišnji ugovor.</li>\n<li><strong>E-usluge.</strong> Digitalni obrasci, prijave i zahtjevi koji stižu izravno u ured umjesto na papiru.</li>\n<li><strong>Interaktivne karte (web GIS).</strong> Prikaz prostornih podataka, planova i lokacija na karti.</li>\n<li><strong>AI asistenti.</strong> Odgovori na česta pitanja građana i turista na temelju službenih dokumenata, na više jezika.</li>\n<li><strong>Interni alati i edukacija.</strong> Evidencije, izvještaji i radionice o sigurnoj uporabi AI alata.</li>\n</ul>\n<h2>Što od toga ima smisla i za privatnu tvrtku</h2>\n<p>Gotovo sve. Pogledajte kako se isti pristup prevodi na manji opseg:</p>\n<ul>\n<li><strong>Web stranica</strong> brza i prilagođena mobitelu, s jasnim uslugama i kontaktom. Pregled na stranici <a href=\"/usluge/izrada-web-stranica/\">izrada web stranica</a>.</li>\n<li><strong>E-obrasci i upiti</strong> koji se sami upisuju u vašu e-poštu, tablicu ili CRM. To je isti princip kao prijava komunalnog problema kod općine.</li>\n<li><strong>Karta</strong> poslovnica, terena ili ponude, ako vaša djelatnost ima prostornu komponentu.</li>\n<li><strong>AI asistent</strong> koji odgovara iz vašeg cjenika i čestih pitanja. Kako to izgleda, pogledajte na stranici <a href=\"/usluge/ai-chatbot/\">AI chatbot</a> i u <a href=\"/primjeri/\">primjerima</a>.</li>\n<li><strong>Automatizacija</strong> ponavljajućih poslova, na stranici <a href=\"/usluge/ai-automatizacija/\">AI automatizacija</a>, te <a href=\"/usluge/aplikacije-po-mjeri/\">aplikacije po mjeri</a> za specifične procese.</li>\n</ul>\n<h2>Kako krenuti povoljno i brzo</h2>\n<ol>\n<li><strong>Počnite s jednom cjelinom.</strong> Umjesto velikog projekta, odaberite jedan proces ili jednu stranicu koja vam donosi najviše koristi.</li>\n<li><strong>Zapišite što želite.</strong> Javna tijela pišu opis predmeta nabave, a isto pomaže i vama: što točno treba raditi, tko to koristi i što je gotovo kad je gotovo.</li>\n<li><strong>Tražite vlasništvo nad rezultatom.</strong> Izvorni kod, dokumentacija i pristupi trebaju biti vaši, kao što to traže i dobri naručitelji. Vidi <a href=\"/blog/nabava-web-stranice-jednostavna-nabava.html\">kako naručiti web stranicu kroz jednostavnu nabavu</a>.</li>\n<li><strong>Dodajte kasnije.</strong> Kad prva cjelina radi, širite je na sljedeću.</li>\n</ol>\n<h2>Za javne naručitelje</h2>\n<p>Ako ste općina, grad, škola, ustanova ili turistička zajednica, isto vrijedi i za vas: web stranice, e-usluge i održavanje najčešće se nabavljaju jednostavnom nabavom, koja od 1. rujna 2026. za robu i usluge vrijedi do 50.000 eura bez PDV-a (Zakon o izmjenama i dopunama Zakona o javnoj nabavi, NN 48/2026). Na pozive za dostavu ponude odgovaram u traženom roku. Što dobivate i koje usluge radim, pogledajte na stranici <a href=\"/javni-sektor/\">javni sektor</a>. Popis što mora imati službena stranica nalazi se u članku <a href=\"/blog/sto-mora-imati-web-stranica-opcine.html\">što mora imati web stranica općine ili grada</a>.</p>\n<h2>Pošaljite opis ili poziv, ponuda stiže brzo</h2>\n<p>Pošaljite mi opis kakvu stranicu ili uslugu želite na <a href=\"mailto:marko@mangai.hr\">marko@mangai.hr</a> ili kroz <a href=\"/kontakt/\">obrazac za kontakt</a>. Ako ste javni naručitelj, na isti naslov možete poslati poziv za dostavu ponude. Ponuda stiže brzo, s opsegom, rokom i jasnim iznosom, bez obveze. MangAI je povoljan i brz, a posao predajem tako da ga sutra može preuzeti i netko drugi: s izvornim kodom, dokumentacijom i pristupima. Više o javnoj nabavi na stranici <a href=\"/javni-sektor/\">javni sektor</a>.</p>",
     "faq_hr": [
       {
-        "q": "Treba li frizeru web stranica ako ima Instagram?",
-        "a": "Instagram je dobar za pokazivanje radova, ali stranicu kontrolirate vi: na njoj su usluge, cjenik, radno vrijeme i kontakt na jednom mjestu, i lakše je pronalazite preko Googlea. Najbolje je koristiti oboje."
+        "q": "Mogu li i mala tvrtka imati isti projekt kao općina ili ustanova?",
+        "a": "Da. Tehnologija je ista, razlika je u opsegu. Mala tvrtka može krenuti s jednom stranicom, jednim obrascem ili jednim asistentom, a širiti kad vidi korist."
       },
       {
-        "q": "Što napisati na stranici kozmetičkog salona?",
-        "a": "Popis usluga s kratkim opisom, okvirni cjenik, fotografije vlastitog rada, adresu, radno vrijeme i jasan način da klijent zatraži termin. Dodajte i nekoliko rečenica o vama i vašem iskustvu."
+        "q": "Što javna tijela najčešće naručuju od web i IT usluga?",
+        "a": "Izradu i održavanje web stranica, e-usluge za građane, interaktivne karte, AI asistente te interne alate i edukaciju djelatnika. Takve stavke možete pronaći u planovima nabave na EOJN-u."
       },
       {
-        "q": "Trebam li online rezervacije od prvog dana?",
-        "a": "Ne. Za početak najčešće je dovoljan gumb za poziv i obrazac za upit za termin. Online rezervacije ili chatbot mogu se dodati kasnije, kad vidite da vam trebaju."
+        "q": "Do koje vrijednosti vrijedi jednostavna nabava?",
+        "a": "Od 1. rujna 2026. zakon se ne primjenjuje na nabavu robe i usluga procijenjene vrijednosti manje od 50.000 eura bez PDV-a, a postupak se provodi prema općem aktu naručitelja (NN 48/2026)."
       },
       {
-        "q": "Koliko brzo mogu dobiti ponudu za stranicu salona?",
-        "a": "Ponuda stiže brzo nakon što pošaljete kratki opis salona i što želite na stranici. Pošaljite ga na marko@mangai.hr ili kroz obrazac za kontakt."
+        "q": "Koliko brzo mogu dobiti ponudu?",
+        "a": "Ponuda stiže brzo nakon što pošaljete opis ili poziv za dostavu ponude na marko@mangai.hr ili kroz obrazac za kontakt."
       }
     ]
   },
