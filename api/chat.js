@@ -25,7 +25,7 @@ const INDEX = {
 };
 
 const MODEL = process.env.CHAT_MODEL || 'claude-haiku-5-5';
-const MAX_TOKENS = 700;
+const MAX_TOKENS = 900;
 const CONTEXT_BUDGET = 10000; // znakova sadržaja stranice po pitanju
 const MAX_MESSAGES = 12;
 const MAX_MESSAGE_CHARS = 1000;
@@ -133,9 +133,9 @@ function systemPrompt(lang, chunks) {
     '2. Nikad ne navodi cijenu ni iznos za MangAI-jeve usluge. Na pitanje o cijeni objasni od čega ovisi (prema sadržaju) i da Marko nakon kratkog opisa šalje pisanu ponudu s opsegom, rokom i fiksnim iznosom. Opće iznose iz članaka (npr. pragove javne nabave ili tržišne raspone pretplata za alate) smiješ navesti kao opću informaciju.',
     '3. Ne spominji ogledne projekte, demo stranice ni potencijalne klijente po imenu.',
     '4. Ako sadržaj ne odgovara na pitanje, reci to iskreno u jednoj rečenici i predloži da pitanje pošalju Marku. Na pitanja koja nemaju veze s MangAI-jem, web stranicama, AI-jem, automatizacijom ili javnom nabavom ljubazno odgovori da u tome ne možeš pomoći.',
-    '5. Piši kratko i jasno: 2 do 5 rečenica ili kratak popis s crticama. Bez naslova i bez tablica. Smiješ koristiti **podebljano**.',
+    '5. Piši kratko i jasno: najviše oko 90 riječi (2 do 4 rečenice ili kratak popis s crticama), osim ako posjetitelj izričito traži više detalja. Bez naslova i bez tablica. Smiješ koristiti **podebljano**. Uvijek dovrši posljednju rečenicu.',
     '6. Kad je korisno, uputi na stranicu za više detalja poveznicom u obliku [naziv](/putanja/). Koristi samo putanje s popisa stranica ispod, najviše dvije poveznice po odgovoru.',
-    '7. Ton: stručan, smiren i izravan, bez pretjerivanja i bez prodajnih fraza. Ne nudi ponudu u svakom odgovoru.',
+    '7. Ton: stručan, smiren i izravan, bez pretjerivanja i bez prodajnih fraza. Ne nudi ponudu u svakom odgovoru. Ti si savjetnik, ne Marko: o MangAI-ju i Marku govori u trećem licu ("MangAI izrađuje…", "Marko šalje ponudu…"), nikad "radimo" ili "radim". Posjetitelju se obraćaj s "vi".',
     '8. Ako posjetitelj želi ponudu, suradnju, razgovor ili da ga Marko kontaktira, ili opisuje konkretan projekt, odgovori kratko i na kraju odgovora dodaj zaseban redak: ' + CONTACT_MARKER + ' (to prikazuje obrazac za kontakt). Inače ga ne dodaji.',
     lang === 'en'
       ? '9. The visitor is using the English version of the site: answer in English, even though most of the content below is in Croatian.'
@@ -333,6 +333,13 @@ module.exports = async function handler(req, res) {
   }
 
   let reply = (data.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('').trim();
+  if (data.stop_reason && data.stop_reason !== 'end_turn') {
+    console.warn('Odgovor nije završen normalno:', data.stop_reason, 'blokovi:', (data.content || []).map((b) => b.type).join(','));
+    if (data.stop_reason === 'max_tokens') {
+      const cut = Math.max(reply.lastIndexOf('. '), reply.lastIndexOf('.\n'), reply.lastIndexOf('!'), reply.lastIndexOf('?'));
+      if (cut > reply.length / 2) reply = reply.slice(0, cut + 1);
+    }
+  }
   const contact = reply.indexOf(CONTACT_MARKER) !== -1;
   reply = reply.split(CONTACT_MARKER).join('').trim();
   if (!reply) return send(res, 502, { error: 'empty' });
