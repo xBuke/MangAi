@@ -162,16 +162,6 @@
       "permanent": true
     }
   ],
-  "rewrites": [
-    {
-      "source": "/ogledno/tvrdjava-kulture",
-      "destination": "https://tvrdjava-demo.vercel.app/ogledno/tvrdjava-kulture/hr"
-    },
-    {
-      "source": "/ogledno/tvrdjava-kulture/:path*",
-      "destination": "https://tvrdjava-demo.vercel.app/ogledno/tvrdjava-kulture/:path*"
-    }
-  ],
   "headers": [
     {
       "source": "/assets/fonts/(.*)",
