@@ -31,6 +31,9 @@ const MAX_MESSAGES = 12;
 const MAX_MESSAGE_CHARS = 1000;
 const RATE_LIMIT = { windowMs: 10 * 60 * 1000, max: 25 };
 const CONTACT_MARKER = '[[KONTAKT]]';
+const TOPICS = ['web_stranica', 'ai_chatbot', 'automatizacija', 'aplikacija', 'odrzavanje', 'javna_nabava', 'pristupacnost', 'cijena', 'rok_i_suradnja', 'o_mangaiju', 'kontakt', 'nevezano', 'ostalo'];
+const TOPIC_TAG_HINT = '[[TEMA:naziv]]';
+const TOPIC_RE = /\[\[TEMA:\s*([a-z_]+)\s*\]\]/i;
 
 const ALLOWED_ORIGINS = [/^https:\/\/(www\.)?mangai\.hr$/, /^https:\/\/[a-z0-9-]+\.vercel\.app$/, /^http:\/\/localhost(:\d+)?$/];
 
@@ -137,9 +140,10 @@ function systemPrompt(lang, chunks) {
     '6. Kad je korisno, uputi na stranicu za više detalja poveznicom u obliku [naziv](/putanja/). Koristi samo putanje s popisa stranica ispod, najviše dvije poveznice po odgovoru.',
     '7. Ton: stručan, smiren i izravan, bez pretjerivanja i bez prodajnih fraza. Ne nudi ponudu u svakom odgovoru. Ti si savjetnik, ne Marko: o MangAI-ju i Marku govori u trećem licu ("MangAI izrađuje…", "Marko šalje ponudu…"), nikad "radimo" ili "radim". Posjetitelju se obraćaj s "vi".',
     '8. Ako posjetitelj želi ponudu, suradnju, razgovor ili da ga Marko kontaktira, ili opisuje konkretan projekt, odgovori kratko i na kraju odgovora dodaj zaseban redak: ' + CONTACT_MARKER + ' (to prikazuje obrazac za kontakt). Inače ga ne dodaji.',
+    '9. Na samom kraju svakog odgovora dodaj zaseban redak ' + TOPIC_TAG_HINT + ' s jednom temom pitanja s popisa: ' + TOPICS.join(', ') + '. Posjetitelj taj redak ne vidi.',
     lang === 'en'
-      ? '9. The visitor is using the English version of the site: answer in English, even though most of the content below is in Croatian.'
-      : '9. Odgovaraj na hrvatskom standardnom jeziku. Ako posjetitelj piše na drugom jeziku, odgovori na njegovom jeziku.',
+      ? '10. The visitor is using the English version of the site: answer in English, even though most of the content below is in Croatian.'
+      : '10. Odgovaraj na hrvatskom standardnom jeziku. Ako posjetitelj piše na drugom jeziku, odgovori na njegovom jeziku.',
     '',
     'POPIS STRANICA:',
     pages,
@@ -266,6 +270,53 @@ async function authHeaders(req) {
   return { authorization: 'Bearer ' + cachedAccess.token };
 }
 
+/* ---------- zapis upita (Supabase, tablica web_chat_upiti) ---------- */
+
+const LOG = {
+  url: process.env.CHATLOG_SUPABASE_URL,
+  key: process.env.CHATLOG_SUPABASE_KEY,
+  token: process.env.CHATLOG_TOKEN
+};
+
+/* Posjetitelji ponekad upišu kontakt u pitanje; to ne spremamo. */
+function redact(text) {
+  return String(text || '')
+    .replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, '[e-pošta]')
+    .replace(/(?:\+|00)?\d[\d\s\/-]{6,}\d/g, '[broj]');
+}
+
+async function logUpit(row) {
+  if (!LOG.url || !LOG.key || !LOG.token) return;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 2500);
+  try {
+    const r = await fetch(LOG.url + '/rest/v1/rpc/zabiljezi_chat_upit', {
+      method: 'POST',
+      signal: controller.signal,
+      headers: { 'content-type': 'application/json', apikey: LOG.key },
+      body: JSON.stringify({
+        p_token: LOG.token,
+        p_vrsta: row.vrsta || 'pitanje',
+        p_sesija: row.sesija || null,
+        p_jezik: row.jezik || null,
+        p_stranica: row.stranica || null,
+        p_pitanje: row.pitanje ? redact(row.pitanje) : null,
+        p_odgovor: row.odgovor || null,
+        p_tema: row.tema || null,
+        p_kontakt: !!row.kontakt,
+        p_izvori: row.izvori || null,
+        p_greska: row.greska || null,
+        p_trajanje_ms: row.trajanje_ms || null
+      })
+    });
+    if (!r.ok) console.error('Zapis upita nije uspio:', r.status, (await r.text()).slice(0, 200));
+  } catch (e) {
+    console.error('Zapis upita nije uspio:', e && e.message);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /* ---------- handler ---------- */
 
 module.exports = async function handler(req, res) {
@@ -290,10 +341,22 @@ module.exports = async function handler(req, res) {
   let body;
   try { body = await readBody(req); } catch (e) { return send(res, 400, { error: 'bad_request' }); }
 
-  const messages = cleanMessages(body.messages);
-  if (!messages) return send(res, 400, { error: 'bad_request' });
   const lang = body.lang === 'en' ? 'en' : 'hr';
   const page = typeof body.page === 'string' ? body.page.slice(0, 200) : '';
+  const sesija = typeof body.sesija === 'string' && /^[a-z0-9]{8,40}$/i.test(body.sesija) ? body.sesija : null;
+
+  // posjetitelj je poslao obrazac za kontakt iz savjetnika
+  if (body.event === 'kontakt_poslan') {
+    send(res, 204, {});
+    await logUpit({ vrsta: 'kontakt_poslan', sesija, jezik: lang, stranica: page });
+    return;
+  }
+
+  const messages = cleanMessages(body.messages);
+  if (!messages) return send(res, 400, { error: 'bad_request' });
+  const started = Date.now();
+  const lastQuestion = messages[messages.length - 1].content;
+  const failLog = (greska) => logUpit({ sesija, jezik: lang, stranica: page, pitanje: lastQuestion, greska, trajanje_ms: Date.now() - started });
 
   // upit za pretragu: zadnja pitanja korisnika (kontekst nastavka razgovora)
   const userTurns = messages.filter((m) => m.role === 'user').map((m) => m.content);
@@ -323,11 +386,15 @@ module.exports = async function handler(req, res) {
     if (r.status === 401) cachedAccess = null; // token istekao ili opozvan: sljedeći zahtjev radi novu razmjenu
     if (!r.ok) {
       console.error('Anthropic API', r.status, data && data.error && data.error.message);
-      return send(res, 502, { error: 'upstream' });
+      send(res, 502, { error: 'upstream' });
+      await failLog('api_' + r.status);
+      return;
     }
   } catch (e) {
     console.error('Anthropic API poziv nije uspio:', e && e.message);
-    return send(res, 502, { error: 'upstream' });
+    send(res, 502, { error: 'upstream' });
+    await failLog('poziv: ' + String(e && e.message).slice(0, 150));
+    return;
   } finally {
     clearTimeout(timer);
   }
@@ -341,8 +408,15 @@ module.exports = async function handler(req, res) {
     }
   }
   const contact = reply.indexOf(CONTACT_MARKER) !== -1;
-  reply = reply.split(CONTACT_MARKER).join('').trim();
-  if (!reply) return send(res, 502, { error: 'empty' });
+  reply = reply.split(CONTACT_MARKER).join('');
+  const topicMatch = reply.match(TOPIC_RE);
+  const tema = topicMatch && TOPICS.indexOf(topicMatch[1].toLowerCase()) !== -1 ? topicMatch[1].toLowerCase() : 'ostalo';
+  reply = reply.replace(new RegExp(TOPIC_RE.source, 'gi'), '').trim();
+  if (!reply) {
+    send(res, 502, { error: 'empty' });
+    await failLog('prazan_odgovor');
+    return;
+  }
 
   const seen = new Set();
   const sources = [];
@@ -352,7 +426,11 @@ module.exports = async function handler(req, res) {
     sources.push({ url: c.url, title: c.title });
   });
 
-  return send(res, 200, { reply, contact, sources });
+  send(res, 200, { reply, contact, sources });
+  await logUpit({
+    sesija, jezik: lang, stranica: page, pitanje: lastQuestion, odgovor: reply, tema, kontakt: contact,
+    izvori: sources.map((x) => x.url), trajanje_ms: Date.now() - started
+  });
 };
 
 module.exports.pickContext = pickContext;

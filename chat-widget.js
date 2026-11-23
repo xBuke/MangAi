@@ -35,6 +35,18 @@
   var STORE_KEY = 'mangai-chat-v2';
   var MAX_HISTORY = 12;
   var MAX_INPUT = 1000;
+  var SESSION_KEY = 'mangai-chat-sesija';
+
+  /* Nasumična oznaka razgovora (samo za statistiku, ne identificira osobu). */
+  var sesija = (function () {
+    var id = null;
+    try { id = sessionStorage.getItem(SESSION_KEY); } catch (e) { /* ništa */ }
+    if (!id || !/^[a-z0-9]{8,40}$/i.test(id)) {
+      id = Math.random().toString(36).slice(2, 12) + Date.now().toString(36);
+      try { sessionStorage.setItem(SESSION_KEY, id); } catch (e) { /* ništa */ }
+    }
+    return id;
+  })();
 
   var isEn = (function () {
     var path = (window.location && window.location.pathname) || '';
@@ -440,7 +452,7 @@
     fetch(CHAT_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: history, lang: isEn ? 'en' : 'hr', page: window.location.pathname })
+      body: JSON.stringify({ messages: history, lang: isEn ? 'en' : 'hr', page: window.location.pathname, sesija: sesija })
     })
       .then(function (r) {
         return r.json().catch(function () { return {}; }).then(function (data) { return { status: r.status, data: data }; });
@@ -561,6 +573,14 @@
         hideLeadForm();
         formWrap.reset();
         appendMessage(STRINGS.successMessage, false);
+        try {
+          fetch(CHAT_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ event: 'kontakt_poslan', lang: isEn ? 'en' : 'hr', page: window.location.pathname, sesija: sesija }),
+            keepalive: true
+          }).catch(function () {});
+        } catch (e) { /* statistika nije bitna za korisnika */ }
         answers = [];
         flowState = null;
         save();

@@ -75,6 +75,7 @@
                 <thead><tr><th>When</th><th>Data</th><th>Purpose and legal basis</th></tr></thead>
                 <tbody>
                     <tr><td>Contact form and advisor on the site</td><td>Name, email, phone (if provided), who you are and your enquiry</td><td>Replying and preparing a quote at your request before a contract (Art. 6(1)(b) GDPR)</td></tr>
+                    <tr><td>Questions to the advisor on the site</td><td>The text of the question and answer, the page you asked on, the time and a random conversation ID. No IP address; email addresses and phone numbers typed into a question are replaced with a placeholder before storage.</td><td>Answering the question and improving the site's content, legitimate interest (Art. 6(1)(f) GDPR)</td></tr>
                     <tr><td>Email and phone</td><td>Whatever you send</td><td>Replying and business communication (Art. 6(1)(b) and (f) GDPR)</td></tr>
                     <tr><td>Work and invoicing</td><td>Data needed for the contract and invoice</td><td>Performing the contract and legal obligations such as keeping invoices (Art. 6(1)(b) and (c) GDPR)</td></tr>
                     <tr><td>Visiting the site</td><td>Server technical data, such as IP address and browser type</td><td>Security and correct operation of the site, legitimate interest (Art. 6(1)(f) GDPR)</td></tr>
@@ -90,6 +91,8 @@
             <ul>
                 <li><strong>Vercel Inc.</strong> – website hosting (servers may be outside the EU; transfers rely on Vercel's data processing agreement with EU standard contractual clauses).</li>
                 <li><strong>FormSubmit (formsubmit.co)</strong> – delivering messages from the contact form and advisor to my email.</li>
+                <li><strong>Anthropic</strong> – the AI model (Claude) that writes the advisor's answers from this site's content; it receives the conversation text, not your name or contact details.</li>
+                <li><strong>Supabase</strong> – an EU database that stores questions asked to the advisor.</li>
                 <li><strong>The email provider</strong> for addresses on the mangai.hr domain.</li>
                 <li><strong>Google Fonts</strong> – on blog pages only, which load fonts from Google's servers, so Google sees your IP address.</li>
             </ul>
@@ -97,6 +100,7 @@
             <h2>How long I keep data</h2>
             <ul>
                 <li>Enquiries that did not lead to work: up to two years after the last contact, then deleted.</li>
+                <li>Questions to the advisor: 12 months, then deleted automatically.</li>
                 <li>Contracts, invoices and related records: as long as tax and accounting rules require.</li>
                 <li>Server logs: as long as the hosting provider keeps them, usually briefly.</li>
             </ul>
