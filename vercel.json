@@ -160,6 +160,11 @@
       "source": "/usluge/odrzavanje",
       "destination": "/usluge/odrzavanje/",
       "permanent": true
+    },
+    {
+      "source": "/ogledno/zracna-luka-pula",
+      "destination": "/ogledno/zracna-luka-pula/",
+      "permanent": false
     }
   ],
   "headers": [
@@ -216,5 +221,15 @@
       "image/webp"
     ],
     "minimumCacheTTL": 2678400
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/ogledno/zracna-luka-pula/",
+      "destination": "https://zracna-luka-pula-demo.vercel.app/"
+    },
+    {
+      "source": "/ogledno/zracna-luka-pula/:path*",
+      "destination": "https://zracna-luka-pula-demo.vercel.app/:path*"
+    }
+  ]
 }
