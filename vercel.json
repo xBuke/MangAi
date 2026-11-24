@@ -175,6 +175,11 @@
       "source": "/ogledno/zracna-luka-pula",
       "destination": "/ogledno/zracna-luka-pula/",
       "permanent": false
+    },
+    {
+      "source": "/ogledno/diko",
+      "destination": "/ogledno/diko/",
+      "permanent": false
     }
   ],
   "headers": [
@@ -244,6 +249,18 @@
     {
       "source": "/ogledno/zracna-luka-pula/:path*",
       "destination": "https://zracna-luka-pula-demo.vercel.app/:path*"
+    },
+    {
+      "source": "/ogledno/diko/",
+      "destination": "https://diko-kappa.vercel.app/"
+    },
+    {
+      "source": "/ogledno/diko/:path*/",
+      "destination": "https://diko-kappa.vercel.app/:path*/"
+    },
+    {
+      "source": "/ogledno/diko/:path*",
+      "destination": "https://diko-kappa.vercel.app/:path*"
     }
   ],
   "functions": {
