@@ -3,10 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:govorko": "SITE=govorko vite build && SITE=govorko vite build --ssr entry-server.jsx && node sites/govorko/prerender.mjs",
+    "build": "SITE=diko vite build",
     "build:diko": "SITE=diko vite build",
-    "build": "npm run build:govorko && npm run build:diko",
-    "dev:govorko": "SITE=govorko vite",
     "dev:diko": "SITE=diko vite"
   },
   "dependencies": {

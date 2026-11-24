@@ -1,13 +1,16 @@
-# Demo stranice vinarija (ogledno/govorko, ogledno/diko)
+# Demo stranica vinarije Điko (ogledno/diko)
 
-Izvorni React kod za dvije demo stranice. Build ide izravno u `/ogledno/govorko/` i `/ogledno/diko/`
-u rootu repoa, a Vercel ih servira kao statične datoteke. Ova mapa se ne deploya (`scripts/` je u `.vercelignore`).
+> Vina Govorko je preseljena u zaseban repo **xBuke/govorko** i živi na **vinagovorko.hr**.
+> Stari URL `mangai.hr/ogledno/govorko/*` 301 preusmjerava tamo (`vercel.json`).
+
+Izvorni React kod za demo stranicu Điko. Build ide izravno u `/ogledno/diko/`
+u rootu repoa, a Vercel ga servira kao statične datoteke. Ova mapa se ne deploya (`scripts/` je u `.vercelignore`).
 
 ```bash
 cd scripts/vinarije
 npm install
-npm run build          # obje stranice
-npm run dev:govorko    # lokalni razvoj (ili dev:diko)
+npm run build          # Điko → /ogledno/diko/
+npm run dev:diko       # lokalni razvoj
 ```
 
 ## Struktura
@@ -15,12 +18,7 @@ npm run dev:govorko    # lokalni razvoj (ili dev:diko)
   ladica liste, let boce, mala čaša u kutu (`ui.jsx`), obrazac upita (`Inquiry.jsx`),
   sekcija s čašom koja se puni (`GlassYear.jsx`), vodoravni koraci s promjenom palete (`HSteps.jsx`),
   GSAP postavke (`gsap.js`).
-- `sites/govorko/` — višestranična stranica (tamni smjer po katalogu vinarije, rječnik vina). Rute su u `routes.js`
-  (HR + EN: početna, vina, 7 stranica vina, vinograd, obitelj, pokloni, posjet). Build: klijent + SSR (`entry-server.jsx`)
-  + `prerender.mjs`, koji svaku rutu zapiše u vlastiti `index.html` s naslovom, opisom, canonical/hreflang i JSON-LD,
-  te `sitemap.xml`. Slike su lokalne (`public/img/*.webp`, popis u `imgmeta.js`), fontovi su self-hosted (Fontsource),
-  favicon je izrađen iz grba. Katalog za restorane: `public/vina-govorko-katalog.pdf`. Base je `/ogledno/govorko/`
-  (u `vite.config.js` i `index.html`); kad stranica prijeđe na vlastitu domenu, promijeniti base i `SITE_ORIGIN`.
+
 - `sites/diko/` — hero s fotografijom i znakom Điko (bez pina), berba sa čašom koja se puni (6 koraka),
   izbornik vina (pozadina prati boju vina), traka nagrada, galerija s fullscreen prijelazom,
   prava karta (MapLibre GL + OpenFreeMap).
@@ -35,7 +33,7 @@ npm run dev:govorko    # lokalni razvoj (ili dev:diko)
 - Sve animacije imaju fallback za `prefers-reduced-motion` (Điko berba se tada slaže okomito).
 - Nema webshopa ni cijena. Posjetitelj slaže listu vina i šalje upit (narudžba, degustacija, restorani/trgovine,
   pokloni/događaji). Poruka se složi sama i otvara se e-mail (mailto:) ili WhatsApp (wa.me) vinarije.
-  Adrese i brojevi: Govorko `sites/govorko/data.js` (`CONTACT`), Điko `sites/diko/App.jsx`.
+  Adrese i brojevi: `sites/diko/App.jsx`.
 - Slike su još uvijek hotlinkane sa stranica vinarija; kad stignu nova loga i fotografije, zamijeniti u
   `sites/*/App.jsx`, `Hero.jsx`, `Gallery.jsx` (Điko) i boje u `style.css`.
 - Tekstovi su u `sites/*/data.js` i `shared/i18n-common.js` (HR + EN).
