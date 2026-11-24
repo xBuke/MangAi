@@ -252,15 +252,15 @@
     },
     {
       "source": "/ogledno/diko/",
-      "destination": "https://diko-kappa.vercel.app/"
+      "destination": "https://diko-kappa.vercel.app/ogledno/diko/"
     },
     {
       "source": "/ogledno/diko/:path*/",
-      "destination": "https://diko-kappa.vercel.app/:path*/"
+      "destination": "https://diko-kappa.vercel.app/ogledno/diko/:path*/"
     },
     {
       "source": "/ogledno/diko/:path*",
-      "destination": "https://diko-kappa.vercel.app/:path*"
+      "destination": "https://diko-kappa.vercel.app/ogledno/diko/:path*"
     }
   ],
   "functions": {
