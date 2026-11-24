@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  var GA_ID = 'G-XXXXXXXXXX'; // GA4 Measurement ID (Admin → Data streams → mangai.hr)
+  var GA_ID = 'G-DK6WC08EJG'; // GA4 Measurement ID (Admin → Data streams → mangai.hr)
   var KEY = 'mangai_consent';
   var VERSION = 1;
   var MAX_AGE = 365 * 24 * 60 * 60 * 1000;
