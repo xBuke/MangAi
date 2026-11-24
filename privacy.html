@@ -55,7 +55,7 @@
     <main id="main" class="legal">
         <div class="wrap">
             <h1>Privacy policy</h1>
-            <p class="updated">Effective from 10 November 2026.</p>
+            <p class="updated">Effective from 24 November 2026.</p>
 
             <p>This policy explains what personal data I collect when you use mangai.hr or get in touch, why I use it, and what rights you have. It is written plainly because MangAI is run by one person and processes little data.</p>
 
@@ -79,12 +79,23 @@
                     <tr><td>Email and phone</td><td>Whatever you send</td><td>Replying and business communication (Art. 6(1)(b) and (f) GDPR)</td></tr>
                     <tr><td>Work and invoicing</td><td>Data needed for the contract and invoice</td><td>Performing the contract and legal obligations such as keeping invoices (Art. 6(1)(b) and (c) GDPR)</td></tr>
                     <tr><td>Visiting the site</td><td>Server technical data, such as IP address and browser type</td><td>Security and correct operation of the site, legitimate interest (Art. 6(1)(f) GDPR)</td></tr>
+                    <tr><td>Visit statistics (only with consent)</td><td>Pages viewed, traffic source, device and browser type, approximate location (country, city), contact clicks and form submissions, a random identifier stored in a cookie</td><td>Measuring traffic and improving the site, your consent (Art. 6(1)(a) GDPR)</td></tr>
                 </tbody>
             </table>
             <p>I don't send marketing messages without your explicit consent and I don't sell data to anyone.</p>
 
             <h2>Cookies and analytics</h2>
-            <p>The site uses no tracking, advertising or analytics cookies. The demos remember your chosen language and tab in your browser's local storage; that data stays on your device and is not sent to me.</p>
+            <p>I use Google Analytics 4 for visit statistics. It loads and sets cookies <strong>only if you accept</strong> in the cookie notice; if you reject, nothing is loaded or sent to Google. I do not use advertising cookies, Google signals or ad personalisation. Google Analytics 4 does not store IP addresses of visitors from the EU.</p>
+            <table>
+                <thead><tr><th>Name</th><th>Purpose</th><th>Duration</th></tr></thead>
+                <tbody>
+                    <tr><td>_ga</td><td>Google Analytics: distinguishes visitors (random identifier)</td><td>2 years</td></tr>
+                    <tr><td>_ga_&lt;ID&gt;</td><td>Google Analytics: keeps session state</td><td>2 years</td></tr>
+                    <tr><td>mangai_consent</td><td>Remembers your cookie choice (browser local storage, never sent anywhere)</td><td>12 months</td></tr>
+                </tbody>
+            </table>
+            <p>You can withdraw or change your consent at any time: <button type="button" class="mg-cc-link" data-cookie-settings style="text-decoration:underline;text-underline-offset:3px">change cookie settings</button> (the link is also in the footer of every page). When you reject, the Google Analytics cookies are deleted.</p>
+            <p>The demos remember your chosen language and tab in your browser's local storage; that data stays on your device and is not sent to me.</p>
 
             <h2>Who else processes data</h2>
             <p>I use external providers to run the site and communications. They process data only on my behalf:</p>
@@ -94,6 +105,7 @@
                 <li><strong>Anthropic</strong> – the AI model (Claude) that writes the advisor's answers from this site's content; it receives the conversation text, not your name or contact details.</li>
                 <li><strong>Supabase</strong> – an EU database that stores questions asked to the advisor.</li>
                 <li><strong>The email provider</strong> for addresses on the mangai.hr domain.</li>
+                <li><strong>Google Ireland Limited (Google Analytics)</strong> – visit statistics, only with your consent. Google may transfer data to the US; the transfer relies on the EU–US Data Privacy Framework and EU standard contractual clauses.</li>
                 <li><strong>Google Fonts</strong> – on blog pages only, which load fonts from Google's servers, so Google sees your IP address.</li>
             </ul>
 
@@ -103,6 +115,7 @@
                 <li>Questions to the advisor: 12 months, then deleted automatically.</li>
                 <li>Contracts, invoices and related records: as long as tax and accounting rules require.</li>
                 <li>Server logs: as long as the hosting provider keeps them, usually briefly.</li>
+                <li>Visit statistics in Google Analytics: 14 months, then deleted automatically.</li>
             </ul>
 
             <h2>Your rights</h2>
@@ -158,6 +171,7 @@
 
     <div id="mangai-chat-root"></div>
     <script>document.documentElement.classList.add('js');document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="/consent.js"></script>
     <script src="/nav.js"></script>
     <script src="/assets/js/lenis.min.js" defer></script>
     <script src="/assets/v2/v2.js" defer></script>

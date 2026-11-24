@@ -55,7 +55,7 @@
     <main id="main" class="legal">
         <div class="wrap">
             <h1>Pravila privatnosti</h1>
-            <p class="updated">Vrijede od 10. studenoga 2026.</p>
+            <p class="updated">Vrijede od 24. studenoga 2026.</p>
 
             <p>Ova pravila objašnjavaju koje osobne podatke prikupljam kad koristite stranicu mangai.hr ili mi se javite, zašto ih koristim i koja prava imate. Pišem ih jednostavno jer MangAI vodi jedna osoba i obrađuje malo podataka.</p>
 
@@ -79,12 +79,23 @@
                     <tr><td>E-pošta i telefon</td><td>Podaci koje sami pošaljete</td><td>Odgovor na upit i poslovna komunikacija (čl. 6. st. 1. t. b) i f) GDPR-a)</td></tr>
                     <tr><td>Suradnja i računi</td><td>Podaci potrebni za ugovor i račun</td><td>Izvršenje ugovora i zakonske obveze, npr. čuvanje računa (čl. 6. st. 1. t. b) i c) GDPR-a)</td></tr>
                     <tr><td>Posjet stranici</td><td>Tehnički podaci poslužitelja, npr. IP adresa i vrsta preglednika</td><td>Sigurnost i ispravan rad stranice, legitimni interes (čl. 6. st. 1. t. f) GDPR-a)</td></tr>
+                    <tr><td>Statistika posjeta (samo uz pristanak)</td><td>Pregledane stranice, izvor posjeta, vrsta uređaja i preglednika, približna lokacija (država, grad), klikovi na kontakt i slanje forme, nasumični identifikator u kolačiću</td><td>Mjerenje posjećenosti i poboljšanje stranice, vaš pristanak (čl. 6. st. 1. t. a) GDPR-a)</td></tr>
                 </tbody>
             </table>
             <p>Ne šaljem marketinške poruke bez vašeg izričitog pristanka i ne prodajem podatke nikome.</p>
 
             <h2>Kolačići i analitika</h2>
-            <p>Stranica ne koristi kolačiće za praćenje, oglašavanje ni analitiku posjeta. Demo primjeri u pregledniku pamte odabrani jezik i karticu (lokalna pohrana preglednika); ti podaci ostaju na vašem uređaju i ne šalju se meni.</p>
+            <p>Za statistiku posjeta koristim Google Analytics 4. Učitava se i postavlja kolačiće <strong>samo ako to prihvatite</strong> u obavijesti o kolačićima; ako odbijete, ništa se ne učitava i ne šalje Googleu. Ne koristim kolačiće za oglašavanje, Google signale ni personalizaciju oglasa. Google Analytics 4 ne sprema IP adrese posjetitelja iz EU.</p>
+            <table>
+                <thead><tr><th>Naziv</th><th>Čemu služi</th><th>Trajanje</th></tr></thead>
+                <tbody>
+                    <tr><td>_ga</td><td>Google Analytics: razlikuje posjetitelje (nasumični identifikator)</td><td>2 godine</td></tr>
+                    <tr><td>_ga_&lt;ID&gt;</td><td>Google Analytics: pamti stanje posjeta</td><td>2 godine</td></tr>
+                    <tr><td>mangai_consent</td><td>Pamti vaš izbor o kolačićima (lokalna pohrana preglednika, ne šalje se nikome)</td><td>12 mjeseci</td></tr>
+                </tbody>
+            </table>
+            <p>Pristanak možete povući ili promijeniti bilo kad: <button type="button" class="mg-cc-link" data-cookie-settings style="text-decoration:underline;text-underline-offset:3px">promijeni postavke kolačića</button> (poveznica je i u podnožju svake stranice). Kad odbijete, kolačići Google Analyticsa se brišu.</p>
+            <p>Demo primjeri u pregledniku pamte odabrani jezik i karticu (lokalna pohrana preglednika); ti podaci ostaju na vašem uređaju i ne šalju se meni.</p>
 
             <h2>Tko još obrađuje podatke</h2>
             <p>Za rad stranice i komunikacije koristim vanjske pružatelje usluga, koji podatke obrađuju samo u moje ime:</p>
@@ -94,6 +105,7 @@
                 <li><strong>Anthropic</strong> – AI model (Claude) koji sastavlja odgovore savjetnika iz sadržaja ove stranice; prima tekst razgovora, ne vaše ime ni kontakt.</li>
                 <li><strong>Supabase</strong> – baza u EU u kojoj se čuvaju pitanja savjetniku.</li>
                 <li><strong>Pružatelj usluge e-pošte</strong> za adrese na domeni mangai.hr.</li>
+                <li><strong>Google Ireland Limited (Google Analytics)</strong> – statistika posjeta, samo uz vaš pristanak. Google može podatke prenositi u SAD; prijenos se temelji na Okviru za privatnost podataka EU–SAD i standardnim ugovornim klauzulama EU.</li>
                 <li><strong>Google Fonts</strong> – samo na stranicama bloga, koje fontove učitavaju s Googleovih poslužitelja, zbog čega Google vidi vašu IP adresu.</li>
             </ul>
 
@@ -103,6 +115,7 @@
                 <li>Pitanja savjetniku: 12 mjeseci, a zatim se automatski brišu.</li>
                 <li>Ugovore, račune i povezanu dokumentaciju: koliko propisuju porezni i računovodstveni propisi.</li>
                 <li>Tehničke zapise poslužitelja: koliko ih čuva pružatelj hostinga, obično kratko.</li>
+                <li>Statistiku posjeta u Google Analyticsu: 14 mjeseci, a zatim se automatski briše.</li>
             </ul>
 
             <h2>Vaša prava</h2>
@@ -169,6 +182,7 @@
 
     <div id="mangai-chat-root"></div>
     <script>document.documentElement.classList.add('js');document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="/consent.js"></script>
     <script src="/nav.js"></script>
     <script src="/assets/js/lenis.min.js" defer></script>
     <script src="/assets/v2/v2.js" defer></script>

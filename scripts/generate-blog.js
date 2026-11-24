@@ -339,6 +339,7 @@ function footer(t, otherLangUrl, scripts = '') {
 
     <div id="mangai-chat-root"></div>
     <script>document.documentElement.classList.add('js');document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="/consent.js"></script>
     <script src="/nav.js"></script>
 ${scripts}    <script src="/assets/js/lenis.min.js" defer></script>
     <script src="/assets/v2/v2.js" defer></script>
