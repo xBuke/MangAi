@@ -3,42 +3,102 @@
     {
       "q": "What do you do?",
       "a": "Websites and online shops, AI assistants (chatbots) for enquiries and bookings, automation of repetitive work, custom apps, maintenance of existing sites, and consulting and training on AI tools. I work with businesses, associations and public bodies.",
-      "tags": ["services", "what do you do", "offer", "help"]
+      "tags": [
+        "services",
+        "what do you do",
+        "offer",
+        "help"
+      ]
     },
     {
       "q": "How much does it cost?",
       "a": "Every project is different, so I don't quote figures off the cuff. After an intro call you get a written proposal with a fixed scope, timeline and fee.",
-      "tags": ["price", "cost", "how much", "budget", "quote"]
+      "tags": [
+        "price",
+        "cost",
+        "how much",
+        "budget",
+        "quote"
+      ]
     },
     {
       "q": "How long does it take?",
       "a": "A small website is usually done in two to four weeks, and an AI assistant or a single automation is often quicker. Larger projects are built in phases. The exact deadline is always in the quote.",
-      "tags": ["how long", "deadline", "time", "fast"]
+      "tags": [
+        "how long",
+        "deadline",
+        "time",
+        "fast"
+      ]
     },
     {
       "q": "Do you work with public bodies?",
       "a": "Yes. I respond to requests for quotes and tenders in the Croatian e-procurement system (EOJN RH), issue e-invoices, and hand over source code and documentation. Websites are built to WCAG 2.1 AA in line with Croatian web accessibility law. Send requests to marko@mangai.hr.",
-      "tags": ["public", "procurement", "tender", "municipality", "city", "school", "institution"]
+      "tags": [
+        "public",
+        "procurement",
+        "tender",
+        "municipality",
+        "city",
+        "school",
+        "institution"
+      ]
     },
     {
       "q": "What is an AI assistant?",
       "a": "A program on your website, WhatsApp or email that answers common questions from your own information, takes enquiries and bookings, and sends you a summary. When it doesn't know the answer, it hands the conversation to you. You can try examples in the Examples section.",
-      "tags": ["chatbot", "assistant", "agent", "ai"]
+      "tags": [
+        "chatbot",
+        "assistant",
+        "agent",
+        "ai"
+      ]
     },
     {
       "q": "Is my data safe?",
       "a": "I use EU hosting and services wherever possible, and when a system handles personal data we sign a GDPR data processing agreement. You remain the owner of your data.",
-      "tags": ["gdpr", "security", "data", "privacy", "safe"]
+      "tags": [
+        "gdpr",
+        "security",
+        "data",
+        "privacy",
+        "safe"
+      ]
     },
     {
       "q": "Who does the work?",
       "a": "Marko Škorić, the owner of MangAI. No middlemen and no subcontractors without your knowledge. I use AI tools to work faster, but everything is reviewed before handover.",
-      "tags": ["who", "marko", "team"]
+      "tags": [
+        "who",
+        "marko",
+        "team"
+      ]
     },
     {
       "q": "Where are you based?",
       "a": "The business is registered in Ploče, Croatia. Most work is done remotely, and I meet in person by arrangement, anywhere in Croatia.",
-      "tags": ["where", "ploce", "location", "on site", "in person"]
+      "tags": [
+        "where",
+        "ploce",
+        "location",
+        "on site",
+        "in person"
+      ]
+    },
+    {
+      "q": "Do you have examples of websites you have built?",
+      "a": "Yes. MangAI has built sites for the family winery **Vina Govorko** and **Orguljarstvo Kvaternik** (pipe organ builder), plus its own project **Light a Nation**. See them on the [Examples](/primjeri/#izradene-stranice) page (in Croatian).",
+      "tags": [
+        "references",
+        "portfolio",
+        "websites you have built",
+        "previous work",
+        "vina govorko",
+        "govorko",
+        "kvaternik",
+        "light a nation",
+        "lightanation"
+      ]
     }
   ],
   "quick_replies": [
@@ -47,7 +107,8 @@
     "How long does it take?",
     "Do you work with public bodies?",
     "What is an AI assistant?",
-    "Is my data safe?"
+    "Is my data safe?",
+    "Do you have examples of websites you have built?"
   ],
   "flows": {
     "savjetnik": {
@@ -58,7 +119,12 @@
             "Hello! Two quick questions will help describe what you need, and Marko will then send you a proposal and a quote.",
             "Who is the project for?"
           ],
-          "options": ["A business", "An association or institution", "A public body", "An individual"],
+          "options": [
+            "A business",
+            "An association or institution",
+            "A public body",
+            "An individual"
+          ],
           "next": {
             "A business": "biz_need",
             "An association or institution": "biz_need",
@@ -68,7 +134,9 @@
         },
         {
           "id": "biz_need",
-          "messages": ["What do you need most right now?"],
+          "messages": [
+            "What do you need most right now?"
+          ],
           "options": [
             "A new website or online shop",
             "More enquiries and bookings",
@@ -88,7 +156,9 @@
         },
         {
           "id": "gov_need",
-          "messages": ["What do you need?"],
+          "messages": [
+            "What do you need?"
+          ],
           "options": [
             "A new website or redesign",
             "Maintenance of an existing site",
@@ -108,67 +178,91 @@
         },
         {
           "id": "rec_web",
-          "messages": ["I'd suggest a fast, mobile-friendly site with a clear call to action and an enquiry or booking form. Basic SEO, a link to your Google profile and a short editing tutorial are included. A small site is usually done in two to four weeks."],
+          "messages": [
+            "I'd suggest a fast, mobile-friendly site with a clear call to action and an enquiry or booking form. Basic SEO, a link to your Google profile and a short editing tutorial are included. A small site is usually done in two to four weeks."
+          ],
           "soft_cta": true
         },
         {
           "id": "rec_leads",
-          "messages": ["I'd suggest an AI assistant on your site or WhatsApp that answers common questions, takes enquiries and bookings, and sends you a summary. Fewer missed calls, and you step in only when needed. You can try it in the Examples section."],
+          "messages": [
+            "I'd suggest an AI assistant on your site or WhatsApp that answers common questions, takes enquiries and bookings, and sends you a summary. Fewer missed calls, and you step in only when needed. You can try it in the Examples section."
+          ],
           "soft_cta": true
         },
         {
           "id": "rec_admin",
-          "messages": ["I'd suggest starting with the one task that takes most of your time, such as copying enquiries into a sheet, client reminders or weekly reports, and automating it. Once that works, we move to the next."],
+          "messages": [
+            "I'd suggest starting with the one task that takes most of your time, such as copying enquiries into a sheet, client reminders or weekly reports, and automating it. Once that works, we move to the next."
+          ],
           "soft_cta": true
         },
         {
           "id": "rec_app",
-          "messages": ["For a custom app we first write a short specification: who uses it, what it must do and which systems it connects to. Based on that, you get a quote with a fixed price and deadline."],
+          "messages": [
+            "For a custom app we first write a short specification: who uses it, what it must do and which systems it connects to. Based on that, you get a quote with a fixed price and deadline."
+          ],
           "soft_cta": true
         },
         {
           "id": "rec_maint",
-          "messages": ["I take over maintenance of existing sites: updates, backups, hosting and small changes. I start by reviewing the site and telling you what needs fixing."],
+          "messages": [
+            "I take over maintenance of existing sites: updates, backups, hosting and small changes. I start by reviewing the site and telling you what needs fixing."
+          ],
           "soft_cta": true
         },
         {
           "id": "rec_advice",
-          "messages": ["Let's start with a short call about your business: where you lose the most time and which questions clients keep asking. Afterwards you get a written proposal with two or three concrete steps, with no obligation."],
+          "messages": [
+            "Let's start with a short call about your business: where you lose the most time and which questions clients keep asking. Afterwards you get a written proposal with two or three concrete steps, with no obligation."
+          ],
           "soft_cta": true
         },
         {
           "id": "rec_gov_web",
-          "messages": ["I build websites in line with Croatian web accessibility law (WCAG 2.1 AA), with an accessibility statement and an editing system for staff. After handover you receive the source code, documentation and an e-invoice."],
+          "messages": [
+            "I build websites in line with Croatian web accessibility law (WCAG 2.1 AA), with an accessibility statement and an editing system for staff. After handover you receive the source code, documentation and an e-invoice."
+          ],
           "soft_cta": true,
           "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
         },
         {
           "id": "rec_gov_maint",
-          "messages": ["Maintenance covers updates, security patches, backups and uptime monitoring. I can take over a site from a previous contractor, starting with a review of its current state."],
+          "messages": [
+            "Maintenance covers updates, security patches, backups and uptime monitoring. I can take over a site from a previous contractor, starting with a review of its current state."
+          ],
           "soft_cta": true,
           "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
         },
         {
           "id": "rec_gov_eservices",
-          "messages": ["Digital forms and applications that arrive straight in the office: grant and programme applications, utility reports, room bookings. Data stays on EU hosting, with a data processing agreement."],
+          "messages": [
+            "Digital forms and applications that arrive straight in the office: grant and programme applications, utility reports, room bookings. Data stays on EU hosting, with a data processing agreement."
+          ],
           "soft_cta": true,
           "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
         },
         {
           "id": "rec_gov_ai",
-          "messages": ["The AI assistant answers questions from citizens or visitors based on your official documents, in Croatian and other languages. When it doesn't know, it refers people to the right person or office."],
+          "messages": [
+            "The AI assistant answers questions from citizens or visitors based on your official documents, in Croatian and other languages. When it doesn't know, it refers people to the right person or office."
+          ],
           "soft_cta": true,
           "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
         },
         {
           "id": "rec_gov_edu",
-          "messages": ["A practical workshop on using AI tools safely in your institution's daily work, on site or online, with written guidelines for staff."],
+          "messages": [
+            "A practical workshop on using AI tools safely in your institution's daily work, on site or online, with written guidelines for staff."
+          ],
           "soft_cta": true,
           "soft_cta_question": "Would you like Marko to send you a proposal or a quote for simple procurement?"
         },
         {
           "id": "rec_gov_tender",
-          "messages": ["Send the request for quotes to marko@mangai.hr, or leave your details below and I'll get in touch. I reply with questions or a quote within the deadline the request sets."],
+          "messages": [
+            "Send the request for quotes to marko@mangai.hr, or leave your details below and I'll get in touch. I reply with questions or a quote within the deadline the request sets."
+          ],
           "soft_cta": true,
           "soft_cta_question": "Would you like to leave your details?"
         }

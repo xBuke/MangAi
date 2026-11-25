@@ -95,6 +95,24 @@
         "postupak",
         "proces"
       ]
+    },
+    {
+      "q": "Imate li primjere izrađenih stranica?",
+      "a": "Da. MangAI je izradio stranice za obiteljsku vinariju **Vina Govorko**, **Orguljarstvo Kvaternik** i vlastiti projekt **Light a Nation**. Pogledajte ih na stranici [Primjeri](/primjeri/#izradene-stranice).",
+      "tags": [
+        "reference",
+        "referenci",
+        "portfolio",
+        "izradene stranice",
+        "izradenih stranica",
+        "prethodni rad",
+        "dosadasnji radovi",
+        "vina govorko",
+        "govorko",
+        "kvaternik",
+        "light a nation",
+        "lightanation"
+      ]
     }
   ],
   "quick_replies": [
@@ -102,7 +120,8 @@
     "Koliko košta?",
     "Radite li s javnim naručiteljima?",
     "Što mora imati web stranica općine?",
-    "Kako izgleda suradnja?"
+    "Kako izgleda suradnja?",
+    "Imate li primjere izrađenih stranica?"
   ],
   "flows": {
     "savjetnik": {
@@ -173,7 +192,7 @@
         {
           "id": "rec_web",
           "messages": [
-            "Predlažem brzu stranicu prilagođenu mobitelu, s jasnim pozivom na kontakt i obrascem ili rezervacijom. Uključeni su osnovni SEO, povezivanje s Google profilom i kratka obuka za uređivanje. Manja stranica obično je gotova za dva do četiri tjedna."
+            "Predlažem brzu stranicu prilagođenu mobitelu, s jasnim pozivom na kontakt i obrascem ili rezervacijom. Uključeni su osnovni SEO, povezivanje s Google profilom i kratka obuka za uređivanje. Manja stranica obično je gotova za dva do četiri tjedna. Primjere izrađenih stranica (Vina Govorko, Orguljarstvo Kvaternik, Light a Nation) možete pogledati na stranici [Primjeri](/primjeri/#izradene-stranice)."
           ],
           "soft_cta": true
         },
