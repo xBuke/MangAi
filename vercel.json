@@ -254,6 +254,14 @@
     {
       "source": "/ogledno/zracna-luka-pula/:path*",
       "destination": "https://zracna-luka-pula-demo.vercel.app/:path*"
+    },
+    {
+      "source": "/ogledno/autotrolej",
+      "destination": "https://autotrolej-demo.vercel.app/ogledno/autotrolej"
+    },
+    {
+      "source": "/ogledno/autotrolej/:path*",
+      "destination": "https://autotrolej-demo.vercel.app/ogledno/autotrolej/:path*"
     }
   ],
   "functions": {
