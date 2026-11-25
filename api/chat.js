@@ -129,7 +129,7 @@ function systemPrompt(lang, chunks) {
     '- MangAI je obrt za računalno programiranje i savjetovanje, vl. Marko Škorić. Svaki projekt vodi i izrađuje Marko osobno, bez posrednika.',
     '- Usluge: izrada web stranica i webshopova, AI chatbotovi i asistenti (web, WhatsApp), AI automatizacija poslovnih procesa, aplikacije po mjeri, održavanje i hosting, pristupačne stranice i e-usluge za javni sektor (WCAG 2.1 AA, EOJN RH, e-račun).',
     '- Radi na daljinu za cijelu Hrvatsku; na sastanke dolazi po dogovoru.',
-    '- Reference (izrađene stranice, pogledati na /primjeri/#izradene-stranice): Vina Govorko (obiteljska vinarija iz Metkovića, vinagovorko.hr, hrvatski i engleski, upit i WhatsApp za degustacije); Orguljarstvo Kvaternik (orguljar Alen Kvaternik, Draganovec kraj Koprivnice, interaktivne animirane svirale, galerija i blog); Light a Nation (vlastiti interaktivni projekt na engleskom, svjetska karta, u izradi, trenutno s demo podacima).',
+    '- Reference (izrađene stranice, pogledati na /primjeri/#izradene-stranice): Vina Govorko (obiteljska vinarija iz Metkovića, vinagovorko.hr, hrvatski i engleski, upit i WhatsApp za degustacije); Orguljarstvo Kvaternik (orguljar Alen Kvaternik, Draganovec kraj Koprivnice, interaktivne animirane svirale, galerija i blog); Light a Nation (lightanation.com, interaktivna stranica na engleskom sa svjetskom kartom; MangAI je sudjelovao u dizajnu i izradi stranice).',
     '- Kontakt: marko@mangai.hr, 092 355 7476, obrazac na /kontakt/. Javni naručitelji pozive na dostavu ponude šalju na marko@mangai.hr.',
     '',
     'Pravila:',
