@@ -250,6 +250,10 @@
       "destination": "https://autotrolej-demo.vercel.app/ogledno/autotrolej"
     },
     {
+      "source": "/ogledno/autotrolej/:path*/",
+      "destination": "https://autotrolej-demo.vercel.app/ogledno/autotrolej/:path*"
+    },
+    {
       "source": "/ogledno/autotrolej/:path*",
       "destination": "https://autotrolej-demo.vercel.app/ogledno/autotrolej/:path*"
     }
