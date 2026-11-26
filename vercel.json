@@ -11,16 +11,6 @@
       "permanent": true
     },
     {
-      "source": "/ogledno/diko",
-      "destination": "https://diko-kappa.vercel.app/",
-      "permanent": false
-    },
-    {
-      "source": "/ogledno/diko/:path*",
-      "destination": "https://diko-kappa.vercel.app/:path*",
-      "permanent": false
-    },
-    {
       "source": "/sitemap.xml",
       "has": [
         {
