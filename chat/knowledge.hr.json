@@ -109,6 +109,8 @@
         "dosadasnji radovi",
         "vina govorko",
         "govorko",
+        "diko",
+        "vinarija diko",
         "kvaternik",
         "light a nation",
         "lightanation"
@@ -192,7 +194,7 @@
         {
           "id": "rec_web",
           "messages": [
-            "Predlažem brzu stranicu prilagođenu mobitelu, s jasnim pozivom na kontakt i obrascem ili rezervacijom. Uključeni su osnovni SEO, povezivanje s Google profilom i kratka obuka za uređivanje. Manja stranica obično je gotova za dva do četiri tjedna. Primjere izrađenih stranica (Vina Govorko, Orguljarstvo Kvaternik, Light a Nation) možete pogledati na stranici [Primjeri](/primjeri/#izradene-stranice)."
+            "Predlažem brzu stranicu prilagođenu mobitelu, s jasnim pozivom na kontakt i obrascem ili rezervacijom. Uključeni su osnovni SEO, povezivanje s Google profilom i kratka obuka za uređivanje. Manja stranica obično je gotova za dva do četiri tjedna. Primjere izrađenih stranica (Vina Govorko, Vinarija Điko, Orguljarstvo Kvaternik, Light a Nation) možete pogledati na stranici [Primjeri](/primjeri/#izradene-stranice)."
           ],
           "soft_cta": true
         },

@@ -87,14 +87,14 @@
     },
     {
       "q": "Do you have examples of websites you have built?",
-      "a": "Yes. MangAI has built sites for the family winery **Vina Govorko** and **Orguljarstvo Kvaternik** (pipe organ builder), and took part in the design and build of **Light a Nation** (lightanation.com). See them on the [Examples](/primjeri/#izradene-stranice) page (in Croatian).",
+      "a": "Yes. MangAI has built sites for the family winery **Vina Govorko**, **Vinarija Điko** and **Orguljarstvo Kvaternik** (pipe organ builder), and took part in the design and build of **Light a Nation** (lightanation.com). See them on the [Examples](/primjeri/#izradene-stranice) page (in Croatian).",
       "tags": [
         "references",
         "portfolio",
         "websites you have built",
         "previous work",
         "vina govorko",
-        "govorko",
+        "govorko", "diko",
         "kvaternik",
         "light a nation",
         "lightanation"
