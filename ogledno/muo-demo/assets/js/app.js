@@ -129,6 +129,27 @@ function closePanels(restore = true) {
   lenis?.start();
   if (restore && wasOpen && lastFocus && document.contains(lastFocus)) lastFocus.focus?.();
 }
+// Asistent „Pitaj Muzej”: kod i stil učitavaju se tek na prvi klik, pa ne opterećuju učitavanje stranice
+let askMod = null; let askLoading = false;
+async function openAsk(btn) {
+  if (askLoading) return;
+  try {
+    if (!askMod) {
+      askLoading = true;
+      await new Promise((res) => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = BASE + 'assets/css/asistent.css'; l.onload = res; l.onerror = res; document.head.append(l); });
+      askMod = await import(BASE + 'assets/js/asistent.js');
+      askMod.mount();
+    }
+    btn?.focus();
+    openPanel('ask');
+    askMod.opened();
+  } catch (err) {
+    toast(tx('Asistent se nije uspio učitati. Stranica radi i bez njega.', 'The assistant could not be loaded. The site works without it.'));
+  } finally { askLoading = false; }
+}
+document.addEventListener('click', (e) => { const b = e.target.closest('[data-ask]'); if (b) { e.preventDefault(); openAsk(b); } });
+if (new URLSearchParams(location.search).has('pitaj')) window.addEventListener('load', () => openAsk($('[data-ask]')));
+
 document.addEventListener('click', (e) => {
   const o = e.target.closest('[data-open]');
   if (o) { e.preventDefault(); const n = o.dataset.open; if (n === 'cookies') showCookie(true); else openPanel(n); return; }
@@ -170,6 +191,13 @@ function initA11y() {
 
 /* ---------------- Kolačići ---------------- */
 const consent = () => { try { return localStorage.getItem('muo-consent'); } catch (e) { return null; } };
+// Dok je obavijest o kolačićima otvorena, plutajući gumbi se podižu iznad nje da ostanu vidljivi
+(() => {
+  const c = $('[data-cookie]'); if (!c) return;
+  const lift = () => document.documentElement.style.setProperty('--fab-lift', c.classList.contains('show') ? `${c.offsetHeight + 16}px` : '0px');
+  new MutationObserver(lift).observe(c, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('resize', lift);
+})();
 function showCookie(force) { const c = $('[data-cookie]'); if (!c) return; if (force || !consent()) setTimeout(() => c.classList.add('show'), force ? 0 : 1800); }
 function initCookies() {
   showCookie(false);

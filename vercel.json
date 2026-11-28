@@ -261,6 +261,9 @@
   "functions": {
     "api/chat.js": {
       "maxDuration": 30
+    },
+    "api/muo-pitaj.js": {
+      "maxDuration": 30
     }
   }
 }

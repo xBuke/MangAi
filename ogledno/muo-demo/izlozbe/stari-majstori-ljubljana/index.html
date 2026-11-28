@@ -133,6 +133,10 @@ try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catc
 </footer>
 
 <button class="demo-ribbon" type="button" data-open="demo" aria-haspopup="dialog" data-chrome><span aria-hidden="true">●</span> Ogledni prijedlog · MangAI</button>
+<div class="fabs" data-chrome>
+  <button class="fab fab--ask" type="button" data-ask aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span class="fab-label">Pitaj Muzej<span class="visually-hidden"> (AI asistent)</span></span><span class="fab-tag" aria-hidden="true">AI</span></button>
+  <button class="fab fab--a11y" type="button" data-open="a11y" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v5M12 15l-3 6M12 15l3 6"/></svg><span class="fab-label">Pristupačnost</span></button>
+</div>
 <div class="cursor" aria-hidden="true"><span></span></div>
 <div class="panel-backdrop" data-backdrop></div>
 
@@ -158,7 +162,7 @@ try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catc
 <div class="drawer" data-panel="demo" role="dialog" aria-modal="true" aria-labelledby="demo-h" aria-hidden="true" inert>
   <div class="drawer-head"><h2 id="demo-h">O ovom prikazu</h2><button class="icon-btn" type="button" data-close aria-label="Zatvori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <p style="margin:0">Ovo je <strong>ogledni prijedlog</strong> novog portala Muzeja za umjetnost i obrt, izrađen kao vizualizacija prijedloga dizajna i interakcija. Nije službena stranica Muzeja.</p>
-  <ul style="margin:0;padding-left:1.1rem;line-height:1.7"><li>Naslovi novosti, adrese i povijest obnove preuzeti su iz javnih izvora.</li><li>Datumi događanja, radno vrijeme i cijene su <strong>primjeri</strong> – unosi ih Muzej kroz CMS.</li><li>Predmeti su prikazani <strong>linijskim ilustracijama</strong> dok Muzej ne dostavi fotografije; razdoblje i materijal oglednih predmeta su primjeri.</li><li>Fotografije zgrade: Wikimedia Commons (autori i licence navedeni uz fotografiju).</li><li>Boje i tipografija su prijedlog; grafički standardi Muzeja primijenit će se nakon dostave knjige standarda.</li></ul>
+  <ul style="margin:0;padding-left:1.1rem;line-height:1.7"><li>Naslovi novosti, adrese i povijest obnove preuzeti su iz javnih izvora.</li><li>Datumi događanja, radno vrijeme i cijene su <strong>primjeri</strong> – unosi ih Muzej kroz CMS.</li><li>Predmeti su prikazani <strong>linijskim ilustracijama</strong> dok Muzej ne dostavi fotografije; razdoblje i materijal oglednih predmeta su primjeri.</li><li>Fotografije zgrade: Wikimedia Commons (autori i licence navedeni uz fotografiju).</li><li>Boje i tipografija su prijedlog; grafički standardi Muzeja primijenit će se nakon dostave knjige standarda.</li><li>Asistent „Pitaj Muzej” je <strong>umjetna inteligencija</strong> (model Claude Haiku). Odgovara samo iz sadržaja ove stranice i daje poveznicu na izvor; pitanja se ne spremaju.</li></ul>
   <p style="margin-top:auto"><a class="btn" href="https://mangai.hr/">MangAI · mangai.hr</a></p>
 </div>
 

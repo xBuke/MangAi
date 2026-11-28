@@ -154,6 +154,10 @@ try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catc
 </footer>
 
 <button class="demo-ribbon" type="button" data-open="demo" aria-haspopup="dialog" data-chrome><span aria-hidden="true">●</span> Design proposal · MangAI</button>
+<div class="fabs" data-chrome>
+  <button class="fab fab--ask" type="button" data-ask aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span class="fab-label">Ask the Museum<span class="visually-hidden"> (AI assistant)</span></span><span class="fab-tag" aria-hidden="true">AI</span></button>
+  <button class="fab fab--a11y" type="button" data-open="a11y" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v5M12 15l-3 6M12 15l3 6"/></svg><span class="fab-label">Accessibility</span></button>
+</div>
 <div class="cursor" aria-hidden="true"><span></span></div>
 <div class="panel-backdrop" data-backdrop></div>
 
@@ -179,7 +183,7 @@ try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catc
 <div class="drawer" data-panel="demo" role="dialog" aria-modal="true" aria-labelledby="demo-h" aria-hidden="true" inert>
   <div class="drawer-head"><h2 id="demo-h">About this preview</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <p style="margin:0">This is a <strong>design proposal</strong> for the new website of the Museum of Arts and Crafts, built to visualise the proposed design and interactions. It is not the Museum’s official website.</p>
-  <ul style="margin:0;padding-left:1.1rem;line-height:1.7"><li>News headlines, addresses and the renovation history come from public sources.</li><li>Event dates, opening hours and prices are <strong>examples</strong> – the Museum enters them in the CMS.</li><li>Objects are shown as <strong>line illustrations</strong> until the Museum supplies photographs; period and material of sample objects are examples.</li><li>Photographs of the building: Wikimedia Commons (authors and licences credited next to each photo).</li><li>Colours and typography are a proposal; the Museum’s visual identity guidelines will be applied once supplied.</li></ul>
+  <ul style="margin:0;padding-left:1.1rem;line-height:1.7"><li>News headlines, addresses and the renovation history come from public sources.</li><li>Event dates, opening hours and prices are <strong>examples</strong> – the Museum enters them in the CMS.</li><li>Objects are shown as <strong>line illustrations</strong> until the Museum supplies photographs; period and material of sample objects are examples.</li><li>Photographs of the building: Wikimedia Commons (authors and licences credited next to each photo).</li><li>Colours and typography are a proposal; the Museum’s visual identity guidelines will be applied once supplied.</li><li>The “Ask the Museum” assistant is <strong>artificial intelligence</strong> (Claude Haiku model). It answers only from the content of this site and links to the source; questions are not stored.</li></ul>
   <p style="margin-top:auto"><a class="btn" href="https://mangai.hr/">MangAI · mangai.hr</a></p>
 </div>
 

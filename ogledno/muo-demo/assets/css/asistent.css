@@ -1,0 +1,34 @@
+/* „Pitaj Muzej” – stil asistenta. Učitava se zajedno s njegovim kodom, tek na prvi klik. */
+.ask { gap: .9rem; }
+.ask-note { margin: 0; font-size: .875rem; line-height: 1.5; color: var(--muted); }
+.ask-badge { display: inline-block; margin-right: .35rem; padding: .15rem .5rem; border-radius: 4px; background: #F7E36B; color: #111; font-weight: 700; font-size: .75rem; letter-spacing: .02em; }
+.ask-log { flex: 1 1 auto; min-height: 9rem; overflow-y: auto; display: flex; flex-direction: column; gap: .65rem; padding: .25rem; margin: 0 -.25rem; overscroll-behavior: contain; }
+.ask-log:empty { min-height: 0; flex: 0 0 auto; padding: 0; }
+.ask-msg { max-width: 92%; padding: .7rem .9rem; border-radius: 12px; font-size: .9688rem; line-height: 1.5; overflow-wrap: anywhere; }
+.ask-msg p { margin: 0; }
+.ask-msg p + p, .ask-msg ul + p, .ask-msg p + ul { margin-top: .5rem; }
+.ask-msg ul { margin: 0; padding-left: 1.1rem; }
+.ask-msg a { text-decoration: underline; text-underline-offset: .15em; font-weight: 600; }
+.ask-msg--user { align-self: flex-end; background: var(--ink); color: #fff; border-bottom-right-radius: 3px; }
+.ask-msg--bot { align-self: flex-start; background: var(--stone); color: var(--ink); border-bottom-left-radius: 3px; }
+.ask-msg--error { background: #fff; box-shadow: inset 0 0 0 2px #B3261E; }
+.ask-who { display: block; font-size: .75rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: #444; margin-bottom: .25rem; }
+.ask-src { margin-top: .6rem !important; padding-top: .5rem; border-top: 1px solid #C9C5BC; font-size: .875rem; }
+.ask-wait p { color: #444; font-style: italic; }
+.ask-suggest { display: flex; flex-wrap: wrap; gap: .5rem; }
+.ask-suggest > p { flex: 0 0 100%; margin: 0; font-size: .8125rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: var(--muted); }
+.ask-chip { min-height: 44px; padding: .5rem .9rem; border-radius: 999px; border: 1px solid var(--ink); background: #fff; color: var(--ink); font-size: .9375rem; text-align: left; line-height: 1.3; transition: background-color .2s, color .2s; }
+.ask-chip:hover { background: var(--ink); color: #fff; }
+.ask-form { margin-top: auto; }
+.ask-form label { display: block; font-weight: 650; font-size: .9375rem; margin-bottom: .35rem; }
+.ask-row { display: flex; gap: .5rem; }
+.ask-row input { flex: 1 1 auto; min-width: 0; min-height: 48px; padding: .6rem .8rem; border: 1px solid #767676; border-radius: var(--radius); background: #fff; font-size: 1rem; }
+.ask-row .btn { flex: none; min-height: 48px; }
+.ask-row .btn:disabled { opacity: 1; background: #E3E3E3; color: #555; border-color: #E3E3E3; cursor: default; }
+.ask-hint { margin: .4rem 0 0; font-size: .8125rem; color: var(--muted); }
+html.a11y-contrast .ask-msg--bot { background: #fff; box-shadow: inset 0 0 0 1px #111; }
+html.a11y-contrast .ask-who, html.a11y-contrast .ask-wait p { color: #111; }
+@media (max-width: 420px) {
+  .ask-row { flex-wrap: wrap; }
+  .ask-row .btn { flex: 1 1 100%; }
+}

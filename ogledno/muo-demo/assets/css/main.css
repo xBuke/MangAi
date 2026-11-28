@@ -92,6 +92,19 @@ main:focus-visible, section:focus-visible { outline: none; box-shadow: none; }
 /* Demo vrpca */
 .demo-ribbon { position: fixed; left: 1rem; bottom: 1rem; z-index: 90; display: flex; gap: .5rem; align-items: center; background: #F7E36B; color: #111; font-size: .8125rem; font-weight: 600; padding: .5rem .85rem; border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,.18); text-decoration: none; border: 0; }
 .demo-ribbon:hover { background: #fff; }
+/* Plutajući gumbi (pristupačnost, asistent): uvijek na zaslonu, 48 px i više, s vlastitim obrubom da se vide na svakoj podlozi */
+.fabs { position: fixed; right: 1rem; bottom: calc(1rem + var(--fab-lift, 0px)); z-index: 95; display: flex; flex-direction: column; align-items: flex-end; gap: .6rem; pointer-events: none; transition: bottom .5s var(--ease); }
+.fab { pointer-events: auto; display: inline-flex; align-items: center; gap: .55rem; min-height: 48px; padding: 0 1.1rem 0 .95rem; border-radius: 999px; border: 2px solid #fff; background: #2E3E9E; color: #fff; font-weight: 650; font-size: .9375rem; line-height: 1.2; box-shadow: 0 6px 24px rgba(0,0,0,.28); transition: background-color .25s, color .25s, border-color .25s; }
+.fab svg { width: 22px; height: 22px; flex: none; }
+.fab--ask { background: var(--ink); }
+.fab:hover, .fab.is-hover { background: #fff; color: var(--ink); border-color: var(--ink); }
+.fab-tag { font-size: .6875rem; font-weight: 800; letter-spacing: .04em; padding: .1rem .35rem; border-radius: 4px; background: #F7E36B; color: #111; }
+@media (max-width: 720px) {
+  .fab { width: 52px; height: 52px; padding: 0; justify-content: center; }
+  .fab .fab-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .fab--ask { position: relative; }
+  .fab-tag { position: absolute; top: -6px; right: -4px; }
+}
 
 /* Uslužna traka */
 .utility { background: var(--ink); color: #fff; font-size: .8125rem; position: relative; z-index: 60; }
@@ -556,7 +569,7 @@ html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after 
 html.reduce-motion .cursor { display: none; }
 
 @media print {
-  .utility, .site-header, .site-footer, .demo-ribbon, .cookie, .cursor { display: none !important; }
+  .utility, .site-header, .site-footer, .demo-ribbon, .fabs, .cookie, .cursor { display: none !important; }
 }
 @media (max-width: 520px) { .logo-text { display: none; } .header-actions { gap: .4rem; } .site-header .wrap { min-height: 72px; } }
 
