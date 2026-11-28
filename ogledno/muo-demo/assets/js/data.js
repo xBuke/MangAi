@@ -1,5 +1,5 @@
 // Sadržaj demoa. Stvarni podaci (izvor: muo.hr, tisak, izvješća MUO-a) i ogledni podaci (označeni: example).
-// U produkciji sve ovo dolazi iz CMS-a (WordPress custom post types).
+// U produkciji sve ovo dolazi iz CMS-a (kolekcije u Payload CMS-u).
 
 export const COLORS = {
   bordo: '#6B1F2E',
@@ -104,18 +104,18 @@ export const STATUS_LABEL = {
 // Ogledna događanja – datumi su relativni u odnosu na današnji dan (izračun u pregledniku),
 // kako bi demo uvijek izgledao „živo” i pokazao automatsko premještanje u arhivu.
 export const EVENTS = [
-  { id: 'e1', type: 'Vodstvo', title: 'Kustosko vodstvo kroz izložbu Muzej u malom', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 2, time: '18:00', dur: 60, audience: 'Odrasli', price: 'Uz ulaznicu', exhibition: 'muzej-u-malom' },
-  { id: 'e2', type: 'Radionica', title: 'Obiteljska radionica: uzorak na tkanini', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 3, time: '11:00', dur: 90, audience: 'Obitelji', price: '[cijena]', exhibition: 'muzej-u-malom' },
-  { id: 'e3', type: 'Promocija', title: 'Promocija knjige „Razgled/nica povijesnoga Gospića”', loc: 'vanjska', place: '[lokacija promocije]', day: 5, time: '18:00', dur: 60, audience: 'Za sve', price: 'Ulaz slobodan' },
-  { id: 'e4', type: 'Izložba', title: 'Otvorenje: Portreti s filmskih setova – Hassan Abdelghani', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 7, time: '19:00', dur: 90, audience: 'Za sve', price: 'Ulaz slobodan', exhibition: 'portreti-s-filmskih-setova' },
-  { id: 'e5', type: 'Predavanje', title: 'Stari majstori iz zbirki MUO-a – predavanje uz novu monografiju', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 9, time: '18:00', dur: 75, audience: 'Odrasli', price: 'Ulaz slobodan' },
-  { id: 'e6', type: 'Radionica', title: 'Školska radionica: kako nastaje staklo', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 11, time: '10:00', dur: 90, audience: 'Škole', price: '[cijena]' },
-  { id: 'e7', type: 'Vodstvo', title: 'Taktilno vodstvo za slijepe i slabovidne', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 14, time: '17:00', dur: 60, audience: 'Osobe s invaliditetom', price: 'Ulaz slobodan', exhibition: 'muzej-u-malom' },
-  { id: 'e8', type: 'Koncert', title: 'Zvuk zbirke: koncert na povijesnim instrumentima', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 18, time: '19:30', dur: 75, audience: 'Za sve', price: '[cijena]' },
-  { id: 'e9', type: 'Radionica', title: 'Vrtićka radionica: oblici i boje', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 23, time: '10:00', dur: 45, audience: 'Vrtići', price: '[cijena]' },
-  { id: 'e10', type: 'Predavanje', title: 'Zgrada i obnova: predavanje o povratku na Trg', loc: 'vanjska', place: '[lokacija]', day: 30, time: '18:00', dur: 60, audience: 'Za sve', price: 'Ulaz slobodan' },
-  { id: 'p1', type: 'Promocija', title: 'Interliber: Egon Schiele ponovno pred publikom', loc: 'vanjska', place: 'Interliber, Zagreb', day: -9, time: '12:00', dur: 60, audience: 'Za sve', price: 'Ulaznica sajma' },
-  { id: 'p2', type: 'Predavanje', title: 'Promocija znanstvene monografije o starim majstorima', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: -14, time: '18:00', dur: 60, audience: 'Odrasli', price: 'Ulaz slobodan' },
+  { id: 'e1', type: 'Vodstvo', title: 'Kustosko vodstvo kroz izložbu Muzej u malom', titleEn: 'Curator-led tour of the exhibition Museum in Miniature', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 2, time: '18:00', dur: 60, audience: 'Odrasli', price: 'Uz ulaznicu', exhibition: 'muzej-u-malom' },
+  { id: 'e2', type: 'Radionica', title: 'Obiteljska radionica: uzorak na tkanini', titleEn: 'Family workshop: pattern on fabric', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 3, time: '11:00', dur: 90, audience: 'Obitelji', price: '[cijena]', exhibition: 'muzej-u-malom' },
+  { id: 'e3', type: 'Promocija', title: 'Promocija knjige „Razgled/nica povijesnoga Gospića”', titleEn: 'Book launch: “Razgled/nica povijesnoga Gospića”', loc: 'vanjska', place: '[lokacija promocije]', day: 5, time: '18:00', dur: 60, audience: 'Za sve', price: 'Ulaz slobodan' },
+  { id: 'e4', type: 'Izložba', title: 'Otvorenje: Portreti s filmskih setova – Hassan Abdelghani', titleEn: 'Opening: Portraits from Film Sets – Hassan Abdelghani', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 7, time: '19:00', dur: 90, audience: 'Za sve', price: 'Ulaz slobodan', exhibition: 'portreti-s-filmskih-setova' },
+  { id: 'e5', type: 'Predavanje', title: 'Stari majstori iz zbirki MUO-a – predavanje uz novu monografiju', titleEn: 'Old Masters from the MUO collections – a talk on the new monograph', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 9, time: '18:00', dur: 75, audience: 'Odrasli', price: 'Ulaz slobodan' },
+  { id: 'e6', type: 'Radionica', title: 'Školska radionica: kako nastaje staklo', titleEn: 'School workshop: how glass is made', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 11, time: '10:00', dur: 90, audience: 'Škole', price: '[cijena]' },
+  { id: 'e7', type: 'Vodstvo', title: 'Taktilno vodstvo za slijepe i slabovidne', titleEn: 'Touch tour for blind and partially sighted visitors', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 14, time: '17:00', dur: 60, audience: 'Osobe s invaliditetom', price: 'Ulaz slobodan', exhibition: 'muzej-u-malom' },
+  { id: 'e8', type: 'Koncert', title: 'Zvuk zbirke: koncert na povijesnim instrumentima', titleEn: 'Sound of the collection: concert on historical instruments', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 18, time: '19:30', dur: 75, audience: 'Za sve', price: '[cijena]' },
+  { id: 'e9', type: 'Radionica', title: 'Vrtićka radionica: oblici i boje', titleEn: 'Kindergarten workshop: shapes and colours', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: 23, time: '10:00', dur: 45, audience: 'Vrtići', price: '[cijena]' },
+  { id: 'e10', type: 'Predavanje', title: 'Zgrada i obnova: predavanje o povratku na Trg', titleEn: 'Building and renovation: a talk on the return to the Square', loc: 'vanjska', place: '[lokacija]', day: 30, time: '18:00', dur: 60, audience: 'Za sve', price: 'Ulaz slobodan' },
+  { id: 'p1', type: 'Promocija', title: 'Interliber: Egon Schiele ponovno pred publikom', titleEn: 'Interliber: Egon Schiele back before the public', loc: 'vanjska', place: 'Interliber, Zagreb', day: -9, time: '12:00', dur: 60, audience: 'Za sve', price: 'Ulaznica sajma' },
+  { id: 'p2', type: 'Predavanje', title: 'Promocija znanstvene monografije o starim majstorima', titleEn: 'Launch of the scholarly monograph on the Old Masters', loc: 'galerija', place: 'MUO Galerija, Ilica 163a', day: -14, time: '18:00', dur: 60, audience: 'Odrasli', price: 'Ulaz slobodan' },
 ];
 
 export const EVENT_TYPES = ['Izložba', 'Radionica', 'Vodstvo', 'Predavanje', 'Promocija', 'Koncert'];
@@ -174,3 +174,32 @@ export const HOURS = {
   5: ['10:00', '19:00'],
   6: ['10:00', '17:00'],
 };
+
+// Nazivi na engleskom za vrste, publiku i lokacije (sučelje EN inačice)
+export const TYPE_EN = { Izložba: 'Exhibition', Radionica: 'Workshop', Vodstvo: 'Guided tour', Predavanje: 'Talk', Promocija: 'Launch', Koncert: 'Concert' };
+export const AUD_EN = { 'Za sve': 'Everyone', Odrasli: 'Adults', Obitelji: 'Families', Škole: 'Schools', Vrtići: 'Kindergartens', 'Osobe s invaliditetom': 'Visitors with disabilities' };
+
+// Ogledni predmeti za prikaz pretrage i filtara na stranici Zbirke.
+// Nazivi zbirki su stvarni; razdoblje i materijal su PRIMJERI (vidljivo označeni na stranici),
+// a predmeti su ilustracije bez atribucija. Stvarne zapise unosi Muzej kroz CMS.
+export const PERIODS = { 18: { hr: '18. stoljeće', en: '18th century' }, 19: { hr: '19. stoljeće', en: '19th century' }, 20: { hr: '20. stoljeće', en: '20th century' }, 21: { hr: '21. stoljeće', en: '21st century' } };
+export const MATERIALS = { drvo: { hr: 'Drvo', en: 'Wood' }, staklo: { hr: 'Staklo', en: 'Glass' }, keramika: { hr: 'Keramika', en: 'Ceramics' }, tekstil: { hr: 'Tekstil', en: 'Textile' }, metal: { hr: 'Metal', en: 'Metal' }, papir: { hr: 'Papir', en: 'Paper' }, bjelokost: { hr: 'Bjelokost', en: 'Ivory' }, koza: { hr: 'Koža', en: 'Leather' } };
+const ITEM_NAMES = { vaza: ['Vaza', 'Vase'], stolica: ['Stolica', 'Chair'], sat: ['Sat', 'Clock'], tanjur: ['Tanjur', 'Plate'], svijecnjak: ['Svijećnjak', 'Candlestick'], plakat: ['Plakat', 'Poster'], fotoaparat: ['Fotoaparat', 'Camera'], tkanina: ['Tkanina', 'Textile'], kutija: ['Kutija', 'Box'], casa: ['Čaša', 'Glass'], lampa: ['Svjetiljka', 'Lamp'], violina: ['Violina', 'Violin'] };
+export const ITEMS = [
+  ['stolica', 'Namještaj', 19, 'drvo'], ['stolica', 'Namještaj', 20, 'drvo'], ['kutija', 'Namještaj', 18, 'drvo'],
+  ['casa', 'Staklo', 19, 'staklo'], ['vaza', 'Staklo', 20, 'staklo'], ['casa', 'Staklo', 18, 'staklo'],
+  ['tanjur', 'Keramika', 19, 'keramika'], ['vaza', 'Keramika', 20, 'keramika'], ['tanjur', 'Keramika', 18, 'keramika'],
+  ['tkanina', 'Tekstil', 19, 'tekstil'], ['tkanina', 'Tekstil', 20, 'tekstil'],
+  ['sat', 'Satovi', 18, 'metal'], ['sat', 'Satovi', 19, 'metal'],
+  ['svijecnjak', 'Metal', 18, 'metal'], ['svijecnjak', 'Metal', 19, 'metal'], ['kutija', 'Metal', 20, 'metal'],
+  ['plakat', 'Grafički dizajn', 20, 'papir'], ['plakat', 'Grafički dizajn', 21, 'papir'],
+  ['lampa', 'Produkt dizajn', 20, 'metal'], ['lampa', 'Produkt dizajn', 21, 'staklo'],
+  ['fotoaparat', 'Fotografska oprema', 20, 'metal'], ['fotoaparat', 'Fotografska oprema', 19, 'drvo'],
+  ['violina', 'Glazbeni instrumenti', 18, 'drvo'], ['violina', 'Glazbeni instrumenti', 19, 'drvo'],
+  ['plakat', 'Grafika', 19, 'papir'], ['kutija', 'Bjelokost', 18, 'bjelokost'], ['svijecnjak', 'Devocionalije', 18, 'metal'],
+  ['tkanina', 'Oslikana pozlaćena koža', 18, 'koza'], ['kutija', 'Tiskarstvo i knjigoveštvo', 19, 'papir'], ['vaza', 'Zbirka Anke Gvozdanović', 19, 'keramika'],
+].map(([motif, coll, period, material], i) => {
+  const c = COLLECTIONS.find((x) => x.name === coll);
+  const n = String(i + 1).padStart(2, '0');
+  return { id: `i${i + 1}`, motif, name: `${ITEM_NAMES[motif][0]} – primjer ${n}`, nameEn: `${ITEM_NAMES[motif][1]} – sample ${n}`, coll: c.slug, collName: c.name, collNameEn: c.nameEn, color: c.color, ink: c.ink, period, material };
+});

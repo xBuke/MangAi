@@ -1,5 +1,5 @@
-// MUO – ogledni prijedlog portala. Vanilla JS (prenosivo u WordPress temu), GSAP + Lenis.
-import { EVENTS, EXHIBITIONS, WALL, HOURS, EVENT_TYPES } from './data.js';
+// MUO – ogledni prijedlog portala. Vanilla JS, GSAP + Lenis. U produkciji iste komponente postaju React komponente (Next.js), a podaci dolaze iz Payload CMS-a.
+import { EVENTS, WALL, HOURS, ITEMS, PERIODS, MATERIALS, TYPE_EN, AUD_EN } from './data.js';
 import { objectSvg } from './objects.js';
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -9,6 +9,8 @@ const BODY = document.body;
 const BASE = BODY.dataset.base || '/';
 const PAGE = BODY.dataset.page;
 const LANG = BODY.dataset.lang || 'hr';
+const EN = LANG === 'en';
+const tx = (hr, en) => (EN ? en : hr);
 const G = window.gsap;
 if (!G) root.classList.remove('motion');
 const motion = () => root.classList.contains('motion') && !!G;
@@ -23,9 +25,20 @@ const ST = window.ScrollTrigger;
 /* ---------------- Pomoćne ---------------- */
 const norm = (s) => (s || '').toString().toLowerCase().replace(/đ/g, 'd').normalize('NFD').replace(/[̀-ͯ]/g, '');
 const pad = (n) => String(n).padStart(2, '0');
-const MONTHS = ['sij', 'velj', 'ožu', 'tra', 'svi', 'lip', 'srp', 'kol', 'ruj', 'lis', 'stu', 'pro'];
-const MONTHS_FULL = ['siječanj', 'veljača', 'ožujak', 'travanj', 'svibanj', 'lipanj', 'srpanj', 'kolovoz', 'rujan', 'listopad', 'studeni', 'prosinac'];
-const DAYS = ['nedjelja', 'ponedjeljak', 'utorak', 'srijeda', 'četvrtak', 'petak', 'subota'];
+const MONTHS = EN ? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] : ['sij', 'velj', 'ožu', 'tra', 'svi', 'lip', 'srp', 'kol', 'ruj', 'lis', 'stu', 'pro'];
+const MONTHS_FULL = EN ? ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] : ['siječanj', 'veljača', 'ožujak', 'travanj', 'svibanj', 'lipanj', 'srpanj', 'kolovoz', 'rujan', 'listopad', 'studeni', 'prosinac'];
+const DAYS = EN ? ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] : ['nedjelja', 'ponedjeljak', 'utorak', 'srijeda', 'četvrtak', 'petak', 'subota'];
+const DOW_SHORT = EN ? ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] : ['pon', 'uto', 'sri', 'čet', 'pet', 'sub', 'ned'];
+// Hrvatska množina: 1 predmet, 2–4 predmeta, 5+ predmeta (11–14 uvijek treći oblik)
+const plHr = (n, one, few, many) => { const a = n % 10; const b = n % 100; if (a === 1 && b !== 11) return one; if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return few; return many; };
+const nOf = (n, hr, en) => `${n} ${EN ? (n === 1 ? en[0] : en[1]) : plHr(n, hr[0], hr[1], hr[2])}`;
+const PRICE_EN = { 'Uz ulaznicu': 'With admission ticket', 'Ulaz slobodan': 'Free entry', '[cijena]': '[price]', 'Ulaznica sajma': 'Fair ticket' };
+const evTitle = (e) => (EN ? e.titleEn || e.title : e.title);
+const evType = (t) => (EN ? TYPE_EN[t] || t : t);
+const evAud = (a) => (EN ? AUD_EN[a] || a : a);
+const evPrice = (p) => (EN ? PRICE_EN[p] || p : p);
+const EV_URL = BASE + (EN ? 'en/exhibitions-and-events/' : 'izlozbe-i-dogadanja/');
+const debounce = (fn, ms) => { let h; return (...a) => { clearTimeout(h); h = setTimeout(() => fn(...a), ms); }; };
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const HEART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg>';
 const CAL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>';
@@ -88,27 +101,33 @@ function initStatus() {
 let lenis = null;
 let lastFocus = null;
 const backdrop = $('[data-backdrop]');
+const chrome = () => $$('[data-chrome]');
 function openPanel(name) {
   const p = $(`[data-panel="${name}"]`);
   if (!p) return;
+  const opener = document.activeElement;
   closePanels(false);
-  lastFocus = document.activeElement;
+  lastFocus = opener;
+  p.inert = false;
   p.classList.add(name === 'menu' ? 'is-open' : 'open');
   p.setAttribute('aria-hidden', 'false');
-  if (name !== 'menu' && name !== 'search') backdrop.classList.add('open');
-  if (name === 'search') backdrop.classList.add('open');
-  $$(`[data-open="${name}"]`).forEach((b) => b.setAttribute('aria-expanded', 'true'));
+  if (name !== 'menu') backdrop.classList.add('open');
+  chrome().forEach((el) => { el.inert = true; });
+  $$(`[data-open="${name}"][aria-expanded]`).forEach((b) => b.setAttribute('aria-expanded', 'true'));
   lenis?.stop();
   if (name === 'saved') renderSaved();
+  if (name === 'search') resetSearch();
   if (name === 'menu' && motion()) G.from($$('nav a', p), { yPercent: 100, opacity: 0, stagger: 0.06, duration: 0.8, ease: 'expo.out', delay: 0.25 });
-  setTimeout(() => { (p.querySelector('input, button, a') || p).focus(); }, 60);
+  requestAnimationFrame(() => { (p.querySelector('input:not([tabindex="-1"]), button, a') || p).focus(); });
 }
 function closePanels(restore = true) {
-  $$('[data-panel]').forEach((p) => { p.classList.remove('open', 'is-open'); p.setAttribute('aria-hidden', 'true'); });
+  const wasOpen = $$('[data-panel].open, [data-panel].is-open').length > 0;
+  $$('[data-panel]').forEach((p) => { p.classList.remove('open', 'is-open'); p.setAttribute('aria-hidden', 'true'); p.inert = true; });
   backdrop?.classList.remove('open');
-  $$('[data-open]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+  chrome().forEach((el) => { el.inert = false; });
+  $$('[data-open][aria-expanded]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
   lenis?.start();
-  if (restore && lastFocus) lastFocus.focus?.();
+  if (restore && wasOpen && lastFocus && document.contains(lastFocus)) lastFocus.focus?.();
 }
 document.addEventListener('click', (e) => {
   const o = e.target.closest('[data-open]');
@@ -119,6 +138,16 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closePanels();
   if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !/input|textarea|select/i.test(document.activeElement.tagName))) { e.preventDefault(); openPanel('search'); }
+  // Zamka fokusa: dok je dijalog otvoren, Tab kruži unutar njega
+  if (e.key === 'Tab') {
+    const p = $('[data-panel].open, [data-panel].is-open'); if (!p) return;
+    const f = $$('a[href], button:not([disabled]), input:not([tabindex="-1"]), select, textarea, [tabindex="0"]', p).filter((el) => el.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0]; const last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    else if (!p.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+  }
 });
 $$('.mobile-menu nav a').forEach((a) => a.addEventListener('click', () => closePanels(false)));
 
@@ -134,7 +163,7 @@ function initA11y() {
       b.setAttribute('aria-checked', s[k] ? 'true' : 'false');
       root.classList.toggle(cls[k], s[k]);
       try { localStorage.setItem('muo-a11y', JSON.stringify(s)); } catch (e) { /* */ }
-      if (k === 'motion') { toast(s[k] ? 'Animacije su smanjene.' : 'Animacije su uključene – osvježavam stranicu.'); if (!s[k]) setTimeout(() => location.reload(), 900); else { root.classList.remove('motion'); lenis?.destroy(); lenis = null; G && G.globalTimeline.clear(); ST && ST.getAll().forEach((t) => t.kill(true)); $$('[data-reveal],[data-clip]').forEach((el) => { el.style.opacity = 1; el.style.transform = 'none'; el.style.clipPath = 'none'; }); } }
+      if (k === 'motion') { toast(s[k] ? tx('Animacije su smanjene.', 'Motion reduced.') : tx('Animacije su uključene – osvježavam stranicu.', 'Motion enabled – reloading the page.')); updateMotionState(); if (!s[k]) setTimeout(() => location.reload(), 900); else { root.classList.remove('motion'); lenis?.destroy(); lenis = null; G && G.globalTimeline.clear(); ST && ST.getAll().forEach((t) => t.kill(true)); $$('[data-reveal],[data-clip]').forEach((el) => { el.style.opacity = 1; el.style.transform = 'none'; el.style.clipPath = 'none'; }); } }
     });
   });
 }
@@ -147,7 +176,7 @@ function initCookies() {
   $$('[data-consent]').forEach((b) => b.addEventListener('click', () => {
     try { localStorage.setItem('muo-consent', b.dataset.consent); } catch (e) { /* */ }
     $('[data-cookie]').classList.remove('show');
-    toast(b.dataset.consent === 'all' ? 'Hvala! Privola je spremljena.' : 'Koristimo samo nužne kolačiće.');
+    toast(b.dataset.consent === 'all' ? tx('Hvala! Privola je spremljena.', 'Thank you! Your consent is saved.') : tx('Koristimo samo nužne kolačiće.', 'Only necessary cookies are used.'));
   }));
 }
 
@@ -157,16 +186,17 @@ const setSaved = (a) => { try { localStorage.setItem('muo-saved', JSON.stringify
 function syncSaved(bump) {
   const s = getSaved(); const ids = new Set(s.map((x) => x.id));
   $$('[data-save]').forEach((b) => { try { b.setAttribute('aria-pressed', ids.has(JSON.parse(b.dataset.save).id) ? 'true' : 'false'); } catch (e) { /* */ } });
+  $$('[data-saved-label]').forEach((b) => b.setAttribute('aria-label', `${b.dataset.savedLabel} (${s.length})`));
   $$('[data-save-count]').forEach((c) => {
-    c.textContent = s.length; c.classList.toggle('has', s.length > 0);
+    c.dataset.n = s.length; c.classList.toggle('has', s.length > 0);
     if (bump && motion()) G.fromTo(c, { scale: 1.8 }, { scale: 1, duration: 0.6, ease: 'elastic.out(1, .4)' });
   });
 }
 function renderSaved() {
   const ul = $('[data-saved-list]'); if (!ul) return;
   const s = getSaved();
-  ul.innerHTML = s.length ? s.map((x) => `<li><a class="thumb" href="${esc(x.url)}" style="background:${esc(x.color)}" aria-hidden="true" tabindex="-1">${objectSvg(x.motif, x.color === '#D9A441' || x.color === '#F2E6D0' ? '#111' : '#fff')}</a><a href="${esc(x.url)}" style="font-weight:600;text-decoration:none">${esc(x.title)}</a><button class="icon-btn" type="button" data-unsave="${esc(x.id)}" aria-label="Ukloni ${esc(x.title)}">✕</button></li>`).join('')
-    : '<li class="empty" style="display:block"><strong>Još ništa spremljeno.</strong>Dodirnite srce na izložbi, događanju ili predmetu.</li>';
+  ul.innerHTML = s.length ? s.map((x) => `<li><a class="thumb" href="${esc(x.url)}" style="background:${esc(x.color)}" aria-hidden="true" tabindex="-1">${objectSvg(x.motif, x.color === '#D9A441' || x.color === '#F2E6D0' ? '#111' : '#fff')}</a><a href="${esc(x.url)}" style="font-weight:600;text-decoration:none">${esc(x.title)}</a><button class="icon-btn" type="button" data-unsave="${esc(x.id)}" aria-label="${tx('Ukloni', 'Remove')} ${esc(x.title)}">✕</button></li>`).join('')
+    : `<li class="empty" style="display:block"><strong>${tx('Još ništa spremljeno.', 'Nothing saved yet.')}</strong>${tx('Dodirnite srce na izložbi, događanju ili predmetu.', 'Tap the heart on an exhibition, event or object.')}</li>`;
   if (motion()) G.from($$('li', ul), { x: 30, opacity: 0, stagger: 0.05, duration: 0.6, ease: 'expo.out' });
 }
 function initSaved() {
@@ -177,7 +207,7 @@ function initSaved() {
       const incoming = JSON.parse(decodeURIComponent(escape(atob(p))));
       const cur = getSaved(); const ids = new Set(cur.map((x) => x.id));
       incoming.forEach((x) => { if (!ids.has(x.id)) cur.push(x); });
-      setSaved(cur); toast(`Uvezeno ${incoming.length} spremljenih stavki.`);
+      setSaved(cur); toast(tx(`Uvezeno spremljenih stavki: ${incoming.length}.`, `Imported saved items: ${incoming.length}.`));
     } catch (e) { /* */ }
   }
   document.addEventListener('click', (e) => {
@@ -188,7 +218,7 @@ function initSaved() {
       const has = s.some((x) => x.id === item.id);
       s = has ? s.filter((x) => x.id !== item.id) : [...s, item];
       setSaved(s); syncSaved(!has);
-      toast(has ? 'Uklonjeno iz Moje zbirke.' : 'Spremljeno u Moju zbirku ♥');
+      toast(has ? tx('Uklonjeno iz Moje zbirke.', 'Removed from My collection.') : tx('Spremljeno u Moju zbirku.', 'Saved to My collection.'));
       if (!has && motion()) G.fromTo(b, { scale: 0.8 }, { scale: 1, duration: 0.7, ease: 'elastic.out(1, .35)' });
       return;
     }
@@ -197,9 +227,9 @@ function initSaved() {
   });
   $('[data-clear-saved]')?.addEventListener('click', () => { setSaved([]); syncSaved(); renderSaved(); });
   $('[data-share-saved]')?.addEventListener('click', async () => {
-    const s = getSaved(); if (!s.length) { toast('Moja zbirka je prazna.'); return; }
+    const s = getSaved(); if (!s.length) { toast(tx('Moja zbirka je prazna.', 'My collection is empty.')); return; }
     const url = `${location.origin}${BASE}?moja=${btoa(unescape(encodeURIComponent(JSON.stringify(s))))}`;
-    try { await navigator.clipboard.writeText(url); toast('Poveznica kopirana – pošaljite je prijateljima.'); } catch (e) { prompt('Kopirajte poveznicu:', url); }
+    try { await navigator.clipboard.writeText(url); toast(tx('Poveznica kopirana – pošaljite je prijateljima.', 'Link copied – share it with friends.')); } catch (e) { toast(tx('Kopiranje nije uspjelo u ovom pregledniku.', 'Copying is not available in this browser.')); }
   });
   syncSaved();
 }
@@ -209,7 +239,7 @@ function initShare() {
   $$('[data-share]').forEach((b) => b.addEventListener('click', async () => {
     const data = { title: document.title, url: location.href };
     if (navigator.share) { try { await navigator.share(data); } catch (e) { /* */ } }
-    else { try { await navigator.clipboard.writeText(location.href); toast('Poveznica kopirana.'); } catch (e) { /* */ } }
+    else { try { await navigator.clipboard.writeText(location.href); toast(tx('Poveznica kopirana.', 'Link copied.')); } catch (e) { /* */ } }
   }));
 }
 function initForms() {
@@ -218,8 +248,8 @@ function initForms() {
     e.preventDefault();
     const em = nl.email.value.trim(); const msg = $('[data-nl-msg]');
     if (nl.website.value) return;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { msg.style.color = '#FFB4A8'; msg.textContent = 'Upišite ispravnu e-mail adresu.'; nl.email.focus(); return; }
-    msg.style.color = '#B7F0CF'; msg.textContent = `Gotovo! Na ${em} poslali smo poveznicu za potvrdu prijave (double opt-in).`; nl.reset();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { msg.style.color = '#FFB4A8'; msg.textContent = tx('Greška: upišite ispravnu e-mail adresu, npr. ime@domena.hr.', 'Error: enter a valid e-mail address, e.g. name@domain.com.'); nl.email.setAttribute('aria-invalid', 'true'); nl.email.focus(); return; }
+    nl.email.removeAttribute('aria-invalid'); msg.style.color = '#B7F0CF'; msg.textContent = tx(`Ogledni prikaz: prijava nije poslana. U produkciji na ${em} stiže poveznica za potvrdu prijave (double opt-in).`, `Preview only: nothing was sent. In production a confirmation link (double opt-in) is e-mailed to ${em}.`); nl.reset();
   });
   const gf = $('[data-group-form]');
   gf?.addEventListener('submit', (e) => {
@@ -231,7 +261,7 @@ function initForms() {
     if (!gf.date.value) errs.date = 'Odaberite datum.';
     else if (new Date(gf.date.value) < today) errs.date = 'Datum ne može biti u prošlosti.';
     if (!gf.gdpr.checked) errs.gdpr = 'Potrebna je privola za obradu podataka.';
-    $$('[data-err]', gf).forEach((s) => { s.textContent = errs[s.dataset.err] || ''; });
+    $$('[data-err]', gf).forEach((s) => { s.textContent = errs[s.dataset.err] ? `Greška: ${errs[s.dataset.err]}` : ''; });
     $$('input, select, textarea', gf).forEach((i) => i.setAttribute('aria-invalid', errs[i.name] ? 'true' : 'false'));
     const first = Object.keys(errs)[0];
     if (first) { gf[first].focus(); return; }
@@ -241,35 +271,117 @@ function initForms() {
 }
 
 /* ---------------- Pretraga ---------------- */
+const TYPE_ORDER = ['page', 'exhibition', 'event', 'collection', 'object', 'news'];
+const TYPE_LABEL = { page: tx('Stranice', 'Pages'), exhibition: tx('Izložbe', 'Exhibitions'), event: tx('Događanja', 'Events'), collection: tx('Zbirke', 'Collections'), object: tx('Predmeti', 'Objects'), news: tx('Novosti', 'News') };
+const POPULAR = EN ? ['Opening hours', 'Tickets', 'Workshops', 'Glass', 'Group visit', 'Accessibility'] : ['Radno vrijeme', 'Ulaznice', 'Radionice', 'Staklo', 'Grupni posjet', 'Pristupačnost'];
+const SEARCH_URL = BASE + (EN ? 'en/search/' : 'pretraga/');
+const INDEX = (window.MUO_INDEX || []).map((x) => { const title = EN ? x.te : x.t; return { ...x, title, url: EN ? x.ue : x.u, nt: norm(title), n: norm(`${x.t} ${x.te} ${x.x || ''} ${TYPE_LABEL[x.k]}`) }; });
+function searchIndex(q, type) {
+  const words = norm(q).split(/\s+/).filter(Boolean);
+  if (!words.length) return [];
+  return INDEX.filter((x) => (!type || x.k === type) && words.every((w) => x.n.includes(w)))
+    .map((x) => ({ ...x, score: (x.nt.startsWith(words[0]) ? 4 : 0) + (words.every((w) => x.nt.includes(w)) ? 2 : 0) + (x.k === 'page' ? 1 : 0) - (x.past ? 2 : 0) }))
+    .sort((a, b) => b.score - a.score || TYPE_ORDER.indexOf(a.k) - TYPE_ORDER.indexOf(b.k));
+}
+// Isticanje pogotka: norm() čuva duljinu teksta pa se pozicije poklapaju s izvornikom
+function hl(title, q) {
+  const w = norm(q).split(/\s+/).filter(Boolean)[0]; const nt = norm(title);
+  const i = w ? nt.indexOf(w) : -1;
+  if (i < 0 || nt.length !== title.length) return esc(title);
+  return esc(title.slice(0, i)) + '<mark>' + esc(title.slice(i, i + w.length)) + '</mark>' + esc(title.slice(i + w.length));
+}
+const resultsLabel = (n) => nOf(n, ['rezultat', 'rezultata', 'rezultata'], ['result', 'results']);
+const popularHtml = (attr) => `<div class="chips">${POPULAR.map((p) => `<button class="chip" type="button" ${attr}="${esc(p)}">${esc(p)}</button>`).join('')}</div>`;
+let resetSearch = () => {};
 function initSearch() {
-  const input = $('[data-search-input]'); const out = $('[data-search-results]');
+  const input = $('[data-search-input]'); const list = $('[data-search-results]'); const foot = $('[data-search-foot]'); const status = $('[data-search-status]'); const form = $('[data-search-form]');
   if (!input) return;
-  const idx = (window.MUO_INDEX || []).map((x) => ({ ...x, n: norm(x.title + ' ' + (x.extra || '') + ' ' + x.type) }));
-  let active = -1;
-  const hl = (title, q) => {
-    const nt = norm(title); const i = nt.indexOf(q);
-    if (i < 0 || !q) return esc(title);
-    return esc(title.slice(0, i)) + '<mark>' + esc(title.slice(i, i + q.length)) + '</mark>' + esc(title.slice(i + q.length));
+  let active = -1; let opts = [];
+  const setActive = (i) => {
+    active = i;
+    opts.forEach((o, k) => { o.setAttribute('aria-selected', k === i ? 'true' : 'false'); o.classList.toggle('active', k === i); });
+    if (i >= 0) { input.setAttribute('aria-activedescendant', opts[i].id); opts[i].scrollIntoView({ block: 'nearest' }); } else input.removeAttribute('aria-activedescendant');
   };
-  input.addEventListener('input', () => {
-    const q = norm(input.value.trim()); active = -1;
-    if (!q) { out.innerHTML = '<p class="search-hint">Upišite pojam. Pretraga radi i bez dijakritičkih znakova – „casa” pronalazi „čaša”.</p>'; return; }
-    const words = q.split(/\s+/);
-    const hits = idx.filter((x) => words.every((w) => x.n.includes(w))).slice(0, 24);
-    if (!hits.length) { out.innerHTML = `<p class="search-hint"><strong>Nema rezultata za „${esc(input.value)}”.</strong><br>Pokušajte s općenitijim pojmom, npr. „radionica”, „staklo” ili „posjet”.</p>`; return; }
-    const groups = {};
-    hits.forEach((h) => { (groups[h.type] = groups[h.type] || []).push(h); });
-    out.innerHTML = Object.entries(groups).map(([type, list]) => `<div class="search-group"><h3>${esc(type)} · ${list.length}</h3>${list.map((h) => `<a href="${h.url ? BASE + h.url : '#'}"><span>${hl(h.title, words[0])}</span><span class="muted" aria-hidden="true">→</span></a>`).join('')}</div>`).join('');
-    if (motion()) G.from($$('.search-group a', out), { y: 8, opacity: 0, stagger: 0.02, duration: 0.3 });
-  });
-  input.addEventListener('keydown', (e) => {
-    const links = $$('a', out); if (!links.length) return;
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-      e.preventDefault(); active = (active + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length;
-      links.forEach((l, i) => l.classList.toggle('active', i === active)); links[active].scrollIntoView({ block: 'nearest' });
+  const say = debounce((t) => { status.textContent = t; }, 350);
+  const render = () => {
+    const q = input.value.trim(); active = -1; input.removeAttribute('aria-activedescendant');
+    if (!q) {
+      list.hidden = true; list.innerHTML = ''; opts = []; input.setAttribute('aria-expanded', 'false');
+      foot.innerHTML = `<p class="search-hint">${tx('Upišite pojam. Pretraga radi i bez dijakritičkih znakova: „casa” pronalazi „čaša”.', 'Type a term. Search also works without diacritics: “casa” finds “čaša”.')}</p><div class="search-popular"><p class="label">${tx('Često traženo', 'Popular searches')}</p>${popularHtml('data-pop')}</div>`;
+      say(''); return;
     }
-    if (e.key === 'Enter' && links[Math.max(active, 0)]) { location.href = links[Math.max(active, 0)].href; }
+    const hits = searchIndex(q, '');
+    if (!hits.length) {
+      list.hidden = true; list.innerHTML = ''; opts = []; input.setAttribute('aria-expanded', 'false');
+      foot.innerHTML = `<div class="search-empty"><strong>${tx('Nema rezultata za', 'No results for')} „${esc(q)}”.</strong><p>${tx('Provjerite pravopis ili pokušajte s općenitijim pojmom.', 'Check the spelling or try a broader term.')}</p>${popularHtml('data-pop')}</div>`;
+      say(tx(`Nema rezultata za ${q}.`, `No results for ${q}.`)); return;
+    }
+    const top = hits.slice(0, 8); const groups = {};
+    top.forEach((h) => { (groups[h.k] = groups[h.k] || []).push(h); });
+    let n = 0;
+    list.innerHTML = TYPE_ORDER.filter((k) => groups[k]).map((k) => `<div class="search-group" role="group" aria-labelledby="sg-${k}"><div class="search-gh" id="sg-${k}">${TYPE_LABEL[k]}</div>${groups[k].map((h) => `<a role="option" aria-selected="false" id="so-${n++}" tabindex="-1" href="${BASE + h.url}"><span>${hl(h.title, q)}</span><span class="muted" aria-hidden="true">→</span></a>`).join('')}</div>`).join('');
+    list.hidden = false; input.setAttribute('aria-expanded', 'true'); opts = $$('[role="option"]', list);
+    foot.innerHTML = `<a class="search-all" href="${SEARCH_URL}?q=${encodeURIComponent(q)}">${tx('Prikaži sve rezultate', 'Show all results')} (${hits.length}) <span aria-hidden="true">→</span></a><span class="search-keys" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> ${tx('odabir', 'select')} · <kbd>Enter</kbd> ${tx('otvori', 'open')} · <kbd>Esc</kbd> ${tx('zatvori', 'close')}</span>`;
+    say(`${resultsLabel(hits.length)}. ${tx('Strelicama gore i dolje birate prijedlog, Enter ga otvara.', 'Use the up and down arrows to choose a suggestion, Enter opens it.')}`);
+  };
+  resetSearch = () => { input.value = ''; render(); };
+  input.addEventListener('input', render);
+  foot.addEventListener('click', (e) => { const b = e.target.closest('[data-pop]'); if (b) { input.value = b.dataset.pop; render(); input.focus(); } });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      if (!opts.length) return;
+      e.preventDefault(); setActive(active < 0 ? (e.key === 'ArrowDown' ? 0 : opts.length - 1) : (active + (e.key === 'ArrowDown' ? 1 : -1) + opts.length) % opts.length);
+    } else if (e.key === 'Home' && opts.length && active >= 0) { e.preventDefault(); setActive(0); }
+    else if (e.key === 'End' && opts.length && active >= 0) { e.preventDefault(); setActive(opts.length - 1); }
+    else if (e.key === 'Enter' && active >= 0) { e.preventDefault(); location.href = opts[active].href; }
   });
+  form.addEventListener('submit', (e) => { if (!input.value.trim()) e.preventDefault(); });
+  render();
+}
+
+/* ---------------- Stranica rezultata pretrage ---------------- */
+function initSearchPage() {
+  const rootEl = $('[data-search-page]'); if (!rootEl) return;
+  const input = $('[data-sp-q]'); const chipsEl = $('[data-sp-types]'); const out = $('[data-sp-results]'); const count = $('[data-sp-count]'); const reset = $('[data-sp-reset]');
+  const qs = new URLSearchParams(location.search);
+  const st = { q: (qs.get('q') || '').trim(), type: TYPE_ORDER.includes(qs.get('vrsta')) ? qs.get('vrsta') : '' };
+  input.value = st.q;
+  const say = debounce((t) => { count.textContent = t; }, 250);
+  const render = () => {
+    const all = searchIndex(st.q, ''); const per = {};
+    all.forEach((h) => { per[h.k] = (per[h.k] || 0) + 1; });
+    if (st.type && !per[st.type] && !st.q) st.type = '';
+    $$('[data-sp-type]', chipsEl).forEach((c) => {
+      const k = c.dataset.spType; const n = k ? per[k] || 0 : all.length;
+      $('[data-n]', c).textContent = st.q ? `(${n})` : '';
+      c.setAttribute('aria-pressed', k === st.type ? 'true' : 'false');
+      c.disabled = !!st.q && !!k && n === 0 && k !== st.type;
+    });
+    const hits = st.type ? all.filter((h) => h.k === st.type) : all;
+    reset.hidden = !(st.q || st.type);
+    if (!st.q) {
+      say(tx('Upišite pojam za pretragu.', 'Type a term to search.'));
+      out.innerHTML = `<div class="empty"><strong>${tx('Što tražite?', 'What are you looking for?')}</strong>${tx('Upišite pojam ili odaberite jedan od čestih upita.', 'Type a term or pick a popular search.')}<div style="margin-top:1.25rem;display:flex;justify-content:center">${popularHtml('data-sp-pop')}</div></div>`;
+    } else if (!hits.length) {
+      say(tx(`Nema rezultata za „${st.q}”${st.type ? ` u vrsti ${TYPE_LABEL[st.type]}` : ''}.`, `No results for “${st.q}”${st.type ? ` in ${TYPE_LABEL[st.type]}` : ''}.`));
+      out.innerHTML = `<div class="empty"><strong>${tx('Nema rezultata za', 'No results for')} „${esc(st.q)}”.</strong>${tx('Provjerite pravopis, uklonite filtar vrste ili pokušajte s općenitijim pojmom.', 'Check the spelling, remove the type filter or try a broader term.')}<div style="margin-top:1.25rem;display:flex;justify-content:center">${popularHtml('data-sp-pop')}</div></div>`;
+    } else {
+      say(`${resultsLabel(hits.length)} ${tx('za', 'for')} „${st.q}”${st.type ? ` · ${TYPE_LABEL[st.type]}` : ''}`);
+      const groups = {}; hits.forEach((h) => { (groups[h.k] = groups[h.k] || []).push(h); });
+      out.innerHTML = TYPE_ORDER.filter((k) => groups[k]).map((k) => `<section class="sp-group" aria-labelledby="sp-${k}"><h2 class="h3" id="sp-${k}">${TYPE_LABEL[k]} <span class="muted">· ${groups[k].length}</span></h2><ul class="sp-list">${groups[k].map((h) => `<li><a href="${BASE + h.url}"><span class="sp-title">${hl(h.title, st.q)}</span><span class="sp-type">${TYPE_LABEL[k]}${h.past ? ` · ${tx('arhiva', 'archive')}` : ''}</span></a></li>`).join('')}</ul></section>`).join('');
+    }
+    const url = new URL(location.href);
+    st.q ? url.searchParams.set('q', st.q) : url.searchParams.delete('q');
+    st.type ? url.searchParams.set('vrsta', st.type) : url.searchParams.delete('vrsta');
+    history.replaceState(null, '', url);
+    document.title = st.q ? `${st.q} – ${tx('Pretraga', 'Search')} – MUO` : `${tx('Pretraga', 'Search')} – MUO`;
+  };
+  $('[data-sp-form]').addEventListener('submit', (e) => { e.preventDefault(); st.q = input.value.trim(); render(); });
+  input.addEventListener('input', debounce(() => { st.q = input.value.trim(); render(); }, 200));
+  chipsEl.addEventListener('click', (e) => { const c = e.target.closest('[data-sp-type]'); if (c && !c.disabled) { st.type = c.dataset.spType; render(); } });
+  out.addEventListener('click', (e) => { const b = e.target.closest('[data-sp-pop]'); if (b) { st.q = b.dataset.spPop; input.value = st.q; render(); input.focus(); } });
+  reset.addEventListener('click', () => { st.q = ''; st.type = ''; input.value = ''; render(); input.focus(); });
+  render();
 }
 
 /* ---------------- Zaglavlje ---------------- */
@@ -287,26 +399,27 @@ function initHeader() {
 /* ---------------- Kartica događanja ---------------- */
 function icsFor(e) {
   const f = (d) => `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
-  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//MUO//Ogledni prijedlog//HR', 'BEGIN:VEVENT', `UID:${e.id}@muo-demo`, `DTSTAMP:${f(new Date())}`, `DTSTART;TZID=Europe/Zagreb:${f(e.start)}`, `DTEND;TZID=Europe/Zagreb:${f(e.end)}`, `SUMMARY:${e.title}`, `LOCATION:${e.place}`, 'DESCRIPTION:Muzej za umjetnost i obrt', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//MUO//Ogledni prijedlog//HR', 'BEGIN:VEVENT', `UID:${e.id}@muo-demo`, `DTSTAMP:${f(new Date())}`, `DTSTART;TZID=Europe/Zagreb:${f(e.start)}`, `DTEND;TZID=Europe/Zagreb:${f(e.end)}`, `SUMMARY:${evTitle(e)}`, `LOCATION:${e.place}`, 'DESCRIPTION:Muzej za umjetnost i obrt', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
 }
 function downloadIcs(id) {
   const e = events.find((x) => x.id === id); if (!e) return;
   const blob = new Blob([icsFor(e)], { type: 'text/calendar;charset=utf-8' });
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `muo-${id}.ics`; a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 2000);
-  toast('Događanje je dodano – otvorite .ics datoteku u kalendaru.');
+  toast(tx('Preuzeta je .ics datoteka – otvorite je u svom kalendaru.', 'An .ics file was downloaded – open it in your calendar.'));
 }
 function gcal(e) {
   const f = (d) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(e.title)}&dates=${f(e.start)}/${f(e.end)}&location=${encodeURIComponent(e.place)}&details=${encodeURIComponent('Muzej za umjetnost i obrt')}`;
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(evTitle(e))}&dates=${f(e.start)}/${f(e.end)}&location=${encodeURIComponent(e.place)}&details=${encodeURIComponent('Muzej za umjetnost i obrt')}`;
 }
 document.addEventListener('click', (e) => { const b = e.target.closest('[data-ics]'); if (b) { e.preventDefault(); downloadIcs(b.dataset.ics); } });
 
-const rowHtml = (e) => `<li class="ev-row" data-flip-id="${e.id}"><div class="ev-date"><b>${pad(e.date.getDate())}</b><small>${MONTHS[e.date.getMonth()]} · ${e.time}</small></div><div class="ev-type">${esc(e.type)}</div><a class="ev-title" href="${e.exhibition ? BASE + 'izlozbe/' + e.exhibition + '/' : BASE + 'izlozbe-i-dogadanja/'}">${esc(e.title)}</a><div class="ev-place">${esc(e.place)}</div><button class="icon-btn" type="button" data-ics="${e.id}" aria-label="Dodaj u kalendar: ${esc(e.title)}">${CAL}</button></li>`;
+const evLink = (e) => (e.exhibition ? BASE + 'izlozbe/' + e.exhibition + '/' : `${EV_URL}?q=${encodeURIComponent(evTitle(e))}#dogadanja`);
+const rowHtml = (e) => `<li class="ev-row" data-flip-id="${e.id}"><div class="ev-date"><b>${pad(e.date.getDate())}</b><small>${MONTHS[e.date.getMonth()]} · ${e.time}</small></div><div class="ev-type">${esc(evType(e.type))}</div><a class="ev-title" href="${evLink(e)}">${esc(evTitle(e))}</a><div class="ev-place">${esc(e.place)}</div><button class="icon-btn" type="button" data-ics="${e.id}" aria-label="${tx('Dodaj u kalendar', 'Add to calendar')}: ${esc(evTitle(e))}">${CAL}</button></li>`;
 const cardHtml = (e) => {
   const c = TYPE_COLOR[e.type] || '#111'; const ink = c === '#D9A441' ? '#111' : '#fff';
-  const save = esc(JSON.stringify({ id: 'e-' + e.id, title: e.title, url: BASE + 'izlozbe-i-dogadanja/', motif: TYPE_MOTIF[e.type], color: c }));
-  return `<article class="ev-card" data-flip-id="${e.id}"><div class="card-media" style="--c:${c}"><span class="art">${objectSvg(TYPE_MOTIF[e.type], ink)}</span><span class="datebox"><b>${pad(e.date.getDate())}</b><small>${MONTHS[e.date.getMonth()]}</small></span><button class="save-btn" type="button" aria-pressed="false" data-save="${save}" aria-label="Spremi: ${esc(e.title)}">${HEART}</button></div><div class="ev-type">${esc(e.type)} · ${DAYS[e.date.getDay()]} ${e.time}</div><h3 class="h3" style="font-size:1.4rem">${esc(e.title)}</h3><p class="card-meta">${esc(e.place)}</p><div class="ev-tags"><span>${esc(e.audience)}</span><span>${esc(e.price)}</span></div><div class="ev-actions">${e.past ? '' : `<button type="button" data-ics="${e.id}">${CAL.replace('<svg', '<svg width="16" height="16"')} iCal</button><a href="${gcal(e)}" target="_blank" rel="noopener">Google kalendar</a>`}${e.exhibition ? `<a href="${BASE}izlozbe/${e.exhibition}/">Izložba →</a>` : ''}</div></article>`;
+  const save = esc(JSON.stringify({ id: 'e-' + e.id, title: evTitle(e), url: EV_URL, motif: TYPE_MOTIF[e.type], color: c }));
+  return `<article class="ev-card" data-flip-id="${e.id}"><div class="card-media" style="--c:${c}"><span class="art">${objectSvg(TYPE_MOTIF[e.type], ink)}</span><span class="datebox"><b>${pad(e.date.getDate())}</b><small>${MONTHS[e.date.getMonth()]}</small></span><button class="save-btn" type="button" aria-pressed="false" data-save="${save}" aria-label="${tx('Spremi', 'Save')}: ${esc(evTitle(e))}">${HEART}</button></div><div class="ev-type">${esc(evType(e.type))} · ${DAYS[e.date.getDay()]} ${e.time}</div><h3 class="h3" style="font-size:1.4rem">${esc(evTitle(e))}</h3><p class="card-meta">${esc(e.place)}</p><div class="ev-tags"><span>${esc(evAud(e.audience))}</span><span>${esc(evPrice(e.price))}</span></div><div class="ev-actions">${e.past ? '' : `<button type="button" data-ics="${e.id}" aria-label="iCal: ${esc(evTitle(e))}">${CAL.replace('<svg', '<svg width="16" height="16"')} iCal</button><a href="${gcal(e)}" target="_blank" rel="noopener" aria-label="${tx('Google kalendar', 'Google Calendar')}: ${esc(evTitle(e))} (${tx('otvara se u novoj kartici', 'opens in a new tab')})">${tx('Google kalendar', 'Google Calendar')}</a>`}${e.exhibition ? `<a href="${BASE}izlozbe/${e.exhibition}/" aria-label="${tx('Izložba uz događanje', 'Related exhibition')}: ${esc(evTitle(e))}">${tx('Izložba', 'Exhibition')} →</a>` : ''}</div></article>`;
 };
 
 /* ---------------- Naslovnica: izvadak kalendara ---------------- */
@@ -316,7 +429,7 @@ function initHomeEvents() {
   const render = (animate) => {
     const list = events.filter((e) => !e.past && (!type || e.type === type)).slice(0, 5);
     const state = animate && motion() && window.Flip ? Flip.getState($$('.ev-row', ul)) : null;
-    ul.innerHTML = list.length ? list.map(rowHtml).join('') : '<li class="empty" style="display:block;margin-top:1rem"><strong>Nema nadolazećih događanja ove vrste.</strong>Pogledajte cijeli kalendar.</li>';
+    ul.innerHTML = list.length ? list.map(rowHtml).join('') : `<li class="empty" style="display:block;margin-top:1rem"><strong>${tx('Nema nadolazećih događanja ove vrste.', 'No upcoming events of this type.')}</strong>${tx('Pogledajte cijeli kalendar.', 'See the full calendar.')}</li>`;
     if (state) Flip.from(state, { targets: $$('.ev-row', ul), duration: 0.6, ease: 'expo.out', absolute: true, onEnter: (els) => G.fromTo(els, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.05 }), onLeave: (els) => G.to(els, { opacity: 0, duration: 0.25 }) });
   };
   $$('[data-home-chips] .chip').forEach((c) => c.addEventListener('click', () => {
@@ -330,23 +443,29 @@ function initHomeEvents() {
 function initEventsPage() {
   const wrap = $('[data-ev-cards]'); if (!wrap) return;
   const list = $('[data-ev-list]'); const monthEl = $('[data-month]'); const empty = $('[data-empty]'); const count = $('[data-results-count]');
+  const resetBtns = $$('[data-reset]'); const panel = $('#panel-list');
   const qs = new URLSearchParams(location.search);
-  const st = { type: qs.get('tip') || '', loc: '', aud: '', q: qs.get('q') || '', per: '', tab: 'list', view: 'grid', day: null, month: new Date(today.getFullYear(), today.getMonth(), 1) };
-  if (st.type) $$('[data-f-type]').forEach((c) => c.setAttribute('aria-pressed', c.dataset.fType === st.type ? 'true' : 'false'));
-  if (st.q) $('[data-f-q]').value = st.q;
+  const one = (v, allowed, d = '') => (allowed.includes(v) ? v : d);
+  // Cijelo stanje filtara čita se iz adrese i upisuje natrag u nju (poveznica se može podijeliti)
+  const st = {
+    type: one(qs.get('tip'), Object.keys(TYPE_EN)), loc: one(qs.get('lok'), ['galerija', 'vanjska']), aud: one(qs.get('publika'), Object.keys(AUD_EN)),
+    q: (qs.get('q') || '').trim(), per: one(qs.get('kada'), ['7', 'vikend', '30']), tab: one(qs.get('prikaz'), ['list', 'cal', 'arch'], 'list'), view: one(qs.get('pogled'), ['grid', 'list'], 'grid'),
+    day: null, month: new Date(today.getFullYear(), today.getMonth(), 1),
+  };
   const sameDay = (a, b) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+  const hay = (e) => norm(`${e.title} ${e.titleEn || ''} ${e.type} ${TYPE_EN[e.type]} ${e.audience} ${AUD_EN[e.audience]} ${e.place}`);
 
   const filtered = () => events.filter((e) => {
     if (st.tab === 'arch' ? !e.past : e.past) return false;
     if (st.type && e.type !== st.type) return false;
     if (st.loc && e.loc !== st.loc) return false;
     if (st.aud && e.audience !== st.aud) return false;
-    if (st.q && !norm(e.title + ' ' + e.type + ' ' + e.audience + ' ' + e.place).includes(norm(st.q))) return false;
+    if (st.q && !norm(st.q).split(/\s+/).every((w) => hay(e).includes(w))) return false;
     if (st.per && st.tab !== 'arch') {
       const diff = (e.date - today) / 86400000;
       if (st.per === '7' && diff > 7) return false;
       if (st.per === '30' && diff > 30) return false;
-      if (st.per === 'vikend') { const dow = today.getDay(); const toSat = (6 - dow + 7) % 7; const sat = new Date(today); sat.setDate(sat.getDate() + toSat); const sun = new Date(sat); sun.setDate(sun.getDate() + 1); if (!(sameDay(e.date, sat) || sameDay(e.date, sun))) return false; }
+      if (st.per === 'vikend') { const dow = today.getDay(); const sat = new Date(today); sat.setDate(sat.getDate() + (dow === 0 ? -1 : 6 - dow)); const sun = new Date(sat); sun.setDate(sun.getDate() + 1); if (!(sameDay(e.date, sat) || sameDay(e.date, sun))) return false; }
     }
     if (st.tab === 'cal' && st.day && !sameDay(e.date, st.day)) return false;
     return true;
@@ -357,17 +476,35 @@ function initEventsPage() {
     const days = []; const start = new Date(first); start.setDate(1 - startDow);
     for (let i = 0; i < 42; i++) { const d = new Date(start); d.setDate(start.getDate() + i); days.push(d); }
     const evs = events.filter((e) => !e.past);
-    monthEl.innerHTML = `<div class="month-head"><button class="icon-btn" type="button" data-m="-1" aria-label="Prethodni mjesec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><h3 aria-live="polite">${MONTHS_FULL[m.getMonth()]} ${m.getFullYear()}.</h3><button class="icon-btn" type="button" data-m="1" aria-label="Sljedeći mjesec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
-      <div class="month" role="grid" aria-label="Kalendar događanja">${['pon', 'uto', 'sri', 'čet', 'pet', 'sub', 'ned'].map((d) => `<div class="dow" role="columnheader">${d}</div>`).join('')}
-      ${days.map((d) => { const de = evs.filter((e) => sameDay(e.date, d)); const cls = ['day', d.getMonth() !== m.getMonth() ? 'out' : '', sameDay(d, today) ? 'today' : '', de.length ? 'has' : '', st.day && sameDay(d, st.day) ? 'sel' : ''].join(' '); return `<button type="button" class="${cls}" ${de.length ? '' : 'disabled'} data-day="${d.toISOString()}" aria-label="${d.getDate()}. ${MONTHS_FULL[d.getMonth()]}${de.length ? ', ' + de.length + ' događanja' : ''}"><span class="n">${d.getDate()}</span>${de.slice(0, 2).map((e) => `<span class="dot" style="border-left:3px solid ${TYPE_COLOR[e.type]}">${e.time} ${esc(e.title)}</span>`).join('')}</button>`; }).join('')}</div>
-      <p class="muted" style="margin-top:1rem">${st.day ? `Prikazujem ${st.day.getDate()}. ${MONTHS_FULL[st.day.getMonth()]} · <button type="button" data-day-clear style="background:none;border:0;text-decoration:underline;padding:0">prikaži sve</button>` : 'Odaberite dan za prikaz događanja.'}</p>`;
+    const ARROW = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="${d}"/></svg>`;
+    monthEl.innerHTML = `<div class="month-head"><button class="icon-btn" type="button" data-m="-1" aria-label="${tx('Prethodni mjesec', 'Previous month')}">${ARROW('M15 6l-6 6 6 6')}</button><h3 aria-live="polite">${MONTHS_FULL[m.getMonth()]} ${m.getFullYear()}${EN ? '' : '.'}</h3><button class="icon-btn" type="button" data-m="1" aria-label="${tx('Sljedeći mjesec', 'Next month')}">${ARROW('M9 6l6 6-6 6')}</button></div>
+      <div class="month" role="group" aria-label="${tx('Kalendar događanja', 'Events calendar')}">${DOW_SHORT.map((d) => `<div class="dow" aria-hidden="true">${d}</div>`).join('')}
+      ${days.map((d) => { const de = evs.filter((e) => sameDay(e.date, d)); const sel = st.day && sameDay(d, st.day); const cls = ['day', d.getMonth() !== m.getMonth() ? 'out' : '', sameDay(d, today) ? 'today' : '', de.length ? 'has' : '', sel ? 'sel' : ''].join(' '); const label = `${d.getDate()}. ${MONTHS_FULL[d.getMonth()]}${de.length ? ', ' + nOf(de.length, ['događanje', 'događanja', 'događanja'], ['event', 'events']) : ''}`; return de.length ? `<button type="button" class="${cls}" data-day="${d.toISOString()}" aria-pressed="${sel ? 'true' : 'false'}"><span class="n">${d.getDate()}<span class="visually-hidden">${label.replace(/^\d+/, '')}:</span></span>${de.slice(0, 2).map((e) => `<span class="dot" style="border-left:3px solid ${TYPE_COLOR[e.type]}">${e.time} ${esc(evTitle(e))}</span>`).join('')}</button>` : `<div class="${cls}" aria-hidden="true"><span class="n">${d.getDate()}</span></div>`; }).join('')}</div>
+      <p class="muted" style="margin-top:1rem">${st.day ? `${tx('Prikazujem', 'Showing')} ${st.day.getDate()}. ${MONTHS_FULL[st.day.getMonth()]} · <button type="button" class="linklike" data-day-clear>${tx('prikaži sve', 'show all')}</button>` : tx('Odaberite dan za prikaz događanja.', 'Choose a day to see its events.')}</p>`;
     if (motion()) G.from($$('.day', monthEl), { opacity: 0, y: 10, stagger: { each: 0.008, from: 'start' }, duration: 0.4, ease: 'power2.out' });
+  };
+
+  const activeCount = () => [st.type, st.loc, st.aud, st.q, st.per, st.day].filter(Boolean).length;
+  const say = debounce((t) => { count.textContent = t; }, 250);
+  const syncControls = () => {
+    $$('[data-f-type]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.fType === st.type ? 'true' : 'false'));
+    $$('[data-f-per]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.fPer === st.per ? 'true' : 'false'));
+    $$('[data-view]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.view === st.view ? 'true' : 'false'));
+    $('[data-f-loc]').value = st.loc; $('[data-f-aud]').value = st.aud;
+    if ($('[data-f-q]').value.trim() !== st.q) $('[data-f-q]').value = st.q;
+  };
+  const writeUrl = () => {
+    const url = new URL(location.href);
+    const set = (k, v, d = '') => { if (v && v !== d) url.searchParams.set(k, v); else url.searchParams.delete(k); };
+    set('tip', st.type); set('lok', st.loc); set('publika', st.aud); set('q', st.q); set('kada', st.per); set('prikaz', st.tab, 'list'); set('pogled', st.view, 'grid');
+    history.replaceState(null, '', url);
   };
 
   const render = (animate = true) => {
     const res = filtered();
-    const n = res.length;
-    count.textContent = `${n} ${n === 1 ? 'događanje' : n > 1 && n < 5 ? 'događanja' : 'događanja'}${st.tab === 'arch' ? ' u arhivi' : ''}`;
+    const n = res.length; const ac = activeCount();
+    say(`${nOf(n, ['događanje', 'događanja', 'događanja'], ['event', 'events'])}${st.tab === 'arch' ? tx(' u arhivi', ' in the archive') : ''}${ac ? ` · ${tx('aktivnih filtara', 'active filters')}: ${ac}` : ''}`);
+    resetBtns.forEach((b) => { if (!b.closest('[data-empty]')) b.hidden = ac === 0; });
     const targetsSel = st.view === 'grid' ? '.ev-card' : '.ev-row';
     const state = animate && motion() && window.Flip ? Flip.getState($$(targetsSel, st.view === 'grid' ? wrap : list)) : null;
     wrap.hidden = st.view !== 'grid'; list.hidden = st.view !== 'list';
@@ -383,39 +520,86 @@ function initEventsPage() {
     const exBlock = $('[data-ex-block]');
     exBlock.hidden = st.tab === 'cal';
     $$('[data-ex-cards] .card').forEach((c) => { c.hidden = st.tab === 'arch' ? c.dataset.exStatus !== 'archive' : c.dataset.exStatus === 'archive'; });
-    const url = new URL(location.href); st.type ? url.searchParams.set('tip', st.type) : url.searchParams.delete('tip'); st.q ? url.searchParams.set('q', st.q) : url.searchParams.delete('q');
-    history.replaceState(null, '', url);
+    writeUrl();
   };
 
-  $$('[data-f-type]').forEach((c) => c.addEventListener('click', () => { $$('[data-f-type]').forEach((x) => x.setAttribute('aria-pressed', x === c ? 'true' : 'false')); st.type = c.dataset.fType; render(); }));
-  $$('[data-f-per]').forEach((c) => c.addEventListener('click', () => { $$('[data-f-per]').forEach((x) => x.setAttribute('aria-pressed', x === c ? 'true' : 'false')); st.per = c.dataset.fPer; render(); }));
+  $$('[data-f-type]').forEach((c) => c.addEventListener('click', () => { st.type = c.dataset.fType; syncControls(); render(); }));
+  $$('[data-f-per]').forEach((c) => c.addEventListener('click', () => { st.per = c.dataset.fPer; syncControls(); render(); }));
   $('[data-f-loc]').addEventListener('change', (e) => { st.loc = e.target.value; render(); });
   $('[data-f-aud]').addEventListener('change', (e) => { st.aud = e.target.value; render(); });
-  let qt; $('[data-f-q]').addEventListener('input', (e) => { clearTimeout(qt); qt = setTimeout(() => { st.q = e.target.value.trim(); render(); }, 180); });
-  $$('[data-view]').forEach((b) => b.addEventListener('click', () => { $$('[data-view]').forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); st.view = b.dataset.view; render(false); }));
-  $('[data-reset]').addEventListener('click', () => {
+  $('[data-f-q]').addEventListener('input', debounce((e) => { st.q = e.target.value.trim(); render(); }, 180));
+  $('[data-filters]').addEventListener('submit', (e) => { e.preventDefault(); st.q = $('[data-f-q]').value.trim(); render(); });
+  $$('[data-view]').forEach((b) => b.addEventListener('click', () => { st.view = b.dataset.view; syncControls(); render(false); }));
+  resetBtns.forEach((b) => b.addEventListener('click', () => {
     Object.assign(st, { type: '', loc: '', aud: '', q: '', per: '', day: null });
-    $$('[data-f-type]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.fType === '' ? 'true' : 'false'));
-    $$('[data-f-per]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.fPer === '' ? 'true' : 'false'));
-    $('[data-f-loc]').value = ''; $('[data-f-aud]').value = ''; $('[data-f-q]').value = ''; render();
-  });
+    syncControls(); render(); $('[data-f-q]').focus();
+  }));
   monthEl.addEventListener('click', (e) => {
-    const mb = e.target.closest('[data-m]'); if (mb) { st.month = new Date(st.month.getFullYear(), st.month.getMonth() + Number(mb.dataset.m), 1); renderMonth(); return; }
-    const d = e.target.closest('[data-day]'); if (d && !d.disabled) { st.day = new Date(d.dataset.day); render(); return; }
-    if (e.target.closest('[data-day-clear]')) { st.day = null; render(); }
+    const mb = e.target.closest('[data-m]'); if (mb) { const dir = mb.dataset.m; st.month = new Date(st.month.getFullYear(), st.month.getMonth() + Number(dir), 1); renderMonth(); $(`[data-m="${dir}"]`, monthEl)?.focus(); return; }
+    const d = e.target.closest('[data-day]'); if (d) { const iso = d.dataset.day; st.day = new Date(iso); render(); $(`[data-day="${iso}"]`, monthEl)?.focus(); return; }
+    if (e.target.closest('[data-day-clear]')) { st.day = null; render(); $('[data-m="-1"]', monthEl)?.focus(); }
   });
   // Kartice (tabovi) s pomičnom crtom
   const ink = $('[data-tab-ink]');
   const moveInk = (t) => { ink.style.width = t.offsetWidth + 'px'; ink.style.transform = `translateX(${t.offsetLeft}px)`; };
   const tabs = $$('[data-tab]');
+  const setTab = (name) => {
+    st.tab = name; st.day = null;
+    tabs.forEach((x) => { const on = x.dataset.tab === name; x.setAttribute('aria-selected', on ? 'true' : 'false'); x.tabIndex = on ? 0 : -1; if (on) { moveInk(x); panel.setAttribute('aria-labelledby', x.id); } });
+  };
   tabs.forEach((t, i) => {
-    t.addEventListener('click', () => { tabs.forEach((x) => { x.setAttribute('aria-selected', x === t ? 'true' : 'false'); x.tabIndex = x === t ? 0 : -1; }); st.tab = t.dataset.tab; st.day = null; moveInk(t); render(); });
+    t.addEventListener('click', () => { setTab(t.dataset.tab); render(); });
     t.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length]; n.focus(); n.click(); } });
-    t.tabIndex = i === 0 ? 0 : -1;
   });
-  requestAnimationFrame(() => moveInk(tabs[0])); addEventListener('resize', () => moveInk($('[data-tab][aria-selected="true"]')));
+  syncControls(); setTab(st.tab);
+  requestAnimationFrame(() => moveInk($('[data-tab][aria-selected="true"]'))); addEventListener('resize', () => moveInk($('[data-tab][aria-selected="true"]')));
+  document.fonts?.ready.then(() => moveInk($('[data-tab][aria-selected="true"]')));
+  count.textContent = '';
   render(false);
   if (motion()) G.from($$('.ev-card', wrap), { opacity: 0, y: 40, stagger: 0.06, duration: 0.9, ease: 'expo.out', delay: 0.2 });
+}
+
+/* ---------------- Zbirke: pretraga i filtri predmeta ---------------- */
+function initItems() {
+  const grid = $('[data-item-grid]'); if (!grid) return;
+  const count = $('[data-item-count]'); const empty = $('[data-item-empty]'); const resetBtns = $$('[data-item-reset]'); const section = $('#predmeti');
+  const qs = new URLSearchParams(location.search);
+  const colls = [...new Set(ITEMS.map((i) => i.coll)), ...$$('[data-coll-link]').map((a) => a.dataset.collLink)];
+  const st = { coll: colls.includes(qs.get('zbirka')) ? qs.get('zbirka') : '', per: PERIODS[qs.get('razdoblje')] ? qs.get('razdoblje') : '', mat: MATERIALS[qs.get('materijal')] ? qs.get('materijal') : '', q: (qs.get('q') || '').trim() };
+  const hay = (i) => norm(`${i.name} ${i.nameEn} ${i.collName} ${i.collNameEn} ${MATERIALS[i.material].hr} ${MATERIALS[i.material].en} ${PERIODS[i.period].hr} ${PERIODS[i.period].en}`);
+  const say = debounce((t) => { count.textContent = t; }, 250);
+  const sync = () => {
+    $('[data-i-coll]').value = st.coll; $('[data-i-mat]').value = st.mat;
+    $$('[data-i-per]').forEach((c) => c.setAttribute('aria-pressed', c.dataset.iPer === st.per ? 'true' : 'false'));
+    if ($('[data-i-q]').value.trim() !== st.q) $('[data-i-q]').value = st.q;
+  };
+  const render = () => {
+    const res = ITEMS.filter((i) => (!st.coll || i.coll === st.coll) && (!st.per || String(i.period) === st.per) && (!st.mat || i.material === st.mat) && (!st.q || norm(st.q).split(/\s+/).every((w) => hay(i).includes(w))));
+    const ac = [st.coll, st.per, st.mat, st.q].filter(Boolean).length;
+    say(`${nOf(res.length, ['predmet', 'predmeta', 'predmeta'], ['object', 'objects'])}${ac ? ` · ${tx('aktivnih filtara', 'active filters')}: ${ac}` : ''}`);
+    resetBtns.forEach((b) => { if (!b.closest('[data-item-empty]')) b.hidden = ac === 0; });
+    grid.innerHTML = res.map((i) => `<li><a class="item" href="${BASE}zbirke/predmet/"${EN ? ' hreflang="hr"' : ''}><span class="tile" style="background:${i.color};color:${i.ink};${i.color === '#ffffff' ? 'box-shadow:inset 0 0 0 1px #E3E3E3' : ''}">${objectSvg(i.motif, i.ink)}<span class="badge">${tx('primjer', 'sample')}</span></span><span class="name">${esc(EN ? i.nameEn : i.name)}</span><span class="card-meta">${esc(EN ? i.collNameEn : i.collName)} · ${PERIODS[i.period][LANG]} · ${MATERIALS[i.material][LANG]}</span></a></li>`).join('');
+    grid.hidden = res.length === 0; empty.hidden = res.length > 0;
+    const url = new URL(location.href);
+    const set = (k, v) => { if (v) url.searchParams.set(k, v); else url.searchParams.delete(k); };
+    set('zbirka', st.coll); set('razdoblje', st.per); set('materijal', st.mat); set('q', st.q);
+    history.replaceState(null, '', url);
+  };
+  $('[data-i-coll]').addEventListener('change', (e) => { st.coll = e.target.value; render(); });
+  $('[data-i-mat]').addEventListener('change', (e) => { st.mat = e.target.value; render(); });
+  $$('[data-i-per]').forEach((c) => c.addEventListener('click', () => { st.per = c.dataset.iPer; sync(); render(); }));
+  $('[data-i-q]').addEventListener('input', debounce((e) => { st.q = e.target.value.trim(); render(); }, 180));
+  $('[data-item-filters]').addEventListener('submit', (e) => { e.preventDefault(); st.q = $('[data-i-q]').value.trim(); render(); });
+  resetBtns.forEach((b) => b.addEventListener('click', () => { Object.assign(st, { coll: '', per: '', mat: '', q: '' }); sync(); render(); $('[data-i-q]').focus(); }));
+  // Klik na zbirku filtrira predmete bez ponovnog učitavanja stranice
+  $$('[data-coll-link]').forEach((a) => a.addEventListener('click', (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault(); Object.assign(st, { coll: a.dataset.collLink, per: '', mat: '', q: '' }); sync(); render();
+    history.replaceState(null, '', `${location.pathname}?zbirka=${st.coll}#predmeti`);
+    if (lenis) lenis.scrollTo(section, { offset: -90 }); else section.scrollIntoView({ behavior: motion() ? 'smooth' : 'auto' });
+    section.focus({ preventScroll: true });
+  }));
+  sync(); count.textContent = ''; render();
 }
 
 /* ---------------- Izložba: povezana događanja + lightbox ---------------- */
@@ -423,7 +607,7 @@ function initExhibition() {
   const rel = $('[data-related]');
   if (rel) {
     const list = events.filter((e) => e.exhibition === rel.dataset.related && !e.past);
-    rel.innerHTML = list.length ? list.map(rowHtml).join('') : '<li class="empty" style="display:block"><strong>Uskoro novi programi.</strong>Prijavite se na newsletter i javit ćemo vam.</li>';
+    rel.innerHTML = list.length ? list.map(rowHtml).join('') : `<li class="empty" style="display:block"><strong>${tx('Uskoro novi programi.', 'New programmes coming soon.')}</strong>${tx('Prijavite se na newsletter i javit ćemo vam.', 'Subscribe to the newsletter and we will let you know.')}</li>`;
   }
   const gal = $('[data-gallery]'); const lb = $('[data-lightbox]');
   if (!gal || !lb) return;
@@ -464,7 +648,7 @@ function initWall() {
     a.className = 'wall-tile'; a.href = BASE + 'zbirke/predmet/'; a.tabIndex = -1;
     a.style.background = it.color; a.style.color = it.ink;
     if (it.color === '#ffffff') a.style.border = '1px solid #333';
-    a.innerHTML = `<span class="art">${objectSvg(it.motif, it.ink)}</span><span class="cap"><span>${esc(it.name)}</span><span style="opacity:.75">${esc(it.collection)}</span></span>`;
+    a.innerHTML = `<span class="art">${objectSvg(it.motif, it.ink)}</span><span class="cap"><span>${esc(it.name)}</span><span style="font-weight:400">${esc(it.collection)}</span></span>`;
     a.setAttribute('aria-hidden', 'true');
     plane.appendChild(a);
     tiles.push({ el: a, bx: c * CW + (r % 2 ? CW / 2 : 0), by: r * CH });
@@ -717,9 +901,12 @@ function initMotion() {
     const lines = $$('[data-hero-title] .line');
     const tl = G.timeline({ paused: true, defaults: { ease: 'expo.out' } });
     if (window.SplitText) {
-      lines.forEach((l, i) => { const s = SplitText.create(l, { type: 'chars' }); tl.from(s.chars, { yPercent: 115, rotate: 6, duration: 1.3, stagger: 0.035 }, 0.1 + i * 0.12); });
+      // Čitaču zaslona naslov ostaje jedna cjelina: naziv je na <h1>, a razdvojena slova su skrivena
+      const h1 = $('[data-hero-title]'); h1.setAttribute('aria-label', lines.map((l) => l.textContent.trim()).join(' ')); lines.forEach((l) => l.setAttribute('aria-hidden', 'true'));
+      lines.forEach((l, i) => { const s = SplitText.create(l, { type: 'chars', aria: 'none' }); tl.from(s.chars, { yPercent: 115, rotate: 6, duration: 1.3, stagger: 0.035 }, 0.1 + i * 0.12); });
     }
-    tl.from('[data-hero-fade]', { y: 30, opacity: 0, duration: 1.1, stagger: 0.1 }, 0.5);
+    // Samo pomak, bez prozirnosti: tekst i gumbi imaju pun kontrast i tijekom ulazne animacije
+    tl.from('[data-hero-fade]', { y: 30, duration: 1.1, stagger: 0.1 }, 0.5);
     if (frame) tl.fromTo(frame, { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1.5, ease: 'expo.inOut' }, 0.1).from(pic, { scale: 1.4, duration: 2, ease: 'expo.out' }, 0.3);
     if (pic) G.to(pic, { yPercent: 12, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
     G.to('[data-hero-title]', { yPercent: -25, opacity: 0.2, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
@@ -748,7 +935,14 @@ function shade(hex) { const n = parseInt(hex.slice(1), 16); const r = n >> 16; c
 /* ---------------- Pokretanje ---------------- */
 if (root.classList.contains('no-intro') || !motion()) $('.intro')?.remove();
 setTimeout(() => { const i = $('.intro'); if (i) { i.remove(); lenis?.start(); } }, 6000);
-initStatus(); initA11y(); initCookies(); initSaved(); initShare(); initForms(); initSearch(); initHeader();
-initHomeEvents(); initEventsPage(); initExhibition(); initWall(); initViewer(); initLoupe(); initCompare(); initMap();
+function updateMotionState() {
+  const el = $('[data-motion-state]'); if (!el) return;
+  const sys = matchMedia('(prefers-reduced-motion: reduce)').matches; const sw = root.classList.contains('reduce-motion');
+  el.textContent = sys || sw
+    ? tx(`Smanjeno kretanje je aktivno (${sys ? 'postavka sustava' : 'prekidač na stranici'}): animacije i prijelazi su isključeni, točka lijevo miruje.`, `Reduced motion is active (${sys ? 'system setting' : 'on-page switch'}): animations and transitions are off, the dot on the left is still.`)
+    : tx('Animacije su uključene: sustav ne traži smanjeno kretanje. Uključite „Smanji animacije” u izborniku Pristupačnost i točka lijevo će stati.', 'Motion is on: the system does not request reduced motion. Turn on “Reduce motion” in the Accessibility menu and the dot on the left will stop.');
+}
+initStatus(); initA11y(); initCookies(); initSaved(); initShare(); initForms(); initSearch(); initSearchPage(); initHeader();
+initHomeEvents(); initEventsPage(); initItems(); initExhibition(); initWall(); initViewer(); initLoupe(); initCompare(); initMap(); updateMotionState();
 initMotion();
 syncSaved();

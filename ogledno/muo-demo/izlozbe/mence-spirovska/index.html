@@ -10,7 +10,7 @@
 <meta property="og:title" content="Menče Spirovska – vizualne fascinacije Zagrebom – MUO">
 <meta property="og:description" content="Jedna od dviju izložbi kojima se Muzej za umjetnost i obrt predstavio makedonskoj publici, povezujući hrvatsku i makedonsku kulturnu baštinu.">
 <meta property="og:type" content="website">
-<link rel="alternate" hreflang="hr" href="https://mangai.hr/ogledno/muo-demo/">
+<link rel="alternate" hreflang="hr" href="https://mangai.hr/ogledno/muo-demo/izlozbe/mence-spirovska/">
 <link rel="alternate" hreflang="en" href="https://mangai.hr/ogledno/muo-demo/en/">
 <link rel="preload" href="/ogledno/muo-demo/assets/fonts/archivo-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/ogledno/muo-demo/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -27,39 +27,39 @@ try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catc
 <body data-page="exhibition" data-base="/ogledno/muo-demo/" data-lang="hr">
 <a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
 
-<div class="utility">
+<aside class="utility" data-chrome aria-label="Servisne informacije i jezik">
   <div class="wrap">
     <div class="status"><span class="status-dot" data-status-dot aria-hidden="true"></span><span><strong>MUO Galerija, Ilica 163a</strong> · <span data-status-text>radno vrijeme</span></span></div>
     <div class="notice">Zgrada na Trgu Republike Hrvatske 10 zatvorena je zbog obnove. <a href="/ogledno/muo-demo/muzej/#obnova">Prati obnovu</a></div>
     <div class="utility-right">
-      <button type="button" data-open="a11y">Pristupačnost</button>
+      <button type="button" data-open="a11y" aria-haspopup="dialog">Pristupačnost</button>
       <span aria-hidden="true">·</span>
-      <a href="/ogledno/muo-demo/" aria-current="true" style="font-weight:700" lang="hr" hreflang="hr">HR</a>
-      <a href="/ogledno/muo-demo/en/"  lang="en" hreflang="en">EN</a>
+      <a href="/ogledno/muo-demo/izlozbe/mence-spirovska/" aria-current="true" style="font-weight:700" lang="hr" hreflang="hr">HR<span class="visually-hidden"> – Hrvatski</span></a>
+      <a href="/ogledno/muo-demo/en/"  lang="en" hreflang="en">EN<span class="visually-hidden"> – English</span></a>
     </div>
   </div>
-</div>
-<header class="site-header" data-header>
+</aside>
+<header class="site-header" data-header data-chrome>
   <div class="wrap">
-    <a class="logo" href="/ogledno/muo-demo/" aria-label="MUO – naslovnica">
+    <a class="logo" href="/ogledno/muo-demo/" aria-label="MUO Muzej za umjetnost i obrt · Zagreb – naslovnica">
       <span class="logo-mark" aria-hidden="true"><span>M</span><span>U</span><span>O</span></span>
       <span class="logo-text">Muzej za umjetnost<br>i obrt · Zagreb</span>
     </a>
     <nav class="nav" aria-label="Glavna navigacija"><a href="/ogledno/muo-demo/posjet/">Posjet</a><a href="/ogledno/muo-demo/izlozbe-i-dogadanja/" aria-current="page">Izložbe i događanja</a><a href="/ogledno/muo-demo/muzej/">Muzej</a><a href="/ogledno/muo-demo/zbirke/">Zbirke</a><a href="/ogledno/muo-demo/izlozbe-i-dogadanja/?tip=Radionica">Edukacija</a></nav>
     <div class="header-actions">
-      <button class="icon-btn" type="button" data-open="search" aria-label="Pretraži stranicu" aria-keyshortcuts="Control+K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
-      <button class="icon-btn" type="button" data-open="saved" aria-label="Moja zbirka"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span class="save-count" data-save-count aria-hidden="true">0</span></button>
+      <button class="icon-btn" type="button" data-open="search" aria-label="Pretraži stranicu" aria-haspopup="dialog" aria-keyshortcuts="Control+K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      <button class="icon-btn" type="button" data-open="saved" aria-label="Moja zbirka (0)" data-saved-label="Moja zbirka" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span class="save-count" data-save-count data-n="0" aria-hidden="true"></span></button>
       <a class="btn" href="/ogledno/muo-demo/posjet/" data-magnetic>Posjet i ulaznice</a>
       <button class="icon-btn menu-btn" type="button" data-open="menu" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="mobilni-izbornik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </div>
 </header>
-<div class="mobile-menu" id="mobilni-izbornik" data-panel="menu" aria-hidden="true">
-  <div class="mobile-menu-top"><span class="logo-mark" style="font-size:2.2rem">MUO</span><button class="icon-btn" type="button" data-close aria-label="Zatvori izbornik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="mobile-menu" id="mobilni-izbornik" data-panel="menu" role="dialog" aria-modal="true" aria-label="Mobilna navigacija" aria-hidden="true" inert>
+  <div class="mobile-menu-top"><span class="logo-mark" style="font-size:2.2rem" aria-hidden="true">MUO</span><button class="icon-btn" type="button" data-close aria-label="Zatvori izbornik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <nav aria-label="Mobilna navigacija"><a href="/ogledno/muo-demo/posjet/">Posjet</a><a href="/ogledno/muo-demo/izlozbe-i-dogadanja/" aria-current="page">Izložbe i događanja</a><a href="/ogledno/muo-demo/muzej/">Muzej</a><a href="/ogledno/muo-demo/zbirke/">Zbirke</a><a href="/ogledno/muo-demo/izlozbe-i-dogadanja/?tip=Radionica">Edukacija</a></nav>
-  <div style="margin-top:auto;display:flex;gap:.75rem;flex-wrap:wrap"><a class="btn btn--light" href="/ogledno/muo-demo/posjet/">Posjet i ulaznice</a><a class="btn btn--outline-light" href="/ogledno/muo-demo/en/">English</a></div>
+  <div style="margin-top:auto;display:flex;gap:.75rem;flex-wrap:wrap"><a class="btn btn--light" href="/ogledno/muo-demo/posjet/">Posjet i ulaznice</a><a class="btn btn--outline-light" href="/ogledno/muo-demo/en/" lang="en">English</a></div>
 </div>
-<main id="sadrzaj" tabindex="-1">
+<main id="sadrzaj" tabindex="-1" data-chrome>
 
 <div class="ex-hero" style="--c:#2E3E9E;--ci:#ffffff">
   <div class="wrap" style="padding-top:2rem">
@@ -89,7 +89,7 @@ try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catc
 </section>
 <section class="wrap section" style="padding-top:3rem">
   <div class="prose" data-reveal><p>Jedna od dviju izložbi kojima se Muzej za umjetnost i obrt predstavio makedonskoj publici, povezujući hrvatsku i makedonsku kulturnu baštinu.</p><p>[Tekst izložbe unosi Muzej.]</p></div>
-  <p style="margin-top:2rem"><a class="btn btn--ghost" href="#" aria-disabled="true">Deplijan izložbe (PDF)</a></p>
+  <p class="muted" style="margin-top:2rem">[Deplijan izložbe (PDF) – popratni materijal dodaje Muzej.]</p>
 </section>
 <section class="wrap" style="padding-bottom:4rem" aria-labelledby="gal-h">
   <div class="section-head"><h2 id="gal-h" class="h2" style="font-size:clamp(2rem,3.5vw,3rem)">Izloženi predmeti</h2><span class="muted">Ilustracije · fotografije dostavlja Muzej</span></div>
@@ -107,7 +107,7 @@ try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catc
   <p class="lightbox-cap" data-lb-cap></p>
 </div>
 </main>
-<footer class="site-footer">
+<footer class="site-footer" data-chrome>
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-news">
@@ -115,67 +115,63 @@ try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catc
         <p style="color:#D6D6D6;margin:.75rem 0 0">Izložbe, radionice i vijesti o obnovi, jednom mjesečno.</p>
         <form class="nl-form" data-newsletter novalidate>
           <label class="visually-hidden" for="nl-email">E-mail adresa</label>
-          <input id="nl-email" type="email" name="email" autocomplete="email" placeholder="vasa@adresa.hr" required>
+          <input id="nl-email" type="email" name="email" autocomplete="email" placeholder="vasa@adresa.hr" required aria-describedby="nl-msg">
           <input type="text" name="website" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
           <button class="btn btn--light" type="submit" data-magnetic>Prijavi se</button>
         </form>
-        <p class="nl-msg" data-nl-msg role="status"></p>
+        <p class="nl-msg" id="nl-msg" data-nl-msg role="status"></p>
       </div>
       <div class="footer-cols">
-        <div><h3>Posjet</h3><p>MUO Galerija<br>Ilica 163a, Zagreb<br><a href="/ogledno/muo-demo/posjet/">Radno vrijeme i cijene</a></p><p>Muzej (u obnovi)<br>Trg Republike Hrvatske 10</p></div>
-        <div><h3>Kontakt</h3><p><a href="mailto:muo@muo.hr">muo@muo.hr</a><br><a href="tel:+385912330798">+385 91 233 0798</a></p><p><a href="#">Odjeli i kontakti</a><br><a href="#">Press</a><br><a href="#">Suvenirnica</a><br><a href="#">Najam prostora</a></p></div>
-        <div><h3>Info</h3><p><a href="#">Pravo na pristup informacijama</a><br><a href="#">Javna nabava</a><br><a href="#">Natječaji</a><br><a href="#">Cjenik</a><br><a href="#">Izjava o pristupačnosti</a><br><a href="#">Politika privatnosti</a><br><button type="button" data-open="cookies" style="background:none;border:0;padding:0;color:#D6D6D6;text-decoration:none">Postavke kolačića</button></p></div>
+        <div><h2>Posjet</h2><p>MUO Galerija<br>Ilica 163a, Zagreb<br><a href="/ogledno/muo-demo/posjet/">Radno vrijeme i cijene</a></p><p>Muzej (u obnovi)<br>Trg Republike Hrvatske 10</p></div>
+        <div><h2>Kontakt</h2><p><a href="mailto:muo@muo.hr">muo@muo.hr</a><br><a href="tel:+385912330798">+385 91 233 0798</a></p><p><a href="/ogledno/muo-demo/muzej/#odjeli">Odjeli i kontakti</a><br><a href="/ogledno/muo-demo/muzej/#press">Press</a><br><span class="ph-link" title="u oglednom prikazu još nema stranice">Suvenirnica</span><br><span class="ph-link" title="u oglednom prikazu još nema stranice">Najam prostora</span></p></div>
+        <div><h2>Info</h2><p><span class="ph-link" title="u oglednom prikazu još nema stranice">Pravo na pristup informacijama</span><br><span class="ph-link" title="u oglednom prikazu još nema stranice">Javna nabava</span><br><span class="ph-link" title="u oglednom prikazu još nema stranice">Natječaji</span><br><a href="/ogledno/muo-demo/posjet/#ulaznice">Cjenik</a><br><a href="/ogledno/muo-demo/pristupacnost/">Pristupačnost i izjava o pristupačnosti</a><br><a href="/ogledno/muo-demo/sustav-dizajna/">Sustav dizajna</a><br><span class="ph-link" title="u oglednom prikazu još nema stranice">Politika privatnosti</span><br><button type="button" class="linklike" data-open="cookies">Postavke kolačića</button></p></div>
       </div>
     </div>
     <div class="footer-big" aria-hidden="true" data-footer-big><span>M</span><span>U</span><span>O</span></div>
-    <div class="footer-bottom"><span>© Muzej za umjetnost i obrt · Ogledni prijedlog novog portala, izradio <a href="https://mangai.hr/">MangAI</a></span><span><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">YouTube</a></span></div>
+    <div class="footer-bottom"><span>© Muzej za umjetnost i obrt · Ogledni prijedlog novog portala, izradio <a href="https://mangai.hr/">MangAI</a></span><span><span class="ph-link" title="u oglednom prikazu još nema stranice">Instagram</span> · <span class="ph-link" title="u oglednom prikazu još nema stranice">Facebook</span> · <span class="ph-link" title="u oglednom prikazu još nema stranice">YouTube</span></span></div>
   </div>
 </footer>
 
-<button class="demo-ribbon" type="button" data-open="demo"><span aria-hidden="true">●</span> Ogledni prijedlog · MangAI</button>
+<button class="demo-ribbon" type="button" data-open="demo" aria-haspopup="dialog" data-chrome><span aria-hidden="true">●</span> Ogledni prijedlog · MangAI</button>
 <div class="cursor" aria-hidden="true"><span></span></div>
 <div class="panel-backdrop" data-backdrop></div>
 
-<aside class="drawer" data-panel="saved" role="dialog" aria-modal="true" aria-labelledby="saved-h" aria-hidden="true">
+<div class="drawer" data-panel="saved" role="dialog" aria-modal="true" aria-labelledby="saved-h" aria-hidden="true" inert>
   <div class="drawer-head"><h2 id="saved-h">Moja zbirka</h2><button class="icon-btn" type="button" data-close aria-label="Zatvori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <p class="muted" style="margin:0">Spremite izložbe, događanja i predmete – bez registracije. Popis ostaje u ovom pregledniku, a možete ga podijeliti poveznicom.</p>
   <ul class="saved-list" data-saved-list></ul>
   <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:auto"><button class="btn" type="button" data-share-saved><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg> <span>Kopiraj poveznicu</span></button><button class="btn btn--ghost" type="button" data-clear-saved>Isprazni</button></div>
-</aside>
+</div>
 
-<aside class="drawer" data-panel="a11y" role="dialog" aria-modal="true" aria-labelledby="a11y-h" aria-hidden="true">
+<div class="drawer" data-panel="a11y" role="dialog" aria-modal="true" aria-labelledby="a11y-h" aria-hidden="true" inert>
   <div class="drawer-head"><h2 id="a11y-h">Pristupačnost</h2><button class="icon-btn" type="button" data-close aria-label="Zatvori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <p class="muted" style="margin:0">Pristupačnost je ugrađena u dizajn i kod (WCAG 2.1 AA). Ove postavke su dodatne prilagodbe i pamte se u pregledniku.</p>
+  <p class="muted" style="margin:0">Pristupačnost je ugrađena u dizajn i kod prema WCAG 2.1 AA. Ove postavke su dodatne prilagodbe i pamte se u pregledniku.</p>
   <div>
     <div class="toggle-row"><span id="t-motion">Smanji animacije</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-motion" data-a11y="motion"></button></div>
     <div class="toggle-row"><span id="t-text">Veći tekst</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-text" data-a11y="text"></button></div>
     <div class="toggle-row"><span id="t-contrast">Pojačani kontrast</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-contrast" data-a11y="contrast"></button></div>
     <div class="toggle-row"><span id="t-links">Podcrtaj poveznice</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-links" data-a11y="links"></button></div>
   </div>
-  <p style="margin-top:auto;font-size:.9375rem"><a href="#">Izjava o pristupačnosti</a> · <a href="mailto:muo@muo.hr?subject=Pristupa%C4%8Dnost%20web%20stranice">Prijavite problem s pristupačnošću</a></p>
-</aside>
+  <p style="margin-top:auto;font-size:.9375rem"><a href="/ogledno/muo-demo/pristupacnost/">Kako je pristupačnost riješena</a> · <a href="mailto:muo@muo.hr?subject=Pristupa%C4%8Dnost%20web%20stranice">Prijavite problem s pristupačnošću</a></p>
+</div>
 
-<aside class="drawer" data-panel="demo" role="dialog" aria-modal="true" aria-labelledby="demo-h" aria-hidden="true">
+<div class="drawer" data-panel="demo" role="dialog" aria-modal="true" aria-labelledby="demo-h" aria-hidden="true" inert>
   <div class="drawer-head"><h2 id="demo-h">O ovom prikazu</h2><button class="icon-btn" type="button" data-close aria-label="Zatvori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <p style="margin:0">Ovo je <strong>ogledni prijedlog</strong> novog portala Muzeja za umjetnost i obrt, izrađen kao vizualizacija prijedloga dizajna i interakcija. Nije službena stranica Muzeja.</p>
-  <ul style="margin:0;padding-left:1.1rem;line-height:1.7">
-    <li>Naslovi novosti, adrese i povijest obnove preuzeti su iz javnih izvora.</li>
-    <li>Datumi događanja, radno vrijeme i cijene su <strong>primjeri</strong> – unosi ih Muzej kroz CMS.</li>
-    <li>Predmeti su prikazani <strong>linijskim ilustracijama</strong> dok Muzej ne dostavi fotografije.</li>
-    <li>Fotografije zgrade: Wikimedia Commons (autori i licence navedeni uz fotografiju).</li>
-    <li>Grafički standardi Muzeja primijenit će se nakon dostave knjige standarda.</li>
-  </ul>
+  <ul style="margin:0;padding-left:1.1rem;line-height:1.7"><li>Naslovi novosti, adrese i povijest obnove preuzeti su iz javnih izvora.</li><li>Datumi događanja, radno vrijeme i cijene su <strong>primjeri</strong> – unosi ih Muzej kroz CMS.</li><li>Predmeti su prikazani <strong>linijskim ilustracijama</strong> dok Muzej ne dostavi fotografije; razdoblje i materijal oglednih predmeta su primjeri.</li><li>Fotografije zgrade: Wikimedia Commons (autori i licence navedeni uz fotografiju).</li><li>Boje i tipografija su prijedlog; grafički standardi Muzeja primijenit će se nakon dostave knjige standarda.</li></ul>
   <p style="margin-top:auto"><a class="btn" href="https://mangai.hr/">MangAI · mangai.hr</a></p>
-</aside>
+</div>
 
-<div class="search" data-panel="search" role="dialog" aria-modal="true" aria-label="Pretraži stranicu" aria-hidden="true">
+<div class="search" data-panel="search" role="dialog" aria-modal="true" aria-label="Pretraži stranicu" aria-hidden="true" inert>
   <div class="search-box">
-    <div class="search-input"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><label class="visually-hidden" for="q">Pretraži stranicu</label><input id="q" type="search" placeholder="Traži izložbe, događanja, zbirke… (npr. staklo, radionica)" autocomplete="off" data-search-input><kbd>Esc</kbd></div>
-    <div class="search-results" data-search-results aria-live="polite"><p class="search-hint">Upišite pojam. Pretraga radi i bez dijakritičkih znakova – „cas” pronalazi „čaša”.</p></div>
+    <form class="search-input" role="search" action="/ogledno/muo-demo/pretraga/" method="get" data-search-form><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><label class="visually-hidden" for="q">Pretraži stranicu</label><input id="q" name="q" type="search" placeholder="Traži izložbe, događanja, zbirke, predmete…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="q-list" aria-autocomplete="list" data-search-input><button class="icon-btn icon-btn--sm" type="button" data-close aria-label="Zatvori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></form>
+    <p class="visually-hidden" role="status" data-search-status></p>
+    <div class="search-results" id="q-list" role="listbox" aria-label="Prijedlozi pretrage" data-search-results></div>
+    <div class="search-foot" data-search-foot></div>
   </div>
 </div>
 
-<div class="cookie" data-cookie role="region" aria-label="Kolačići">
+<div class="cookie" data-cookie role="region" aria-label="Kolačići" data-chrome>
   <h2>Kolačići</h2>
   <p>Koristimo nužne kolačiće za rad stranice. Analitiku (Matomo, poslužitelj u EU) i ugrađene karte uključujemo samo uz vašu privolu.</p>
   <div class="row"><button class="btn" type="button" data-consent="all">Prihvati sve</button><button class="btn btn--ghost" type="button" data-consent="necessary">Samo nužni</button></div>

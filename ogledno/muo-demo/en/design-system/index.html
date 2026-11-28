@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design system – MUO</title>
+<meta name="description" content="Typography, grid, colours with contrast ratios, icons and components in every state.">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#111111">
+<meta property="og:title" content="Design system – MUO">
+<meta property="og:description" content="Typography, grid, colours with contrast ratios, icons and components in every state.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="hr" href="https://mangai.hr/ogledno/muo-demo/sustav-dizajna/">
+<link rel="alternate" hreflang="en" href="https://mangai.hr/ogledno/muo-demo/en/design-system/">
+<link rel="preload" href="/ogledno/muo-demo/assets/fonts/archivo-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/ogledno/muo-demo/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/ogledno/muo-demo/assets/css/main.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%236B1F2E%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2242%22%20font-family%3D%22Arial%20Black%2CArial%22%20font-weight%3D%22900%22%20font-size%3D%2222%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%3EMUO%3C%2Ftext%3E%3C%2Fsvg%3E">
+<script>
+(function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');
+try{var s=JSON.parse(localStorage.getItem('muo-a11y')||'{}');if(s.motion)d.classList.add('reduce-motion');if(s.text)d.classList.add('a11y-text');if(s.contrast)d.classList.add('a11y-contrast');if(s.links)d.classList.add('a11y-links');}catch(e){}
+var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches||d.classList.contains('reduce-motion');if(!rm)d.classList.add('motion');
+try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catch(e){d.classList.add('no-intro');}})();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Museum","name":"Muzej za umjetnost i obrt","alternateName":"Museum of Arts and Crafts","url":"https://www.muo.hr/","foundingDate":"1880","email":"muo@muo.hr","address":{"@type":"PostalAddress","streetAddress":"Trg Republike Hrvatske 10","postalCode":"10000","addressLocality":"Zagreb","addressCountry":"HR"}}</script>
+</head>
+<body data-page="ds" data-base="/ogledno/muo-demo/" data-lang="en">
+<a class="skip" href="#sadrzaj">Skip to content</a>
+
+<aside class="utility" data-chrome aria-label="Service information and language">
+  <div class="wrap">
+    <div class="status"><span class="status-dot" data-status-dot aria-hidden="true"></span><span><strong>MUO Gallery, Ilica 163a</strong> · <span data-status-text>opening hours</span></span></div>
+    <div class="notice">The building on Republic of Croatia Square is closed for renovation. <a href="/ogledno/muo-demo/muzej/#obnova" hreflang="hr">Follow the renovation</a></div>
+    <div class="utility-right">
+      <button type="button" data-open="a11y" aria-haspopup="dialog">Accessibility</button>
+      <span aria-hidden="true">·</span>
+      <a href="/ogledno/muo-demo/sustav-dizajna/"  lang="hr" hreflang="hr">HR<span class="visually-hidden"> – Hrvatski</span></a>
+      <a href="/ogledno/muo-demo/en/design-system/" aria-current="true" style="font-weight:700" lang="en" hreflang="en">EN<span class="visually-hidden"> – English</span></a>
+    </div>
+  </div>
+</aside>
+<header class="site-header" data-header data-chrome>
+  <div class="wrap">
+    <a class="logo" href="/ogledno/muo-demo/en/" aria-label="MUO Museum of Arts and Crafts · Zagreb – home">
+      <span class="logo-mark" aria-hidden="true"><span>M</span><span>U</span><span>O</span></span>
+      <span class="logo-text">Museum of Arts<br>and Crafts · Zagreb</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation"><a href="/ogledno/muo-demo/posjet/" hreflang="hr">Visit</a><a href="/ogledno/muo-demo/en/exhibitions-and-events/">Exhibitions & events</a><a href="/ogledno/muo-demo/muzej/" hreflang="hr">Museum</a><a href="/ogledno/muo-demo/en/collections/">Collections</a><a href="/ogledno/muo-demo/en/exhibitions-and-events/?tip=Radionica">Learning</a></nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" data-open="search" aria-label="Search the site" aria-haspopup="dialog" aria-keyshortcuts="Control+K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      <button class="icon-btn" type="button" data-open="saved" aria-label="My collection (0)" data-saved-label="My collection" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span class="save-count" data-save-count data-n="0" aria-hidden="true"></span></button>
+      <a class="btn" href="/ogledno/muo-demo/posjet/" data-magnetic hreflang="hr">Visit & tickets</a>
+      <button class="icon-btn menu-btn" type="button" data-open="menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobilni-izbornik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobilni-izbornik" data-panel="menu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true" inert>
+  <div class="mobile-menu-top"><span class="logo-mark" style="font-size:2.2rem" aria-hidden="true">MUO</span><button class="icon-btn" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="Mobile navigation"><a href="/ogledno/muo-demo/posjet/" hreflang="hr">Visit</a><a href="/ogledno/muo-demo/en/exhibitions-and-events/">Exhibitions & events</a><a href="/ogledno/muo-demo/muzej/" hreflang="hr">Museum</a><a href="/ogledno/muo-demo/en/collections/">Collections</a><a href="/ogledno/muo-demo/en/exhibitions-and-events/?tip=Radionica">Learning</a></nav>
+  <div style="margin-top:auto;display:flex;gap:.75rem;flex-wrap:wrap"><a class="btn btn--light" href="/ogledno/muo-demo/posjet/">Visit & tickets</a><a class="btn btn--outline-light" href="/ogledno/muo-demo/sustav-dizajna/" lang="hr">Hrvatski</a></div>
+</div>
+<main id="sadrzaj" tabindex="-1" data-chrome>
+
+<section class="wrap page-hero" style="padding-bottom:2.5rem">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/ogledno/muo-demo/en/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Design system</span></nav>
+  <p class="kicker" style="color:var(--accent)">Design proposal · documentation</p>
+  <h1 class="display page-title">Design system</h1>
+  <p class="lead" style="margin-top:1.25rem;max-width:62ch">Every element of the site is built once and reused across all templates: typography, grid, colour, icons and components in every state. This page shows live components – the same ones used throughout the preview.</p>
+  <div class="notice-box" style="margin-top:1.5rem;max-width:80ch"><span aria-hidden="true">ℹ</span><span>Colours and typography are a proposal. The Museum supplies its visual identity guidelines to the selected contractor; token values (colours, fonts) are then replaced, while the system structure, component states and accessibility rules stay.</span></div>
+</section>
+<div class="wrap ds">
+  <nav class="ds-toc" aria-label="On this page"><ul><li><a href="#tipografija">Typography</a></li><li><a href="#mreza">Grid and breakpoints</a></li><li><a href="#boje">Colour and contrast</a></li><li><a href="#razmaci">Spacing</a></li><li><a href="#ikone">Icons</a></li><li><a href="#fotografije">Photography</a></li><li><a href="#komponente">Components and states</a></li><li><a href="#fokus">Focus</a></li><li><a href="#animacije">Motion</a></li></ul></nav>
+  <div class="ds-body">
+
+  <section id="tipografija" aria-labelledby="h-tip">
+    <h2 class="h2 ds-h" id="h-tip">Type scale</h2>
+    <p class="ds-p">Two typefaces, both self-hosted (no third-party services): Archivo for headings and Inter for text. Heading sizes are fluid (clamp), scaling smoothly from phone to wide screen. Hierarchy comes from size, weight and position – not colour alone.</p>
+    <div class="ds-type"><div class="ds-type-row"><div class="ds-type-meta"><strong>Mega</strong><span>Archivo 900 · 3.6–10 rem · 0.92</span><span>Homepage hero title</span></div><p class="display" style="margin:0;font-size:clamp(2.6rem,7vw,6rem);">The museum returns</p></div><div class="ds-type-row"><div class="ds-type-meta"><strong>H1</strong><span>Archivo 900 · 2.8–6 rem · 0.92</span><span>Page title</span></div><p class="display" style="margin:0;font-size:var(--fs-h1);">The museum returns</p></div><div class="ds-type-row"><div class="ds-type-meta"><strong>H2</strong><span>Archivo 850 · 2.2–4.25 rem · 1.0</span><span>Section heading</span></div><p class="h2" style="margin:0;font-size:var(--fs-h2);">The museum returns</p></div><div class="ds-type-row"><div class="ds-type-meta"><strong>H3</strong><span>Archivo 800 · 1.35–1.75 rem · 1.12</span><span>Card title</span></div><p class="h3" style="margin:0;font-size:var(--fs-h3);">The museum returns</p></div><div class="ds-type-row"><div class="ds-type-meta"><strong>H4</strong><span>Inter 600 · 1.125 rem · 1.3</span><span>Block heading</span></div><p class="" style="margin:0;font-size:1.125rem;font-weight:600;line-height:1.3;">The museum returns</p></div><div class="ds-type-row"><div class="ds-type-meta"><strong>Lead</strong><span>Inter 400 · 1.15–1.375 rem · 1.5</span><span>Intro paragraph, max 40 characters per line</span></div><p class="lead" style="margin:0;max-width:none;">The museum returns</p></div><div class="ds-type-row"><div class="ds-type-meta"><strong>Body</strong><span>Inter 400 · 1.0625 rem (17 px) · 1.55</span><span>Body text; max 68 characters per line in articles</span></div><p class="" style="margin:0;font-size:var(--fs-body);">The museum returns</p></div><div class="ds-type-row"><div class="ds-type-meta"><strong>Small</strong><span>Inter 400 · 0.875 rem · 1.5</span><span>Meta information, photo credits</span></div><p class="" style="margin:0;font-size:var(--fs-small);">The museum returns</p></div><div class="ds-type-row"><div class="ds-type-meta"><strong>Kicker</strong><span>Inter 600 · 0.8125 rem · uppercase, tracking 0.14 em</span><span>Overline, content type</span></div><p class="kicker" style="margin:0;">The museum returns</p></div></div>
+  </section>
+
+  <section id="mreza" aria-labelledby="h-mre">
+    <h2 class="h2 ds-h" id="h-mre">Grid and breakpoints</h2>
+    <p class="ds-p">A 12-column modular grid with a 2 rem gutter, max content width 1360 px, fluid side padding 1.25–2.5 rem.</p>
+    <div class="ds-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Breakpoints table"><table class="ds-table"><caption class="visually-hidden">Breakpoints and layout behaviour</caption>
+      <thead><tr><th scope="col">Viewport width</th><th scope="col">Card columns</th><th scope="col">Layout</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">up to 620 px (phone)</th><td>1</td><td>Single column; full-screen menu; stacked filters</td></tr>
+        <tr><th scope="row">621–960 px (tablet)</th><td>2</td><td>Two card columns; content and sidebar stacked below 900 px</td></tr>
+        <tr><th scope="row">961–1080 px</th><td>3</td><td>12-column grid; navigation still in the menu</td></tr>
+        <tr><th scope="row">from 1081 px (desktop)</th><td>3</td><td>Full horizontal navigation; max content width 1360 px</td></tr>
+      </tbody></table></div>
+  </section>
+
+  <section id="boje" aria-labelledby="h-boj">
+    <h2 class="h2 ds-h" id="h-boj">Colour and contrast</h2>
+    <p class="ds-p">A neutral base (ink, paper, stone) plus an accent palette: each exhibition and collection carries its own colour. Contrast ratios below are computed from the colour values with the WCAG 2.1 formula (relative luminance), for pairs actually used in the interface.</p>
+    <ul class="ds-swatches"><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#111111"></span><strong>Ink</strong><code>#111111</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#ffffff"></span><strong>Paper</strong><code>#FFFFFF</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#F2F0EC"></span><strong>Stone</strong><code>#F2F0EC</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#E3E3E3"></span><strong>Line</strong><code>#E3E3E3</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#555555"></span><strong>Muted</strong><code>#555555</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#6B1F2E"></span><strong>Burgundy (accent)</strong><code>#6B1F2E</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#1F4E4A"></span><strong>Teal</strong><code>#1F4E4A</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#2E3E9E"></span><strong>Cobalt</strong><code>#2E3E9E</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#D9A441"></span><strong>Ochre</strong><code>#D9A441</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#C2452D"></span><strong>Brick</strong><code>#C2452D</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#3B2A20"></span><strong>Brown</strong><code>#3B2A20</code></li><li class="ds-swatch"><span class="ds-swatch-chip" style="background:#8C8C8C"></span><strong>Grey</strong><code>#8C8C8C</code></li></ul>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Contrast table"><table class="ds-table"><caption class="visually-hidden">Computed contrast ratios</caption>
+      <thead><tr><th scope="col"><span class="visually-hidden">Sample</span></th><th scope="col">Colour pair and use</th><th scope="col">Ratio</th><th scope="col">Threshold (WCAG 2.1 AA)</th><th scope="col">Result</th></tr></thead>
+      <tbody><tr><td><span class="ds-pair" style="background:#ffffff;color:#111111;">Aa</span></td><th scope="row">Body text on white<br><code>#111111</code> / <code>#FFFFFF</code></th><td class="num">18.88 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#ffffff;color:#555555;">Aa</span></td><th scope="row">Secondary text (dates, captions)<br><code>#555555</code> / <code>#FFFFFF</code></th><td class="num">7.45 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#F2F0EC;color:#555555;">Aa</span></td><th scope="row">Secondary text on “stone”<br><code>#555555</code> / <code>#F2F0EC</code></th><td class="num">6.55 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#ffffff;color:#6B1F2E;">Aa</span></td><th scope="row">Accent: event type, links<br><code>#6B1F2E</code> / <code>#FFFFFF</code></th><td class="num">11.28 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#6B1F2E;color:#ffffff;">Aa</span></td><th scope="row">White text on burgundy (hero)<br><code>#FFFFFF</code> / <code>#6B1F2E</code></th><td class="num">11.28 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#111111;color:#ffffff;">Aa</span></td><th scope="row">White on black (footer, button)<br><code>#FFFFFF</code> / <code>#111111</code></th><td class="num">18.88 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#111111;color:#D6D6D6;">Aa</span></td><th scope="row">Secondary text in footer<br><code>#D6D6D6</code> / <code>#111111</code></th><td class="num">12.99 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#111111;color:#BDBDBD;">Aa</span></td><th scope="row">Small print in footer<br><code>#BDBDBD</code> / <code>#111111</code></th><td class="num">10.05 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#1F4E4A;color:#ffffff;">Aa</span></td><th scope="row">White on teal<br><code>#FFFFFF</code> / <code>#1F4E4A</code></th><td class="num">9.34 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#2E3E9E;color:#ffffff;">Aa</span></td><th scope="row">White on cobalt<br><code>#FFFFFF</code> / <code>#2E3E9E</code></th><td class="num">9.13 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#D9A441;color:#111111;">Aa</span></td><th scope="row">Black on ochre<br><code>#111111</code> / <code>#D9A441</code></th><td class="num">8.39 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#C2452D;color:#ffffff;">Aa</span></td><th scope="row">White on brick<br><code>#FFFFFF</code> / <code>#C2452D</code></th><td class="num">5.02 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#3B2A20;color:#ffffff;">Aa</span></td><th scope="row">White on brown<br><code>#FFFFFF</code> / <code>#3B2A20</code></th><td class="num">13.65 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#8C8C8C;color:#111111;">Aa</span></td><th scope="row">Black on grey<br><code>#111111</code> / <code>#8C8C8C</code></th><td class="num">5.61 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#ffffff;color:#B42318;">Aa</span></td><th scope="row">Form error message<br><code>#B42318</code> / <code>#FFFFFF</code></th><td class="num">6.57 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#F7E36B;color:#111111;">Aa</span></td><th scope="row">“Design proposal” ribbon<br><code>#111111</code> / <code>#F7E36B</code></th><td class="num">14.52 : 1</td><td>text, min 4.5 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#ffffff;color:#2E3E9E;box-shadow:inset 0 0 0 3px #2E3E9E;color:#111">□</span></td><th scope="row">Focus ring on light background<br><code>#2E3E9E</code> / <code>#FFFFFF</code></th><td class="num">9.13 : 1</td><td>UI component, min 3 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#111111;color:#ffffff;box-shadow:inset 0 0 0 3px #ffffff;color:#fff">□</span></td><th scope="row">Focus ring (white halo) on dark background<br><code>#FFFFFF</code> / <code>#111111</code></th><td class="num">18.88 : 1</td><td>UI component, min 3 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#6B1F2E;color:#ffffff;box-shadow:inset 0 0 0 3px #ffffff;color:#fff">□</span></td><th scope="row">Focus ring (white halo) on burgundy<br><code>#FFFFFF</code> / <code>#6B1F2E</code></th><td class="num">11.28 : 1</td><td>UI component, min 3 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr><tr><td><span class="ds-pair" style="background:#ffffff;color:#767676;box-shadow:inset 0 0 0 3px #767676;color:#111">□</span></td><th scope="row">Form field and chip border<br><code>#767676</code> / <code>#FFFFFF</code></th><td class="num">4.54 : 1</td><td>UI component, min 3 : 1</td><td><span class="ds-verdict">✓ passes</span></td></tr></tbody></table></div>
+    <p class="ds-p muted">Rule: colour is never the only carrier of meaning. Event types have an icon and text, form errors have a message and an icon, a selected filter is also bold.</p>
+  </section>
+
+  <section id="razmaci" aria-labelledby="h-raz">
+    <h2 class="h2 ds-h" id="h-raz">Spacing</h2>
+    <p class="ds-p">A seven-step scale (8 px base) defines all paddings and margins. Vertical spacing between sections is fluid: 4–7.5 rem.</p>
+    <ul class="ds-spaces"><li><code>--s1</code><span class="ds-space" style="width:8px"></span><span>0.5rem · 8 px</span></li><li><code>--s2</code><span class="ds-space" style="width:16px"></span><span>1rem · 16 px</span></li><li><code>--s3</code><span class="ds-space" style="width:24px"></span><span>1.5rem · 24 px</span></li><li><code>--s4</code><span class="ds-space" style="width:32px"></span><span>2rem · 32 px</span></li><li><code>--s5</code><span class="ds-space" style="width:48px"></span><span>3rem · 48 px</span></li><li><code>--s6</code><span class="ds-space" style="width:72px"></span><span>4.5rem · 72 px</span></li><li><code>--s7</code><span class="ds-space" style="width:96px"></span><span>6rem · 96 px</span></li></ul>
+    <p class="ds-p">Minimum touch target is 44 × 44 px (buttons 48 px). Radius: 4 px for cards and images, full radius for buttons and chips.</p>
+  </section>
+
+  <section id="ikone" aria-labelledby="h-iko">
+    <h2 class="h2 ds-h" id="h-iko">Icons</h2>
+    <p class="ds-p">One set of line icons, drawn on a 24 × 24 px grid with a 2 px stroke. Icons are decorative (aria-hidden) next to text; an icon-only button always has a text name for screen readers.</p>
+    <h3 class="ds-h3">Event types</h3>
+    <ul class="ds-icons"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 15l5-4 4 3 3-2 6 4"/></svg><span>Exhibition</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4l6 6-9 9H5v-6z"/><path d="M12 6l6 6"/></svg><span>Workshop</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="6" r="2.5"/><path d="M5 21l2-8 3 2v6M13 9l6-3M10 9l3 3"/></svg><span>Guided tour</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span>Talk</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4z"/><path d="M20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg><span>Launch</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><span>Concert</span></li></ul>
+    <h3 class="ds-h3">Interface</h3>
+    <ul class="ds-icons"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Search</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span>Save</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg><span>Calendar</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Share</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v5M12 15l-3 6M12 15l3 6"/></svg><span>Accessibility</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg><span>Menu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Close</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span>Previous</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg><span>Next</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Zoom in</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg><span>Zoom out</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4v6h6"/><path d="M20 12a8 8 0 1 1-2.3-5.7L20 9"/></svg><span>Reset</span></li></ul>
+  </section>
+
+  <section id="fotografije" aria-labelledby="h-fot">
+    <h2 class="h2 ds-h" id="h-fot">Photography</h2>
+    <p class="ds-p">Photographs are always shown in one of three ratios, cropped around a focal point the editor sets in the media library. In this preview, line illustrations stand in for objects until the Museum supplies photographs.</p>
+    <div class="ds-ratios">
+      <figure><div class="ds-ratio" style="aspect-ratio:4/3;background:#6B1F2E"><span class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M82 30h36M86 30c0 18-30 30-30 78 0 34 18 58 44 58s44-24 44-58c0-48-30-60-30-78"/><path d="M60 92c26 8 54 8 80 0M57 118c28 9 58 9 86 0"/><path d="M78 140c14 6 30 6 44 0"/><ellipse cx="100" cy="30" rx="18" ry="4"/></svg></span></div><figcaption><strong>4 : 3</strong> exhibition and event cards</figcaption></figure>
+      <figure><div class="ds-ratio" style="aspect-ratio:1;background:#F2F0EC"><span class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="100" cy="108" r="58"/><circle cx="100" cy="108" r="50"/><path d="M100 64v8M100 144v8M56 108h8M136 108h8M69 77l6 6M125 133l6 6M69 139l6-6M125 83l6-6"/><path d="M100 108V80M100 108l18 12"/><circle cx="100" cy="108" r="3"/><path d="M92 50h16v-12H92zM96 38v-8h8v8"/><circle cx="100" cy="24" r="6"/></svg></span></div><figcaption><strong>1 : 1</strong> gallery, featured object, collection</figcaption></figure>
+      <figure><div class="ds-ratio" style="aspect-ratio:3/4;background:#1F4E4A"><span class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M30 36c20-10 120-10 140 0v128c-20 10-120 10-140 0z"/><path d="M50 48l8 8-8 8-8-8z"/><path d="M75 48l8 8-8 8-8-8z"/><path d="M100 48l8 8-8 8-8-8z"/><path d="M125 48l8 8-8 8-8-8z"/><path d="M150 48l8 8-8 8-8-8z"/><path d="M50 72l8 8-8 8-8-8z"/><path d="M75 72l8 8-8 8-8-8z"/><path d="M100 72l8 8-8 8-8-8z"/><path d="M125 72l8 8-8 8-8-8z"/><path d="M150 72l8 8-8 8-8-8z"/><path d="M50 96l8 8-8 8-8-8z"/><path d="M75 96l8 8-8 8-8-8z"/><path d="M100 96l8 8-8 8-8-8z"/><path d="M125 96l8 8-8 8-8-8z"/><path d="M150 96l8 8-8 8-8-8z"/><path d="M50 120l8 8-8 8-8-8z"/><path d="M75 120l8 8-8 8-8-8z"/><path d="M100 120l8 8-8 8-8-8z"/><path d="M125 120l8 8-8 8-8-8z"/><path d="M150 120l8 8-8 8-8-8z"/><path d="M50 144l8 8-8 8-8-8z"/><path d="M75 144l8 8-8 8-8-8z"/><path d="M100 144l8 8-8 8-8-8z"/><path d="M125 144l8 8-8 8-8-8z"/><path d="M150 144l8 8-8 8-8-8z"/><path d="M30 164l-6 12M48 168l-4 12M66 170l-2 12M84 171v12M102 171v12M120 171v12M138 170l2 12M156 168l4 12M170 164l6 12"/></svg></span></div><figcaption><strong>3 : 4</strong> vertical collection tiles on the homepage</figcaption></figure>
+    </div>
+    <ul class="ds-list">
+      <li>Objects are shown on a neutral ground (“stone” or the collection colour) with equal margins, so archive and new photographs look consistent.</li>
+      <li>Archive photographs are not recoloured; quality differences are evened out by a shared ratio, frame and caption.</li>
+      <li>Every photograph has alt text, author and source (required CMS fields); the credit always sits in the same position with sufficient contrast.</li>
+      <li>Served in several sizes and modern formats (WebP/AVIF), lazy-loaded below the fold.</li>
+    </ul>
+  </section>
+
+  <section id="komponente" aria-labelledby="h-kom">
+    <h2 class="h2 ds-h" id="h-kom">Components and states</h2>
+    <p class="ds-p">Each component has a defined default, hover and keyboard-focus state and, where relevant, selected, disabled and error states. The examples are static renderings of each state; try the live components with the Tab key.</p>
+
+    <h3 class="ds-h3">Buttons</h3>
+    <div class="ds-states">
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn" type="button">Plan your visit</button></div><span>Default</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn is-hover" type="button" tabindex="-1">Plan your visit</button></div><span>Hover</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn is-focus" type="button" tabindex="-1">Plan your visit</button></div><span>Keyboard focus</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn" type="button" disabled>Plan your visit</button></div><span>Disabled</span></div>
+    </div>
+    <div class="ds-states">
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn btn--ghost" type="button">Share</button></div><span>Secondary</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn btn--ghost is-hover" type="button" tabindex="-1">Share</button></div><span>Hover</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="icon-btn" type="button" aria-label="Search (example)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button></div><span>Icon button</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="icon-btn is-focus" type="button" tabindex="-1" aria-label="Search (focus example)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button></div><span>Keyboard focus</span></div>
+    </div>
+    <div class="ds-states ds-dark">
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn btn--light" type="button">Plan your visit</button></div><span>On dark background</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn btn--outline-light" type="button">Follow the renovation</button></div><span>Outline</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="btn btn--outline-light is-focus" type="button" tabindex="-1">Follow the renovation</button></div><span>Keyboard focus</span></div>
+    </div>
+
+    <h3 class="ds-h3">Links</h3>
+    <div class="ds-states">
+      <div class="ds-state"><div class="ds-state-demo"><p style="margin:0">See the <a href="#komponente">full calendar</a>.</p></div><span>In text</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><a class="link-arrow" href="#komponente">All exhibitions <span aria-hidden="true">→</span></a></div><span>With arrow</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><a class="link-arrow is-hover" href="#komponente" tabindex="-1">All exhibitions <span aria-hidden="true">→</span></a></div><span>Hover</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><a class="link-arrow is-focus" href="#komponente" tabindex="-1">All exhibitions <span aria-hidden="true">→</span></a></div><span>Keyboard focus</span></div>
+    </div>
+    <p class="ds-p muted">Links in running text are always underlined, so they never rely on colour alone.</p>
+
+    <h3 class="ds-h3">Navigation</h3>
+    <div class="ds-states">
+      <div class="ds-state"><div class="ds-state-demo"><span class="nav ds-nav"><a href="#komponente">Visit</a></span></div><span>Default</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><span class="nav ds-nav"><a class="is-hover" href="#komponente" tabindex="-1">Visit</a></span></div><span>Hover</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><span class="nav ds-nav"><a href="#komponente" aria-current="page" tabindex="-1">Visit</a></span></div><span>Current page</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><span class="crumbs" style="margin:0">Home <span aria-hidden="true">/</span> Collections <span aria-hidden="true">/</span> <strong>Textiles</strong></span></div><span>Breadcrumbs</span></div>
+    </div>
+    <div class="ds-states">
+      <div class="ds-state"><div class="ds-state-demo"><span class="tabs ds-tabs"><span class="tab" data-on>Current</span><span class="tab">Calendar</span><span class="tab">Archive</span></span></div><span>Tabs</span></div>
+    </div>
+
+    <h3 class="ds-h3">Chips and tags</h3>
+    <div class="ds-states">
+      <div class="ds-state"><div class="ds-state-demo"><button class="chip" type="button">Workshops</button></div><span>Default</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="chip is-hover" type="button" tabindex="-1">Workshops</button></div><span>Hover</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="chip" type="button" aria-pressed="true" tabindex="-1">Workshops</button></div><span>Selected</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><button class="chip is-focus" type="button" tabindex="-1">Workshops</button></div><span>Keyboard focus</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><span class="badge" style="border:1px solid var(--line)">Now on</span></div><span>Status</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><span class="ev-tags"><span>Families</span><span>Free entry</span></span></div><span>Event tag</span></div>
+    </div>
+
+    <h3 class="ds-h3">Cards</h3>
+    <div class="ds-cards">
+      <article class="card" style="--c:#6B1F2E;--c-text:#6B1F2E"><div class="card-media"><span class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M82 30h36M86 30c0 18-30 30-30 78 0 34 18 58 44 58s44-24 44-58c0-48-30-60-30-78"/><path d="M60 92c26 8 54 8 80 0M57 118c28 9 58 9 86 0"/><path d="M78 140c14 6 30 6 44 0"/><ellipse cx="100" cy="30" rx="18" ry="4"/></svg></span><span class="badge">Now on</span></div><div class="card-type"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 15l5-4 4 3 3-2 6 4"/></svg> Exhibition</div><h4 class="h3">Exhibition title</h4><p class="card-meta">[dates] · [location]</p><span class="ds-cap">Default</span></article>
+      <article class="card is-hover" style="--c:#1F4E4A;--c-text:#1F4E4A"><div class="card-media"><span class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="30" y="64" width="140" height="92" rx="6"/><path d="M70 64l10-18h40l10 18"/><circle cx="100" cy="110" r="32"/><circle cx="100" cy="110" r="22"/><circle cx="100" cy="110" r="10"/><rect x="138" y="74" width="20" height="10"/><path d="M42 64v-8h16v8"/></svg></span><span class="badge">Coming soon</span></div><div class="card-type"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 15l5-4 4 3 3-2 6 4"/></svg> Exhibition</div><h4 class="h3">Exhibition title</h4><p class="card-meta">[dates] · [location]</p><span class="ds-cap">Hover</span></article>
+      <article class="ev-card"><div class="card-media" style="--c:#D9A441"><span class="art"><svg viewBox="0 0 200 200" fill="none" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M30 36c20-10 120-10 140 0v128c-20 10-120 10-140 0z"/><path d="M50 48l8 8-8 8-8-8z"/><path d="M75 48l8 8-8 8-8-8z"/><path d="M100 48l8 8-8 8-8-8z"/><path d="M125 48l8 8-8 8-8-8z"/><path d="M150 48l8 8-8 8-8-8z"/><path d="M50 72l8 8-8 8-8-8z"/><path d="M75 72l8 8-8 8-8-8z"/><path d="M100 72l8 8-8 8-8-8z"/><path d="M125 72l8 8-8 8-8-8z"/><path d="M150 72l8 8-8 8-8-8z"/><path d="M50 96l8 8-8 8-8-8z"/><path d="M75 96l8 8-8 8-8-8z"/><path d="M100 96l8 8-8 8-8-8z"/><path d="M125 96l8 8-8 8-8-8z"/><path d="M150 96l8 8-8 8-8-8z"/><path d="M50 120l8 8-8 8-8-8z"/><path d="M75 120l8 8-8 8-8-8z"/><path d="M100 120l8 8-8 8-8-8z"/><path d="M125 120l8 8-8 8-8-8z"/><path d="M150 120l8 8-8 8-8-8z"/><path d="M50 144l8 8-8 8-8-8z"/><path d="M75 144l8 8-8 8-8-8z"/><path d="M100 144l8 8-8 8-8-8z"/><path d="M125 144l8 8-8 8-8-8z"/><path d="M150 144l8 8-8 8-8-8z"/><path d="M30 164l-6 12M48 168l-4 12M66 170l-2 12M84 171v12M102 171v12M120 171v12M138 170l2 12M156 168l4 12M170 164l6 12"/></svg></span><span class="datebox"><b>14</b><small>Dec</small></span></div><div class="ev-type">Workshop · Saturday 11:00</div><h4 class="h3" style="font-size:1.4rem">Event title</h4><p class="card-meta">MUO Galerija, Ilica 163a</p><span class="ds-cap">Event card</span></article>
+    </div>
+
+    <h3 class="ds-h3">Calendar item</h3>
+    <ul class="cal-list ds-cal" style="grid-column:auto">
+      <li class="ev-row"><div class="ev-date"><b>14</b><small>Dec · 11:00</small></div><div class="ev-type">Workshop</div><span class="ev-title">Family workshop: pattern on fabric</span><div class="ev-place">MUO Galerija, Ilica 163a</div><span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg></span></li>
+      <li class="ev-row is-hover"><div class="ev-date"><b>18</b><small>Dec · 18:00</small></div><div class="ev-type">Guided tour</div><span class="ev-title" style="text-decoration:underline">Curator-led tour (hover)</span><div class="ev-place">MUO Galerija, Ilica 163a</div><span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg></span></li>
+    </ul>
+
+    <h3 class="ds-h3">Forms</h3>
+    <div class="ds-form">
+      <div class="field"><label for="ds-a">Full name <span aria-hidden="true">*</span></label><input id="ds-a" type="text" autocomplete="off" required placeholder="Default state"></div>
+      <div class="field"><label for="ds-b">E-mail (focus)</label><input id="ds-b" class="is-focus" type="text" autocomplete="off" value="ana@primjer.hr"></div>
+      <div class="field"><label for="ds-c">E-mail (error)</label><input id="ds-c" type="text" autocomplete="off" value="ana@primjer" aria-invalid="true" aria-describedby="ds-c-err"><span class="err" id="ds-c-err">Enter a valid e-mail address, e.g. name@domain.com.</span></div>
+      <div class="field"><label for="ds-d">Group type</label><select id="ds-d"><option>School</option><option>Association</option></select></div>
+      <div class="field"><label for="ds-e">Disabled field</label><input id="ds-e" type="text" value="Not available" disabled></div>
+      <div class="field"><span class="label">Checkbox</span><label class="check"><input type="checkbox" checked> <span>I agree to the processing of my data to organise the visit.</span></label></div>
+      <div class="field full"><div class="ok-box"><strong>Success message.</strong> Your request has been received; we will confirm by e-mail.</div></div>
+    </div>
+    <p class="ds-p muted">Every field has a visible label above it (not just a placeholder). Errors are written as text below the field, linked to it (aria-describedby, aria-invalid), and focus moves to the first invalid field after submit.</p>
+
+    <h3 class="ds-h3">Empty states and notices</h3>
+    <div class="ds-two">
+      <div class="empty"><strong>No events match the selected filters.</strong>Try another period or remove the search term.<div style="margin-top:1.25rem"><button class="btn" type="button">Clear all</button></div></div>
+      <div>
+        <div class="notice-box"><span aria-hidden="true">ℹ</span><span>Notice: the building on Republic of Croatia Square is closed for renovation.</span></div>
+        <div class="empty" style="padding:1.5rem"><strong>Nothing saved yet.</strong>Tap the heart on an exhibition, event or object.</div>
+        <p class="muted" style="font-size:.9375rem">The 404 page and empty search follow the same pattern: what happened, why, and what to do next. <a href="/ogledno/muo-demo/404.html">Example 404 page</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fokus" aria-labelledby="h-fok">
+    <h2 class="h2 ds-h" id="h-fok">Keyboard focus</h2>
+    <p class="ds-p">Focus is always visible: a double ring – white next to the element and blue (cobalt, 3 px) around it – so it shows clearly on both light and dark backgrounds (ratios are in the contrast table). Focus order follows visual order, and the first stop on every page is “Skip to content”.</p>
+    <div class="ds-states">
+      <div class="ds-state"><div class="ds-state-demo"><a class="btn btn--ghost is-focus" href="#fokus" tabindex="-1">Link</a></div><span>Light background</span></div>
+      <div class="ds-state"><div class="ds-state-demo"><span class="chip is-focus">Chip</span></div><span>Card</span></div>
+    </div>
+    <div class="ds-states ds-dark"><div class="ds-state"><div class="ds-state-demo"><a class="btn btn--outline-light is-focus" href="#fokus" tabindex="-1">Link</a></div><span>Dark background</span></div></div>
+    <div class="ds-states ds-accent"><div class="ds-state"><div class="ds-state-demo"><a class="btn btn--light is-focus" href="#fokus" tabindex="-1">Link</a></div><span>Accent background</span></div></div>
+    <p class="ds-p muted">Dialogs (search, menu, My collection, accessibility) keep focus inside, close with Esc and return focus to the button that opened them.</p>
+  </section>
+
+  <section id="animacije" aria-labelledby="h-ani">
+    <h2 class="h2 ds-h" id="h-ani">Motion and reduced motion</h2>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Motion rules table"><table class="ds-table"><caption class="visually-hidden">Motion rules</caption>
+      <thead><tr><th scope="col">Kind</th><th scope="col">Duration and easing</th><th scope="col">With reduced motion</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">UI states (hover, selection)</th><td>0,25–0,3 s</td><td>Instant change, no transition</td></tr>
+        <tr><th scope="row">Panels and dialogs</th><td>0,45–0,7 s · cubic-bezier(.22, 1, .36, 1)</td><td>Open immediately</td></tr>
+        <tr><th scope="row">Scroll reveals</th><td>up to 1.3 s, once</td><td>Content visible at once</td></tr>
+        <tr><th scope="row">Page transitions</th><td>0,55 s</td><td>Disabled</td></tr>
+        <tr><th scope="row">Intro animation, smooth scroll, marquee</th><td>homepage only, once per visit</td><td>Disabled</td></tr>
+      </tbody></table></div>
+    <ul class="ds-list">
+      <li>The system setting prefers-reduced-motion is respected, and the “Reduce motion” switch in the Accessibility menu has the same effect.</li>
+      <li>No flashing or blinking; nothing moves by itself for more than 5 seconds, except the decorative marquee, which stops with reduced motion.</li>
+      <li>Animation is never the only way to see content: without JavaScript and without animation, all content is available.</li>
+    </ul>
+    <div class="ds-motion"><span class="ds-motion-dot" aria-hidden="true"></span><p style="margin:0" data-motion-state>Motion status is shown here.</p></div>
+  </section>
+
+  </div>
+</div>
+</main>
+<footer class="site-footer" data-chrome>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-news">
+        <h2 class="h3" style="font-size:2rem;color:#fff">MUO newsletter</h2>
+        <p style="color:#D6D6D6;margin:.75rem 0 0">Exhibitions, workshops and renovation news, once a month.</p>
+        <form class="nl-form" data-newsletter novalidate>
+          <label class="visually-hidden" for="nl-email">E-mail address</label>
+          <input id="nl-email" type="email" name="email" autocomplete="email" placeholder="vasa@adresa.hr" required aria-describedby="nl-msg">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
+          <button class="btn btn--light" type="submit" data-magnetic>Subscribe</button>
+        </form>
+        <p class="nl-msg" id="nl-msg" data-nl-msg role="status"></p>
+      </div>
+      <div class="footer-cols">
+        <div><h2>Visit</h2><p>MUO Galerija<br>Ilica 163a, Zagreb<br><a href="/ogledno/muo-demo/posjet/">Opening hours and prices</a></p><p>Museum (under renovation)<br>Trg Republike Hrvatske 10</p></div>
+        <div><h2>Contact</h2><p><a href="mailto:muo@muo.hr">muo@muo.hr</a><br><a href="tel:+385912330798">+385 91 233 0798</a></p><p><a href="/ogledno/muo-demo/muzej/#odjeli">Departments and contacts</a><br><a href="/ogledno/muo-demo/muzej/#press">Press</a><br><span class="ph-link" title="no page yet in this design proposal">Museum shop</span><br><span class="ph-link" title="no page yet in this design proposal">Venue hire</span></p></div>
+        <div><h2>Info</h2><p><span class="ph-link" title="no page yet in this design proposal">Access to information</span><br><span class="ph-link" title="no page yet in this design proposal">Public procurement</span><br><span class="ph-link" title="no page yet in this design proposal">Tenders</span><br><a href="/ogledno/muo-demo/posjet/#ulaznice">Price list</a><br><a href="/ogledno/muo-demo/en/accessibility/">Accessibility and accessibility statement</a><br><a href="/ogledno/muo-demo/en/design-system/">Design system</a><br><span class="ph-link" title="no page yet in this design proposal">Privacy policy</span><br><button type="button" class="linklike" data-open="cookies">Cookie settings</button></p></div>
+      </div>
+    </div>
+    <div class="footer-big" aria-hidden="true" data-footer-big><span>M</span><span>U</span><span>O</span></div>
+    <div class="footer-bottom"><span>© Museum of Arts and Crafts · Design proposal for the new website, made by <a href="https://mangai.hr/">MangAI</a></span><span><span class="ph-link" title="no page yet in this design proposal">Instagram</span> · <span class="ph-link" title="no page yet in this design proposal">Facebook</span> · <span class="ph-link" title="no page yet in this design proposal">YouTube</span></span></div>
+  </div>
+</footer>
+
+<button class="demo-ribbon" type="button" data-open="demo" aria-haspopup="dialog" data-chrome><span aria-hidden="true">●</span> Design proposal · MangAI</button>
+<div class="cursor" aria-hidden="true"><span></span></div>
+<div class="panel-backdrop" data-backdrop></div>
+
+<div class="drawer" data-panel="saved" role="dialog" aria-modal="true" aria-labelledby="saved-h" aria-hidden="true" inert>
+  <div class="drawer-head"><h2 id="saved-h">My collection</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <p class="muted" style="margin:0">Save exhibitions, events and objects – no account needed. The list stays in this browser and can be shared with a link.</p>
+  <ul class="saved-list" data-saved-list></ul>
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:auto"><button class="btn" type="button" data-share-saved><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg> <span>Copy link</span></button><button class="btn btn--ghost" type="button" data-clear-saved>Clear</button></div>
+</div>
+
+<div class="drawer" data-panel="a11y" role="dialog" aria-modal="true" aria-labelledby="a11y-h" aria-hidden="true" inert>
+  <div class="drawer-head"><h2 id="a11y-h">Accessibility</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <p class="muted" style="margin:0">Accessibility is built into the design and code following WCAG 2.1 AA. These settings are extra adjustments, stored in your browser.</p>
+  <div>
+    <div class="toggle-row"><span id="t-motion">Reduce motion</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-motion" data-a11y="motion"></button></div>
+    <div class="toggle-row"><span id="t-text">Larger text</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-text" data-a11y="text"></button></div>
+    <div class="toggle-row"><span id="t-contrast">Higher contrast</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-contrast" data-a11y="contrast"></button></div>
+    <div class="toggle-row"><span id="t-links">Underline links</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-links" data-a11y="links"></button></div>
+  </div>
+  <p style="margin-top:auto;font-size:.9375rem"><a href="/ogledno/muo-demo/en/accessibility/">How accessibility is handled</a> · <a href="mailto:muo@muo.hr?subject=Pristupa%C4%8Dnost%20web%20stranice">Report an accessibility problem</a></p>
+</div>
+
+<div class="drawer" data-panel="demo" role="dialog" aria-modal="true" aria-labelledby="demo-h" aria-hidden="true" inert>
+  <div class="drawer-head"><h2 id="demo-h">About this preview</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <p style="margin:0">This is a <strong>design proposal</strong> for the new website of the Museum of Arts and Crafts, built to visualise the proposed design and interactions. It is not the Museum’s official website.</p>
+  <ul style="margin:0;padding-left:1.1rem;line-height:1.7"><li>News headlines, addresses and the renovation history come from public sources.</li><li>Event dates, opening hours and prices are <strong>examples</strong> – the Museum enters them in the CMS.</li><li>Objects are shown as <strong>line illustrations</strong> until the Museum supplies photographs; period and material of sample objects are examples.</li><li>Photographs of the building: Wikimedia Commons (authors and licences credited next to each photo).</li><li>Colours and typography are a proposal; the Museum’s visual identity guidelines will be applied once supplied.</li></ul>
+  <p style="margin-top:auto"><a class="btn" href="https://mangai.hr/">MangAI · mangai.hr</a></p>
+</div>
+
+<div class="search" data-panel="search" role="dialog" aria-modal="true" aria-label="Search the site" aria-hidden="true" inert>
+  <div class="search-box">
+    <form class="search-input" role="search" action="/ogledno/muo-demo/en/search/" method="get" data-search-form><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><label class="visually-hidden" for="q">Search the site</label><input id="q" name="q" type="search" placeholder="Search exhibitions, events, collections, objects…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="q-list" aria-autocomplete="list" data-search-input><button class="icon-btn icon-btn--sm" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></form>
+    <p class="visually-hidden" role="status" data-search-status></p>
+    <div class="search-results" id="q-list" role="listbox" aria-label="Search suggestions" data-search-results></div>
+    <div class="search-foot" data-search-foot></div>
+  </div>
+</div>
+
+<div class="cookie" data-cookie role="region" aria-label="Cookies" data-chrome>
+  <h2>Cookies</h2>
+  <p>We use strictly necessary cookies. Analytics (Matomo, EU server) and embedded maps are enabled only with your consent.</p>
+  <div class="row"><button class="btn" type="button" data-consent="all">Accept all</button><button class="btn btn--ghost" type="button" data-consent="necessary">Necessary only</button></div>
+</div>
+
+<script src="/ogledno/muo-demo/assets/vendor/gsap.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/Flip.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/SplitText.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/Draggable.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/InertiaPlugin.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/lenis.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/js/search-index.js" defer></script>
+<script type="module" src="/ogledno/muo-demo/assets/js/app.js"></script>
+</body>
+</html>

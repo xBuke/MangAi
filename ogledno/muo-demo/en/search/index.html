@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search – MUO</title>
+<meta name="description" content="Search exhibitions, events, collections and objects.">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#111111">
+<meta property="og:title" content="Search – MUO">
+<meta property="og:description" content="Search exhibitions, events, collections and objects.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="hr" href="https://mangai.hr/ogledno/muo-demo/pretraga/">
+<link rel="alternate" hreflang="en" href="https://mangai.hr/ogledno/muo-demo/en/search/">
+<link rel="preload" href="/ogledno/muo-demo/assets/fonts/archivo-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/ogledno/muo-demo/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/ogledno/muo-demo/assets/css/main.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%236B1F2E%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2242%22%20font-family%3D%22Arial%20Black%2CArial%22%20font-weight%3D%22900%22%20font-size%3D%2222%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%3EMUO%3C%2Ftext%3E%3C%2Fsvg%3E">
+<script>
+(function(){var d=document.documentElement;d.classList.remove('no-js');d.classList.add('js');
+try{var s=JSON.parse(localStorage.getItem('muo-a11y')||'{}');if(s.motion)d.classList.add('reduce-motion');if(s.text)d.classList.add('a11y-text');if(s.contrast)d.classList.add('a11y-contrast');if(s.links)d.classList.add('a11y-links');}catch(e){}
+var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches||d.classList.contains('reduce-motion');if(!rm)d.classList.add('motion');
+try{if(sessionStorage.getItem('muo-intro')||rm)d.classList.add('no-intro');}catch(e){d.classList.add('no-intro');}})();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Museum","name":"Muzej za umjetnost i obrt","alternateName":"Museum of Arts and Crafts","url":"https://www.muo.hr/","foundingDate":"1880","email":"muo@muo.hr","address":{"@type":"PostalAddress","streetAddress":"Trg Republike Hrvatske 10","postalCode":"10000","addressLocality":"Zagreb","addressCountry":"HR"}}</script>
+</head>
+<body data-page="search" data-base="/ogledno/muo-demo/" data-lang="en">
+<a class="skip" href="#sadrzaj">Skip to content</a>
+
+<aside class="utility" data-chrome aria-label="Service information and language">
+  <div class="wrap">
+    <div class="status"><span class="status-dot" data-status-dot aria-hidden="true"></span><span><strong>MUO Gallery, Ilica 163a</strong> · <span data-status-text>opening hours</span></span></div>
+    <div class="notice">The building on Republic of Croatia Square is closed for renovation. <a href="/ogledno/muo-demo/muzej/#obnova" hreflang="hr">Follow the renovation</a></div>
+    <div class="utility-right">
+      <button type="button" data-open="a11y" aria-haspopup="dialog">Accessibility</button>
+      <span aria-hidden="true">·</span>
+      <a href="/ogledno/muo-demo/pretraga/"  lang="hr" hreflang="hr">HR<span class="visually-hidden"> – Hrvatski</span></a>
+      <a href="/ogledno/muo-demo/en/search/" aria-current="true" style="font-weight:700" lang="en" hreflang="en">EN<span class="visually-hidden"> – English</span></a>
+    </div>
+  </div>
+</aside>
+<header class="site-header" data-header data-chrome>
+  <div class="wrap">
+    <a class="logo" href="/ogledno/muo-demo/en/" aria-label="MUO Museum of Arts and Crafts · Zagreb – home">
+      <span class="logo-mark" aria-hidden="true"><span>M</span><span>U</span><span>O</span></span>
+      <span class="logo-text">Museum of Arts<br>and Crafts · Zagreb</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation"><a href="/ogledno/muo-demo/posjet/" hreflang="hr">Visit</a><a href="/ogledno/muo-demo/en/exhibitions-and-events/">Exhibitions & events</a><a href="/ogledno/muo-demo/muzej/" hreflang="hr">Museum</a><a href="/ogledno/muo-demo/en/collections/">Collections</a><a href="/ogledno/muo-demo/en/exhibitions-and-events/?tip=Radionica">Learning</a></nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" data-open="search" aria-label="Search the site" aria-haspopup="dialog" aria-keyshortcuts="Control+K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      <button class="icon-btn" type="button" data-open="saved" aria-label="My collection (0)" data-saved-label="My collection" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span class="save-count" data-save-count data-n="0" aria-hidden="true"></span></button>
+      <a class="btn" href="/ogledno/muo-demo/posjet/" data-magnetic hreflang="hr">Visit & tickets</a>
+      <button class="icon-btn menu-btn" type="button" data-open="menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobilni-izbornik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobilni-izbornik" data-panel="menu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true" inert>
+  <div class="mobile-menu-top"><span class="logo-mark" style="font-size:2.2rem" aria-hidden="true">MUO</span><button class="icon-btn" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="Mobile navigation"><a href="/ogledno/muo-demo/posjet/" hreflang="hr">Visit</a><a href="/ogledno/muo-demo/en/exhibitions-and-events/">Exhibitions & events</a><a href="/ogledno/muo-demo/muzej/" hreflang="hr">Museum</a><a href="/ogledno/muo-demo/en/collections/">Collections</a><a href="/ogledno/muo-demo/en/exhibitions-and-events/?tip=Radionica">Learning</a></nav>
+  <div style="margin-top:auto;display:flex;gap:.75rem;flex-wrap:wrap"><a class="btn btn--light" href="/ogledno/muo-demo/posjet/">Visit & tickets</a><a class="btn btn--outline-light" href="/ogledno/muo-demo/pretraga/" lang="hr">Hrvatski</a></div>
+</div>
+<main id="sadrzaj" tabindex="-1" data-chrome>
+
+<section class="wrap page-hero" style="padding-bottom:2rem">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/ogledno/muo-demo/en/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Search</span></nav>
+  <h1 class="display page-title" style="font-size:clamp(2.4rem,5vw,4.5rem)">Search</h1>
+</section>
+<section class="wrap" style="padding-bottom:5rem" data-search-page>
+  <form class="search-page-form" role="search" aria-label="Site-wide search" data-sp-form>
+    <div class="field" style="flex:1 1 320px"><label for="sp-q">Search term</label><input id="sp-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="e.g. glass, workshop, tickets…" aria-describedby="sp-help" data-sp-q></div>
+    <button class="btn" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg> Search</button>
+  </form>
+  <p class="muted" id="sp-help" style="margin:.6rem 0 0;font-size:.9375rem">Search covers pages, exhibitions, events, collections, objects and news. It works without diacritics too: “casa” finds “čaša”.</p>
+  <div class="field" style="margin-top:1.75rem"><span class="label" id="sp-type-l">Content type</span><div class="chips" role="group" aria-labelledby="sp-type-l" data-sp-types><button class="chip" type="button" aria-pressed="true" data-sp-type=""><span>All</span> <span class="chip-n" data-n></span></button><button class="chip" type="button" aria-pressed="false" data-sp-type="page"><span>Pages</span> <span class="chip-n" data-n></span></button><button class="chip" type="button" aria-pressed="false" data-sp-type="exhibition"><span>Exhibitions</span> <span class="chip-n" data-n></span></button><button class="chip" type="button" aria-pressed="false" data-sp-type="event"><span>Events</span> <span class="chip-n" data-n></span></button><button class="chip" type="button" aria-pressed="false" data-sp-type="collection"><span>Collections</span> <span class="chip-n" data-n></span></button><button class="chip" type="button" aria-pressed="false" data-sp-type="object"><span>Objects</span> <span class="chip-n" data-n></span></button><button class="chip" type="button" aria-pressed="false" data-sp-type="news"><span>News</span> <span class="chip-n" data-n></span></button></div></div>
+  <div class="results-bar"><div class="results-left"><p role="status" aria-live="polite" aria-atomic="true" style="margin:0" data-sp-count></p><button class="btn btn--ghost btn--sm" type="button" data-sp-reset hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg> <span>Clear all</span></button></div></div>
+  <div class="sp-results" data-sp-results></div>
+  <noscript><p class="notice-box">Search in this preview needs JavaScript. In production, results are server-rendered and work without it.</p></noscript>
+</section>
+</main>
+<footer class="site-footer" data-chrome>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-news">
+        <h2 class="h3" style="font-size:2rem;color:#fff">MUO newsletter</h2>
+        <p style="color:#D6D6D6;margin:.75rem 0 0">Exhibitions, workshops and renovation news, once a month.</p>
+        <form class="nl-form" data-newsletter novalidate>
+          <label class="visually-hidden" for="nl-email">E-mail address</label>
+          <input id="nl-email" type="email" name="email" autocomplete="email" placeholder="vasa@adresa.hr" required aria-describedby="nl-msg">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
+          <button class="btn btn--light" type="submit" data-magnetic>Subscribe</button>
+        </form>
+        <p class="nl-msg" id="nl-msg" data-nl-msg role="status"></p>
+      </div>
+      <div class="footer-cols">
+        <div><h2>Visit</h2><p>MUO Galerija<br>Ilica 163a, Zagreb<br><a href="/ogledno/muo-demo/posjet/">Opening hours and prices</a></p><p>Museum (under renovation)<br>Trg Republike Hrvatske 10</p></div>
+        <div><h2>Contact</h2><p><a href="mailto:muo@muo.hr">muo@muo.hr</a><br><a href="tel:+385912330798">+385 91 233 0798</a></p><p><a href="/ogledno/muo-demo/muzej/#odjeli">Departments and contacts</a><br><a href="/ogledno/muo-demo/muzej/#press">Press</a><br><span class="ph-link" title="no page yet in this design proposal">Museum shop</span><br><span class="ph-link" title="no page yet in this design proposal">Venue hire</span></p></div>
+        <div><h2>Info</h2><p><span class="ph-link" title="no page yet in this design proposal">Access to information</span><br><span class="ph-link" title="no page yet in this design proposal">Public procurement</span><br><span class="ph-link" title="no page yet in this design proposal">Tenders</span><br><a href="/ogledno/muo-demo/posjet/#ulaznice">Price list</a><br><a href="/ogledno/muo-demo/en/accessibility/">Accessibility and accessibility statement</a><br><a href="/ogledno/muo-demo/en/design-system/">Design system</a><br><span class="ph-link" title="no page yet in this design proposal">Privacy policy</span><br><button type="button" class="linklike" data-open="cookies">Cookie settings</button></p></div>
+      </div>
+    </div>
+    <div class="footer-big" aria-hidden="true" data-footer-big><span>M</span><span>U</span><span>O</span></div>
+    <div class="footer-bottom"><span>© Museum of Arts and Crafts · Design proposal for the new website, made by <a href="https://mangai.hr/">MangAI</a></span><span><span class="ph-link" title="no page yet in this design proposal">Instagram</span> · <span class="ph-link" title="no page yet in this design proposal">Facebook</span> · <span class="ph-link" title="no page yet in this design proposal">YouTube</span></span></div>
+  </div>
+</footer>
+
+<button class="demo-ribbon" type="button" data-open="demo" aria-haspopup="dialog" data-chrome><span aria-hidden="true">●</span> Design proposal · MangAI</button>
+<div class="cursor" aria-hidden="true"><span></span></div>
+<div class="panel-backdrop" data-backdrop></div>
+
+<div class="drawer" data-panel="saved" role="dialog" aria-modal="true" aria-labelledby="saved-h" aria-hidden="true" inert>
+  <div class="drawer-head"><h2 id="saved-h">My collection</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <p class="muted" style="margin:0">Save exhibitions, events and objects – no account needed. The list stays in this browser and can be shared with a link.</p>
+  <ul class="saved-list" data-saved-list></ul>
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:auto"><button class="btn" type="button" data-share-saved><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg> <span>Copy link</span></button><button class="btn btn--ghost" type="button" data-clear-saved>Clear</button></div>
+</div>
+
+<div class="drawer" data-panel="a11y" role="dialog" aria-modal="true" aria-labelledby="a11y-h" aria-hidden="true" inert>
+  <div class="drawer-head"><h2 id="a11y-h">Accessibility</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <p class="muted" style="margin:0">Accessibility is built into the design and code following WCAG 2.1 AA. These settings are extra adjustments, stored in your browser.</p>
+  <div>
+    <div class="toggle-row"><span id="t-motion">Reduce motion</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-motion" data-a11y="motion"></button></div>
+    <div class="toggle-row"><span id="t-text">Larger text</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-text" data-a11y="text"></button></div>
+    <div class="toggle-row"><span id="t-contrast">Higher contrast</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-contrast" data-a11y="contrast"></button></div>
+    <div class="toggle-row"><span id="t-links">Underline links</span><button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="t-links" data-a11y="links"></button></div>
+  </div>
+  <p style="margin-top:auto;font-size:.9375rem"><a href="/ogledno/muo-demo/en/accessibility/">How accessibility is handled</a> · <a href="mailto:muo@muo.hr?subject=Pristupa%C4%8Dnost%20web%20stranice">Report an accessibility problem</a></p>
+</div>
+
+<div class="drawer" data-panel="demo" role="dialog" aria-modal="true" aria-labelledby="demo-h" aria-hidden="true" inert>
+  <div class="drawer-head"><h2 id="demo-h">About this preview</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <p style="margin:0">This is a <strong>design proposal</strong> for the new website of the Museum of Arts and Crafts, built to visualise the proposed design and interactions. It is not the Museum’s official website.</p>
+  <ul style="margin:0;padding-left:1.1rem;line-height:1.7"><li>News headlines, addresses and the renovation history come from public sources.</li><li>Event dates, opening hours and prices are <strong>examples</strong> – the Museum enters them in the CMS.</li><li>Objects are shown as <strong>line illustrations</strong> until the Museum supplies photographs; period and material of sample objects are examples.</li><li>Photographs of the building: Wikimedia Commons (authors and licences credited next to each photo).</li><li>Colours and typography are a proposal; the Museum’s visual identity guidelines will be applied once supplied.</li></ul>
+  <p style="margin-top:auto"><a class="btn" href="https://mangai.hr/">MangAI · mangai.hr</a></p>
+</div>
+
+<div class="search" data-panel="search" role="dialog" aria-modal="true" aria-label="Search the site" aria-hidden="true" inert>
+  <div class="search-box">
+    <form class="search-input" role="search" action="/ogledno/muo-demo/en/search/" method="get" data-search-form><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><label class="visually-hidden" for="q">Search the site</label><input id="q" name="q" type="search" placeholder="Search exhibitions, events, collections, objects…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="q-list" aria-autocomplete="list" data-search-input><button class="icon-btn icon-btn--sm" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></form>
+    <p class="visually-hidden" role="status" data-search-status></p>
+    <div class="search-results" id="q-list" role="listbox" aria-label="Search suggestions" data-search-results></div>
+    <div class="search-foot" data-search-foot></div>
+  </div>
+</div>
+
+<div class="cookie" data-cookie role="region" aria-label="Cookies" data-chrome>
+  <h2>Cookies</h2>
+  <p>We use strictly necessary cookies. Analytics (Matomo, EU server) and embedded maps are enabled only with your consent.</p>
+  <div class="row"><button class="btn" type="button" data-consent="all">Accept all</button><button class="btn btn--ghost" type="button" data-consent="necessary">Necessary only</button></div>
+</div>
+
+<script src="/ogledno/muo-demo/assets/vendor/gsap.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/Flip.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/SplitText.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/Draggable.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/InertiaPlugin.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/vendor/lenis.min.js" defer></script>
+<script src="/ogledno/muo-demo/assets/js/search-index.js" defer></script>
+<script type="module" src="/ogledno/muo-demo/assets/js/app.js"></script>
+</body>
+</html>
