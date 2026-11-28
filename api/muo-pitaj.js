@@ -20,7 +20,7 @@
 const KB = require('../ogledno/muo-demo/asistent/znanje.json');
 
 const MODEL = process.env.MUO_CHAT_MODEL || process.env.CHAT_MODEL || 'claude-haiku-5-5';
-const MAX_TOKENS = 700;
+const MAX_TOKENS = 1600; // uključuje i tokene razmišljanja modela
 const CONTEXT_BUDGET = 9000; // znakova sadržaja po pitanju
 const MAX_MESSAGES = 8;
 const MAX_MESSAGE_CHARS = 400;
@@ -176,8 +176,8 @@ function systemPrompt(lang, chunks) {
     '',
     'Pravila:',
     '1. Odgovaraj isključivo na temelju SADRŽAJA ispod. Ne koristi vlastito znanje o Muzeju i ne izmišljaj radno vrijeme, cijene, datume, izložbe, imena ni kontakte.',
-    '2. Ako traženog podatka u SADRŽAJU nema, ili je naveden samo kao mjesto koje Muzej tek treba popuniti, reci to iskreno u jednoj rečenici, uputi na kontakt Muzeja ([Odjeli i kontakti](muzej/#odjeli), muo@muo.hr) i na kraj odgovora dodaj zaseban redak ' + UNKNOWN_MARKER + '. Kad si na pitanje odgovorio iz SADRŽAJA, tu oznaku ne dodaješ i ne upućuješ na kontakt.',
-    '3. Ogledni podaci: radno vrijeme, cijene ulaznica i termini događanja u ovom prijedlogu su PRIMJERI. Kad god ih navodiš, izričito reci da je riječ o primjeru iz oglednog prijedloga i da stvarne podatke potvrđuje Muzej. Tekst u uglatim zagradama, npr. [cijena], označava podatak koji Muzej tek treba unijeti: ne prepisuj ga kao podatak, nego reci da u oglednom prijedlogu još nije unesen.',
+    '2. Ako traženog podatka u SADRŽAJU nema, ili je naveden samo kao mjesto koje Muzej tek treba popuniti, reci to iskreno u jednoj rečenici, uputi na kontakt Muzeja ([Odjeli i kontakti](muzej/#odjeli), muo@muo.hr) i na kraj odgovora dodaj zaseban redak ' + UNKNOWN_MARKER + '. Tu oznaku i upućivanje na kontakt koristi isključivo u tom slučaju. Kad si na pitanje odgovorio iz SADRŽAJA (makar i oglednim podatkom), ne dodaješ oznaku i ne upućuješ na kontakt.',
+    '3. Ogledni podaci: radno vrijeme, cijene ulaznica i termini događanja u ovom prijedlogu su PRIMJERI. Kad ih navodiš, odgovori konkretno na pitanje i u istoj ili sljedećoj rečenici kratko reci da je riječ o primjeru iz oglednog prijedloga i da stvarne podatke potvrđuje Muzej. Nazivi izložbi, zbirki, adrese i novosti nisu primjeri. Tekst u uglatim zagradama, npr. [cijena], označava podatak koji Muzej tek treba unijeti: ne prepisuj zagrade, nego reci da taj podatak u oglednom prijedlogu još nije unesen.',
     '4. Izvor: na samom kraju svakog odgovora dodaj zaseban redak [[IZVORI: brojevi]] s brojevima odlomaka iz kojih si uzeo podatke (najviše dva), npr. [[IZVORI: 1, 4]]. Posjetitelj taj redak ne vidi; iz njega nastaje poveznica „Izvor”. U tekstu odgovora smiješ dodati i poveznicu u obliku [naziv stranice](putanja), s putanjom prepisanom točno iz zagrade uz odlomak ili s POPISA STRANICA; ne izmišljaj putanje.',
     '5. Piši kratko i jasno: najviše oko 80 riječi, bez naslova i tablica. Smiješ koristiti **podebljano** i kratak popis s crticama.',
     '6. Ne traži osobne podatke i ne ponavljaj ih ako ih posjetitelj upiše. Za najavu grupe uputi na obrazac [Najava grupnog posjeta](posjet/#grupe).',
@@ -402,10 +402,10 @@ module.exports = async function handler(req, res) {
       headers: Object.assign({ 'content-type': 'application/json', 'anthropic-version': API_VERSION }, auth),
       body: JSON.stringify(Object.assign({ model: MODEL, max_tokens: maxTokens, system: systemPrompt(lang, chunks), messages }, extra))
     });
-    // Claude Haiku 5.5 po zadanom „razmišlja” prije odgovora, a ti se tokeni broje u max_tokens. Za kratke odgovore
-    // iz priloženog sadržaja razmišljanje isključujemo i tražimo nisku razinu truda: odgovor je brži i trošak predvidljiv.
-    let r = await call({ thinking: { type: 'disabled' }, output_config: { effort: 'low' } }, MAX_TOKENS);
-    if (r.status === 400) r = await call({}, 2500); // model ili verzija API-ja koja ne prima te postavke
+    // Claude Haiku 5.5 po zadanom kratko „razmišlja” prije odgovora, a ti se tokeni broje u max_tokens. Niska razina
+    // truda drži razmišljanje kratkim i trošak predvidljivim; max_tokens ostavlja mjesta i za razmišljanje i za odgovor.
+    let r = await call({ output_config: { effort: 'low' } }, MAX_TOKENS);
+    if (r.status === 400) r = await call({}, 2500); // model ili verzija API-ja koja ne prima tu postavku
     data = await r.json().catch(() => ({}));
     if (r.status === 401) cachedAccess = null;
     if (!r.ok) {
