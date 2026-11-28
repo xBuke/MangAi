@@ -92,8 +92,9 @@ main:focus-visible, section:focus-visible { outline: none; box-shadow: none; }
 /* Demo vrpca */
 .demo-ribbon { position: fixed; left: 1rem; bottom: 1rem; z-index: 90; display: flex; gap: .5rem; align-items: center; background: #F7E36B; color: #111; font-size: .8125rem; font-weight: 600; padding: .5rem .85rem; border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,.18); text-decoration: none; border: 0; }
 .demo-ribbon:hover { background: #fff; }
-/* Plutajući gumbi (pristupačnost, asistent): uvijek na zaslonu, 48 px i više, s vlastitim obrubom da se vide na svakoj podlozi */
-.fabs { position: fixed; right: 1rem; bottom: calc(1rem + var(--fab-lift, 0px)); z-index: 95; display: flex; flex-direction: column; align-items: flex-end; gap: .6rem; pointer-events: none; transition: bottom .5s var(--ease); }
+/* Plutajući gumbi (pristupačnost, asistent): uvijek na zaslonu, 48 px i više, s vlastitim obrubom da se vide na svakoj podlozi.
+   Iznad obavijesti o kolačićima podižu se transformacijom, da pomak ne ulazi u CLS. */
+.fabs { position: fixed; right: 1rem; bottom: 1rem; z-index: 95; display: flex; flex-direction: column; align-items: flex-end; gap: .6rem; pointer-events: none; transform: translateY(calc(-1 * var(--fab-lift, 0px))); transition: transform .5s var(--ease); }
 .fab { pointer-events: auto; display: inline-flex; align-items: center; gap: .55rem; min-height: 48px; padding: 0 1.1rem 0 .95rem; border-radius: 999px; border: 2px solid #fff; background: #2E3E9E; color: #fff; font-weight: 650; font-size: .9375rem; line-height: 1.2; box-shadow: 0 6px 24px rgba(0,0,0,.28); transition: background-color .25s, color .25s, border-color .25s; }
 .fab svg { width: 22px; height: 22px; flex: none; }
 .fab--ask { background: var(--ink); }
