@@ -701,3 +701,7 @@ h1, h2, h3, .ev-title, .sp-title, .item .name { overflow-wrap: anywhere; }
 [data-results-count], [data-item-count], [data-sp-count] { min-height: 1.6em; }
 .ev-cards:empty { min-height: 60vh; }
 .item-grid:empty { min-height: 60vh; }
+
+.quick { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.75rem; }
+.quick .chip { display: inline-flex; align-items: center; text-decoration: none; }
+[id] { scroll-margin-top: 110px; }
